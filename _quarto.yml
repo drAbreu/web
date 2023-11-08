@@ -4,10 +4,10 @@ project:
 website:
   title: "Dr. Jorge Abreu Vicente"
   favicon: "_imgs/favicon.ico"
-  twitter-card:
-    creator: "@ElPuntoVernal"
-    site: "https://drabreu.github.io/web"
-  # site-url: "https://drabreu.github.io/"
+  twitter-card: true
+    # creator: "@ElPuntoVernal"
+    # site: "https://drabreu.github.io/web"
+  site-url: "https://drabreu.github.io/"
   page-footer:
     center: 
       - text: "Copyright 2023, Dr. Jorge Abreu Vicente"
