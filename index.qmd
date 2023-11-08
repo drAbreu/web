@@ -24,13 +24,6 @@ format:
     code-block-border-left: "#31BAE9"
     code-block-bg: "#000000"
     highlight-style: github
-twitter-card:
-    creator: "@ElPuntoVernal"
-    site: "https://drabreu.github.io/web"
-    image: _imgs/favicon.ico
-    title: Dr. Jorge Abreu Vicente
-    description: Artificial intelligence for biomedical sciences @EMBO
-    card-style: summary
 
 jupyter: python3
 about:
