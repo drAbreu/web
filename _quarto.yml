@@ -7,7 +7,7 @@ website:
   twitter-card: true
     # creator: "@ElPuntoVernal"
     # site: "https://drabreu.github.io/web"
-  site-url: "https://drabreu.github.io/"
+  site-url: "https://drabreu.github.io/web"
   page-footer:
     center: 
       - text: "Copyright 2023, Dr. Jorge Abreu Vicente"
