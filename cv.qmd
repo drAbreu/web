@@ -24,11 +24,7 @@ format:
 
 I research how to use natural language processing (NLP) to build open science tools that revolutionize the way we do and understand science, by developing generative means of structuring data via large language models (LLMs) and knowledge graphs (KGs). I use these technologies to annotate and curate all molecular and cell biology knowledge into data structures that are understandable by both, human and machine.
 
-Publication records:
-
--   🎓 [NASA/ADS Abstract System](https://ui.adsabs.harvard.edu/search/q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc&p_=0)
--   🌱 [ORCID](https://orcid.org/0000-0002-0211-6416)
--   🎓[Google Scholar](https://scholar.google.com/citations?hl=en&user=Z6PbfP4AAAAJ&view_op=list_works&gmla=AJ1KiT3dZ5BrYMzQ35ZvYFL2cf6QeJUDXfNBwQvNLm4XD3bSwS-Wm6JisIQlEGY-m4MGlwRODBAL4oMWMTKzQiwuAF8FgnatlNfSLmlMXOA0oqbwL1TaEw1JW4lqh2RBFJBVHuf-yrSc_tRRW049ldS30Q)
+Publication records: {{< ai ads color=gray size=xl >}} [NASA/ADS Abstract System](https://ui.adsabs.harvard.edu/search/q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc&p_=0) \| {{< ai orcid color=#A6CE39 size=xl >}} <a href="https://orcid.org/0000-0002-0211-6416"> ORCID </a> \| {{< ai google-scholar color=#4C8BF5 size=xl >}} [Google Scholar](https://scholar.google.com/citations?hl=en&user=Z6PbfP4AAAAJ&view_op=list_works&gmla=AJ1KiT3dZ5BrYMzQ35ZvYFL2cf6QeJUDXfNBwQvNLm4XD3bSwS-Wm6JisIQlEGY-m4MGlwRODBAL4oMWMTKzQiwuAF8FgnatlNfSLmlMXOA0oqbwL1TaEw1JW4lqh2RBFJBVHuf-yrSc_tRRW049ldS30Q)
 
 ------------------------------------------------------------------------
 
@@ -66,8 +62,6 @@ Publication records:
 # Academic research experience
 
 +---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
-|                                                               |                                                                                                                                 |
-+===============================================================+=================================================================================================================================+
 | ```{=html}                                                    | ```{=html}                                                                                                                      |
 | <font size=4><b style='color:#e1820e'>2022-present</b></font> | <font size=4><b style='color:#e1820e'>Senior staff: Machine learning developer </b></font>                                      |
 | ```                                                           | <br><font size=4>EMBO (European Molecular Biology Organization), Heidelberg, DE</font>                                          |
@@ -100,8 +94,6 @@ Publication records:
 # Industry experience
 
 +-------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
-|                                                             |                                                                                                                                   |
-+=============================================================+===================================================================================================================================+
 | ```{=html}                                                  | ```{=html}                                                                                                                        |
 | <font size=4><b style='color:#e1820e'>2019-2022</b> </font> | <font size=4><b style='color:#e1820e'>Head of Center of Excellence Data Science and Innovation </b></font>                        |
 | ```                                                         | <br><font size=4>CAMELOT Group, Mannheim, DE</font>                                                                               |
@@ -123,8 +115,6 @@ Publication records:
 # Honors and awards
 
 +------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                                            |                                                                                                                                                                                                 |
-+============================================================+=================================================================================================================================================================================================+
 | <font size=4><b style='color:#e1820e'>2021</b></font>      | ```{=html}                                                                                                                                                                                      |
 |                                                            | <a href=https://www.diversidadliteraria.com/info-concursos/concursos-antiguos/inspiraciones-nocturnas-vii>Selected as part of the book 'Inspiraciones Nocturnas VII' (Diversidad Literaria)</a> |
 |                                                            | ```                                                                                                                                                                                             |
@@ -150,66 +140,60 @@ Publication records:
 
 ## Refereed publications
 
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                    |                                                                                                                                                      |
-+====================================+======================================================================================================================================================+
-| <b style='color:#e1820e'>2017</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Constraining the Dust Opacity Law in Three Small and Isolated Molecular Clouds</b></font>                      |
-|                                    | ```                                                                                                                                                  |
-|                                    | ```{=html}                                                                                                                                           |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017ApJ...849...13W/abstract>Webb, K. A. et al. 2017 ApJ 849, 13W.</a>                                 |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2017</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Resolving fragmentation of high line-mass filaments with ALMA: integral-shaped filament in Orion A</b></font>  |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...600A.141K/abstract>Kainulainen, Stutz, Stanke, Abreu-Vicente et al. 2017 A&A 600, A141</a> |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2016</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Fourier-space combination of Planck and Herschel images</b></font>                                             |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...604A..65A/abstract>J. Abreu-Vicente, et al. A&A, 604A, A65</a>                             |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2016</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Giant molecular filaments in the Milky Way II: The fourth Galactic quadrant</b></font>                         |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2016A%26A...590A.131A/abstract>J. Abreu-Vicente et al., 2016 A&A, 590A, 131A</a>                       |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2015</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Relationship between the column density distribution and evolutionary class of molecular clouds</b></font>     |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2015A%26A...581A..74A/abstract>J. Abreu-Vicente et al., 2015 A&A, 581A, 74A</a>                        |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2013</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Spectral energy distributions of HII regions in M 33 (HerM33es)</b></font>                                     |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...553A.114K/abstract>M. Relaño et al., 2013 A & A, 552A, 140R</a>                            |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2013</b>  | ```{=html}                                                                                                                                           |
-|                                    | <font size=4><b style='color:#e1820e'>Gas and dust cooling along the major axis of M 33 (HerM33es)</b></font>                                        |
-|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...552A.140R/abstract>Kramer, Abreu-Vicente et al., 2013 A&A, 553A, 114K</a>                  |
-|                                    | ```                                                                                                                                                  |
-+------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2017</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Constraining the Dust Opacity Law in Three Small and Isolated Molecular Clouds</b></font>                      |
+|                                   | ```                                                                                                                                                  |
+|                                   | ```{=html}                                                                                                                                           |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2017ApJ...849...13W/abstract>Webb, K. A. et al. 2017 ApJ 849, 13W.</a>                                 |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2017</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Resolving fragmentation of high line-mass filaments with ALMA: integral-shaped filament in Orion A</b></font>  |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...600A.141K/abstract>Kainulainen, Stutz, Stanke, Abreu-Vicente et al. 2017 A&A 600, A141</a> |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Fourier-space combination of Planck and Herschel images</b></font>                                             |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...604A..65A/abstract>J. Abreu-Vicente, et al. A&A, 604A, A65</a>                             |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Giant molecular filaments in the Milky Way II: The fourth Galactic quadrant</b></font>                         |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2016A%26A...590A.131A/abstract>J. Abreu-Vicente et al., 2016 A&A, 590A, 131A</a>                       |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2015</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Relationship between the column density distribution and evolutionary class of molecular clouds</b></font>     |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2015A%26A...581A..74A/abstract>J. Abreu-Vicente et al., 2015 A&A, 581A, 74A</a>                        |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2013</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Spectral energy distributions of HII regions in M 33 (HerM33es)</b></font>                                     |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...553A.114K/abstract>M. Relaño et al., 2013 A & A, 552A, 140R</a>                            |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2013</b> | ```{=html}                                                                                                                                           |
+|                                   | <font size=4><b style='color:#e1820e'>Gas and dust cooling along the major axis of M 33 (HerM33es)</b></font>                                        |
+|                                   | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...552A.140R/abstract>Kramer, Abreu-Vicente et al., 2013 A&A, 553A, 114K</a>                  |
+|                                   | ```                                                                                                                                                  |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ## Preprints
 
-+------------------------------------+-----------------------------------------------------------------------------------------------------------------+
-|                                    |                                                                                                                 |
-+====================================+=================================================================================================================+
-| <b style='color:#e1820e'>2023</b>  | ```{=html}                                                                                                      |
-|                                    | <font size=4><b style='color:#e1820e'>                                                                          |
-|                                    | The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models  |
-|                                    | </b></font>                                                                                                     |
-|                                    | <br>Abreu-Vicente et al. (2023) arXiv.cs.CL, 2310.20440                                                         |
-|                                    | <br><a href=https://arxiv.org/pdf/2310.20440.pdf>PDF</a>, <a href=https://arxiv.org/abs/2310.20440>Abstract</a> |
-|                                    | ```                                                                                                             |
-+------------------------------------+-----------------------------------------------------------------------------------------------------------------+
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                      |
+|                                   | <font size=4><b style='color:#e1820e'>                                                                          |
+|                                   | The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models  |
+|                                   | </b></font>                                                                                                     |
+|                                   | <br>Abreu-Vicente et al. (2023) arXiv.cs.CL, 2310.20440                                                         |
+|                                   | <br><a href=https://arxiv.org/pdf/2310.20440.pdf>PDF</a>, <a href=https://arxiv.org/abs/2310.20440>Abstract</a> |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
 
 ## Other publications
 
 +-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
-|                                   |                                                                                                                                        |
-+===================================+========================================================================================================================================+
 | <b style='color:#e1820e'>2022</b> | ```{=html}                                                                                                                             |
 |                                   | <font size=4><b style='color:#e1820e'>Paleontología galáctica</b></font> <br>                                                          |
 |                                   | <a href=https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/>Artículo en Astronomía Magazine (Cover page)</a>    |
@@ -224,8 +208,6 @@ Publication records:
 # Generated AI and coding resources
 
 +-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                                   |                                                                                                                                                                                                |
-+===================================+================================================================================================================================================================================================+
 | <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
 |                                   | <font size=4><b style='color:#e1820e'>The SourceData-NLP dataset</b></font>                                                                                                                    |
 |                                   | <br> The largest biomedical AI-ready dataset for NER and NEL.                                                                                                                                  |
@@ -263,35 +245,31 @@ Publication records:
 
 ## Invited talks
 
-+-----------------------------------+-----------------------------------------------------------------------------------------------+
-|                                   |                                                                                               |
-+===================================+===============================================================================================+
-| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                    |
-|                                   | <b style='color:#e1820e'>Neural Networks in Astrophysics</b>                                  |
-|                                   | <br>Universidad Interamericana de Puerto Rico                                                 |
-|                                   | ```                                                                                           |
-+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                    |
-|                                   | <b style='color:#e1820e'>Molecular cloud structure at Galactic scales</b>                     |
-|                                   | <br>Universität zu Köln, DE                                                                   |
-|                                   | ```                                                                                           |
-+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                    |
-|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b>  |
-|                                   | <br>Instituto de Astrofísica de Canarias, La Laguna, ES                                       |
-|                                   | ```                                                                                           |
-+-----------------------------------+-----------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                    |
-|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b>  |
-|                                   | <br>Institute of Theoretical Astrophysics, Heidelberg, DE                                     |
-|                                   | ```                                                                                           |
-+-----------------------------------+-----------------------------------------------------------------------------------------------+
++-----------------------------------+----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                   |
+|                                   | <b style='color:#e1820e'>Neural Networks in Astrophysics</b>                                 |
+|                                   | <br>Universidad Interamericana de Puerto Rico                                                |
+|                                   | ```                                                                                          |
++-----------------------------------+----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                   |
+|                                   | <b style='color:#e1820e'>Molecular cloud structure at Galactic scales</b>                    |
+|                                   | <br>Universität zu Köln, DE                                                                  |
+|                                   | ```                                                                                          |
++-----------------------------------+----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                   |
+|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b> |
+|                                   | <br>Instituto de Astrofísica de Canarias, La Laguna, ES                                      |
+|                                   | ```                                                                                          |
++-----------------------------------+----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                   |
+|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b> |
+|                                   | <br>Institute of Theoretical Astrophysics, Heidelberg, DE                                    |
+|                                   | ```                                                                                          |
++-----------------------------------+----------------------------------------------------------------------------------------------+
 
 ## Academic AI
 
 +-----------------------------------+---------------------------------------------------------------------------------------+
-|                                   |                                                                                       |
-+===================================+=======================================================================================+
 | <b style='color:#e1820e'>2023</b> | ```{=html}                                                                            |
 |                                   | <b style='color:#e1820e'>Transforming open science through AI initiatives at EMBO</b> |
 |                                   | <br>AI InScide Out, Advances, challenges, and issues for AI in Science                |
@@ -299,83 +277,77 @@ Publication records:
 |                                   | ```                                                                                   |
 +-----------------------------------+---------------------------------------------------------------------------------------+
 
-## In proceedings academic contributions for Astronomy 
+## In proceedings academic contributions for Astronomy
 
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-|                                   |                                                                                             |
-+===================================+=============================================================================================+
-| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                     |
-|                                   | <br>VIALACTEA 2016: Pontificia Università S. Tommaso D’Aquino, Rome, IT                     |
-|                                   | <br>Poster                                                                                  |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                     |
-|                                   | <br>Star Formation 2016, University of Exeter, UK                                           |
-|                                   | <br>Poster                                                                                  |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2015</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b>  |
-|                                   | <br>2nd Heidelberg Harvard workshop on Star Formation, CfA, Boston, MA, USA                 |
-|                                   | <br>Talk                                                                                    |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b>  |
-|                                   | <br>ISM–SPP Student meeting, Kardinal-Doepfner Haus, Freising, DE                           |
-|                                   | <br>Talk                                                                                    |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2011</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>[CII] emission in the major axis of M33</b>                        |
-|                                   | <br>III Congreso de Estudiantes de la Facultad de Física, La Laguna, ES                     |
-|                                   | <br>Poster (Awarded with the best science poster of the conference)                         |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2010</b> | ```{=html}                                                                                  |
-|                                   | <b style='color:#e1820e'>Fue Cassiopea a la luminaria observada por John Flamsteed?</b>     |
-|                                   | <br>Young European Radio Astronomers Conference, Manchester, UK <br>Talk                    |
-|                                   | ```                                                                                         |
-+-----------------------------------+---------------------------------------------------------------------------------------------+
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                    |
+|                                   | <br>VIALACTEA 2016: Pontificia Università S. Tommaso D’Aquino, Rome, IT                    |
+|                                   | <br>Poster                                                                                 |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                    |
+|                                   | <br>Star Formation 2016, University of Exeter, UK                                          |
+|                                   | <br>Poster                                                                                 |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2015</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b> |
+|                                   | <br>2nd Heidelberg Harvard workshop on Star Formation, CfA, Boston, MA, USA                |
+|                                   | <br>Talk                                                                                   |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b> |
+|                                   | <br>ISM–SPP Student meeting, Kardinal-Doepfner Haus, Freising, DE                          |
+|                                   | <br>Talk                                                                                   |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2011</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>[CII] emission in the major axis of M33</b>                       |
+|                                   | <br>III Congreso de Estudiantes de la Facultad de Física, La Laguna, ES                    |
+|                                   | <br>Poster (Awarded with the best science poster of the conference)                        |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2010</b> | ```{=html}                                                                                 |
+|                                   | <b style='color:#e1820e'>Fue Cassiopea a la luminaria observada por John Flamsteed?</b>    |
+|                                   | <br>Young European Radio Astronomers Conference, Manchester, UK <br>Talk                   |
+|                                   | ```                                                                                        |
++-----------------------------------+--------------------------------------------------------------------------------------------+
 
 ## Data science in industry
 
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
-|                                   |                                                                                                                 |
-+===================================+=================================================================================================================+
-| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
-|                                   | <b style='color:#e1820e'>Machine Learning in business language I (Supervised learning)</b>                      |
-|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
-|                                   | ```                                                                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
-|                                   | <b style='color:#e1820e'>Machine Learning in business language II (Unsupervised learning)</b>                   |
-|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
-|                                   | ```                                                                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
-|                                   | <b style='color:#e1820e'>Machine Learning in business language III (Deep learning) </b>                         |
-|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
-|                                   | ```                                                                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
-|                                   | <b style='color:#e1820e'>CADET: Camelot Data Extraction Tool and intelligent optical character recognition</b>  |
-|                                   | <br>Online Workshop                                                                                             |
-|                                   | ```                                                                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
-| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                                      |
-|                                   | <b style='color:#e1820e'>Enterprise deployment: The ultimate data science challenge</b>                         |
-|                                   | <br>Online workshop of AWS and CAMELOT Group                                                                    |
-|                                   | ```                                                                                                             |
-+-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                     |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language I (Supervised learning)</b>                     |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                       |
+|                                   | ```                                                                                                            |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                     |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language II (Unsupervised learning)</b>                  |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                       |
+|                                   | ```                                                                                                            |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                     |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language III (Deep learning) </b>                        |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                       |
+|                                   | ```                                                                                                            |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                     |
+|                                   | <b style='color:#e1820e'>CADET: Camelot Data Extraction Tool and intelligent optical character recognition</b> |
+|                                   | <br>Online Workshop                                                                                            |
+|                                   | ```                                                                                                            |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                                     |
+|                                   | <b style='color:#e1820e'>Enterprise deployment: The ultimate data science challenge</b>                        |
+|                                   | <br>Online workshop of AWS and CAMELOT Group                                                                   |
+|                                   | ```                                                                                                            |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------+
 
 # Media, outreach, and teaching
 
 +----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-|                                        |                                                                                                                                             |
-+========================================+=============================================================================================================================================+
 | <b style='color:#e1820e'>2020-2021</b> | ```{=html}                                                                                                                                  |
 |                                        | <b style='color:#e1820e'>Astronomy podcast: La cúpula </b>                                                                                  |
 |                                        | <br>Four chapters with Dr. Francisco Parra-Rojas.                                                                                           |
