@@ -1,0 +1,418 @@
+---
+title: Dr. Jorge Abreu Vicente
+subtitle: |
+    🔭🪐 Astrophysicist
+
+    🤖🧬 ML / AI researcher in biomedical sciences
+
+    🖋🗣 Science communicator
+
+permalink: cv/
+jsarr:
+    - js/scripts.js
+format:
+  html:
+    page-layout: full
+    code-fold: true
+    fontsize: 1em
+    linestretch: 1.5
+    code-line-numbers: true
+    code-block-border-left: "#31BAE9"
+    code-block-bg: "#000000"
+    highlight-style: github
+---
+
+I research how to use natural language processing (NLP) to build open science tools that revolutionize the way we do and understand science, by developing generative means of structuring data via large language models (LLMs) and knowledge graphs (KGs). I use these technologies to annotate and curate all molecular and cell biology knowledge into data structures that are understandable by both, human and machine.
+
+Publication records:
+
+-   🎓 [NASA/ADS Abstract System](https://ui.adsabs.harvard.edu/search/q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc&p_=0)
+-   🌱 [ORCID](https://orcid.org/0000-0002-0211-6416)
+-   🎓[Google Scholar](https://scholar.google.com/citations?hl=en&user=Z6PbfP4AAAAJ&view_op=list_works&gmla=AJ1KiT3dZ5BrYMzQ35ZvYFL2cf6QeJUDXfNBwQvNLm4XD3bSwS-Wm6JisIQlEGY-m4MGlwRODBAL4oMWMTKzQiwuAF8FgnatlNfSLmlMXOA0oqbwL1TaEw1JW4lqh2RBFJBVHuf-yrSc_tRRW049ldS30Q)
+
+------------------------------------------------------------------------
+
+# Education
+
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                             | ```{=html}                                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2017</b> </font> | <font size=4><b style='color:#e1820e'>Ph.D. cum laude in Natural Sciences</b></font>                                                            |
+| ```                                                    | ```                                                                                                                                             |
+|                                                        | ```{=html}                                                                                                                                      |
+|                                                        | <br><font size=4>Ruprecht-Karls-Universität Heidelberg, Heidelberg, DE</font>                                                                   |
+|                                                        | ```                                                                                                                                             |
+|                                                        | ```{=html}                                                                                                                                      |
+|                                                        | <br><a href="https://www.imprs-hd.mpg.de/143498/thesis_abreu.pdf" style='color:#adb5bd'>Thesis: Molecular clod structure at Galactic scales</a> |
+|                                                        | <br><font style='color:#adb5bd'>Written score: 1/1</font>                                                                                       |
+|                                                        | ```                                                                                                                                             |
+|                                                        | ```{=html}                                                                                                                                      |
+|                                                        | <br><font style='color:#adb5bd'>Member of the prestigious International Max Planck Research School.</font>                                      |
+|                                                        | ```                                                                                                                                             |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                             | ```{=html}                                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2012</b></font>  | <font size=4><b style='color:#e1820e'>M. S. in Physics and Mathematics </b></font>                                                              |
+| ```                                                    | <br><font size=4>IRAM & Universidad de Granada, Granada, ES</font>                                                                              |
+|                                                        | <br><font style='color:#adb5bd'>Thesis: Carbono ionizado en el eje mayor de M33.</font>                                                         |
+|                                                        | <br><font style='color:#adb5bd'>Honors in Master Thesis</font>                                                                                  |
+|                                                        | ```                                                                                                                                             |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                             | ```{=html}                                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2010</b></font>  | <font size=4><b style='color:#e1820e'>B. S. in Physics </b></font>                                                                              |
+| ```                                                    | <br>Universidad de La Laguna, La Laguna, ES                                                                                                     |
+|                                                        | <br><font style='color:#adb5bd'>Graduated with honors in optics.</font>                                                                         |
+|                                                        | ```                                                                                                                                             |
++--------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+# Academic research experience
+
++---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+|                                                               |                                                                                                                                 |
++===============================================================+=================================================================================================================================+
+| ```{=html}                                                    | ```{=html}                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2022-present</b></font> | <font size=4><b style='color:#e1820e'>Senior staff: Machine learning developer </b></font>                                      |
+| ```                                                           | <br><font size=4>EMBO (European Molecular Biology Organization), Heidelberg, DE</font>                                          |
+|                                                               | <br><font style='color:#adb5bd'>Research and development of computing language models for biomedical data curation.</font>      |
+|                                                               | <br><font style='color:#adb5bd'>Generation of knowledge graph for molecular and cell biology.</font>                            |
+|                                                               | <br><font style='color:#adb5bd'>Transforming open science through AI initiatives.</font>                                        |
+|                                                               | ```                                                                                                                             |
++---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                                    | ```{=html}                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2013-2017</b></font>    | <font size=4><b style='color:#e1820e'>Post doctorate researcher and PhD student</b></font>                                      |
+| ```                                                           | <br><font size=4>Max-Planck-Institute for Astronomy, Heidelberg, DE</font>                                                      |
+|                                                               | <br><font style='color:#adb5bd'>World-class research on star formation and molecular cloud structure at Galactic scales.</font> |
+|                                                               | ```                                                                                                                             |
++---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                                    | ```{=html}                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2013</b></font>         | <font size=4><b style='color:#e1820e'>Research associate </b></font>                                                            |
+| ```                                                           | <br><font size=4>Instituto de Astrofísica de Andalucía, Granada, ES</font>                                                      |
+|                                                               | <br><font style='color:#adb5bd'>Automated data processing and analysis pipeline for the IRAM 30m telescope.</font>              |
+|                                                               | ```                                                                                                                             |
++---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                                    | ```{=html}                                                                                                                      |
+| <font size=4><b style='color:#e1820e'>2010-2013</b></font>    | <font size=5><b style='color:#e1820e'>Astronomer on duty, IRAM 30m telescope</b></font>                                         |
+| ```                                                           | <br><font size=4>Instituto de Radioastronomía Milimétrica (IRAM), Granada, ES</font>                                            |
+|                                                               | <br><font style='color:#adb5bd'>Quality assurance of observational data.</font>                                                 |
+|                                                               | <br><font style='color:#adb5bd'>Spectral and image processing and analysis.</font>                                              |
+|                                                               | <br><font style='color:#adb5bd'>Writing technical documentation and reports.</font>                                             |
+|                                                               | ```                                                                                                                             |
++---------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------+
+
+# Industry experience
+
++-------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+|                                                             |                                                                                                                                   |
++=============================================================+===================================================================================================================================+
+| ```{=html}                                                  | ```{=html}                                                                                                                        |
+| <font size=4><b style='color:#e1820e'>2019-2022</b> </font> | <font size=4><b style='color:#e1820e'>Head of Center of Excellence Data Science and Innovation </b></font>                        |
+| ```                                                         | <br><font size=4>CAMELOT Group, Mannheim, DE</font>                                                                               |
+|                                                             | <br><font style='color:#adb5bd'>Lead company wide AI transformation.</font>                                                       |
+|                                                             | <br><font style='color:#adb5bd'>Leading collaboration and connection with AWS.</font>                                             |
+|                                                             | <br><font style='color:#adb5bd'>Data strategy design and lead implementation of Camelot Data Intelligent Digital Services.</font> |
+|                                                             | <br><font style='color:#adb5bd'>Intelligent document processing: Automated data extraction from unstructured documents.</font>    |
+|                                                             | ```                                                                                                                               |
++-------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+| ```{=html}                                                  | ```{=html}                                                                                                                        |
+| <font size=4><b style='color:#e1820e'>2017-2019</b> </font> | <font size=4><b style='color:#e1820e'>Data scientist </b></font>                                                                  |
+| ```                                                         | <br><font size=4>Datavard AG, Heidelberg, DE</font>                                                                               |
+|                                                             | <br><font style='color:#adb5bd'>Creation and development of award-winning application.</font>                                     |
+|                                                             | <br><font style='color:#adb5bd'>Evaluation and implementation of the data science projects.</font>                                |
+|                                                             | <br><font style='color:#adb5bd'>Fast iteration and experimentation, complex application prototyping.</font>                       |
+|                                                             | ```                                                                                                                               |
++-------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------+
+
+# Honors and awards
+
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                            |                                                                                                                                                                                                 |
++============================================================+=================================================================================================================================================================================================+
+| <font size=4><b style='color:#e1820e'>2021</b></font>      | ```{=html}                                                                                                                                                                                      |
+|                                                            | <a href=https://www.diversidadliteraria.com/info-concursos/concursos-antiguos/inspiraciones-nocturnas-vii>Selected as part of the book 'Inspiraciones Nocturnas VII' (Diversidad Literaria)</a> |
+|                                                            | ```                                                                                                                                                                                             |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2018</b></font>      | [Most Innovative Project 2018 by the IA4SP. (Datavard AG)](https://it-onlinemagazin.de/wmd-group-und-datavard-gewinnen-ia4sp-award-2018/?pk_campaign=180614)                                    |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2018</b></font>      | 3rd Prize in the Innojam, SAP Campus Basel 2018. (Datavard AG)                                                                                                                                  |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2017</b></font>      | [Cover Page of the Astronomy and Astrophysics Journal.](https://www.aanda.org/articles/aa/abs/2017/08/contents/contents.html)                                                                   |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2013-2017</b></font> | PhD Fellowship in International Max Planck Research School.                                                                                                                                     |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2012</b></font>      | Master Thesis Honors. Thesis grade: 10/10.                                                                                                                                                      |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2010-2012</b></font> | MsC fellowship Instituto de Radioastronomía Milimétrica.                                                                                                                                        |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2010</b></font>      | Best scientific poster in the III COEFFIS.                                                                                                                                                      |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <font size=4><b style='color:#e1820e'>2010</b></font>      | Honors in Optics.                                                                                                                                                                               |
++------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+# Research publications
+
+## Refereed publications
+
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                    |                                                                                                                                                      |
++====================================+======================================================================================================================================================+
+| <b style='color:#e1820e'>2017</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Constraining the Dust Opacity Law in Three Small and Isolated Molecular Clouds</b></font>                      |
+|                                    | ```                                                                                                                                                  |
+|                                    | ```{=html}                                                                                                                                           |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017ApJ...849...13W/abstract>Webb, K. A. et al. 2017 ApJ 849, 13W.</a>                                 |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2017</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Resolving fragmentation of high line-mass filaments with ALMA: integral-shaped filament in Orion A</b></font>  |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...600A.141K/abstract>Kainulainen, Stutz, Stanke, Abreu-Vicente et al. 2017 A&A 600, A141</a> |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Fourier-space combination of Planck and Herschel images</b></font>                                             |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2017A%26A...604A..65A/abstract>J. Abreu-Vicente, et al. A&A, 604A, A65</a>                             |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Giant molecular filaments in the Milky Way II: The fourth Galactic quadrant</b></font>                         |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2016A%26A...590A.131A/abstract>J. Abreu-Vicente et al., 2016 A&A, 590A, 131A</a>                       |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2015</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Relationship between the column density distribution and evolutionary class of molecular clouds</b></font>     |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2015A%26A...581A..74A/abstract>J. Abreu-Vicente et al., 2015 A&A, 581A, 74A</a>                        |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2013</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Spectral energy distributions of HII regions in M 33 (HerM33es)</b></font>                                     |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...553A.114K/abstract>M. Relaño et al., 2013 A & A, 552A, 140R</a>                            |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2013</b>  | ```{=html}                                                                                                                                           |
+|                                    | <font size=4><b style='color:#e1820e'>Gas and dust cooling along the major axis of M 33 (HerM33es)</b></font>                                        |
+|                                    | <br><a href=https://ui.adsabs.harvard.edu/abs/2013A%26A...552A.140R/abstract>Kramer, Abreu-Vicente et al., 2013 A&A, 553A, 114K</a>                  |
+|                                    | ```                                                                                                                                                  |
++------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+## Preprints
+
++------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+|                                    |                                                                                                                 |
++====================================+=================================================================================================================+
+| <b style='color:#e1820e'>2023</b>  | ```{=html}                                                                                                      |
+|                                    | <font size=4><b style='color:#e1820e'>                                                                          |
+|                                    | The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models  |
+|                                    | </b></font>                                                                                                     |
+|                                    | <br>Abreu-Vicente et al. (2023) arXiv.cs.CL, 2310.20440                                                         |
+|                                    | <br><a href=https://arxiv.org/pdf/2310.20440.pdf>PDF</a>, <a href=https://arxiv.org/abs/2310.20440>Abstract</a> |
+|                                    | ```                                                                                                             |
++------------------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+## Other publications
+
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+|                                   |                                                                                                                                        |
++===================================+========================================================================================================================================+
+| <b style='color:#e1820e'>2022</b> | ```{=html}                                                                                                                             |
+|                                   | <font size=4><b style='color:#e1820e'>Paleontología galáctica</b></font> <br>                                                          |
+|                                   | <a href=https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/>Artículo en Astronomía Magazine (Cover page)</a>    |
+|                                   | ```                                                                                                                                    |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2021</b> | ```{=html}                                                                                                                             |
+|                                   | <font size=4><b style='color:#e1820e'>El viaje más largo (Inspiraciones Nocturnas VII - Varios Autores)</b></font>                     |
+|                                   | <br><a href=https://www.diversidadliteraria.com/info-concursos/concursos-antiguos/inspiraciones-nocturnas-vii>Diversidad Literaria</a> |
+|                                   | ```                                                                                                                                    |
++-----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------+
+
+# Generated AI and coding resources
+
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                   |                                                                                                                                                                                                |
++===================================+================================================================================================================================================================================================+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
+|                                   | <font size=4><b style='color:#e1820e'>The SourceData-NLP dataset</b></font>                                                                                                                    |
+|                                   | <br> The largest biomedical AI-ready dataset for NER and NEL.                                                                                                                                  |
+|                                   | <br>🤗 <a href=https://huggingface.co/datasets/EMBO/SourceData>HuggingFace Dataset for Biomedical NER/NEL.</a>                                                                                 |
+|                                   | <br><i class="bi bi-github" style="font-size:24px">  </i><a href=https://github.com/source-data/soda-data/>soda-data:</a> generate the data.                                                   |
+|                                   | <br><i class="bi bi-github" style="font-size:24px">  </i><a href=https://github.com/source-data/soda-model/>soda-model:</a> generate models with the dataset.                                  |
+|                                   | ```                                                                                                                                                                                            |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
+|                                   | <font size=4><b style='color:#e1820e'>EMBO/sd-geneprod-roles-v2</b></font>                                                                                                                     |
+|                                   | <br>Model for detecting the empirical roles of genes and proteins in experiments described<br> in biomedical literature.                                                                       |
+|                                   | <br>🤗 <a href=https://huggingface.co/EMBO/sd-geneprod-roles-v2>HuggingFace model</a>                                                                                                          |
+|                                   | ```                                                                                                                                                                                            |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
+|                                   | <font size=4><b style='color:#e1820e'>EMBO/sd-smallmol-roles-v2</b></font>                                                                                                                     |
+|                                   | <br>Model for detecting the empirical roles of chemicals and small molecules in experiments described in biomedical literature.                                                                |
+|                                   | <br>🤗 <a href=https://huggingface.co/EMBO/sd-smallmol-roles-v2>HuggingFace model</a>                                                                                                          |
+|                                   | ```                                                                                                                                                                                            |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
+|                                   | <font size=4><b style='color:#e1820e'>EMBO/sd-ner-v2</b></font>                                                                                                                                |
+|                                   | <br>Model that generates NER for 9 classes of biomedial entities<br>gene products, small molecules, cell lines, cell types, subcellular, organism, tissues, diseases, and experimental assays. |
+|                                   | <br>🤗 <a href=https://huggingface.co/EMBO/sd-ner-v2>HuggingFace model</a>                                                                                                                     |
+|                                   | ```                                                                                                                                                                                            |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                                                                                                                                     |
+|                                   | <font size=4><b style='color:#e1820e'>EMBO/sd-panelization-v2</b></font>                                                                                                                       |
+|                                   | <br>Model for separating figure captions of biomedical literature into their constituent panels.                                                                                               |
+|                                   | <br>🤗 <a href=https://huggingface.co/EMBO/sd-panelization-v2>HuggingFace model</a>                                                                                                            |
+|                                   | ```                                                                                                                                                                                            |
++-----------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+# Conferences, workshops, seminars
+
+## Invited talks
+
++-----------------------------------+-----------------------------------------------------------------------------------------------+
+|                                   |                                                                                               |
++===================================+===============================================================================================+
+| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                    |
+|                                   | <b style='color:#e1820e'>Neural Networks in Astrophysics</b>                                  |
+|                                   | <br>Universidad Interamericana de Puerto Rico                                                 |
+|                                   | ```                                                                                           |
++-----------------------------------+-----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                    |
+|                                   | <b style='color:#e1820e'>Molecular cloud structure at Galactic scales</b>                     |
+|                                   | <br>Universität zu Köln, DE                                                                   |
+|                                   | ```                                                                                           |
++-----------------------------------+-----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                    |
+|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b>  |
+|                                   | <br>Instituto de Astrofísica de Canarias, La Laguna, ES                                       |
+|                                   | ```                                                                                           |
++-----------------------------------+-----------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                    |
+|                                   | <b style='color:#e1820e'>Density distribution and star formation: a Galactic perspective</b>  |
+|                                   | <br>Institute of Theoretical Astrophysics, Heidelberg, DE                                     |
+|                                   | ```                                                                                           |
++-----------------------------------+-----------------------------------------------------------------------------------------------+
+
+## Academic AI
+
++-----------------------------------+---------------------------------------------------------------------------------------+
+|                                   |                                                                                       |
++===================================+=======================================================================================+
+| <b style='color:#e1820e'>2023</b> | ```{=html}                                                                            |
+|                                   | <b style='color:#e1820e'>Transforming open science through AI initiatives at EMBO</b> |
+|                                   | <br>AI InScide Out, Advances, challenges, and issues for AI in Science                |
+|                                   | <br>EMBL, Heidelberg, DE                                                              |
+|                                   | ```                                                                                   |
++-----------------------------------+---------------------------------------------------------------------------------------+
+
+## In proceedings academic contributions for Astronomy 
+
++-----------------------------------+---------------------------------------------------------------------------------------------+
+|                                   |                                                                                             |
++===================================+=============================================================================================+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                     |
+|                                   | <br>VIALACTEA 2016: Pontificia Università S. Tommaso D’Aquino, Rome, IT                     |
+|                                   | <br>Poster                                                                                  |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>Giant Molecular Filaments in the Milky Way</b>                     |
+|                                   | <br>Star Formation 2016, University of Exeter, UK                                           |
+|                                   | <br>Poster                                                                                  |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2015</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b>  |
+|                                   | <br>2nd Heidelberg Harvard workshop on Star Formation, CfA, Boston, MA, USA                 |
+|                                   | <br>Talk                                                                                    |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2014</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>Column density distribution in molecular clouds with ATLASGAL</b>  |
+|                                   | <br>ISM–SPP Student meeting, Kardinal-Doepfner Haus, Freising, DE                           |
+|                                   | <br>Talk                                                                                    |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2011</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>[CII] emission in the major axis of M33</b>                        |
+|                                   | <br>III Congreso de Estudiantes de la Facultad de Física, La Laguna, ES                     |
+|                                   | <br>Poster (Awarded with the best science poster of the conference)                         |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2010</b> | ```{=html}                                                                                  |
+|                                   | <b style='color:#e1820e'>Fue Cassiopea a la luminaria observada por John Flamsteed?</b>     |
+|                                   | <br>Young European Radio Astronomers Conference, Manchester, UK <br>Talk                    |
+|                                   | ```                                                                                         |
++-----------------------------------+---------------------------------------------------------------------------------------------+
+
+## Data science in industry
+
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+|                                   |                                                                                                                 |
++===================================+=================================================================================================================+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language I (Supervised learning)</b>                      |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language II (Unsupervised learning)</b>                   |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
+|                                   | <b style='color:#e1820e'>Machine Learning in business language III (Deep learning) </b>                         |
+|                                   | <br>Workshops organized by CAMELOT Group                                                                        |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b> | ```{=html}                                                                                                      |
+|                                   | <b style='color:#e1820e'>CADET: Camelot Data Extraction Tool and intelligent optical character recognition</b>  |
+|                                   | <br>Online Workshop                                                                                             |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2019</b> | ```{=html}                                                                                                      |
+|                                   | <b style='color:#e1820e'>Enterprise deployment: The ultimate data science challenge</b>                         |
+|                                   | <br>Online workshop of AWS and CAMELOT Group                                                                    |
+|                                   | ```                                                                                                             |
++-----------------------------------+-----------------------------------------------------------------------------------------------------------------+
+
+# Media, outreach, and teaching
+
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        |                                                                                                                                             |
++========================================+=============================================================================================================================================+
+| <b style='color:#e1820e'>2020-2021</b> | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Astronomy podcast: La cúpula </b>                                                                                  |
+|                                        | <br>Four chapters with Dr. Francisco Parra-Rojas.                                                                                           |
+|                                        | <br><a href=https://www.ivoox.com/podcast-cupula_sq_f11178121_1.html>ivoox</a>                                                              |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2020</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Founder of Punto Vernal. Amateur astronomy company and YouTube channel. </b>                                       |
+|                                        | <br><a href=https://www.youtube.com/channel/UCO-Bwy9dPpSlNQemmGnlx4w>YouTube Chanel</a>                                                     |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2017</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Podcast: Primer exoplaneta similar a la tierra con atmósfera </b>                                                  |
+|                                        | <br>Luciérnagas, Radiotelevisión diocesana                                                                                                  |
+|                                        | <br><a href=https://www.ivoox.com/primer-exoplaneta-similar-a-tierra-atmosfera-audios-mp3_rf_18474905_1.html>ivoox</a>                      |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2016</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Astronomy in elementary school</b> <br>Colegio PP Somascos, A Guarda, ES                                           |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2014</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Teacher for astronomical lab course on stellar photometry </b>                                                     |
+|                                        | <br>MPIA/Ruprecht Karls-Universität Heidelberg, Heidlberg, DE                                                                               |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2012</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Teaching assistant</b>                                                                                             |
+|                                        | <br>PIIISA: Research Investigation by Young Students in Science, Granada, ES                                                                |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2011</b>      | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Teaching assistant at IRAM 30m Summer School: Star formation near and far.</b>                                     |
+|                                        | <br>Puertollano, ES                                                                                                                         |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| <b style='color:#e1820e'>2010-2012</b> | ```{=html}                                                                                                                                  |
+|                                        | <b style='color:#e1820e'>Outreach talks and guiding for visits to the Sierra Nevada optical and radio observatories</b> <br>Puertollano, ES |
+|                                        | ```                                                                                                                                         |
++----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
