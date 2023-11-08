@@ -10,7 +10,7 @@ format:
   html:
     page-layout: full
     code-fold: true
-    fontsize: 1.25em
+    fontsize: 1em
     linestretch: 1.5
     code-line-numbers: true
     code-block-border-left: "#31BAE9"
