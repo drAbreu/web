@@ -28,8 +28,8 @@ twitter-card:
     creator: "@ElPuntoVernal"
     site: "https://drabreu.github.io/web"
     image: _imgs/favicon.ico
-    title: $title
-    description: $subtitle
+    title: Dr. Jorge Abreu Vicente
+    description: Artificial intelligence for biomedical sciences @EMBO
     card-style: summary
 
 jupyter: python3
