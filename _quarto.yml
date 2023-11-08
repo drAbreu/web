@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Dr. Jorge Abreu Vicente"
-  favicon: "imgs/favicon.ico"
+  favicon: "_imgs/favicon.ico"
   twitter-card: true
   # site-url: "https://drabreu.github.io/"
   page-footer:
