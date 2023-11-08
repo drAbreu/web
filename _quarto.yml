@@ -4,7 +4,9 @@ project:
 website:
   title: "Dr. Jorge Abreu Vicente"
   favicon: "_imgs/favicon.ico"
-  twitter-card: true
+  twitter-card:
+    creator: "@ElPuntoVernal"
+    site: "https://drabreu.github.io/web"
   # site-url: "https://drabreu.github.io/"
   page-footer:
     center: 
