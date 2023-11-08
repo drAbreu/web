@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: ./_site/en
+
+website:
+  title: "Dr. Jorge Abreu Vicente"
+  favicon: "_imgs/favicon.ico"
+  twitter-card: true
+    # creator: "@ElPuntoVernal"
+    # site: "https://drabreu.github.io/web"
+  site-url: "https://drabreu.github.io/web"
+  page-footer:
+    center: 
+      - text: "Copyright 2023, Dr. Jorge Abreu Vicente"
+    background: "#df6919"
+  navbar:
+    logo: "imgs/favicon.ico"
+    left:
+      - href: index.qmd
+        text: Home
+      # - about.qmd
+      - href: blog.qmd
+        text: "Blog (EN)"
+      - href: cv.qmd
+        text: "CV"
+    right:
+      - icon: twitter
+        text: ""
+        href: https://twitter.com/ElPuntoVernal
+      - icon: github
+        text: ""
+        href: https://github.com/drAbreu
+      - icon: linkedin
+        text: ""
+        href: https://www.linkedin.com/in/abreujorge-dataresearch/
+      - icon: envelope-at-fill
+        text: ""
+        href: mailto:jorge.abreu@embo.org
+      - icon: journals
+        text: "Publication record"
+        href: https://ui.adsabs.harvard.edu/search/q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc&p_=0 
+    body-header: |
+          <link rel="stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css><button onclick="window.location = location.href.replace('/en/','/es/');" class="btn"><i class="fa fa-language"></i> Español </button>
+        
+lang: en
+
+format:
+  html:
+    theme: [superhero, theme_dark.scss]
+      # light: united
+      # dark: [superhero, theme_dark.scss]    
+    css: styles.css
+    toc: true
+    page-layout: full
+    code-fold: true
+    fontsize: 1em
+    linestretch: 1.5
+    code-line-numbers: true
+    code-block-border-left: "#31BAE9"
+    code-block-bg: "#000000"
+    highlight-style: github
+
+
+

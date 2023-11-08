@@ -60,6 +60,7 @@ about:
 
 ---
 
+::: {.content-visible when-profile="english"}
 ```{python}
 #| label: hellow-world
 #| fig-cap: "Hello World! I am Dr. Jorge Abreu Vicente"
@@ -78,3 +79,8 @@ I am part of the [*EMBO Open Science Implementation Group*](https://www.embo.org
 Having shifted my focus from astronomy to the biomedical field, I seek to contribute unraveling the mysteries of life. <font color=#4c9be8><strong>My career has shifted from understanding the universe to, with my expertise in AI, understanding the ultimate wonder of our cosmos: life itself</strong></font>. This transition reflects my insatiable curiosity and dedication to making transformative discoveries in the pursuit of advancing human knowledge.
 
 My publications list is available at [ORCID](https://orcid.org/0000-0002-0211-6416) and at [NASA ADS abstract service](https://ui.adsabs.harvard.edu/search/q=author%3A%22Abreu-Vicente%2C%20J.%22&sort=date%20desc%2C%20bibcode%20desc&p_=0).
+:::
+
+::: {.content-visible when-profile="spanish"}
+Probando esto
+:::
