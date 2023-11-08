@@ -41,6 +41,14 @@ about:
     - icon: envelope-at-fill
       text: "jorge.abreu@embo.org"
       href: mailto:jorge.abreu@embo.org
+    - text: "{{< ai google-scholar color=#4C8BF5 size=xl >}} Google Scholar"
+      href: https://scholar.google.com/citations?hl=en&user=Z6PbfP4AAAAJ&view_op=list_works&gmla=AJ1KiT3dZ5BrYMzQ35ZvYFL2cf6QeJUDXfNBwQvNLm4XD3bSwS-Wm6JisIQlEGY-m4MGlwRODBAL4oMWMTKzQiwuAF8FgnatlNfSLmlMXOA0oqbwL1TaEw1JW4lqh2RBFJBVHuf-yrSc_tRRW049ldS30Q
+    - text: "{{< ai ads color=gray size=xl >}} NASA Abstract Data System"
+      href: https://ui.adsabs.harvard.edu/search/q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc&p_=0
+    - text: "{{< ai orcid color=#A6CE39 size=xl >}} ORCID"
+      href: https://orcid.org/0000-0002-0211-6416
+    - text: "{{< ai arxiv color=#B31B1B size=xl >}} arXiv"
+      href: https://arxiv.org/search/?searchtype=author&query=Abreu-Vicente%2C+J
 
 ---
 
