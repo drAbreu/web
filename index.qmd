@@ -19,7 +19,7 @@ format:
     page-layout: full
     code-fold: true
     linestretch: 1.5
-    fontsize: 1em
+    fontsize: 1.1em
     code-line-numbers: true
     code-block-border-left: "#31BAE9"
     code-block-bg: "#000000"
