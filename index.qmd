@@ -37,7 +37,7 @@ about:
   id: home
   template: trestles
   image: ../_imgs/staff_pic.png
-  image-shape: round
+  image-shape: rounded
   links:
     - icon: twitter
       text: twitter
