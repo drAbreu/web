@@ -1,0 +1,21 @@
+---
+title: "Revelando el causante de la formación estelar"
+description: "La formación estelar es un proceso bien entendido a *grosso modo*. Sin embargo, aunque sabemos que las estrellas nacen en última instancia por el colapso gravitatorio de nubes moleculares, no se sabe cual es el proceso que causa esta contracción en primer lugar. En este trabajo observamos "
+author:
+  - name: Dr. Jorge Abreu-Vicente
+    url: https://drAbreu.github.io/
+    orcid: 0000-0002-0211-6416
+    affiliation: [European Molecular Biology Organization (EMBO), European Life Sciences Laboratory (EMBL)]
+    affiliation-url: www.embo.org 
+date: 10-31-2023
+categories: [Ciencia, Astronomía, Formación Estelar, Tesis doctoral] # self-defined categories
+citation: 
+  url: https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/
+image: ""
+lang: es
+draft: true # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+bibliography: references.bib
+---
+
+Basado en el trabajo [@Abreu_Vicente_2015]
+
