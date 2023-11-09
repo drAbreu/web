@@ -36,8 +36,9 @@ jupyter: python3
 about:
   id: home
   template: trestles
-  image: ../_imgs/staff_pic.png
-  image-shape: rounded
+  image: _imgs/staff_pic.png
+  image-shape: round
+  image-width: 15rem
   links:
     - icon: twitter
       text: twitter
