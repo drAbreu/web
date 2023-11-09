@@ -1,6 +1,14 @@
 [
   {
     "listing": "/blog.html",
-    "items": []
+    "items": [
+      "/en/posts/2023-11-01/index.html"
+    ]
+  },
+  {
+    "listing": "/blog-es.html",
+    "items": [
+      "/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html"
+    ]
   }
 ]

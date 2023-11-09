@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dr.&nbsp;Jorge Abreu Vicente</title>
+<title>Dr.&nbsp;Jorge Abreu Vicente - Punto vernal: Astronomía, biología, IA y más…</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,16 +31,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./_imgs/favicon.ico" rel="icon">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,34 +50,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "type": "overlay",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Dr.&nbsp;Jorge Abreu Vicente">
-<meta name="twitter:description" content="🔭 Astrophysicist
-
-🤖 Machine learning developer @EMBO
-
-🧬 Molecular and cell biology
-
-🗣 Science communicator
-
-🖋 Writer
-
-👨‍👩‍👧 Father">
-<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="Dr. Jorge Abreu Vicente" href="blog-es.xml"><meta name="twitter:title" content="Dr.&nbsp;Jorge Abreu Vicente - Punto vernal: Astronomía, biología, IA y más…">
+<meta name="twitter:description" content="De las maravillas cósmicas a la maravilla definitiva de nuestro cosmos, la vida misma">
+<meta name="twitter:image" content="https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/herschel-main-pic.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -127,14 +116,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Dr.&nbsp;Jorge Abreu Vicente</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -142,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Blog (🇬🇧🇺🇸)</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog-es.html" rel="" target="">
+    <a class="nav-link active" href="./blog-es.html" rel="" target="" aria-current="page">
  <span class="menu-text">Blog (🇪🇸)</span></a>
   </li>  
   <li class="nav-item">
@@ -187,79 +176,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    <h5 class="quarto-listing-category-title">Categorías</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">Todas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Astronomía">Astronomía <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Ciencia">Ciencia <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Formación Estelar">Formación Estelar <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Tesis doctoral">Tesis doctoral <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="../_imgs/staff_pic.png" class="about-image
-  round " style="height: 15rem; width: 15rem;">
+<main class="content column-page-left" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Dr.&nbsp;Jorge Abreu Vicente</h1>
-<p class="subtitle lead"></p><p>🔭 Astrophysicist</p>
-<p>🤖 Machine learning developer <span class="citation" data-cites="EMBO">@EMBO</span></p>
-<p>🧬 Molecular and cell biology</p>
-<p>🗣 Science communicator</p>
-<p>🖋 Writer</p>
-<p>👨‍👩‍👧 Father</p><p></p>
+<h1 class="title">Punto vernal: Astronomía, biología, IA y más…</h1>
+<p class="subtitle lead">De las maravillas cósmicas a la maravilla definitiva de nuestro cosmos, la vida misma</p>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
 </header>
-    <div class="about-links">
-  <a href="https://twitter.com/ElPuntoVernal" class="about-link" rel="" target="">
-    <i class="bi bi-twitter"></i>
-     <span class="about-link-text">twitter</span>
-  </a>
-  <a href="https://github.com/drAbreu" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://www.linkedin.com/in/abreujorge-dataresearch/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="mailto:jorge.abreu@embo.org" class="about-link" rel="" target="">
-    <i class="bi bi-envelope-at-fill"></i>
-     <span class="about-link-text">jorge.abreu@embo.org</span>
-  </a>
-  <a href="https://scholar.google.com/citations?hl=en&amp;user=Z6PbfP4AAAAJ&amp;view_op=list_works&amp;gmla=AJ1KiT3dZ5BrYMzQ35ZvYFL2cf6QeJUDXfNBwQvNLm4XD3bSwS-Wm6JisIQlEGY-m4MGlwRODBAL4oMWMTKzQiwuAF8FgnatlNfSLmlMXOA0oqbwL1TaEw1JW4lqh2RBFJBVHuf-yrSc_tRRW049ldS30Q" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-google-scholar ai-xl" style="color:#4C8BF5"></i> Google Scholar</span>
-  </a>
-  <a href="https://ui.adsabs.harvard.edu/search/q=abreu-vicente&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-ads ai-xl" style="color:gray"></i> NASA Abstract Data System</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-0211-6416" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-orcid ai-xl" style="color:#A6CE39"></i> ORCID</span>
-  </a>
-  <a href="https://arxiv.org/search/?searchtype=author&amp;query=Abreu-Vicente%2C+J" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-arxiv ai-xl" style="color:#B31B1B"></i> arXiv</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<div id="hellow-world" class="cell" data-execution_count="1">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> say_hello():</span>
-<span id="cb1-2"><a href="#cb1-2"></a>    <span class="bu">print</span>(<span class="st">"Hello World, I am Dr. Jorge Abreu Vicente!"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">'__main__'</span>:</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    say_hello()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Hello World, I am Dr. Jorge Abreu Vicente!</code></pre>
-</div>
-</div>
-<p>I am a distinguished researcher with a PhD <em>cum laude</em> from the <a href="http://www.mpia.de/en">Max Planck Institute for Astronomy</a> and the <a href="https://www.uni-heidelberg.de/en">University of Heidelberg</a>, with a Thesis titled <a href="https://www.imprs-hd.mpg.de/143498/thesis_abreu.pdf">“Molecular cloud structure at Galactic scales”</a>. After five successful years as a Data Science and AI consultant in industry, I embraced the path back to my beloved scientific research at the <a href="https://www.embo.org/">European Molecular Biology Organization, EMBO</a> and <a href="https://www.embl.org/sites/heidelberg/">European Life Sciences Laboratory, EMBL</a> as a Machine Learning and AI Developer. <font color="#df6919"><strong>I do cutting-edge research focusing on natural language processing (NLP), large language models (LLMs), multi-modal learning, and the generation and analysis of knowledge graphs. My scientific field of interest is primary molecular and cell biology</strong></font>, although I ocasionally look back to the application of the developed techniques to astronomy.</p>
-<p>I am part of the <a href="https://www.embo.org/policy/open-science/"><em>EMBO Open Science Implementation Group</em></a>, led by Dr.&nbsp;Thomas Lemberger. <font color="#df6919"><strong>Our goal is to revolutionize scientific research by promoting open science tools and methodologies, helping researchers to fill the knowledge gap generated by the current huge scientific productivity.</strong></font> <font color="#4c9be8"><strong>We stand for transparent and accessible research, aiming for a more collaborative and innovative research landscape.</strong></font></p>
-<p>Having shifted my focus from astronomy to the biomedical field, I seek to contribute unraveling the mysteries of life. <font color="#4c9be8"><strong>My career has shifted from understanding the universe to, with my expertise in AI, understanding the ultimate wonder of our cosmos: life itself</strong></font>. This transition reflects my insatiable curiosity and dedication to making transformative discoveries in the pursuit of advancing human knowledge.</p>
-<p>My publications list is available at <a href="https://orcid.org/0000-0002-0211-6416">ORCID</a> and at <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Abreu-Vicente%2C%20J.%22&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0">NASA ADS abstract service</a>.</p>
+
+<p>Bienvenid<code>@</code>s!</p>
+<p>Este es el blog personal de Dr.&nbsp;Jorge Abreu Vicente. Mi visión del blog es más como una ventana de comunicación de ideas y opiniones que como publicidad de mi trabajo. Es por ello que este blog ofrecerá temas muy diferentes para una amplia audiencia. El blog tratará temas desde las maravillas cósmicas de la astronomía a la maravilla cósmica definitiva: la vida misma. Además de Astronomía y Biología, el blog tratará también inteligencia artificial, desarrollo y diversos temas de opinión o consejos curriculares. Durante la temporada innvernal intentaré compartir mi cuaderno de bitácora de observaciones astronómicas <em>amateurs</em> en el jardín de casa.</p>
+<p>Espero que os guste este espacio y que todos podamos aprender juntos con buestos comentarios!</p>
+<p>Cielos claros !</p>
+<p>Jorge</p>
+<hr>
+<!-- Check [this link](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/) for details on the listings page -->
 
 
-</main></div>
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Ciencia,Astronomía,Formación Estelar,Tesis doctoral" data-listing-date-sort="1698793200000" data-listing-file-modified-sort="1699550167906" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<div class="thumbnail">
+<p><a href="./es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html"> <img src="./es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/herschel-main-pic.jpg" class="thumbnail-image"> </a></p>
 </div>
- <!-- /main -->
+<div class="body">
+<a href="./es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html">
+<h3 class="no-anchor listing-title">
+Obteniendo la mejor imagen en infrarrojo lejano de la Vía Láctea
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Ciencia'); return false;">
+Ciencia
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Astronomía'); return false;">
+Astronomía
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Formación Estelar'); return false;">
+Formación Estelar
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Tesis doctoral'); return false;">
+Tesis doctoral
+</div>
+</div>
+<a href="./es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html">
+<div class="listing-description">
+<p>Investigación puntera de J. Abreu-Vicente, A. Stutz y colaboradores obtiene el mejor mapa de infrarrojo lejano de la Vía Láctea, combinando los datos de los observatorios espaciales <em>Herschel</em> y <em>Planck</em>. Las imágenes obtenidas serán de gran valor para desentrañar los misterios de la formación estelar.</p>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html">
+<div class="listing-date">
+1 nov 2023
+</div>
+<div class="listing-author">
+Dr.&nbsp;Jorge Abreu-Vicente
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No hay resultados
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -280,6 +282,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -307,12 +316,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Copiado");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Copiado");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",

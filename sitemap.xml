@@ -2,14 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://drabreu.github.io/web/blog.html</loc>
-    <lastmod>2023-11-08T17:08:29.749Z</lastmod>
+    <lastmod>2023-11-09T17:44:12.665Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/index.html</loc>
-    <lastmod>2023-11-08T17:08:28.934Z</lastmod>
+    <loc>https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</loc>
+    <lastmod>2023-11-09T17:44:12.099Z</lastmod>
   </url>
   <url>
     <loc>https://drabreu.github.io/web/cv.html</loc>
-    <lastmod>2023-11-08T17:08:29.436Z</lastmod>
+    <lastmod>2023-11-09T17:44:10.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/index.html</loc>
+    <lastmod>2023-11-09T17:44:07.790Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/blog-es.html</loc>
+    <lastmod>2023-11-09T17:44:08.225Z</lastmod>
   </url>
 </urlset>
