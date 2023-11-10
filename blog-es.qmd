@@ -7,6 +7,8 @@ listing:
   sort: "date desc" # can also sort on more than one field
   categories: true # allows you to sort posts by assigned categories 
   feed: true
+  fields: [image, image-alt, file-modified, date, title, description, author, reading-time]
+  page-size: 16
 lang: es
 format:
   html:

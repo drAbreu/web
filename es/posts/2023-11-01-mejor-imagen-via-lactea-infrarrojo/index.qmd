@@ -8,10 +8,12 @@ author:
     affiliation: [European Molecular Biology Organization (EMBO), European Life Sciences Laboratory (EMBL)]
     affiliation-url: www.embo.org 
 date: 11-01-2023
+date-modified: 11-8-2023
 categories: [Ciencia, Astronomía, Formación Estelar, Tesis doctoral] # self-defined categories
 citation: 
   url: https://drAbreu.github.io/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/ 
 image: herschel-main-pic.jpg
+image-alt: "Artwork of *Herschel* against the galactic plane background. Credit: ESA - C. Carreau."
 lang: es
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 bibliography: references.bib
@@ -69,13 +71,13 @@ En este caso, *Planck* nos da la temperatura y densidad de cada punto de la Vía
 El lector se preguntará: y si *Planck* tiene ya los mapas de densidad y temperatura... Por qué diablos no usarlos y librarnos de todo este arduo trabajo? La respuesta es que *Planck* es un telescopio mucho más pequeño que Herschel. Esto se traduce en que *Planck* tiene una importante miopía con respecto a *Herschel*. En otras palabras, las observaciones de *Herschel* son mucho más nítidas y revelan detalles más sutiles que las de *Planck*. Es como si *Herschel* usara gafas para corregir la miopía de *Planck*. Concretamente, a 100 y 160 micras *Herschel* puede ver detalles 12 y 17 veces respectivamente más pequeños que *Planck*. Se puede observar claramente este hecho en @fig-planck-orion, @fig-herschel-orion-a y @fig-herschel-orion-b. Esto es especialmente importante, pues es en esos pequeños detalles que revela *Herschel* donde debemos de buscar las repuestas a las preguntas abiertas sobre el proceso de formación estelar.
 :::
 
-![Observaciones del complejo molecular de Orión por el telescopio *Planck*. Las líneas corresponden a polarización de la luz.](planck-orion-complex.jpg){#fig-planck-orion fig-align="center" fig-alt="Mapa de Orión obtenido por *Planck*." width=100%}
+![Observaciones del complejo molecular de Orión por el telescopio *Planck*. Las líneas corresponden a polarización de la luz. (Credit: [ESA and the Planck Collaboration](https://sci.esa.int/web/planck/-/55911-polarised-emission-from-orion-annotated))](planck-orion-complex.jpg){#fig-planck-orion fig-align="center" fig-alt="Mapa de Orión obtenido por *Planck*." width=100%}
 
 ::: {layout-ncol=2}
 
-![Observaciones de la nube molecular Orión A (la gran nebulosa de Orión) por el telescopio *Herschel*. Se observaclaramente el mayor detalle comparado con las observaciones de *Planck* en @fig-planck-orion.](herschel-orion-a.jpg){#fig-herschel-orion-a fig-alt="Mapa de Orión A obtenido por *Herschel*."}
+![Observaciones de la nube molecular Orión A (la gran nebulosa de Orión) por el telescopio *Herschel*. Se observaclaramente el mayor detalle comparado con las observaciones de *Planck* en @fig-planck-orion. [Copyright: ESA/Herschel/NASA/JPL-Caltech, CC BY-SA 3.0 IGO; Acknowledgement: R. Hurt (JPL-Caltech)](https://sci.esa.int/web/herschel/-/59534-herschel-s-view-of-orion-b)](herschel-orion-a.jpg){#fig-herschel-orion-a fig-alt="Mapa de Orión A obtenido por *Herschel*."}
 
-![Observaciones de la nube molecular Orión B (la gran nebulosa de Orión) por el telescopio *Herschel*. Se observaclaramente el mayor detalle comparado con las observaciones de *Planck* en @fig-planck-orion.](herschel-orion-b.jpg){#fig-herschel-orion-b fig-alt="Mapa de Orión B obtenido por *Herschel*."}
+![Observaciones de la nube molecular Orión B (la gran nebulosa de Orión) por el telescopio *Herschel*. Se observaclaramente el mayor detalle comparado con las observaciones de *Planck* en @fig-planck-orion. Copyright: [ESA/Herschel/Ph. André, D. Polychroni, A. Roy, V. Könyves, N. Schneider for the Gould Belt survey Key Programme.](https://www.esa.int/ESA_Multimedia/Images/2013/08/Orion_A)](herschel-orion-b.jpg){#fig-herschel-orion-b fig-alt="Mapa de Orión B obtenido por *Herschel*."}
 
 :::
 
