@@ -2,22 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://drabreu.github.io/web/blog.html</loc>
-    <lastmod>2023-11-09T17:59:47.814Z</lastmod>
+    <lastmod>2023-11-10T10:49:59.003Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</loc>
-    <lastmod>2023-11-09T17:59:47.240Z</lastmod>
+    <loc>https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/index.html</loc>
+    <lastmod>2023-11-10T10:49:58.410Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/cv.html</loc>
-    <lastmod>2023-11-09T17:59:45.883Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drabreu.github.io/web/index.html</loc>
-    <lastmod>2023-11-09T17:59:42.985Z</lastmod>
+    <loc>https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/index.html</loc>
+    <lastmod>2023-11-10T10:49:56.627Z</lastmod>
   </url>
   <url>
     <loc>https://drabreu.github.io/web/blog-es.html</loc>
-    <lastmod>2023-11-09T17:59:43.401Z</lastmod>
+    <lastmod>2023-11-10T10:49:53.113Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/index.html</loc>
+    <lastmod>2023-11-10T10:49:52.588Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/cv.html</loc>
+    <lastmod>2023-11-10T10:49:55.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</loc>
+    <lastmod>2023-11-10T10:49:57.679Z</lastmod>
   </url>
 </urlset>

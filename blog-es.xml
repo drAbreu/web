@@ -10,7 +10,95 @@
 <atom:link href="https://drabreu.github.io/web/blog-es.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Tue, 31 Oct 2023 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 01 Nov 2023 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Paleontología Galáctica: desenterramos una tela de araña galáctica</title>
+  <dc:creator>Dr. Jorge Abreu-Vicente</dc:creator>
+  <link>https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Post basado <span class="citation" data-cites="Abreu_Vicente_2016">(Abreu-Vicente et&nbsp;al. 2016)</span>. Artículo de divulgación sobre este trabajo y con autoría de Dr.&nbsp;Jorge Abreu Vicente apareció indicado en la portada del <a href="https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/">número de marzo de 2022 de la revista astronomía</a>.</p>
+<section id="herschel-revela-que-los-filamentos-son-prevalentes-en-las-nubes-moleculares-y-los-lugares-preferenciales-de-formación-estelar" class="level1">
+<h1><em>Herschel</em> revela que los filamentos son prevalentes en las nubes moleculares, y los lugares preferenciales de formación estelar</h1>
+<p>El campo de la formación estelar ha vivido recientemente una nueva juventud gracias a las observaciones de infrarrojo con los telescopios espaciales <em>Herschel</em> y <em>Spitzer</em>. Hasta su lanzamiento, los astrónomos sabíamos ya que las estrellas se forman en las zonas más densas y frías del Universo: las nubes moleculares <span class="citation" data-cites="Abreu_Vicente_blog_atlastgal">(Jorge Abreu-Vicente 2023)</span>. Sin embargo, <em>Herschel</em> dio una nueva y más detallada visión de éste hecho.</p>
+<p><em>Herschel</em> reveló que las estrellas se forman principalmente en el interior de estructuras de forma filamentaria dentro de nubes moleculares. Las dimensiones típicas de dichos filamentos son de longitudes de entre 1 y 30 años luz y masas de unas 1000 veces la de nuestro Sol (estos filamentos tendrían la posibilidad de crear varios centenares de estrellas cómo la nuestra). Con dicha revelación quedó claro que los filamentos son una parte clave de la formación estelar y de la evolución de nubes moleculares dónde ésta tiene lugar.</p>
+<div id="fig-protostars-in-filaments" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/protostars-in-filaments.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Estrellas en formación dentro de un filamento en Orión."></p>
+<figcaption class="figure-caption">Figura&nbsp;1: Imágenes infrarrojas obtenidas en Kitt Peak National Observatory (izquierda) y con el telescopio espacial Spitzer (NASA) de una joven protoestrella en la región de formación estelar de Orión. Los oscuros filamentos en el centro de la imagen contienen fuentes rojas que son generadas por estrellas en formación. El panel que muestra HOPS 383, demuestra la emisión variable de dicha protoestrella. Dicho comportamiento es predicho por las teorías de formación estelar. Imagen y fuente: E. Safron et al.; Fondo: NASA/JPL-Caltech/Univ. of Toledo)</figcaption>
+</figure>
+</div>
+</section>
+<section id="nessie-desafía-nuestro-entendimiento-del-medio-interestelar" class="level1">
+<h1><em>Nessie</em> desafía nuestro entendimiento del medio interestelar</h1>
+<p>Recientemente se ha descubierto una estructura filamentaria, bautizada como <em>Nessie</em> <span class="citation" data-cites="nessie">(Jackson et&nbsp;al. 2010)</span>, con una longitud de 240 años luz y una masa total de 42000 soles! Este descubrimiento ha dejado boquiabiertos a los astrónomos debido a su clara desviación del resto de estructuras filamentarias conocidas hasta la fecha. Sin embargo, impactó aún más en la comunidad astrofísica teórica. Y es que siguiendo las actuales teorías sobre formación estelar y estructura de nubes moleculares, un filamento de tal magnitud debería colapsar gravitacionalmente sobre su eje longitudinal de una forma tan rápida que su observación no debería ser posible.</p>
+<div id="fig-nessie" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/nessie.png" class="img-fluid figure-img" style="width:100.0%" alt="Filamento *Nessie*."></p>
+<figcaption class="figure-caption">Figura&nbsp;2: El filamento Nessie aparece en esta imagen como una negra serpentina sobre el fondo verde de la imagen infrarroja del telescopio espacial <em>Spitzer</em>.</figcaption>
+</figure>
+</div>
+<p>Las preguntas llegan solas: están las observaciones equivocadas? Quizá debemos revisar nuestras teorías de formación estelar? Es <em>Nessie</em> un caso especial o podremos encontrar más estructuras en nuestra galaxia si buscamos por ellas? Una característica muy interesante de Nessie es que las observaciones muestran que es parte de uno de los brazos espirales de la Vía Láctea. Si hubiera una red de filamentos similares y dado que las estrellas se forman en filamentos, podríamos estar ante el inicio de la respuesta a la elusiva pregunta de cómo se forman las estrellas en el contexto galáctico? En otras palabras, qué procesos conducen la formación estelar a escalas galácticas? Este artículo está dirigido al primer paso necesario para contestar todas estas preguntas. Otear la Vía Láctea en busca de estructuras similares a Nessie.</p>
+</section>
+<section id="el-primer-censo-galáctico-de-filamentos-gigantes" class="level1">
+<h1>El primer censo galáctico de filamentos gigantes</h1>
+<p>En el artículo mostramos el descubrimiento de otras 16 estructuras similares a Nessie (Este post tiene carácter divulgador. Para detalles en cómo descubrir las estructuras, <span class="citation" data-cites="Abreu_Vicente_2016">(Abreu-Vicente et&nbsp;al. 2016)</span>). Por lo que demostramos que <em>Nessie</em> no está sólo en este mundo. Las estructuras reveladas por nuestro trabajo tienen tamaños de hasta 500 años luz y contienen la masa de hasta 100000 soles como el nuestro. Sin embargo, nuestro trabajo muestra que dichas estructuras no se encuentran únicamente en los brazos espirales, sino que pueden aparecer también en regiones no asociadas a brazos espirales.</p>
+<div id="fig-distribucion-filamentos" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/filaments-in-galaxy.png" class="img-fluid figure-img" style="width:100.0%" alt="Distribución de los filamentos gigantes en la Vía Láctea."></p>
+<figcaption class="figure-caption">Figura&nbsp;3: Distribución de los filamentos gigantes descubiertos hasta la fecha de publicación del artículo, situados sobre un esquema teórico/empírico de la distribución de brazos espirales de la Vía Láctea. Los filamentos negros pertenecen a uestro trabajo, mientras que el verde es Nessie, y los otros colores pertenecen a otros filamentos encontrados por trabajos y métodos. Referimos al artículo para las referencias de los otros trabajos.</figcaption>
+</figure>
+</div>
+<p>Estos resultados dejan otra pregunta clara: hay diferencias fundamentales en las propiedades de los filamentos gigantes dependiendo de si se hallan o no en los brazos espirales? Nuestros cálculos muestran claramente que los filamentos gigantes asociados a brazos espirales tienen mucho mayor potencial para la formación de estrellas. En otras palabras, los filamentos en los brazos tienen mayores masas concentradas a alta densidad. Para entender esta afirmación, leer <span class="citation" data-cites="Abreu_Vicente_blog_atlastgal">(Jorge Abreu-Vicente 2023)</span> en dónde mostramos la relación directa entre gas denso y capacidad de formación estelar.</p>
+<p>Hasta ahora, nos hemos centrado en la Vía Láctea. Sin embargo, debido a formar parte de ella, nuestra visión no es tan directa cómo podría serlo si pudiéramos observar la Galaxia desde su zénit. Como no podemos hacerlo por razones técnicas, veamos qué encontramos en otras galaxias, y si las observaciones corroboran nuestros resultados en la Vía Láctea. En el proyecto PAWS <span class="citation" data-cites="paws">(Schinnerer et&nbsp;al. 2013)</span>, se han hecho cuidadosas observaciones de las nubes moleculares de la galaxia M51 (Figura&nbsp;4). En ellas, se pueden observar infinidad de estructuras filamentarias similares a <em>Nessie</em> y nuestros filamentos gigantes. Tras llevar a cabo una serie de cálculos con sus datos, los resultados sugieren que la tendencia a mayor potencial de formación estelar en los filamentos de brazos espirales se mantiene en galaxias cercanas (al menos en M51).</p>
+<p>Queda ahora en manos de la comunidad científica seguir adelante con estos resultados y generar nuevas observaciones para finalmente revelar el secreto de la formación estelar a escala galáctica. Y, por extensión, de la evolución de nubes moleculares a escalas de galaxias enteras. Desafortunadamente, las observaciones necesarias requieren niveles de detalle y nitidez extremos, accesibles probablemente solo a telescopios como ALMA. Y esto presenta una serie de desafíos que sugieren que nuestra búsqueda necesitará al menos una década para llegar a buen puerto.</p>
+<div id="fig-paws" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/m51-paws.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Galaxia M51 observada por el proyecto PAWS."></p>
+<figcaption class="figure-caption">Figura&nbsp;4: En azul se muestran las nubes moleculares de la galaxia M51: el material necesario para la formación de nuevas estrellas. La emisión molecular fue medida con el telescopio IRAM 30m. Fuente: PAWS Team/IRAM/NASA HST/T. A. Rector (University of Alaska Anchorage)</figcaption>
+</figure>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Abreu_Vicente_2016" class="csl-entry">
+Abreu-Vicente, J., S. Ragan, J. Kainulainen, Th. Henning, H. Beuther, y K. Johnston. 2016. <span>«Giant molecular filaments in the Milky Way»</span>. <em>Astronomy <span>&amp;</span> Astrophysics</em> 590 (mayo): A131. <a href="https://doi.org/10.1051/0004-6361/201527674">https://doi.org/10.1051/0004-6361/201527674</a>.
+</div>
+<div id="ref-nessie" class="csl-entry">
+Jackson, James M., Susanna C. Finn, Edward T. Chambers, Jill M. Rathborne, y Robert Simon. 2010. <span>«<span>The <span>“Nessie”</span> Nebula: Cluster Formation in a Filamentary Infrared Dark Cloud</span>»</span> 719 (2): L185-89. <a href="https://doi.org/10.1088/2041-8205/719/2/L185">https://doi.org/10.1088/2041-8205/719/2/L185</a>.
+</div>
+<div id="ref-Abreu_Vicente_blog_atlastgal" class="csl-entry">
+Jorge Abreu-Vicente, Dr. 2023. <span>«Revelando el causante de la formación estelar»</span>. 31 de octubre de 2023. <a href="https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/">https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/</a>.
+</div>
+<div id="ref-paws" class="csl-entry">
+Schinnerer, Eva, Sharon E. Meidt, Jérôme Pety, Annie Hughes, Dario Colombo, Santiago Garcı́a-Burillo, Karl F. Schuster, et&nbsp;al. 2013. <span>«<span>The PdBI Arcsecond Whirlpool Survey (PAWS). I. A Cloud-scale/Multi-wavelength View of the Interstellar Medium in a Grand-design Spiral Galaxy</span>»</span> 779 (1): 42. <a href="https://doi.org/10.1088/0004-637X/779/1/42">https://doi.org/10.1088/0004-637X/779/1/42</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{jorge abreu-vicente2023,
+  author = {Jorge Abreu-Vicente, Dr.},
+  title = {Paleontología Galáctica: desenterramos una tela de araña
+    galáctica},
+  date = {2023-11-02},
+  url = {https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/},
+  langid = {es}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-jorge abreu-vicente2023" class="csl-entry quarto-appendix-citeas">
+Jorge Abreu-Vicente, Dr. 2023. <span>“Paleontología Galáctica:
+desenterramos una tela de araña galáctica.”</span> November 2, 2023. <a href="https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/">https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/</a>.
+</div></div></section></div> ]]></description>
+  <category>Ciencia</category>
+  <category>Astronomía</category>
+  <category>Formación Estelar</category>
+  <category>Tesis doctoral</category>
+  <guid>https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/index.html</guid>
+  <pubDate>Wed, 01 Nov 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/nessie.png" medium="image" type="image/png" height="49" width="144"/>
+</item>
 <item>
   <title>Obteniendo la mejor imagen en infrarrojo lejano de la Vía Láctea</title>
   <dc:creator>Dr. Jorge Abreu-Vicente</dc:creator>
@@ -94,7 +182,7 @@ Importante
 <div id="fig-planck-orion" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/planck-orion-complex.jpg" class="img-fluid figure-img" style="width:100.0%" alt="Mapa de Orión obtenido por *Planck*."></p>
-<figcaption class="figure-caption">Figura&nbsp;2: Observaciones del complejo molecular de Orión por el telescopio <em>Planck</em>. Las líneas corresponden a polarización de la luz.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;2: Observaciones del complejo molecular de Orión por el telescopio <em>Planck</em>. Las líneas corresponden a polarización de la luz. (Credit: <a href="https://sci.esa.int/web/planck/-/55911-polarised-emission-from-orion-annotated">ESA and the Planck Collaboration</a>)</figcaption>
 </figure>
 </div>
 <div class="quarto-layout-panel">
@@ -103,7 +191,7 @@ Importante
 <div id="fig-herschel-orion-a" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/herschel-orion-a.jpg" class="img-fluid figure-img" alt="Mapa de Orión A obtenido por *Herschel*."></p>
-<figcaption class="figure-caption">Figura&nbsp;3: Observaciones de la nube molecular Orión A (la gran nebulosa de Orión) por el telescopio <em>Herschel</em>. Se observaclaramente el mayor detalle comparado con las observaciones de <em>Planck</em> en Figura&nbsp;2.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;3: Observaciones de la nube molecular Orión A (la gran nebulosa de Orión) por el telescopio <em>Herschel</em>. Se observaclaramente el mayor detalle comparado con las observaciones de <em>Planck</em> en Figura&nbsp;2. <a href="https://sci.esa.int/web/herschel/-/59534-herschel-s-view-of-orion-b">Copyright: ESA/Herschel/NASA/JPL-Caltech, CC BY-SA 3.0 IGO; Acknowledgement: R. Hurt (JPL-Caltech)</a></figcaption>
 </figure>
 </div>
 </div>
@@ -111,7 +199,7 @@ Importante
 <div id="fig-herschel-orion-b" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <p><img src="https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/herschel-orion-b.jpg" class="img-fluid figure-img" alt="Mapa de Orión B obtenido por *Herschel*."></p>
-<figcaption class="figure-caption">Figura&nbsp;4: Observaciones de la nube molecular Orión B (la gran nebulosa de Orión) por el telescopio <em>Herschel</em>. Se observaclaramente el mayor detalle comparado con las observaciones de <em>Planck</em> en Figura&nbsp;2.</figcaption>
+<figcaption class="figure-caption">Figura&nbsp;4: Observaciones de la nube molecular Orión B (la gran nebulosa de Orión) por el telescopio <em>Herschel</em>. Se observaclaramente el mayor detalle comparado con las observaciones de <em>Planck</em> en Figura&nbsp;2. Copyright: <a href="https://www.esa.int/ESA_Multimedia/Images/2013/08/Orion_A">ESA/Herschel/Ph. André, D. Polychroni, A. Roy, V. Könyves, N. Schneider for the Gould Belt survey Key Programme.</a></figcaption>
 </figure>
 </div>
 </div>
@@ -171,6 +259,139 @@ infrarrojo lejano de la Vía Láctea.”</span> November 1, 2023. <a href="https
   <guid>https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</guid>
   <pubDate>Tue, 31 Oct 2023 23:00:00 GMT</pubDate>
   <media:content url="https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/herschel-main-pic.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Revelando el causante de la formación estelar</title>
+  <dc:creator>Dr. Jorge Abreu-Vicente</dc:creator>
+  <link>https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Basado en el trabajo <span class="citation" data-cites="Abreu_Vicente_2015">(Abreu-Vicente et&nbsp;al. 2015)</span></p>
+<section id="la-relación-entre-formación-estelar-y-densidad-en-nubes-moleculares" class="level1">
+<h1>La relación entre formación estelar y densidad en nubes moleculares</h1>
+<p>Las estrellas nacen en las regiones más frías y densas de las nubes moleculares, que son a su vez la estructura predominante que llena el espacio entre estrellas (el medio interestelar). Esto es un hecho empírico, comprobado por numerosos trabajos que se extienden en décadas de estudio.</p>
+<p>Las nubes moleculares generan estrellas que, a su vez, modifican el material del que fueron creadas para enviarlo de vuelta al medio interestelar, que formará nuevas estrellas reciclando así el material de las mismas. Por esta razón, <font color="#df6919"><strong>las nubes moleculares tienen un papel principal en la evolución galáctica</strong></font>. Es por ello que el estudio de la evolución de nubes moleculares es de gran interés para la comunidad científica.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No sólo las estrellas se forman de material reciclado de previas generaciones, sino que todos los átomos de toda la materia que ves en La Tierra (incluidos tu y yo) han formado en algún momento de la historia del Universo parte de una estrella y posteriormente se han encontrado a temperaturas inferiores a los 200 bajo cero, en la nube molecular en que nuestro Sol se formó.</p>
+</div>
+</div>
+<p>La estructura interna de las nubes moleculares se puede usar para inferir los procesos físicos que actúan sobre ellas <span class="citation" data-cites="Hennebelle_2012">(Hennebelle y Falgarone 2012)</span>. Las observaciones muestran que las nubes moleculares están formadas por una serie de núcleos densos, envueltos normalmente en una estructuras filamentarias de densidad ligeramente menor <span class="citation" data-cites="Abreu_Vicente_2016">Jorge Abreu-Vicente (2023)</span>. Todo ello, envuelto en un material más difuso (menos denso) que domina la gran escala de las nubes moleculares. Los núcleos son los lugares en que tiene lugar la formación estelar. Tienen tamaños que rondan el medio año luz, masas entre 0.1 y 1000 veces la del Sol y temperaturas en torno a los 250 - 260 grados centígrados bajo cero.</p>
+</section>
+<section id="la-necesidad-de-un-estudio-sistemático-de-nubes-moleculares" class="level1">
+<h1>La necesidad de un estudio sistemático de nubes moleculares</h1>
+<p>Las principales diferencias entre estos núcleos, filamentos y material difuso son sus densidades (mayor en núcleos y menor en zonas difusas) y sus temperaturas, que crecen en forma inversa a su densidad. La distribución de densidad de dichos elementos y de las nubes moleculares como un todo se puede usar para estudiar los procesos físicos que actúan sobre ellas, así como la relativa importancia de los mismos. En el trabajo presentado en este post, hacemos el primer estudio sistemático de distribución de densidades en nubes moleculares a través de la Vía Láctea.</p>
+<p>Anterior a este trabajo, sólo la distribución de densidades de nubes moleculares en la vecindad solar ( un círculo de unos 3000 años luz de diámetro con el Sol en su centro) había sido profundamente estudiada <span class="citation" data-cites="jouni09">Kainulainen y Tan (2013)</span>. Las razones son principalmente limitaciones técnicas en los métodos de medida de densidad <span class="citation" data-cites="Abreu_Vicente_2015">(para más detalles, Abreu-Vicente et&nbsp;al. 2015)</span>. El problema de las nubes moleculares en la vecindad solar es que no son representativas de las nubes moleculares existentes por regla general en la Vía Láctea, por lo que no podemos generalizar los resultados encontrados. Para dar una idea, las nubes moleculares en nuestro entorno forman muy pocas estrellas, principalmente de baja masa, y tienen masas de unas 1000 veces la solar []. La nube molecular media en nuestra Galaxia tiene gran actividad de formación estelar de alta y baja masa y masas de entre cien mil y un millón soles.</p>
+<p>Por estas razones, el objetivo de este trabajo es obtener el primer estudio sistemático de la relación entre distribución de densidad en nubes moleculares y formación estelar a escalas galácticas. De esta forma, podríamos finalmente extrapolar los resultados a un escenario más general. Con estos resultados podremos poner a prueba los paradigmas teóricos actuales sobre los procesos que generan la formación estelar. Los escenarios más concretos son: gravedad, turbulencia y, en menor medida, campos magnéticos.</p>
+<p>Los trabajos anteriores muestran que la distribución de densidad en nubes moleculares con y sin actividad de formación estelar son fundamentalmente diferentes <span class="citation" data-cites="jouni09">Schneider et&nbsp;al. (2013)</span>. Las nubes moleculares con formación estelar muestran mayores cantidades de material concentrado en zonas densas. Esto se puede ver en la Figura&nbsp;1, en la que las nubes sin formación estelar activa (quiescent en inglés) tienen una distribución de densidades de forma log-normal, mientras que las nubes activas, como Tauro, muestran un claro exceso de material sobre la línea log-normal (en sólido) en la zona derecha de la gráfica que representa regiones densas.</p>
+<p>Lo interesante de estos resultados se centra en la forma analítica de las funciones. Las simulaciones teóricas muestran que una nube molecular en la que la turbulencia del gas es el principal proceso físico evoluciona de forma en que su distribución de densidades sigue una función log-normal <span class="citation" data-cites="vs94">Lombardi, Alves, y Lada (2015)</span>. Por el contrario, nubes moleculares dominadas por gravedad tienen una distribución exponencial, similar a la “línea recta” mostrada por Lupus a altas densidades. Estos resultados sugieren que, al menos en las nubes cercanas al sol: la turbulencia domina la evolución de nubes moleculares sin formación estelar, mientras que la gravedad es el proceso dominante en las nubes con fomación estelar.</p>
+<div id="fig-jouni" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/pdfs-jouni.png" class="img-fluid figure-img" style="width:100.0%" alt="Distribución de densidades de dos nubes moleculares de la vecindad solar."></p>
+<figcaption class="figure-caption">Figura&nbsp;1: Distribución de densidades de dos nubes moleculares de la vecindad solar. A la izquierda, Lupus sin formación estelar activa y a la derecha Tauro, con formación estelar activa. La distribución de densidades de Lupus sigue una función log-normal (línea sólida), mientras que la de Tauro representa una clara desviación en exceso de dicha función. Fuente: <span class="citation" data-cites="jouni09">(Kainulainen et&nbsp;al. 2009)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="observar-nubes-moleculares-en-distintos-estados-evolutivos-revela-los-procesos-físicos-que-dominan-la-evolución" class="level1">
+<h1>Observar nubes moleculares en distintos estados evolutivos revela los procesos físicos que dominan la evolución</h1>
+<p>En este trabajo, definimos tres tipos de nubes moleculares basándonos en su actividad de formación estelar: nubes tranquilas (sin formación), nubes en activa formación y regiones HII. Las últimas, son nubes en las que la formación estelar ha tendo lugar durante los últimos pocos millones de años. En ellas, las nuevas estrellas, mediante su radiación ultravioleta, han ionizado y deformado por completo a sus nubes madre.</p>
+<p>Es importante hacer notar que la elección de tipos de nubes moleculares en este trabajo está justificada por su lógica (aunque no confirmada observacionalmente, pues requeriría al menos un millón de años de espera) secuencia evolutiva: las nubes están primero en un estado tranquilo, para luego comenzar a formar estrellas, hasta que estrellas masivas se forman y con su radiación de etapas tempranas disuelven la nube molecular. En el artículo se discuten en profundidad las posibles explicaciones y escepciones de dicha secuencia evolutiva. En la Figura&nbsp;2 mostramos un ejemplo de cada uno de estos objetos.</p>
+<div id="fig-evol-stages" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/gmcs-evolved.png" class="img-fluid figure-img" style="width:100.0%" alt="Distribución de densidades de dos nubes moleculares de la vecindad solar."></p>
+<figcaption class="figure-caption">Figura&nbsp;2: Arriba izquierda, ejemplo de nube molecular sin actividad de formación estelar (tranquila). Debajo, nube molecular en la que estrellas se estan formando de manera activa (fuentes puntuales rojas sobre el fondo oscuro que es la nube molecular). Arriba a la derecha se muestra una región HII. Fuente: Telescopio espacial Spitzer.</figcaption>
+</figure>
+</div>
+<p>Los resultados de nuestro trabajo muestran que las nubes moleculares galácticas muestran una distribución de densidades similar a las de la vecindad solar en función de su actividad de fundación estelar. Las nubes tranquilas siguen una función log-normal. Las nubes con formación estelar activa muestran exceso de gas en regiones densas comparado con la log-normal. Finalmente, las regiones HII están dominadas por un componente exponencial en practicamente su totalidad.</p>
+<p>Tras este resultado, la cuestión que vino a la mente fue la siguiente: Asumamos que nuestros tres tipos de nubes muestran siguen un proceso evolutivo secuencial. En otras palabras, toda nube molecular evolucionará de tranquila a HII, pasando por el estado intermedio. Y los resultados muestran un incremento paulatino del gas denso en dicha secuencia. Podríamos usar la cantidad de gas denso de una nube molecular para determinar su edad basándonos en su distribución de densidades?</p>
+<p>Y la respuesta resultó ser que sí se puede. Las simulaciones muestran que en una nube dominada por la gravedad, el punto en que su distribución de densidades se desvía de la función log-normal está directamente relacionado con la edad de la nube <span class="citation" data-cites="girich14">(Girichidis et&nbsp;al. 2014)</span>. O al menos la edad desde que la gravedad comenzó a dominar ciertas regiones de la nube. Tras llevar a cabo rigurosos cálculos, llegamos a la conclusión de que la media de edad de nuestras nubes tranquilas es de cien mil años, las nubes con formación estelar tienen una media de edad de medio millón de años, mientras que las regiones HII tendrían unos 2 años de edad de media. Dichos valores son remarcablemente similares a estimaciones hechas con métodos totalmente independientes para núcleos de formación, protoestrellas y estrellas masivas, que son los elementos principales de nuestras tres regiones. Este hecho da una solidez importante a nuestro descubrimiento. Por tanto, <font color="#df6919"><strong>podemos afirmar que existe una relación entre la formación estelar, la distribución de densidad y la evolución de las nubes moleculares, y que ésta es vista en nubes esparcidas por todo el plano galáctico</strong></font>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nuestro trabajo sugiere el siguiente marco teórico para la evolución de nubes moleculares y formación estelar: en sus primeros cien mil años, las nubes moleculares se hallan en un estado dominado por turbulencia. En un determinado momento, la turbulencia generará zonas de gas con mayor densidad que sus alrededores. Estas regiones se convertirán en auto gravitatorias y comenzarán el colapso hacia la formación estelar, mientras el resto de la nube continúa en un estado dominado por la turbulencia. Este proceso continuará y paulatinamente se generarán más y más zonas de autogravitación. Evenualmente se generarán estrellas masivas que en su juventud disolverán la nube madre. Por lo tanto, vemos que la turbulencia y la gravedad se turnan durante la vida de una nube molecular. Sin embargo, es últimamente la gravedad la causante de la formación estelar.</p>
+</div>
+</div>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Referencias</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Abreu_Vicente_2015" class="csl-entry">
+Abreu-Vicente, J., J. Kainulainen, A. Stutz, Th. Henning, y H. Beuther. 2015. <span>«Relationship between the column density distribution and evolutionary class of molecular clouds as viewed by ATLASGAL»</span>. <em>Astronomy <span>&amp;</span> Astrophysics</em> 581 (septiembre): A74. <a href="https://doi.org/10.1051/0004-6361/201424959">https://doi.org/10.1051/0004-6361/201424959</a>.
+</div>
+<div id="ref-Abreu_Vicente_2016" class="csl-entry">
+Abreu-Vicente, J., S. Ragan, J. Kainulainen, Th. Henning, H. Beuther, y K. Johnston. 2016. <span>«Giant molecular filaments in the Milky Way»</span>. <em>Astronomy <span>&amp;</span> Astrophysics</em> 590 (mayo): A131. <a href="https://doi.org/10.1051/0004-6361/201527674">https://doi.org/10.1051/0004-6361/201527674</a>.
+</div>
+<div id="ref-federrath13" class="csl-entry">
+Federrath, Christoph, y Ralf S. Klessen. 2013. <span>«<span>On the Star Formation Efficiency of Turbulent Magnetized Clouds</span>»</span> 763 (1): 51. <a href="https://doi.org/10.1088/0004-637X/763/1/51">https://doi.org/10.1088/0004-637X/763/1/51</a>.
+</div>
+<div id="ref-girich14" class="csl-entry">
+Girichidis, Philipp, Lukas Konstandin, Anthony P. Whitworth, y Ralf S. Klessen. 2014. <span>«<span>On the Evolution of the Density Probability Density Function in Strongly Self-gravitating Systems</span>»</span> 781 (2): 91. <a href="https://doi.org/10.1088/0004-637X/781/2/91">https://doi.org/10.1088/0004-637X/781/2/91</a>.
+</div>
+<div id="ref-Hennebelle_2012" class="csl-entry">
+Hennebelle, Patrick, y Edith Falgarone. 2012. <span>«Turbulent molecular clouds»</span>. <em>The Astronomy and Astrophysics Review</em> 20 (1). <a href="https://doi.org/10.1007/s00159-012-0055-y">https://doi.org/10.1007/s00159-012-0055-y</a>.
+</div>
+<div id="ref-Abreu_Vicente_blog_filaments" class="csl-entry">
+Jorge Abreu-Vicente, Dr. 2023. <span>«Paleontología Galáctica: desenterramos una tela de araña galáctica»</span>. 2 de noviembre de 2023. <a href="https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/">https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/</a>.
+</div>
+<div id="ref-jouni09" class="csl-entry">
+Kainulainen, J., H. Beuther, T. Henning, y R. Plume. 2009. <span>«<span>Probing the evolution of molecular cloud structure. From quiescence to birth</span>»</span> 508 (3): L35-38. <a href="https://doi.org/10.1051/0004-6361/200913605">https://doi.org/10.1051/0004-6361/200913605</a>.
+</div>
+<div id="ref-Kainulainen_2013" class="csl-entry">
+Kainulainen, J., C. Federrath, y T. Henning. 2013. <span>«Connection between dense gas mass fraction, turbulence driving, and star formation efficiency of molecular clouds»</span>. <em>Astronomy <span>&amp;</span> Astrophysics</em> 553 (mayo): L8. <a href="https://doi.org/10.1051/0004-6361/201321431">https://doi.org/10.1051/0004-6361/201321431</a>.
+</div>
+<div id="ref-Kainulainen_2013_b" class="csl-entry">
+Kainulainen, J., y J. C. Tan. 2013. <span>«<span>High-dynamic-range extinction mapping of infrared dark clouds. Dependence of density variance with sonic Mach number in molecular clouds</span>»</span> 549 (enero): A53. <a href="https://doi.org/10.1051/0004-6361/201219526">https://doi.org/10.1051/0004-6361/201219526</a>.
+</div>
+<div id="ref-lomb15" class="csl-entry">
+Lombardi, Marco, João Alves, y Charles J. Lada. 2015. <span>«<span>Molecular clouds have power-law probability distribution functions</span>»</span> 576 (abril): L1. <a href="https://doi.org/10.1051/0004-6361/201525650">https://doi.org/10.1051/0004-6361/201525650</a>.
+</div>
+<div id="ref-Schneider_2013" class="csl-entry">
+Schneider, N., Ph. André, V. Koenyves, S. Bontemps, F. Motte, C. Federrath, D. Ward-Thompson, et&nbsp;al. 2013. <span>«What determines the density structure of molecular clouds ? A case study of Orion B with Herschel»</span>. <em>The Astrophysical Journal</em> 766 (2): L17. <a href="https://doi.org/10.1088/2041-8205/766/2/l17">https://doi.org/10.1088/2041-8205/766/2/l17</a>.
+</div>
+<div id="ref-vs94" class="csl-entry">
+Vazquez-Semadeni, Enrique. 1994. <span>«<span>Hierarchical Structure in Nearly Pressureless Flows as a Consequence of Self-similar Statistics</span>»</span> 423 (marzo): 681. <a href="https://doi.org/10.1086/173847">https://doi.org/10.1086/173847</a>.
+</div>
+<div id="ref-Vazquez_Semadeni_2001" class="csl-entry">
+Vazquez-Semadeni, Enrique, y Nieves Garcia. 2001. <span>«The Probability Distribution Function of Column Density in Molecular Clouds»</span>. <em>The Astrophysical Journal</em> 557 (2): 727-35. <a href="https://doi.org/10.1086/321688">https://doi.org/10.1086/321688</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Cómo citar</h2><div><div class="quarto-appendix-secondary-label">BibTeX</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{jorge abreu-vicente2023,
+  author = {Jorge Abreu-Vicente, Dr.},
+  title = {Revelando el causante de la formación estelar},
+  date = {2023-10-31},
+  url = {https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/},
+  langid = {es}
+}
+</code></pre><div class="quarto-appendix-secondary-label">Por favor, cita este trabajo como:</div><div id="ref-jorge abreu-vicente2023" class="csl-entry quarto-appendix-citeas">
+Jorge Abreu-Vicente, Dr. 2023. <span>“Revelando el causante de la
+formación estelar.”</span> October 31, 2023. <a href="https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/">https://drAbreu.github.io/es/posts/2023-10-31-revelando-causa-formacion-estelar/</a>.
+</div></div></section></div> ]]></description>
+  <category>Ciencia</category>
+  <category>Astronomía</category>
+  <category>Formación Estelar</category>
+  <category>Tesis doctoral</category>
+  <guid>https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/index.html</guid>
+  <pubDate>Mon, 30 Oct 2023 23:00:00 GMT</pubDate>
+  <media:content url="https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/orion-sf.png" medium="image" type="image/png" height="134" width="144"/>
 </item>
 </channel>
 </rss>
