@@ -49,3 +49,5 @@ Hasta ahora, nos hemos centrado en la Vía Láctea. Sin embargo, debido a formar
 Queda ahora en manos de la comunidad científica seguir adelante con estos resultados y generar nuevas observaciones para finalmente revelar el secreto de la formación estelar a escala galáctica. Y, por extensión, de la evolución de nubes moleculares a escalas de galaxias enteras. Desafortunadamente, las observaciones necesarias requieren niveles de detalle y nitidez extremos, accesibles probablemente solo a telescopios como ALMA. Y esto presenta una serie de desafíos que sugieren que nuestra búsqueda necesitará al menos una década para llegar a buen puerto.
 
 ![En azul se muestran las nubes moleculares de la galaxia M51: el material necesario para la formación de nuevas estrellas. La emisión molecular fue medida con el telescopio IRAM 30m. Fuente: PAWS Team/IRAM/NASA HST/T. A. Rector (University of Alaska Anchorage)](m51-paws.jpg){#fig-paws fig-align="center" fig-alt="Galaxia M51 observada por el proyecto PAWS." width=100%}
+
+
