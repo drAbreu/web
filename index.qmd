@@ -12,8 +12,6 @@ subtitle: |
 
     🖋 Writer 
 
-    👨‍👩‍👧 Father 
-
 format:
   html:
     page-layout: full
