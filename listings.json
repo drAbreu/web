@@ -1,8 +1,10 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/blog-en.html",
     "items": [
-      "/en/posts/2023-11-01/index.html"
+      "/en/posts/2023-11-02-giant-molecular-filaments/index.html",
+      "/en/posts/2023-11-01-best-fir-view-milky-way/index.html",
+      "/en/posts/2023-10-31-revealing-star-forming-trigger/index.html"
     ]
   },
   {
