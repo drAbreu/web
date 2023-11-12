@@ -10,7 +10,7 @@ author:
 date: 11-02-2023
 categories: [Ciencia, Astronomía, Formación Estelar, Tesis doctoral] # self-defined categories
 citation: 
-  url: https://drAbreu.github.io/es/posts/2023-11-02-filamentos-moleculares-gigantes/
+  url: https://drAbreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/
 image: "nessie.png"
 date-modified: 11-10-2023
 lang: es
