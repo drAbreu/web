@@ -11,7 +11,7 @@ date: 10-31-2023
 date-modified: 11-10-2023
 categories: [Science, Astronomy, Star Formation, PhD Thesis] # self-defined categories
 citation: 
-  url: https://drAbreu.github.io/es/posts/2023-10-31-revealing-star-forming-trigger/
+  url: https://drAbreu.github.io/en/posts/2023-10-31-revealing-star-forming-trigger/
 image: "orion-sf.png"
 image-alt: "*Herschel* observations of Orion. Credit: ESA / ESO."
 lang: es

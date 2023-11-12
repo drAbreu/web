@@ -11,7 +11,7 @@ date: 11-01-2023
 date-modified: 11-8-2023
 categories: [Science, Astronomy, Star Formation, PhD Thesis] # self-defined categories
 citation: 
-  url: https://drAbreu.github.io/es/posts/2023-11-01-best-fir-view-milky-way/ 
+  url: https://drAbreu.github.io/en/posts/2023-11-01-best-fir-view-milky-way/ 
 image: herschel-main-pic.jpg
 image-alt: "Artwork of *Herschel* against the galactic plane background. Credit: ESA - C. Carreau."
 lang: es

@@ -10,7 +10,7 @@ author:
 date: 11-02-2023
 categories: [Science, Astronomy, Star Formation, PhD Thesis] # self-defined categories
 citation: 
-  url: https://drAbreu.github.io/es/posts/2023-11-02-giant-molecular-filaments/
+  url: https://drAbreu.github.io/en/posts/2023-11-02-giant-molecular-filaments/
 image: "nessie.png"
 date-modified: 11-10-2023
 lang: es
