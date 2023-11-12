@@ -19,7 +19,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 bibliography: references.bib
 ---
 
-Basado en el trabajo [@Abreu_Vicente_2015]
+Basado en el trabajo [@Abreu_Vicente_2015]. [English version 🇬🇧🇺🇸](https://drAbreu.github.io/web/en/posts/2023-10-31-revealing-star-forming-trigger/)
 
 # La relación entre formación estelar y densidad en nubes moleculares
 

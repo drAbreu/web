@@ -19,7 +19,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 bibliography: references.bib
 ---
 
-Based on [@Abreu_Vicente_2015]
+Based on [@Abreu_Vicente_2015]. [Versión del post en español 🇪🇸](https://drAbreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/)
 
 # The relationship between star formation and density in molecular clouds
 

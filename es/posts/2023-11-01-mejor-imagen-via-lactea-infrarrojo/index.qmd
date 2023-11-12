@@ -29,7 +29,7 @@ Pensar si tengo que modificar el artículo.
 
 Quizás ensenar una foto de como planck y herschel ven la misma region del cielo -->
 
-Basado en el trabajo [@Abreu_Vicente_2017]
+Basado en el trabajo [@Abreu_Vicente_2017]. [English version 🇬🇧🇺🇸](https://drAbreu.github.io/web/en/posts/2023-11-01-best-fir-view-milky-way/)
 
 # Las nubes moleculares y los procesos inductores de formación estelar
 

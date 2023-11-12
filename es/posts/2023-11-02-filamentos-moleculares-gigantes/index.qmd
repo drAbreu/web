@@ -18,7 +18,9 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 bibliography: references.bib
 ---
 
-Post basado [@Abreu_Vicente_2016]. Artículo de divulgación sobre este trabajo y con autoría de Dr. Jorge Abreu Vicente apareció indicado en la portada del [número de marzo de 2022 de la revista astronomía](https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/). 
+Post basado [@Abreu_Vicente_2016]. [English version 🇬🇧🇺🇸](https://drAbreu.github.io/web/en/posts/2023-11-02-giant-molecular-filaments/)
+
+Artículo de divulgación sobre este trabajo y con autoría de Dr. Jorge Abreu Vicente apareció indicado en la portada del [número de marzo de 2022 de la revista astronomía](https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/). 
 
 # *Herschel* revela que los filamentos son prevalentes en las nubes moleculares, y los lugares preferenciales de formación estelar
 

@@ -19,7 +19,7 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 bibliography: references.bib
 ---
 
-Based on [@Abreu_Vicente_2017]
+Based on [@Abreu_Vicente_2017]. [Versión del post en español 🇪🇸](https://drAbreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/)
 
 # Molecular Clouds and the Processes Inducing Star Formation
 
