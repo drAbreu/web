@@ -1,18 +1,27 @@
 [
   {
     "listing": "/blog.html",
+    "items": []
+  },
+  {
+    "listing": "/proyectos.html",
     "items": [
-      "/en/posts/2023-11-02-giant-molecular-filaments/index.html",
-      "/en/posts/2023-11-01-best-fir-view-milky-way/index.html",
-      "/en/posts/2023-10-31-revealing-star-forming-trigger/index.html"
+      "/es/proyectos/2025-01-22-biochatter-plataforma-para-aplicacion-de-llms-a-investigacion-biomedica/index.html",
+      "/es/proyectos/2023-11-02-filamentos-moleculares-gigantes/index.html",
+      "/es/proyectos/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html",
+      "/es/proyectos/2023-10-31-revelando-causa-formacion-estelar/index.html"
     ]
   },
   {
     "listing": "/blog-es.html",
+    "items": []
+  },
+  {
+    "listing": "/featured_research.html",
     "items": [
-      "/es/posts/2023-11-02-filamentos-moleculares-gigantes/index.html",
-      "/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html",
-      "/es/posts/2023-10-31-revelando-causa-formacion-estelar/index.html"
+      "/en/projects/2023-11-02-giant-molecular-filaments/index.html",
+      "/en/projects/2023-11-01-best-fir-view-milky-way/index.html",
+      "/en/projects/2023-10-31-revealing-star-forming-trigger/index.html"
     ]
   }
 ]

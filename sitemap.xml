@@ -2,42 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://drabreu.github.io/web/blog.html</loc>
-    <lastmod>2023-11-12T16:16:11.180Z</lastmod>
+    <lastmod>2025-01-22T13:37:42.162Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/en/posts/2023-10-31-revealing-star-forming-trigger/index.html</loc>
-    <lastmod>2023-11-12T16:16:09.808Z</lastmod>
+    <loc>https://drabreu.github.io/web/en/projects/2023-10-31-revealing-star-forming-trigger/index.html</loc>
+    <lastmod>2025-01-22T13:37:41.159Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/index.html</loc>
-    <lastmod>2023-11-12T16:16:07.912Z</lastmod>
+    <loc>https://drabreu.github.io/web/es/proyectos/2023-11-02-filamentos-moleculares-gigantes/index.html</loc>
+    <lastmod>2025-01-22T13:37:38.267Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/es/posts/2023-10-31-revelando-causa-formacion-estelar/index.html</loc>
-    <lastmod>2023-11-12T16:16:06.185Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drabreu.github.io/web/blog-es.html</loc>
-    <lastmod>2023-11-12T16:16:02.583Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drabreu.github.io/web/index.html</loc>
-    <lastmod>2023-11-12T16:16:02.030Z</lastmod>
+    <loc>https://drabreu.github.io/web/es/proyectos/2025-01-22-biochatter-plataforma-para-aplicacion-de-llms-a-investigacion-biomedica/index.html</loc>
+    <lastmod>2025-01-22T13:37:36.540Z</lastmod>
   </url>
   <url>
     <loc>https://drabreu.github.io/web/cv.html</loc>
-    <lastmod>2023-11-12T16:16:05.280Z</lastmod>
+    <lastmod>2025-01-22T13:37:35.154Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/es/posts/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</loc>
-    <lastmod>2023-11-12T16:16:07.167Z</lastmod>
+    <loc>https://drabreu.github.io/web/index.html</loc>
+    <lastmod>2025-01-22T13:37:32.128Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/en/posts/2023-11-01-best-fir-view-milky-way/index.html</loc>
-    <lastmod>2023-11-12T16:16:08.876Z</lastmod>
+    <loc>https://drabreu.github.io/web/proyectos.html</loc>
+    <lastmod>2025-01-22T13:37:28.766Z</lastmod>
   </url>
   <url>
-    <loc>https://drabreu.github.io/web/en/posts/2023-11-02-giant-molecular-filaments/index.html</loc>
-    <lastmod>2023-11-12T16:16:10.607Z</lastmod>
+    <loc>https://drabreu.github.io/web/blog-es.html</loc>
+    <lastmod>2025-01-22T13:37:32.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/es/proyectos/2023-10-31-revelando-causa-formacion-estelar/index.html</loc>
+    <lastmod>2025-01-22T13:37:36.073Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/es/proyectos/2023-11-01-mejor-imagen-via-lactea-infrarrojo/index.html</loc>
+    <lastmod>2025-01-22T13:37:37.531Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/featured_research.html</loc>
+    <lastmod>2025-01-22T13:37:38.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/en/projects/2023-11-01-best-fir-view-milky-way/index.html</loc>
+    <lastmod>2025-01-22T13:37:40.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drabreu.github.io/web/en/projects/2023-11-02-giant-molecular-filaments/index.html</loc>
+    <lastmod>2025-01-22T13:37:41.859Z</lastmod>
   </url>
 </urlset>

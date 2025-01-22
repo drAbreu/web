@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Tu Nombre">
+<meta name="dcterms.date" content="2025-01-22">
+<meta name="description" content="Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial (AI) en investigación biomédica">
+
+<title>Dr.&nbsp;Jorge Abreu Vicente - BioChatter: Haciendo accesibles los grandes modelos de lenguaje para la investigación biomédica</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../_imgs/favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta name="twitter:title" content="Dr.&nbsp;Jorge Abreu Vicente - BioChatter: Haciendo accesibles los grandes modelos de lenguaje para la investigación biomédica">
+<meta name="twitter:description" content="Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial (AI) en investigación biomédica">
+<meta name="twitter:image" content="https://drabreu.github.io/web/es/proyectos/2025-01-22-biochatter-plataforma-para-aplicacion-de-llms-a-investigacion-biomedica/biochatter_image.webp">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../_imgs/favicon.ico" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Dr.&nbsp;Jorge Abreu Vicente</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
+ <span class="menu-text">Blog (🇬🇧🇺🇸)</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog-es.html" rel="" target="">
+ <span class="menu-text">Blog (🇪🇸)</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../featured_research.html" rel="" target="">
+ <span class="menu-text">Featured Research (🇬🇧🇺🇸)</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../proyectos.html" rel="" target="">
+ <span class="menu-text">Proyectos de investigación (🇪🇸)</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../cv.html" rel="" target="">
+ <span class="menu-text">CV</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://twitter.com/ElPuntoVernal" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/drAbreu" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/abreujorge-dataresearch/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:jorge.abreu@embo.org" rel="" target=""><i class="bi bi-envelope-at-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://ui.adsabs.harvard.edu/search/q=abreu-vicente&amp;sort=date%20desc%2C%20bibcode%20desc&amp;p_=0" rel="" target=""><i class="bi bi-journals" role="img">
+</i> 
+ <span class="menu-text">Publication record</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">BioChatter: Haciendo accesibles los grandes modelos de lenguaje para la investigación biomédica</h1>
+                  <div>
+        <div class="description">
+          Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial (AI) en investigación biomédica
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Investigación Biomédica</div>
+                <div class="quarto-category">Modelos de Lenguaje</div>
+                <div class="quarto-category">Inteligencia Artificial</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Tu Nombre </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 22, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#biochatter-haciendo-que-los-modelos-de-lenguaje-grandes-sean-accesibles-para-la-investigación-biomédica" id="toc-biochatter-haciendo-que-los-modelos-de-lenguaje-grandes-sean-accesibles-para-la-investigación-biomédica" class="nav-link active" data-scroll-target="#biochatter-haciendo-que-los-modelos-de-lenguaje-grandes-sean-accesibles-para-la-investigación-biomédica">BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica</a>
+  <ul class="collapse">
+  <li><a href="#presentando-un-marco-de-trabajo-de-código-abierto-para-la-investigación-biomédica-personalizada" id="toc-presentando-un-marco-de-trabajo-de-código-abierto-para-la-investigación-biomédica-personalizada" class="nav-link" data-scroll-target="#presentando-un-marco-de-trabajo-de-código-abierto-para-la-investigación-biomédica-personalizada">Presentando un marco de trabajo de código abierto para la investigación biomédica personalizada</a></li>
+  <li><a href="#qué-son-los-modelos-de-lenguaje-grandes-llms" id="toc-qué-son-los-modelos-de-lenguaje-grandes-llms" class="nav-link" data-scroll-target="#qué-son-los-modelos-de-lenguaje-grandes-llms">¿Qué son los modelos de lenguaje grandes (LLMs)?</a></li>
+  <li><a href="#interfaz-con-grafos-de-conocimiento-biomédicos-y-software" id="toc-interfaz-con-grafos-de-conocimiento-biomédicos-y-software" class="nav-link" data-scroll-target="#interfaz-con-grafos-de-conocimiento-biomédicos-y-software">Interfaz con grafos de conocimiento biomédicos y software</a></li>
+  <li><a href="#aplicaciones-reales" id="toc-aplicaciones-reales" class="nav-link" data-scroll-target="#aplicaciones-reales">Aplicaciones reales</a></li>
+  <li><a href="#financiación" id="toc-financiación" class="nav-link" data-scroll-target="#financiación">Financiación</a></li>
+  <li><a href="#artículo-original" id="toc-artículo-original" class="nav-link" data-scroll-target="#artículo-original">Artículo original</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+<section id="biochatter-haciendo-que-los-modelos-de-lenguaje-grandes-sean-accesibles-para-la-investigación-biomédica" class="level2">
+<h2 class="anchored" data-anchor-id="biochatter-haciendo-que-los-modelos-de-lenguaje-grandes-sean-accesibles-para-la-investigación-biomédica">BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica</h2>
+<section id="presentando-un-marco-de-trabajo-de-código-abierto-para-la-investigación-biomédica-personalizada" class="level3">
+<h3 class="anchored" data-anchor-id="presentando-un-marco-de-trabajo-de-código-abierto-para-la-investigación-biomédica-personalizada">Presentando un marco de trabajo de código abierto para la investigación biomédica personalizada</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="biochatter_image.webp" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica. Credito imagen: Karen Arnott/EMBL-EBI</figcaption>
+</figure>
+</div>
+<p><strong>Resumen</strong><br>
+- <strong>BioChatter</strong> es un marco de trabajo en Python, de código abierto, para emplear modelos de lenguaje grandes (LLMs) en investigación biomédica.<br>
+- <strong>BioChatter</strong> puede facilitar la creación de soluciones basadas en LLM para casos de uso específicos en biomedicina.<br>
+- Las soluciones de inteligencia artificial (IA) construidas con BioChatter pueden agilizar los flujos de trabajo de investigadores sin formación en computación, beneficiando áreas como la medicina personalizada y el descubrimiento de fármacos.</p>
+<!-- Embed the image in the post body -->
+<!-- ![BioChatter: making large language models accessible for biomedical research. Credit: Karen Arnott/EMBL-EBI](biochatter_image.webp) -->
+<hr>
+<p>Los modelos de lenguaje grandes (LLMs, por sus siglas en inglés) han transformado la forma en que muchos de nosotros trabajamos, desde ayudar en la creación de contenido y programación hasta mejorar los motores de búsqueda. Sin embargo, la falta de transparencia, reproducibilidad y personalización de estos modelos continúa siendo un desafío que limita su uso generalizado en la investigación biomédica.</p>
+</section>
+<section id="qué-son-los-modelos-de-lenguaje-grandes-llms" class="level3">
+<h3 class="anchored" data-anchor-id="qué-son-los-modelos-de-lenguaje-grandes-llms">¿Qué son los modelos de lenguaje grandes (LLMs)?</h3>
+<p>Los LLMs son sistemas de inteligencia artificial diseñados para procesar y generar texto de manera similar a como lo haría un ser humano, utilizando enormes cantidades de datos de entrenamiento. Son capaces de realizar tareas como generación de texto, traducción de idiomas, resumir información, responder preguntas y más.</p>
+<p>Para los investigadores biomédicos, optimizar LLMs para una pregunta de investigación específica puede resultar complicado, ya que requiere conocimientos de programación y aprendizaje automático. Estas barreras han reducido el uso de los LLMs en diversas tareas de investigación, incluyendo extracción y análisis de datos.</p>
+<p>Una nueva publicación en <a href="https://rdcu.be/d68Ih"><em>Nature Biotechnology</em></a> presenta <strong>BioChatter</strong> como una herramienta para superar estas limitaciones. BioChatter es un marco de trabajo en Python y de código abierto que permite implementar LLMs en la investigación biomédica, siguiendo los principios de la ciencia abierta. Para abordar las preocupaciones sobre privacidad y reproducibilidad que a menudo surgen con los modelos comerciales, BioChatter ofrece un marco para quienes buscan transparencia y flexibilidad en sus flujos de trabajo de LLM.</p>
+<blockquote class="blockquote">
+<p>“Los modelos de lenguaje grandes tienen un potencial enorme para transformar la investigación biomédica, al facilitar tareas complejas de análisis de datos,” comentó <strong>Julio Saez-Rodriguez</strong>, Director de Investigación en el Instituto Europeo de Bioinformática de EMBL (EMBL-EBI) y Profesor en excedencia en la Universidad de Heidelberg. “Sin embargo, para aprovechar esta tecnología al máximo, necesitamos herramientas que prioricen la transparencia y la reproducibilidad. BioChatter llena este vacío, permitiendo a los investigadores integrar las capacidades de los LLM en numerosas tareas biomédicas.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="interfaz-con-grafos-de-conocimiento-biomédicos-y-software" class="level3">
+<h3 class="anchored" data-anchor-id="interfaz-con-grafos-de-conocimiento-biomédicos-y-software">Interfaz con grafos de conocimiento biomédicos y software</h3>
+<p>BioChatter se puede adaptar a áreas de investigación específicas para extraer datos de bases biomédicas y literatura. Además, al instruir a los LLM para que utilicen software externo a través de la funcionalidad de llamadas a API (API-calling) de BioChatter, se facilita el acceso en tiempo real a información actualizada y la integración con herramientas de bioinformática.</p>
+<p>Una característica clave de BioChatter es su capacidad de integrarse con los grafos de conocimiento construidos por <strong>BioCypher</strong>. Estos grafos enlazan datos biomédicos como mutaciones genéticas, asociaciones fármaco-enfermedad y otra información clínica. De esta forma, se pueden analizar conjuntos de datos complejos para identificar variaciones genéticas en enfermedades o comprender los mecanismos de acción de fármacos.</p>
+<blockquote class="blockquote">
+<p>“BioChatter está diseñado para reducir las barreras de uso de modelos de lenguaje grandes en la investigación biomédica, ofreciendo un marco abierto y transparente que puede adaptarse a diversas necesidades,” explicó <strong>Sebastian Lobentanzer</strong>, investigador postdoctoral en el Hospital Universitario de Heidelberg y futuro investigador principal en Helmholtz Munich. “Nuestro objetivo es que los científicos se centren en su investigación y dejen las complejidades técnicas en manos de la plataforma.”</p>
+</blockquote>
+<hr>
+</section>
+<section id="aplicaciones-reales" class="level3">
+<h3 class="anchored" data-anchor-id="aplicaciones-reales">Aplicaciones reales</h3>
+<p>El siguiente paso para BioChatter es probar su integración en bases de datos de ciencias de la vida. El equipo detrás de BioChatter está colaborando estrechamente con <strong>Open Targets</strong>, una asociación público-privada que incluye a EMBL-EBI y que utiliza datos de genética y genómica humana para la identificación y priorización sistemática de dianas terapéuticas. Al integrar BioChatter en la plataforma de Open Targets, se podría optimizar el acceso y uso de los datos biomédicos por parte de los usuarios.</p>
+<p>El equipo también está desarrollando <strong>BioGather</strong>, un sistema complementario diseñado para extraer información de otros tipos de datos clínicos, como genómica, notas médicas e imágenes. Al ayudar a analizar y alinear estos datos, BioGather facilitará la investigación de problemas complejos en medicina personalizada, modelado de enfermedades y desarrollo de fármacos.</p>
+<hr>
+</section>
+<section id="financiación" class="level3">
+<h3 class="anchored" data-anchor-id="financiación">Financiación</h3>
+<p>Este trabajo ha sido apoyado por fondos de la Unión Europea a través del acuerdo de subvención Nº 101057619 y de la Secretaría de Estado de Educación, Investigación e Innovación de Suiza (SERI) bajo el contrato Nº 22.00115 (JB). Además, por el programa de investigación e innovación Horizonte 2020 de la Unión Europea bajo el acuerdo Nº 965193 para DECIDER (JSR), y por las becas U54AG075931 y R01DK138504 de los Institutos Nacionales de la Salud (NIH), así como por el Pelotonia Institute for Immuno-Oncology (QM).</p>
+<hr>
+</section>
+<section id="artículo-original" class="level3">
+<h3 class="anchored" data-anchor-id="artículo-original">Artículo original</h3>
+<p><strong>A platform for the biomedical application of large language models</strong><br>
+Lobentanzer S., et al.<br>
+<em>Nature Biotechnology, 22 de enero de 2025</em><br>
+<a href="https://doi.org/10.1038/s41587-024-02534-3">doi: 10.1038/s41587-024-02534-3</a></p>
+<p><strong>Etiquetas:</strong> inteligencia artificial, bioinformática, biomédica, embl-ebi, modelos de lenguaje grandes, open targets</p>
+<hr>
+<blockquote class="blockquote">
+<p><strong>Nota:</strong> Este texto ha sido traducido y adaptado al español para brindar una explicación clara y amigable a quienes deseen entender el propósito e importancia de BioChatter en la investigación biomédica. El texto original en inglés está adaptado de la [nota de prensa del EMBL-EBI](https://medicalxpress.com/news/2025-01-biochatter-large-language-accessible-biomedical.html</p>
+</blockquote>
+<p>https://www.ebi.ac.uk/about/news/research-highlights/biochatter-making-large-language-models-accessible-for-biomedical-research/</p>
+<p>https://bioengineer.org/biochatter-unlocking-access-to-large-language-models-for-biomedical-research/?fsp_sid=1499</p>
+<p>These are some of the press releases 🙂)</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ Copyright 2023, Dr. Jorge Abreu Vicente
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
