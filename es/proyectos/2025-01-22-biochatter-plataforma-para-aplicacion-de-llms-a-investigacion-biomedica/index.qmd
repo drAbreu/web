@@ -1,22 +1,28 @@
 ---
 title: "BioChatter: Haciendo accesibles los grandes modelos de lenguaje para la investigación biomédica"
-author: "Karen Arnott/EMBL-EBI, Traducido por J. Abreu-Vicente"
+author: "Tu Nombre"
 date: "2025-01-22"
-description: "Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial en investigación biomédica"
-categories: [Investigación Biomédica, Modelos de Lenguaje, Inteligencia Artificial, LLMs]
-format: html
+description: "Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial (AI) en investigación biomédica"
+categories: [Investigación Biomédica, Modelos de Lenguaje, Inteligencia Artificial]
+format: 
+  html:
+    toc: true
+image: "biochatter_image.webp"
 ---
 
 ## BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica
 
 ### Presentando un marco de trabajo de código abierto para la investigación biomédica personalizada
 
-![BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica](https://www.ebi.ac.uk/sites/ebi.ac.uk/files/styles/medium/public/2023-10/BioChatter.png "Crédito: Karen Arnott/EMBL-EBI")
+![BioChatter: haciendo que los modelos de lenguaje grandes sean accesibles para la investigación biomédica. Credito imagen: Karen Arnott/EMBL-EBI](biochatter_image.webp)
 
 **Resumen**  
 - **BioChatter** es un marco de trabajo en Python, de código abierto, para emplear modelos de lenguaje grandes (LLMs) en investigación biomédica.  
 - **BioChatter** puede facilitar la creación de soluciones basadas en LLM para casos de uso específicos en biomedicina.  
 - Las soluciones de inteligencia artificial (IA) construidas con BioChatter pueden agilizar los flujos de trabajo de investigadores sin formación en computación, beneficiando áreas como la medicina personalizada y el descubrimiento de fármacos.
+
+<!-- Embed the image in the post body -->
+<!-- ![BioChatter: making large language models accessible for biomedical research. Credit: Karen Arnott/EMBL-EBI](biochatter_image.webp) -->
 
 ---
 
