@@ -1,6 +1,6 @@
 ---
 title: "BioChatter: Haciendo accesibles los grandes modelos de lenguaje para la investigación biomédica"
-author: "Tu Nombre"
+author: "Karen Arnott/EMBL-EBI, Traducido por Jorge Abreu Vicente"
 date: "2025-01-22"
 description: "Presentando un marco de trabajo de código abierto para aplicar inteligencia artificial (AI) en investigación biomédica"
 categories: [Investigación Biomédica, Modelos de Lenguaje, Inteligencia Artificial]
