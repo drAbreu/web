@@ -22,7 +22,7 @@ image: "biochatter_image.webp"
 - Las soluciones de inteligencia artificial (IA) construidas con BioChatter pueden agilizar los flujos de trabajo de investigadores sin formación en computación, beneficiando áreas como la medicina personalizada y el descubrimiento de fármacos.
 
 <!-- Embed the image in the post body -->
-<!-- ![BioChatter: making large language models accessible for biomedical research. Credit: Karen Arnott/EMBL-EBI](biochatter_image.webp) -->
+![Arquitectura de BioChatter, tomada de la publicación en Nature Biotechnology](41587_2024_2534_Fig1_HTML.webp)
 
 ---
 
