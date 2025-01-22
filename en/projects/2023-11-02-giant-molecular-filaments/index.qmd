@@ -18,7 +18,9 @@ draft: false # setting this to `true` will prevent your post from appearing on y
 bibliography: references.bib
 ---
 
-Based on [@Abreu_Vicente_2016]. Science outreach of this work and authored by me was published and mentioned in the cover page of the [March 2022 edition of the Astronomía Magazine](https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/) (only in Spanish). 
+Based on [@Abreu_Vicente_2016]. [Versión del post en español 🇪🇸](https://drAbreu.github.io/web/es/posts/2023-11-02-filamentos-moleculares-gigantes/).
+
+Science outreach of this work and authored by me was published and mentioned in the cover page of the [March 2022 edition of the Astronomía Magazine](https://www.globalastronomia.com/producto/astronomia-marzo-2022-no273-pdf/) (only in Spanish). 
 
 # *Herschel* Reveals that Filaments are Prevalent in Molecular Clouds and Preferred Sites of Star Formation
 
