@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* DATASTAR Twilight Color Palette */
+  --brand-navy: 26 40 69;
+  --brand-purple: 74 58 90;
+  --brand-burgundy: 139 69 96;
+  --brand-coral: 201 120 112;
+  --brand-orange: 244 165 102;
+  --brand-gold: 255 196 136;
+
+  /* Twilight accents - warmer, more subdued */
+  --accent-coral: 201 120 112;
+  --accent-gold: 255 196 136;
+  --accent-cream: 255 248 240;
+
+  --background: 13 21 32;
+  --foreground: 254 249 243;
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities */
+@layer utilities {
+  .text-gradient-sunset {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-brand-gold;
+  }
+
+  .text-gradient-twilight {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-coral to-brand-gold;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, #f4a566, #ffc488) 1;
+  }
+}
+
+/* Gradient Button Styles */
+@layer components {
+  .gradient-button {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .gradient-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a2845 0%, #4a3a5a 30%, #8b4560 60%, #f4a566 100%);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+    opacity: 1;
+  }
+  
+  .gradient-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #f4a566 0%, #8b4560 40%, #4a3a5a 70%, #1a2845 100%);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .gradient-button:hover::before {
+    opacity: 0;
+  }
+  
+  .gradient-button:hover::after {
+    opacity: 1;
+  }
+  
+  .gradient-button-variant {
+    background: linear-gradient(135deg, #1a2845, #4a3a5a, #5ec9ba);
+  }
+  
+  .gradient-button-variant::before {
+    background: linear-gradient(135deg, #1a2845 0%, #4a3a5a 40%, #5ec9ba 100%);
+  }
+  
+  .gradient-button-variant::after {
+    background: linear-gradient(135deg, #4a3a5a 0%, #5ec9ba 40%, #6dd4c4 70%, #ffc488 100%);
+  }
+}
