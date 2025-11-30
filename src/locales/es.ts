@@ -1,6 +1,8 @@
 export const es = {
   nav: {
     home: "Inicio",
+    projects: "Proyectos",
+    blog: "Blog",
     services: "Servicios",
     research: "Investigación",
     about: "Acerca de",

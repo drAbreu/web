@@ -11,6 +11,8 @@ interface NavbarProps {
   setLanguage: (lang: Language) => void;
   navTranslations: {
     home: string;
+    projects: string;
+    blog: string;
     services: string;
     research: string;
     about: string;
@@ -43,11 +45,11 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
               <Link href="/" className="text-sm px-4 py-2 text-white/90 font-medium transition-all hover:text-white">
                 {navTranslations.home}
               </Link>
-              <Link href="/services" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
-                {navTranslations.services}
+              <Link href="/projects" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
+                {navTranslations.projects}
               </Link>
-              <Link href="/research" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
-                {navTranslations.research}
+              <Link href="/blog" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
+                {navTranslations.blog}
               </Link>
               <Link href="/cv" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
                 {navTranslations.cv}
@@ -148,18 +150,18 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
                 {navTranslations.home}
               </Link>
               <Link 
-                href="/services" 
+                href="/projects" 
                 className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {navTranslations.services}
+                {navTranslations.projects}
               </Link>
               <Link 
-                href="/research" 
+                href="/blog" 
                 className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {navTranslations.research}
+                {navTranslations.blog}
               </Link>
               <Link 
                 href="/cv" 

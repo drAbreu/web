@@ -169,173 +169,162 @@ export default function Home() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {/* Project 1: BioChatter */}
-            <div className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-purple/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-coral/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-brand-coral/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-coral/30 transition-colors">
-                  <svg className="w-8 h-8 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+            <Link href="/projects/biochatter" className="block">
+              <div className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-purple/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-coral/20 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-brand-coral/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-coral/30 transition-colors">
+                    <svg className="w-8 h-8 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-coral transition-colors">
+                    {t.projects.biochatter.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.projects.biochatter.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.projects.biochatter.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-purple/50 text-white text-xs rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-brand-coral group-hover:text-brand-orange transition-colors text-sm font-semibold">
+                    {language === "en" ? "Learn More" : "Saber Más"}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-coral transition-colors">
-                  {t.projects.biochatter.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {t.projects.biochatter.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {t.projects.biochatter.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-brand-purple/50 text-white text-xs rounded-full">{tag}</span>
-                  ))}
-                </div>
-                <Link 
-                  href="https://www.nature.com/articles/s41587-024-02534-3" 
-          target="_blank"
-          rel="noopener noreferrer"
-                  className="inline-flex items-center text-brand-coral hover:text-brand-orange transition-colors text-sm font-semibold"
-                >
-                  {t.projects.biochatter.link}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </Link>
               </div>
-            </div>
+            </Link>
 
             {/* Project 2: SourceDataNLP */}
-            <div className="group relative bg-gradient-to-br from-brand-burgundy/40 to-brand-coral/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-orange/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-orange/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/0 to-brand-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-brand-orange/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-orange/30 transition-colors">
-                  <svg className="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+            <Link href="/projects/sourcedata-nlp" className="block">
+              <div className="group relative bg-gradient-to-br from-brand-burgundy/40 to-brand-coral/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-orange/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-orange/20 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-orange/0 to-brand-orange/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-brand-orange/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-orange/30 transition-colors">
+                    <svg className="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-orange transition-colors">
+                    {t.projects.sourcedatanlp.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.projects.sourcedatanlp.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.projects.sourcedatanlp.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-coral/50 text-white text-xs rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-brand-orange group-hover:text-brand-gold transition-colors text-sm font-semibold">
+                    {language === "en" ? "Learn More" : "Saber Más"}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-orange transition-colors">
-                  {t.projects.sourcedatanlp.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {t.projects.sourcedatanlp.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {t.projects.sourcedatanlp.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-brand-coral/50 text-white text-xs rounded-full">{tag}</span>
-                  ))}
-                </div>
-                <Link 
-                  href="https://arxiv.org/abs/2310.20440" 
-          target="_blank"
-          rel="noopener noreferrer"
-                  className="inline-flex items-center text-brand-orange hover:text-brand-gold transition-colors text-sm font-semibold"
-                >
-                  {t.projects.sourcedatanlp.link}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </Link>
               </div>
-            </div>
+            </Link>
 
             {/* Project 3: Knowledge Graphs */}
-            <div className="group relative bg-gradient-to-br from-brand-purple/40 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-accent-mint/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-mint/30 transition-colors">
-                  <svg className="w-8 h-8 text-accent-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                  </svg>
+            <Link href="/projects/knowledge-graphs" className="block">
+              <div className="group relative bg-gradient-to-br from-brand-purple/40 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/20 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-brand-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-gold/30 transition-colors">
+                    <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-gold transition-colors">
+                    {t.projects.knowledgeGraphs.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.projects.knowledgeGraphs.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.projects.knowledgeGraphs.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-gold/50 text-black text-xs rounded-full font-semibold">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-brand-gold group-hover:text-brand-orange transition-colors text-sm font-semibold">
+                    {language === "en" ? "Learn More" : "Saber Más"}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent-mint transition-colors">
-                  {t.projects.knowledgeGraphs.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {t.projects.knowledgeGraphs.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {t.projects.knowledgeGraphs.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-brand-gold/50 text-black text-xs rounded-full font-semibold">{tag}</span>
-                  ))}
-                </div>
-                <Link 
-                  href="/research" 
-                  className="inline-flex items-center text-brand-gold hover:text-brand-orange transition-colors text-sm font-semibold"
-                >
-                  {t.projects.knowledgeGraphs.link}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
               </div>
-            </div>
+            </Link>
 
             {/* Project 4: Morgenrot Book */}
-            <div className="group relative bg-gradient-to-br from-brand-coral/40 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-coral/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-brand-coral/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-coral/30 transition-colors">
-                  <svg className="w-8 h-8 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
+            <Link href="/projects/morgenrot" className="block">
+              <div className="group relative bg-gradient-to-br from-brand-coral/40 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-coral/20 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-brand-coral/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-coral/30 transition-colors">
+                    <svg className="w-8 h-8 text-brand-coral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-coral transition-colors">
+                    {t.projects.morgenrot.title}
+                  </h3>
+                  <p className="text-gray-400 mb-2 text-sm italic">
+                    {t.projects.morgenrot.subtitle}
+                  </p>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.projects.morgenrot.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.projects.morgenrot.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-burgundy/50 text-white text-xs rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-brand-coral group-hover:text-brand-orange transition-colors text-sm font-semibold">
+                    {language === "en" ? "Learn More" : "Saber Más"}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-coral transition-colors">
-                  {t.projects.morgenrot.title}
-                </h3>
-                <p className="text-gray-400 mb-2 text-sm italic">
-                  {t.projects.morgenrot.subtitle}
-                </p>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {t.projects.morgenrot.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {t.projects.morgenrot.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-brand-burgundy/50 text-white text-xs rounded-full">{tag}</span>
-                  ))}
-                </div>
-                <Link 
-                  href="/morgenrot" 
-                  className="inline-flex items-center text-brand-coral hover:text-brand-orange transition-colors text-sm font-semibold"
-                >
-                  {t.projects.morgenrot.link}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
               </div>
-            </div>
+            </Link>
 
             {/* Project 5: PhD Thesis */}
-            <div className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/20">
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-brand-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-gold/30 transition-colors">
-                  <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
+            <Link href="/projects/molecular-clouds" className="block">
+              <div className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-burgundy/30 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-brand-gold/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-brand-gold/20 h-full">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-gold/0 to-brand-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-16 h-16 bg-brand-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-brand-gold/30 transition-colors">
+                    <svg className="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-gold transition-colors">
+                    {t.projects.phdThesis.title}
+                  </h3>
+                  <p className="text-gray-400 mb-4 leading-relaxed">
+                    {t.projects.phdThesis.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {t.projects.phdThesis.tags.map((tag, i) => (
+                      <span key={i} className="px-3 py-1 bg-brand-burgundy/50 text-white text-xs rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="inline-flex items-center text-brand-gold group-hover:text-brand-orange transition-colors text-sm font-semibold">
+                    {language === "en" ? "Learn More" : "Saber Más"}
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-brand-gold transition-colors">
-                  {t.projects.phdThesis.title}
-                </h3>
-                <p className="text-gray-400 mb-4 leading-relaxed">
-                  {t.projects.phdThesis.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {t.projects.phdThesis.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-brand-burgundy/50 text-white text-xs rounded-full">{tag}</span>
-                  ))}
-                </div>
-                <Link 
-                  href="https://archiv.ub.uni-heidelberg.de/volltextserver/22594/" 
-          target="_blank"
-          rel="noopener noreferrer"
-                  className="inline-flex items-center text-brand-gold hover:text-brand-orange transition-colors text-sm font-semibold"
-                >
-                  {t.projects.phdThesis.link}
-                  <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </Link>
               </div>
-            </div>
+            </Link>
 
             {/* Call to Action Card */}
             <div className="group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-brand-orange/50 transition-all duration-500 hover:scale-105 flex items-center justify-center">
@@ -351,7 +340,7 @@ export default function Home() {
                 <p className="text-gray-400 mb-6 text-sm">
                   {t.projects.viewAll.description}
                 </p>
-                <Link href="/research">
+                <Link href="/projects">
                   <GradientButton>
                     {t.projects.viewAll.button}
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

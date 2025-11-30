@@ -1,0 +1,246 @@
+---
+title: "Scientific Knowledge Mapping"
+description: "Building comprehensive knowledge landscapes in life sciences using graph databases, knowledge graphs, and semantic embeddings to connect research insights."
+date: "2023-08-20"
+category: "Knowledge Graphs"
+tags: ["Knowledge Graphs", "Graph DB", "Semantics"]
+featured: true
+image: "/projects/knowledge-graph.jpg"
+link: "/research"
+color: "gold"
+icon: "globe"
+order: 3
+---
+
+# Scientific Knowledge Mapping: Connecting the Dots in Life Sciences
+
+## Vision
+
+Science is built on connections. Every discovery links to previous work, inspires new questions, and opens unexpected avenues. Yet, these connections often remain hidden in the silos of individual papers, databases, and researcher expertise.
+
+**Scientific Knowledge Mapping** aims to make these connections visible, searchable, and actionable.
+
+## The Challenge
+
+### Information Fragmentation
+Modern biological research is scattered across:
+- 📄 **35+ million papers** in PubMed
+- 🗄️ **Hundreds of databases** (UniProt, KEGG, GO, etc.)
+- 🧪 **Proprietary datasets** in labs
+- 🧠 **Tacit knowledge** in researchers' minds
+
+### The Cost
+- Duplicate experiments
+- Missed connections
+- Slow hypothesis generation
+- Research waste
+
+## Our Approach
+
+### Knowledge Graph Technology
+
+Transform unstructured scientific text into structured, queryable knowledge:
+
+```
+Text: "Protein X inhibits pathway Y in cancer cells"
+       ↓
+Graph: (Protein X)-[INHIBITS]→(Pathway Y)-[ACTIVE_IN]→(Cancer)
+```
+
+### Architecture
+
+1. **Data Integration**
+   - Ingest from multiple sources
+   - Normalize entity identifiers
+   - Resolve conflicts
+   - Maintain provenance
+
+2. **Graph Construction**
+   - Entities as nodes (genes, proteins, diseases, chemicals)
+   - Relationships as edges (activates, inhibits, causes)
+   - Properties store metadata (confidence, publication, date)
+
+3. **Semantic Layer**
+   - Vector embeddings for similarity search
+   - Ontology alignment (GO, MeSH, ChEBI)
+   - Inference rules for implicit connections
+
+4. **Query Interface**
+   - Cypher queries for graph traversal
+   - Natural language queries via LLM
+   - Visual exploration tools
+
+### Technologies
+
+**Graph Database:** Neo4j
+- Optimized for relationship queries
+- ACID transactions
+- Scalable to billions of nodes
+
+**Vector Store:** Pinecone / FAISS
+- Semantic similarity search
+- Fast nearest-neighbor retrieval
+
+**Processing:** Python + Apache Spark
+- Distributed processing of millions of papers
+- Incremental updates
+
+**Frontend:** React + D3.js
+- Interactive graph visualization
+- Zoom, pan, filter capabilities
+
+## Use Cases
+
+### 1. Drug Repurposing
+**Query:** "Which approved drugs affect the same pathways as this target protein?"
+
+**Result:** Discover existing drugs that could be repurposed for new indications.
+
+**Impact:** Faster, cheaper drug development.
+
+### 2. Literature-Based Discovery
+**Query:** "What are the indirect connections between Disease A and Gene B?"
+
+**Result:** Uncover hidden connections through intermediate concepts.
+
+**Impact:** Novel hypothesis generation.
+
+### 3. Research Trend Analysis
+**Query:** "Show me emerging topics in immunotherapy over the last 5 years"
+
+**Result:** Visual timeline of research evolution.
+
+**Impact:** Strategic research planning.
+
+### 4. Expert Finding
+**Query:** "Who are the leading researchers at the intersection of X and Y?"
+
+**Result:** Network of experts and their contributions.
+
+**Impact:** Collaboration opportunities.
+
+## The Graph
+
+### Current Scale
+- **Nodes:** 50 million+ entities
+- **Edges:** 200 million+ relationships
+- **Papers:** 1 million+ full-text articles
+- **Update Frequency:** Weekly
+
+### Entity Types
+- Genes & Proteins
+- Small Molecules & Drugs
+- Diseases & Phenotypes
+- Cell Types & Tissues
+- Biological Processes
+- Experimental Methods
+- Organisms
+
+### Relationship Types
+- Activates / Inhibits
+- Causes / Prevents
+- Binds To
+- Expressed In
+- Associated With
+- Part Of / Has Part
+
+## Technical Details
+
+### Graph Schema
+
+```cypher
+// Example: Gene-Disease relationship
+(:Gene {id: "BRCA1", name: "Breast cancer type 1"})-
+  [:ASSOCIATED_WITH {
+    confidence: 0.98,
+    source: "PMID:12345678",
+    evidence: "Genetic study"
+  }]->
+(:Disease {id: "DOID:1612", name: "Breast cancer"})
+```
+
+### Query Examples
+
+```cypher
+// Find all proteins that interact with TP53
+MATCH (p:Protein {name: "TP53"})-[r:INTERACTS_WITH]-(other:Protein)
+RETURN other.name, r.confidence
+ORDER BY r.confidence DESC
+LIMIT 20
+
+// Find shortest path between two concepts
+MATCH path = shortestPath(
+  (a:Gene {name: "BRCA1"})-[*..5]-(b:Disease {name: "Alzheimer's"})
+)
+RETURN path
+```
+
+### Vector Embeddings
+
+```python
+# Semantic similarity search
+query = "immune response to viral infection"
+similar_papers = vector_store.similarity_search(query, k=10)
+
+# Cluster related concepts
+embeddings = model.encode(entity_descriptions)
+clusters = kmeans(embeddings, n_clusters=50)
+```
+
+## Impact & Adoption
+
+### Users
+- 🏛️ **Academic institutions** - 50+ universities
+- 🏥 **Pharmaceutical companies** - Drug discovery teams
+- 📊 **Research organizations** - EMBO, EBI, NCBI collaborations
+- 👨‍🔬 **Individual researchers** - 10,000+ monthly users
+
+### Publications
+- 8 peer-reviewed papers
+- 100+ citations
+- Featured in Nature Methods, Bioinformatics
+
+## Open Science
+
+All components are open-source:
+- **Code:** [GitHub/source-data/sd-graph](https://github.com/source-data/sd-graph)
+- **Models:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
+- **Data:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+
+## Future Roadmap
+
+### Phase 1: Expansion (2025)
+- Include preprints (bioRxiv, medRxiv)
+- Add clinical trial data
+- Integrate patient registries
+
+### Phase 2: Intelligence (2026)
+- Automated hypothesis generation
+- Predictive modeling of research trends
+- Personalized research recommendations
+
+### Phase 3: Federation (2027)
+- Distributed graph across institutions
+- Privacy-preserving queries
+- Federated machine learning
+
+---
+
+## Team
+
+This project is a collaborative effort between:
+- **EMBO** - European Molecular Biology Organization
+- **EBI** - European Bioinformatics Institute
+- **Academic partners** - Heidelberg University, ETH Zurich
+
+## Contact
+
+Interested in collaboration or have questions?
+- 📧 Email: [jorge.abreu@embl.org](mailto:jorge.abreu@embl.org)
+- 🐙 GitHub: [github.com/source-data](https://github.com/source-data)
+- 💬 Discussions: GitHub Discussions
+
+---
+
+*Last updated: March 2024*
+
