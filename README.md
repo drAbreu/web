@@ -186,6 +186,249 @@ cp your-image.jpg public/
 
 ---
 
+## 📝 Adding Content
+
+### Creating a New Project
+
+Projects are stored as MDX files in `src/content/projects/`. Each project can have English and Spanish versions.
+
+#### 1. **Create Project File**
+
+Create a new `.mdx` file for your project:
+
+```bash
+# For English version
+vim src/content/projects/my-project.mdx
+
+# For Spanish version (optional)
+vim src/content/projects/my-project-es.mdx
+```
+
+#### 2. **Add Project Frontmatter**
+
+Each project file must include frontmatter with the following fields:
+
+```yaml
+---
+title: "Project Title"
+subtitle: "Optional subtitle for the project"
+description: "Brief description that appears on project cards"
+date: "2024-03-15"
+category: "AI/ML"  # or "Astrophysics", "Research", etc.
+tags: ["AI/ML", "Python", "Research"]
+featured: true  # Set to true to show on homepage
+image: "/projects/my-project.jpg"  # Path to project image
+link: "https://github.com/username/project"  # External link (optional)
+color: "coral"  # Card color: coral, orange, gold, burgundy, or purple
+icon: "computer"  # Icon type: computer, document, chart, or code
+order: 1  # Display order (lower numbers appear first)
+lang: "en"  # Language: "en" or "es"
+---
+
+# Project Title
+
+## Overview
+
+Your project content here in Markdown/MDX format...
+
+## Features
+
+- Feature 1
+- Feature 2
+
+## Technologies
+
+List of technologies used...
+```
+
+#### 3. **Add Project Image**
+
+Add your project image to the `public/projects/` directory:
+
+```bash
+# Create projects directory if it doesn't exist
+mkdir -p public/projects
+
+# Add your image (recommended: 800x450px or 16:9 aspect ratio)
+cp my-project-image.jpg public/projects/my-project.jpg
+```
+
+The image will automatically appear:
+- On the project card in the projects list
+- At the top of the project detail page
+
+#### 4. **Set as Featured Project**
+
+To show a project on the homepage:
+
+1. Set `featured: true` in the frontmatter
+2. Set `order: 1` (or another number) to control position
+3. Only projects with `featured: true` appear on the homepage
+4. Lower `order` numbers appear first
+
+**Example:**
+```yaml
+featured: true
+order: 1  # This will be the first featured project
+```
+
+**Homepage Display:**
+- Maximum 5 featured projects recommended
+- Projects are sorted by the `order` field
+- All projects (featured or not) appear on `/projects` page
+
+### Creating a New Blog Post
+
+Blog posts are stored as MDX files in `src/content/blog/`. Each post can have English and Spanish versions.
+
+#### 1. **Create Blog Post File**
+
+Create a new `.mdx` file for your blog post:
+
+```bash
+# For English version
+vim src/content/blog/my-post.mdx
+
+# For Spanish version (optional)
+vim src/content/blog/my-post-es.mdx
+```
+
+#### 2. **Add Blog Post Frontmatter**
+
+Each blog post file must include frontmatter with the following fields:
+
+```yaml
+---
+title: "Blog Post Title"
+description: "Brief description that appears on blog cards and in SEO"
+date: "2024-11-15"
+author: "Jorge Abreu-Vicente, PhD"
+category: "AI/ML"  # Category for filtering
+tags: ["AI", "Python", "Tutorial"]  # Tags for the post
+featured: false  # Not currently used, but recommended to include
+lang: "en"  # Language: "en" or "es"
+---
+
+# Blog Post Title
+
+## Section 1
+
+Your blog content here in Markdown/MDX format...
+
+## Section 2
+
+More content...
+```
+
+#### 3. **Add Blog Post Image (Optional)**
+
+If you want to add images to your blog post:
+
+```bash
+# Add images to public folder
+cp blog-image.jpg public/blog/my-image.jpg
+
+# Reference in your MDX content
+![Image description](/blog/my-image.jpg)
+```
+
+#### 4. **Blog Post Features**
+
+Every blog post automatically includes:
+- **Breadcrumb navigation** (Home > Blog > Post Title)
+- **Reading time estimate** (calculated from word count)
+- **Table of Contents** (auto-generated from H2 headings)
+- **Share buttons** (Twitter, LinkedIn, Facebook, Copy Link)
+- **Author card** with your photo and social links
+- **Category badge** for filtering
+- **Tags** for categorization
+- **Bilingual support** (English/Spanish)
+
+### Bilingual Content Management
+
+#### Creating Bilingual Projects/Posts
+
+1. **Create both language versions:**
+   ```bash
+   # English version
+   vim src/content/projects/my-project.mdx
+
+   # Spanish version (add -es suffix)
+   vim src/content/projects/my-project-es.mdx
+   ```
+
+2. **Use the same slug** (filename without extension):
+   - English: `my-project.mdx`
+   - Spanish: `my-project-es.mdx`
+
+3. **Set language in frontmatter:**
+   ```yaml
+   # English version
+   lang: "en"
+
+   # Spanish version
+   lang: "es"
+   ```
+
+#### How Language Switching Works
+
+- The system automatically detects available languages
+- Users can switch languages via the navbar
+- Language preference is saved in localStorage
+- If a translation doesn't exist, English version is shown as fallback
+
+### Content Organization
+
+```
+src/content/
+├── projects/
+│   ├── biochatter.mdx          # English project
+│   ├── biochatter-es.mdx       # Spanish project
+│   ├── knowledge-graphs.mdx
+│   └── knowledge-graphs-es.mdx
+└── blog/
+    ├── my-post.mdx             # English blog post
+    ├── my-post-es.mdx          # Spanish blog post
+    └── loeb.mdx
+
+public/
+├── projects/
+│   ├── biochatter.jpg          # Project images (800x450px recommended)
+│   └── knowledge-graphs.jpg
+├── blog/
+│   └── my-image.jpg            # Blog post images
+└── author-photo.jpg            # Your author photo (256x256px recommended)
+```
+
+### Quick Reference: Required Fields
+
+**Project Frontmatter:**
+- ✅ `title` - Project name
+- ✅ `description` - Short description
+- ✅ `date` - Publication date (YYYY-MM-DD)
+- ✅ `category` - Project category
+- ✅ `tags` - Array of tags
+- ✅ `featured` - Boolean (true/false)
+- ✅ `color` - Card color theme
+- ✅ `icon` - Icon type
+- ✅ `order` - Display order number
+- ✅ `lang` - Language code ("en" or "es")
+- ⚡ `subtitle` - Optional subtitle
+- ⚡ `image` - Optional image path
+- ⚡ `link` - Optional external link
+
+**Blog Post Frontmatter:**
+- ✅ `title` - Post title
+- ✅ `description` - Short description
+- ✅ `date` - Publication date (YYYY-MM-DD)
+- ✅ `author` - Author name
+- ✅ `category` - Post category
+- ✅ `tags` - Array of tags
+- ✅ `featured` - Boolean (true/false)
+- ✅ `lang` - Language code ("en" or "es")
+
+---
+
 ## 🚢 Deploying Changes
 
 ### Automatic Deployment (Recommended)

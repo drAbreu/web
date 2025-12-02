@@ -1,0 +1,114 @@
+---
+title: "Mapeo de Conocimiento Científico"
+description: "Construcción de paisajes de conocimiento comprehensivos en ciencias de la vida usando bases de datos de grafos, grafos de conocimiento y embeddings semánticos para conectar insights de investigación."
+date: "2023-08-20"
+category: "Grafos de Conocimiento"
+tags: ["Grafos de Conocimiento", "Graph DB", "Semántica"]
+featured: true
+image: "/projects/knowledge-graph.jpg"
+link: "/research"
+color: "gold"
+icon: "globe"
+order: 3
+lang: "es"
+---
+
+# Mapeo de Conocimiento Científico: Conectando los Puntos en Ciencias de la Vida
+
+## Visión
+
+La ciencia se construye sobre conexiones. Cada descubrimiento se vincula con trabajos anteriores, inspira nuevas preguntas y abre avenidas inesperadas. Sin embargo, estas conexiones a menudo permanecen ocultas en los silos de artículos individuales, bases de datos y experiencia de investigadores.
+
+**El Mapeo de Conocimiento Científico** tiene como objetivo hacer estas conexiones visibles, buscables y accionables.
+
+## El Desafío
+
+### Fragmentación de Información
+La investigación biológica moderna está dispersa en:
+- 📄 **35+ millones de artículos** en PubMed
+- 🗄️ **Cientos de bases de datos** (UniProt, KEGG, GO, etc.)
+- 🧪 **Conjuntos de datos propietarios** en laboratorios
+- 🧠 **Conocimiento tácito** en las mentes de los investigadores
+
+### El Costo
+- Experimentos duplicados
+- Conexiones perdidas
+- Generación lenta de hipótesis
+- Desperdicio de investigación
+
+## Nuestro Enfoque
+
+### Tecnología de Grafos de Conocimiento
+
+Transformar texto científico no estructurado en conocimiento estructurado y consultable:
+
+```
+Texto: "La Proteína X inhibe la vía Y en células cancerosas"
+       ↓
+Grafo: (Proteína X)-[INHIBE]→(Vía Y)-[ACTIVA_EN]→(Cáncer)
+```
+
+### Arquitectura
+
+1. **Integración de Datos**
+   - Ingerir desde múltiples fuentes
+   - Normalizar identificadores de entidades
+   - Resolver conflictos
+   - Mantener procedencia
+
+2. **Construcción de Grafos**
+   - Entidades como nodos (genes, proteínas, enfermedades, químicos)
+   - Relaciones como aristas (activa, inhibe, causa)
+   - Propiedades almacenan metadatos (confianza, publicación, fecha)
+
+3. **Capa Semántica**
+   - Embeddings vectoriales para búsqueda de similitud
+   - Alineación de ontologías (GO, MeSH, ChEBI)
+   - Reglas de inferencia para conexiones implícitas
+
+4. **Interfaz de Consulta**
+   - Consultas Cypher para recorrido de grafos
+   - Consultas en lenguaje natural vía LLM
+   - Herramientas de exploración visual
+
+## Casos de Uso
+
+### 1. Reposicionamiento de Medicamentos
+**Consulta:** "¿Qué medicamentos aprobados afectan las mismas vías que esta proteína objetivo?"
+
+**Resultado:** Descubrir medicamentos existentes que podrían reposicionarse para nuevas indicaciones.
+
+### 2. Descubrimiento Basado en Literatura
+**Consulta:** "¿Cuáles son las conexiones indirectas entre la Enfermedad A y el Gen B?"
+
+**Resultado:** Descubrir conexiones ocultas a través de conceptos intermedios.
+
+### 3. Análisis de Tendencias de Investigación
+**Consulta:** "Muéstrame temas emergentes en inmunoterapia en los últimos 5 años"
+
+**Resultado:** Línea de tiempo visual de la evolución de la investigación.
+
+## El Grafo
+
+### Escala Actual
+- **Nodos:** 50 millones+ de entidades
+- **Aristas:** 200 millones+ de relaciones
+- **Artículos:** 1 millón+ de artículos de texto completo
+- **Frecuencia de Actualización:** Semanal
+
+## Código Abierto
+
+Todos los componentes son de código abierto:
+- **Código:** [GitHub/source-data/sd-graph](https://github.com/source-data/sd-graph)
+- **Modelos:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
+- **Datos:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+
+## Contacto
+
+¿Interesado en colaboración o tienes preguntas?
+- 📧 Email: [jorge.abreu@embl.org](mailto:jorge.abreu@embl.org)
+- 🐙 GitHub: [github.com/source-data](https://github.com/source-data)
+
+---
+
+*Última actualización: Marzo 2024*

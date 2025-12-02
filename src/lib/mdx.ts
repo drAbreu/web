@@ -5,6 +5,7 @@ import matter from 'gray-matter'
 export interface ProjectMatter {
   title: string
   description: string
+  subtitle?: string
   date: string
   category: string
   tags: string[]
@@ -14,6 +15,7 @@ export interface ProjectMatter {
   color: 'coral' | 'orange' | 'gold' | 'burgundy' | 'purple'
   icon?: string
   order?: number
+  lang: 'en' | 'es'
 }
 
 export interface BlogPostMatter {
@@ -22,8 +24,8 @@ export interface BlogPostMatter {
   date: string
   author: string
   category: string
-  tags: string[]
-  featured: boolean
+  tags?: string[]
+  featured?: boolean
   image?: string
   lang: 'en' | 'es'
 }
@@ -91,6 +93,21 @@ export function getFeaturedProjects(): Project[] {
   return getProjects().filter(project => project.featured)
 }
 
+export function getProjectsByLang(lang: 'en' | 'es'): Project[] {
+  return getProjects().filter(project => project.lang === lang)
+}
+
+export function getProjectBySlugAndLang(slug: string, lang: 'en' | 'es'): Project | null {
+  const projects = getProjects().filter(p => p.slug.startsWith(slug) || p.slug === slug)
+
+  // Try to find project in requested language
+  const projectInLang = projects.find(p => p.lang === lang)
+  if (projectInLang) return projectInLang
+
+  // Fallback to English
+  return projects.find(p => p.lang === 'en') || null
+}
+
 export function getBlogPosts(lang?: 'en' | 'es'): BlogPost[] {
   if (!fs.existsSync(blogDirectory)) {
     return []
@@ -136,4 +153,5 @@ export function getBlogPost(slug: string): BlogPost | null {
 export function getFeaturedBlogPosts(lang?: 'en' | 'es'): BlogPost[] {
   return getBlogPosts(lang).filter(post => post.featured)
 }
+
 

@@ -7,8 +7,8 @@ const nextConfig = {
     unoptimized: true, // Required for static export
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  // Remove trailing slashes for traditional hosting compatibility
-  trailingSlash: false,
+  // Use trailing slashes for proper static export routing
+  trailingSlash: true,
   // Fix the assetPrefix to start with a slash
   assetPrefix: '/',
   basePath: ''

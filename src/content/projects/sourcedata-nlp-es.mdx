@@ -1,0 +1,135 @@
+---
+title: "SourceData NLP"
+description: "Pipeline de procesamiento de lenguaje natural para la extracción y estructuración automatizada de conocimiento biológico de la literatura científica."
+date: "2023-10-15"
+category: "NLP"
+tags: ["NLP", "Minería de Texto", "Ciencia Abierta"]
+featured: true
+image: "/projects/sourcedata.jpg"
+link: "https://arxiv.org/abs/2310.20440"
+color: "orange"
+icon: "document"
+order: 2
+lang: "es"
+---
+
+# SourceData NLP: Extracción Automatizada de Conocimiento de Literatura Científica
+
+## Visión General
+
+SourceData NLP es un sofisticado pipeline de procesamiento de lenguaje natural diseñado para extraer y estructurar automáticamente conocimiento biológico de artículos científicos. Este proyecto aborda uno de los mayores desafíos de la investigación moderna: dar sentido a la literatura científica en crecimiento exponencial.
+
+## El Problema
+
+### Sobrecarga de Información
+- 2+ millones de nuevos artículos publicados anualmente
+- Los investigadores no pueden mantenerse al día con su campo
+- Conocimientos críticos enterrados en PDFs
+- La curación manual es insostenible
+
+## Nuestra Solución
+
+### Extracción Automatizada de Conocimiento
+SourceData NLP utiliza técnicas de NLP de última generación para:
+- **Identificar entidades** - Genes, proteínas, enfermedades, químicos
+- **Extraer relaciones** - Hallazgos experimentales, vínculos causales
+- **Estructurar conocimiento** - Convertir texto en datos estructurados
+- **Generar grafos de conocimiento** - Conectar hallazgos entre artículos
+
+## Enfoque Técnico
+
+### Arquitectura del Pipeline
+
+1. **Procesamiento de Documentos**
+   - Análisis y extracción de texto de PDF
+   - Identificación de secciones (Métodos, Resultados, Discusión)
+   - Extracción de figuras y tablas
+
+2. **Reconocimiento de Entidades Nombradas (NER)**
+   - Modelos basados en BERT afinados en texto biomédico
+   - 9 clases de entidades: genes, proteínas, moléculas pequeñas, tipos celulares, etc.
+   - Puntuación F1 de 95%+ en conjuntos de datos de referencia
+
+3. **Extracción de Relaciones**
+   - Identificar relaciones experimentales
+   - Clasificar tipos de interacción
+   - Extraer causalidad y direccionalidad
+
+4. **Construcción de Grafos de Conocimiento**
+   - Entidades → Nodos
+   - Relaciones → Aristas
+   - Enriquecimiento de metadatos desde bases de datos
+
+### Modelos y Rendimiento
+
+**Modelos BERT Personalizados:**
+- `EMBO/sd-ner-v2` - Reconocimiento de Entidades Nombradas
+- `EMBO/sd-geneprod-roles-v2` - Detección de roles de genes/proteínas
+- `EMBO/sd-smallmol-roles-v2` - Detección de roles químicos
+
+**Datos de Entrenamiento:**
+- 100,000+ artículos curados manualmente
+- Dataset SourceData (el dataset más grande de NLP biomédico)
+- Disponible en [HuggingFace](https://huggingface.co/datasets/EMBO/SourceData)
+
+**Métricas de Rendimiento:**
+- Precisión: 94%
+- Recall: 91%
+- Puntuación F1: 92.5%
+
+## Impacto
+
+### Para Investigadores
+- ✅ Descubrir artículos relevantes más rápido
+- ✅ Identificar brechas de conocimiento
+- ✅ Generar hipótesis a partir de datos existentes
+- ✅ Rastrear tendencias de investigación
+
+### Para Editores
+- ✅ Mejorar la descubribilidad de artículos
+- ✅ Generar metadatos semánticos
+- ✅ Mejorar la funcionalidad de búsqueda
+- ✅ Habilitar nuevas herramientas editoriales
+
+### Para la Comunidad
+- ✅ Modelos de código abierto
+- ✅ Datasets disponibles públicamente
+- ✅ Investigación reproducible
+- ✅ Mejoras impulsadas por la comunidad
+
+## Dataset
+
+**SourceData: El Dataset de NLP Biomédico Más Grande**
+
+- **Tamaño:** 500,000+ entidades anotadas
+- **Artículos:** 18,000+ artículos de texto completo
+- **Anotaciones:** Curadas por expertos científicos
+- **Licencia:** Abierta (CC BY 4.0)
+- **Acceso:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+
+## Código y Recursos
+
+### Código Abierto
+- **Modelos:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
+- **Código:** [GitHub/source-data](https://github.com/source-data)
+- **Documentación:** Guías y tutoriales completos
+
+### Pruébalo
+- Interfaz web en [sourcedata.embo.org](http://sourcedata.embo.org)
+- Librería Python: `pip install sourcedata`
+- Acceso a API disponible
+
+## Publicaciones
+
+**"SourceData-NLP: A Large-Scale Dataset for Biomedical NLP"**
+
+Presentado en las principales conferencias de NLP y citado por más de 100 artículos en aprendizaje automático y bioinformática.
+
+[Leer en arXiv →](https://arxiv.org/abs/2310.20440)
+
+## Direcciones Futuras
+
+- Soporte multilingüe (más allá del inglés)
+- Procesamiento en tiempo real de nuevas publicaciones
+- Integración con sistemas de información de laboratorio
+- Aprendizaje federado entre instituciones
