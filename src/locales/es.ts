@@ -81,5 +81,43 @@ export const es = {
   footer: {
     copyright: "© 2025 • Jorge Abreu-Vicente, PhD - Todos los Derechos Reservados.",
   },
+  about: {
+    title: "Acerca de & Contacto",
+    subtitle: "Conóceme y conectemos",
+    profile: {
+      name: "Jorge Abreu-Vicente, PhD",
+      title: "Astrofísico y Científico de Datos",
+      summary: "Uniendo astrofísica y ciencia de datos con experiencia en machine learning, simulaciones computacionales e IA biomédica.",
+      location: "Londres, Reino Unido",
+    },
+    biography: {
+      title: "Biografía Profesional",
+      content: `El Dr. Jorge Abreu-Vicente es un investigador destacado que conecta los campos de la astrofísica y la ciencia de datos. Actualmente trabajando en EMBO (Organización Europea de Biología Molecular), se especializa en aplicar inteligencia artificial y aprendizaje automático a la investigación biomédica.
+
+Su trayectoria académica comenzó con un doctorado cum laude del Instituto Max Planck de Astronomía y la Universidad de Heidelberg, donde realizó investigaciones pioneras sobre la estructura de las nubes moleculares y los mecanismos de formación estelar a escalas galácticas. Este trabajo combinó simulaciones computacionales a gran escala con análisis de datos observacionales, sentando las bases de su experiencia en el manejo de conjuntos de datos complejos y multidimensionales.
+
+Transitando desde la astrofísica hacia la biomedicina, el Dr. Abreu-Vicente ahora se enfoca en desarrollar herramientas impulsadas por IA para la investigación científica. Ha contribuido a varios proyectos de alto impacto, incluyendo BioChatter, una plataforma para aplicaciones biomédicas de modelos de lenguaje grandes publicada en Nature Biotechnology, y SourceDataNLP, un pipeline de procesamiento de lenguaje natural para la extracción automatizada de conocimiento de la literatura científica.
+
+Su trabajo enfatiza la ciencia abierta, la investigación reproducible y la democratización de las herramientas de IA para la comunidad científica. Contribuye activamente a la construcción de grafos de conocimiento y herramientas semánticas que ayudan a los investigadores a navegar el panorama en constante crecimiento de la literatura biomédica.
+
+Más allá de su trabajo técnico, el Dr. Abreu-Vicente es un apasionado defensor de la salud mental. Escribió "Morgenrot," una narrativa personal respaldada por la ciencia sobre cómo superar los ataques de pánico y la ansiedad, ayudando a otros a través de la experiencia vivida y enfoques basados en la evidencia.
+
+Con una perspectiva única que abarca desde fenómenos cósmicos hasta biología molecular, el Dr. Abreu-Vicente continúa expandiendo los límites de lo posible al combinar experiencia en el dominio con tecnología de vanguardia.`,
+    },
+    contact: {
+      title: "Contacta Conmigo",
+      description: "¿Tienes una pregunta o quieres colaborar? ¡No dudes en contactarme!",
+      form: {
+        name: "Tu Nombre",
+        email: "Tu Email",
+        subject: "Asunto",
+        message: "Tu Mensaje",
+        send: "Enviar Mensaje",
+        sending: "Enviando...",
+        success: "¡Mensaje enviado con éxito!",
+        error: "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+      },
+    },
+  },
 };
 

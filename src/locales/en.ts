@@ -81,5 +81,43 @@ export const en = {
   footer: {
     copyright: "© 2025 • Jorge Abreu-Vicente, PhD - All Rights Reserved.",
   },
+  about: {
+    title: "About & Contact",
+    subtitle: "Get to know me and let's connect",
+    profile: {
+      name: "Jorge Abreu-Vicente, PhD",
+      title: "Astrophysicist & Data Scientist",
+      summary: "Bridging astrophysics and data science with expertise in machine learning, computational simulations, and biomedical AI.",
+      location: "41°53'27.03\"N, 08°52'8.00\"W",
+    },
+    biography: {
+      title: "Professional Biography",
+      content: `Dr. Jorge Abreu-Vicente is an accomplished researcher bridging the fields of astrophysics and data science. Currently working at EMBO (European Molecular Biology Organization), he specializes in applying artificial intelligence and machine learning to biomedical research.
+
+His academic journey began with a PhD cum laude from the Max Planck Institute for Astronomy and the University of Heidelberg, where he conducted groundbreaking research on molecular cloud structure and star formation mechanisms at galactic scales. This work combined large-scale computational simulations with observational data analysis, laying the foundation for his expertise in handling complex, multi-dimensional datasets.
+
+Transitioning from astrophysics to biomedicine, Dr. Abreu-Vicente now focuses on developing AI-powered tools for scientific research. He has contributed to several high-impact projects including BioChatter, a platform for biomedical applications of large language models published in Nature Biotechnology, and SourceDataNLP, a natural language processing pipeline for automated knowledge extraction from scientific literature.
+
+His work emphasizes open science, reproducible research, and the democratization of AI tools for the scientific community. He actively contributes to building knowledge graphs and semantic tools that help researchers navigate the ever-growing landscape of biomedical literature.
+
+Beyond his technical work, Dr. Abreu-Vicente is passionate about mental health advocacy. He authored "Morgenrot," a science-backed personal narrative about overcoming panic attacks and anxiety, helping others through lived experience and evidence-based approaches.
+
+With a unique perspective that spans from cosmic phenomena to molecular biology, Dr. Abreu-Vicente continues to push the boundaries of what's possible when combining domain expertise with cutting-edge technology.`,
+    },
+    contact: {
+      title: "Get In Touch",
+      description: "Have a question or want to collaborate? Feel free to reach out!",
+      form: {
+        name: "Your Name",
+        email: "Your Email",
+        subject: "Subject",
+        message: "Your Message",
+        send: "Send Message",
+        sending: "Sending...",
+        success: "Message sent successfully!",
+        error: "Failed to send message. Please try again.",
+      },
+    },
+  },
 };
 
