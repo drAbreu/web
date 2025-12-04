@@ -259,11 +259,22 @@ export default function BlogClient({ posts }: BlogClientProps) {
                               </span>
                             </div>
 
-                            {/* Category Badge */}
-                            <div className="mb-3">
+                            {/* Category Badge & Morgenrot Link */}
+                            <div className="mb-3 flex items-center gap-2 flex-wrap">
                               <span className="px-3 py-1 bg-brand-purple/50 text-brand-orange text-xs rounded-full font-semibold">
                                 {post.category}
                               </span>
+                              {post.tags && post.tags.includes('morgenrot') && (
+                                <Link 
+                                  href={`/morgenrot/blog/${post.slug}`}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full font-semibold hover:bg-green-600/50 transition-colors flex items-center gap-1"
+                                  title={language === "en" ? "View in Morgenrot blog" : "Ver en el blog de Morgenrot"}
+                                >
+                                  <span>🌅</span>
+                                  <span>Morgenrot</span>
+                                </Link>
+                              )}
                             </div>
 
                             {/* Title */}

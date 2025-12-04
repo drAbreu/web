@@ -288,7 +288,7 @@ body {
   transition: all var(--transition-fast);
 }
 
-.morgenrot-lang-btn:hover {
+.morgenrot-lang-btn:hover:not(:disabled) {
   border-color: var(--primary);
   color: var(--primary);
 }
@@ -297,6 +297,12 @@ body {
   background-color: var(--primary);
   color: var(--primary-foreground);
   border-color: var(--primary);
+}
+
+.morgenrot-lang-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background-color: transparent;
 }
 
 /* Section Containers */
@@ -535,4 +541,17 @@ body {
     opacity: 1 !important;
     animation: none !important;
   }
+}
+
+/* Breadcrumbs */
+.morgenrot-breadcrumb-nav {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+}
+
+.morgenrot-breadcrumb-nav > div {
+  display: flex !important;
+  width: 100% !important;
 }

@@ -1,75 +1,56 @@
 "use client";
 
 import Link from "next/link";
+import { BlogPost } from "@/lib/mdx";
 
 interface MorgenrotJournalProps {
   t: any;
   language: string;
+  posts?: BlogPost[];
 }
 
-export default function MorgenrotJournal({ t, language }: MorgenrotJournalProps) {
-  // Placeholder posts - these will be replaced with real MDX blog posts later
-  const placeholderPosts = [
-    {
-      id: 1,
-      title: language === "en" ? "The Beginning of the Journey" : "El Comienzo del Viaje",
-      excerpt:
-        language === "en"
-          ? "Reflections on starting this project and what it means to share such a personal story..."
-          : "Reflexiones sobre comenzar este proyecto y lo que significa compartir una historia tan personal...",
-      date: "2025-01-15",
-      language: language,
-    },
-    {
-      id: 2,
-      title: language === "en" ? "On Writing About Anxiety" : "Sobre Escribir Sobre la Ansiedad",
-      excerpt:
-        language === "en"
-          ? "The challenges and rewards of putting these experiences into words..."
-          : "Los desafíos y recompensas de poner estas experiencias en palabras...",
-      date: "2025-01-08",
-      language: language,
-    },
-    {
-      id: 3,
-      title: language === "en" ? "Hope in Dark Times" : "Esperanza en Tiempos Oscuros",
-      excerpt:
-        language === "en"
-          ? "Finding light when everything seems impossible. Lessons learned along the way..."
-          : "Encontrando luz cuando todo parece imposible. Lecciones aprendidas en el camino...",
-      date: "2025-01-01",
-      language: language,
-    },
-  ];
+export default function MorgenrotJournal({ t, language, posts = [] }: MorgenrotJournalProps) {
+  // Filter posts by language and limit to 3 for preview
+  const displayPosts = posts
+    .filter(post => post.lang === language)
+    .slice(0, 3);
 
   return (
     <section className="morgenrot-section journal-section">
       <h2 className="morgenrot-section-title">{t.journal.title}</h2>
       <p className="journal-description">{t.journal.description}</p>
 
-      <div className="journal-grid">
-        {placeholderPosts.map((post, index) => (
-          <article key={post.id} className="journal-card morgenrot-card">
-            <div className="journal-meta">
-              <span className="journal-lang-tag">[{post.language.toUpperCase()}]</span>
-              <span className="journal-date">{post.date}</span>
-            </div>
-            <h3 className="journal-title">{post.title}</h3>
-            <p className="journal-excerpt">{post.excerpt}</p>
-            <div className="journal-link-container">
-              <span className="journal-link">
-                {t.journal.readMore} →
-              </span>
-            </div>
-          </article>
-        ))}
+      {displayPosts.length > 0 ? (
+        <>
+          <div className="journal-grid">
+            {displayPosts.map((post) => (
+              <Link key={post.slug} href={`/morgenrot/blog/${post.slug}`}>
+                <article className="journal-card morgenrot-card">
+                  <div className="journal-meta">
+                    <span className="journal-lang-tag">[{post.lang.toUpperCase()}]</span>
+                    <span className="journal-date">{new Date(post.date).toLocaleDateString(language === 'en' ? 'en-US' : 'es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                  </div>
+                  <h3 className="journal-title">{post.title}</h3>
+                  <p className="journal-excerpt">{post.description}</p>
+                  <div className="journal-link-container">
+                    <span className="journal-link">
+                      {t.journal.readMore} →
+                    </span>
+                  </div>
+                </article>
+              </Link>
+            ))}
       </div>
-
-      <div className="view-all-container">
-        <span className="view-all-link">
-          {t.journal.viewAll} →
-        </span>
-      </div>
+        </>
+      ) : (
+        <div style={{ textAlign: 'center', padding: 'var(--spacing-4xl)', color: 'var(--muted-foreground)' }}>
+          <p style={{ fontSize: 'var(--text-xl)' }}>
+            {language === 'en' 
+              ? 'Blog posts coming soon. Check back for updates on the Morgenrot journey!' 
+              : 'Publicaciones próximamente. ¡Vuelve para ver actualizaciones sobre el viaje de Morgenrot!'}
+          </p>
+        </div>
+      )}
 
       <style jsx>{`
         .journal-section {
@@ -101,6 +82,8 @@ export default function MorgenrotJournal({ t, language }: MorgenrotJournalProps)
           transition: all var(--transition-base);
           padding: var(--spacing-2xl);
           min-height: 320px;
+          text-decoration: none;
+          color: inherit;
         }
 
         .journal-card:hover {

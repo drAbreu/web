@@ -112,7 +112,7 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
                 </button>
               </div>
 
-              <Link href="/contact">
+              <Link href="/about/">
                 <GradientButton className="text-sm">
                   {navTranslations.contact}
                 </GradientButton>

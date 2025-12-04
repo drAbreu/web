@@ -228,7 +228,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/research">
+              <Link href="/projects">
                 <GradientButton className="px-8 py-3 text-lg">
                   {t.hero.cta.research}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -254,15 +254,7 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
                 {t.hero.academicLinks.orcid}
               </Link>
               <Link 
-                href="https://drabreu.github.io/web/" 
-            target="_blank"
-            rel="noopener noreferrer"
-                className="text-gray-400 hover:text-brand-gold transition-colors text-sm"
-              >
-                {t.hero.academicLinks.personalSite}
-              </Link>
-              <Link 
-                href="https://drabreu.github.io/web/featured_research.html" 
+                href="https://ui.adsabs.harvard.edu/search/p_=0&q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc" 
             target="_blank"
             rel="noopener noreferrer"
                 className="text-gray-400 hover:text-brand-gold transition-colors text-sm"

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { translations, type Language } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,6 +17,8 @@ interface BlogPostClientProps {
   headings: { text: string; id: string }[];
   slug: string;
   lang: string;
+  alternateSlug?: string | null;
+  alternateLang?: 'en' | 'es' | null;
 }
 
 export default function BlogPostClient({
@@ -24,8 +27,11 @@ export default function BlogPostClient({
   readingTime,
   headings,
   slug,
-  lang: initialLang
+  lang: initialLang,
+  alternateSlug,
+  alternateLang
 }: BlogPostClientProps) {
+  const router = useRouter();
   const [language, setLanguage] = useState<Language>(initialLang as Language);
   const navT = translations[language];
 
@@ -34,13 +40,39 @@ export default function BlogPostClient({
     const savedLang = localStorage.getItem('language') as Language | null;
     if (savedLang && (savedLang === 'en' || savedLang === 'es')) {
       setLanguage(savedLang);
+    } else {
+      setLanguage(initialLang as Language);
     }
-  }, []);
+  }, [initialLang]);
 
-  // Save language preference when it changes
+  // Save language preference when it changes and navigate to correct version
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
+    
+    // If clicking on the alternate language, navigate to it
+    if (lang === alternateLang && alternateSlug) {
+      router.push(`/blog/${alternateSlug}`);
+      return;
+    }
+    
+    // Otherwise, determine the correct slug for the selected language
+    let newSlug = slug;
+    
+    // Remove any existing language suffix
+    const baseSlug = slug.replace(/-es$/, '').replace(/-en$/, '');
+    
+    // Add appropriate suffix based on language
+    if (lang === 'es') {
+      newSlug = `${baseSlug}-es`;
+    } else {
+      newSlug = baseSlug; // English doesn't have suffix
+    }
+    
+    // Navigate to the correct language version if it exists
+    if (newSlug !== slug) {
+      router.push(`/blog/${newSlug}`);
+    }
   };
 
   return (
@@ -74,11 +106,21 @@ export default function BlogPostClient({
 
               {/* Article Header */}
               <header className="mb-12">
-                {/* Category */}
-                <div className="mb-6">
+                {/* Category & Morgenrot Link */}
+                <div className="mb-6 flex items-center gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-brand-purple/30 text-brand-gold text-sm rounded-full font-semibold">
                     {frontmatter.category}
                   </span>
+                  {frontmatter.tags && frontmatter.tags.includes('morgenrot') && (
+                    <Link 
+                      href={`/morgenrot/blog/${slug}`}
+                      className="px-3 py-1 bg-green-600/30 text-green-300 text-sm rounded-full font-semibold hover:bg-green-600/50 transition-colors flex items-center gap-1"
+                      title={language === "en" ? "View in Morgenrot blog" : "Ver en el blog de Morgenrot"}
+                    >
+                      <span>🌅</span>
+                      <span>Morgenrot</span>
+                    </Link>
+                  )}
                 </div>
 
                 {/* Title */}
@@ -118,6 +160,22 @@ export default function BlogPostClient({
                   </span>
                 </div>
 
+                {/* Language Switcher */}
+                {alternateSlug && alternateLang && (
+                  <div className="mb-6 p-4 bg-brand-navy/30 backdrop-blur-sm rounded-lg border border-white/10">
+                    <p className="text-sm text-gray-400 mb-2">
+                      {language === 'en' ? 'Also available in:' : 'También disponible en:'}
+                    </p>
+                    <Link
+                      href={`/blog/${alternateSlug}`}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-brand-coral/20 hover:bg-brand-coral/30 text-brand-coral rounded-lg text-sm font-semibold transition-colors"
+                    >
+                      <span>{alternateLang === 'es' ? '🇪🇸' : '🇬🇧'}</span>
+                      <span>{alternateLang === 'es' ? 'Leer en Español' : 'Read in English'}</span>
+                    </Link>
+                  </div>
+                )}
+
                 {/* Tags */}
                 {frontmatter.tags && frontmatter.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -149,16 +207,27 @@ export default function BlogPostClient({
 
               {/* Footer Navigation */}
               <footer className="mt-16 pt-8 border-t border-white/10">
-                <div className="flex justify-between items-center">
-                  <Link
-                    href="/blog"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-brand-gold transition-colors"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    {language === 'es' ? 'Todos los Posts' : 'All Posts'}
-                  </Link>
+                <div className="flex justify-between items-center flex-wrap gap-4">
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href="/blog"
+                      className="inline-flex items-center gap-2 text-gray-400 hover:text-brand-gold transition-colors"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      {language === 'es' ? 'Todos los Posts' : 'All Posts'}
+                    </Link>
+                    {frontmatter.tags && frontmatter.tags.includes('morgenrot') && (
+                      <Link
+                        href="/morgenrot/blog"
+                        className="inline-flex items-center gap-2 text-green-300 hover:text-green-200 transition-colors"
+                      >
+                        <span>🌅</span>
+                        {language === 'es' ? 'Blog Morgenrot' : 'Morgenrot Blog'}
+                      </Link>
+                    )}
+                  </div>
                   <Link
                     href="/"
                     className="inline-flex items-center gap-2 text-gray-400 hover:text-brand-gold transition-colors"

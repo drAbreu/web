@@ -63,10 +63,22 @@ export default function CVPage() {
       </div>
 
       {/* Fixed Navigation Sidebar - Desktop */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-1/3 max-w-md flex-col justify-between p-12 z-10">
+      <aside className="hidden lg:flex fixed left-0 top-0 h-screen w-1/3 max-w-md flex-col justify-between p-12 pt-28 z-10">
         <div>
           {/* Header */}
           <div className="mb-12">
+            {/* Profile Image */}
+            <div className="mb-6 flex justify-center">
+              <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-brand-coral/30 shadow-lg shadow-brand-coral/20">
+                <Image
+                  src="/datastar-full.png"
+                  alt="Dr. Jorge Abreu-Vicente"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
             <h1 className="text-4xl font-bold text-white mb-4">
               Dr. Jorge Abreu-Vicente
             </h1>

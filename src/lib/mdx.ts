@@ -154,4 +154,10 @@ export function getFeaturedBlogPosts(lang?: 'en' | 'es'): BlogPost[] {
   return getBlogPosts(lang).filter(post => post.featured)
 }
 
+export function getBlogPostsByTag(tag: string, lang?: 'en' | 'es'): BlogPost[] {
+  return getBlogPosts(lang).filter(post => 
+    post.tags && post.tags.some(t => t.toLowerCase() === tag.toLowerCase())
+  )
+}
+
 

@@ -4,7 +4,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import type { Metadata } from 'next';
-import BlogPostClient from './BlogPostClient';
+import MorgenrotBlogPostClient from './MorgenrotBlogPostClient';
 
 // Function to calculate reading time
 function calculateReadingTime(content: string): number {
@@ -29,36 +29,36 @@ function extractHeadings(content: string) {
   return headings;
 }
 
-// MDX Components with custom styling and IDs for navigation
+// MDX Components with Morgenrot styling
 const createComponents = (headings: { text: string; id: string }[]) => ({
-  h1: (props: any) => <h1 className="text-4xl font-bold text-white mb-6 mt-8" {...props} />,
+  h1: (props: any) => <h1 style={{ fontSize: 'var(--text-4xl)', fontFamily: 'var(--font-heading)', fontWeight: 700, color: 'var(--foreground)', marginBottom: 'var(--spacing-lg)', marginTop: 'var(--spacing-2xl)' }} {...props} />,
   h2: (props: any) => {
     const text = props.children;
     const heading = headings.find(h => h.text === text);
     return (
       <h2
         id={heading?.id}
-        className="text-3xl font-bold text-white mb-4 mt-8 scroll-mt-24"
+        style={{ fontSize: 'var(--text-3xl)', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--primary)', marginBottom: 'var(--spacing-md)', marginTop: 'var(--spacing-2xl)' }}
         {...props}
       />
     );
   },
-  h3: (props: any) => <h3 className="text-2xl font-semibold text-brand-coral mb-3 mt-6" {...props} />,
-  h4: (props: any) => <h4 className="text-xl font-semibold text-gray-300 mb-2 mt-4" {...props} />,
-  p: (props: any) => <p className="text-gray-300 leading-relaxed mb-4" {...props} />,
-  ul: (props: any) => <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
-  ol: (props: any) => <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
-  li: (props: any) => <li className="text-gray-300" {...props} />,
-  a: (props: any) => <a className="text-brand-orange hover:text-brand-gold transition-colors underline" {...props} />,
+  h3: (props: any) => <h3 style={{ fontSize: 'var(--text-2xl)', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--foreground)', marginBottom: 'var(--spacing-sm)', marginTop: 'var(--spacing-xl)' }} {...props} />,
+  h4: (props: any) => <h4 style={{ fontSize: 'var(--text-xl)', fontFamily: 'var(--font-heading)', fontWeight: 600, color: 'var(--foreground)', marginBottom: 'var(--spacing-sm)', marginTop: 'var(--spacing-lg)' }} {...props} />,
+  p: (props: any) => <p style={{ color: 'var(--foreground)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--spacing-md)', fontSize: 'var(--text-lg)' }} {...props} />,
+  ul: (props: any) => <ul style={{ listStyle: 'disc', paddingLeft: 'var(--spacing-xl)', color: 'var(--foreground)', marginBottom: 'var(--spacing-md)' }} {...props} />,
+  ol: (props: any) => <ol style={{ listStyle: 'decimal', paddingLeft: 'var(--spacing-xl)', color: 'var(--foreground)', marginBottom: 'var(--spacing-md)' }} {...props} />,
+  li: (props: any) => <li style={{ color: 'var(--foreground)', marginBottom: 'var(--spacing-sm)' }} {...props} />,
+  a: (props: any) => <a style={{ color: 'var(--primary)', textDecoration: 'underline' }} {...props} />,
   blockquote: (props: any) => (
-    <blockquote className="border-l-4 border-brand-coral pl-4 italic text-gray-400 my-6" {...props} />
+    <blockquote style={{ borderLeft: '4px solid var(--primary)', paddingLeft: 'var(--spacing-lg)', fontStyle: 'italic', color: 'var(--muted-foreground)', margin: 'var(--spacing-xl) 0' }} {...props} />
   ),
-  code: (props: any) => <code className="bg-brand-navy/50 px-2 py-1 rounded text-brand-orange text-sm" {...props} />,
+  code: (props: any) => <code style={{ backgroundColor: 'var(--muted)', padding: 'var(--spacing-xs) var(--spacing-sm)', borderRadius: 'var(--radius)', color: 'var(--primary)', fontSize: 'var(--text-sm)', fontFamily: 'var(--font-mono)' }} {...props} />,
   pre: (props: any) => (
-    <pre className="bg-brand-navy/50 p-4 rounded-lg overflow-x-auto mb-6 border border-brand-purple/30" {...props} />
+    <pre style={{ backgroundColor: 'var(--muted)', padding: 'var(--spacing-lg)', borderRadius: 'var(--radius-lg)', overflowX: 'auto', marginBottom: 'var(--spacing-lg)', border: '1px solid var(--border)' }} {...props} />
   ),
-  strong: (props: any) => <strong className="font-bold text-white" {...props} />,
-  em: (props: any) => <em className="italic text-gray-300" {...props} />,
+  strong: (props: any) => <strong style={{ fontWeight: 700, color: 'var(--foreground)' }} {...props} />,
+  em: (props: any) => <em style={{ fontStyle: 'italic', color: 'var(--foreground)' }} {...props} />,
 });
 
 async function getBlogPost(slug: string) {
@@ -104,14 +104,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) {
     return {
-      title: 'Post Not Found | DATASTAR',
+      title: 'Post Not Found | Morgenrot',
     };
   }
 
   const { frontmatter } = post;
 
   return {
-    title: `${frontmatter.title} | DATASTAR Blog`,
+    title: `${frontmatter.title} | Morgenrot Blog`,
     description: frontmatter.description,
     keywords: frontmatter.tags,
     authors: [{ name: frontmatter.author }],
@@ -131,7 +131,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function MorgenrotBlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
 
@@ -170,7 +170,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const mdxContent = <MDXRemote source={content} components={components} />;
 
   return (
-    <BlogPostClient
+    <MorgenrotBlogPostClient
       frontmatter={frontmatter}
       mdxContent={mdxContent}
       readingTime={readingTime}
@@ -182,3 +182,4 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     />
   );
 }
+

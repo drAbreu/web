@@ -33,8 +33,7 @@ export const en = {
     },
     academicLinks: {
       orcid: "ORCID",
-      personalSite: "Personal Site",
-      featuredResearch: "Featured Research",
+      featuredResearch: "NASA / ADS",
     },
     scroll: "Scroll to explore",
   },

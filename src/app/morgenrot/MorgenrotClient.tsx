@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { translations, type Language } from "@/lib/i18n";
+import { BlogPost } from "@/lib/mdx";
 import MorgenrotHero from "@/components/morgenrot/MorgenrotHero";
 import MorgenrotWhatIs from "@/components/morgenrot/MorgenrotWhatIs";
 import MorgenrotGlimpse from "@/components/morgenrot/MorgenrotGlimpse";
@@ -11,7 +12,11 @@ import MorgenrotAuthor from "@/components/morgenrot/MorgenrotAuthor";
 import MorgenrotFooter from "@/components/morgenrot/MorgenrotFooter";
 import "./morgenrot.css";
 
-export default function MorgenrotClient() {
+interface MorgenrotClientProps {
+  morgenrotPosts?: BlogPost[];
+}
+
+export default function MorgenrotClient({ morgenrotPosts = [] }: MorgenrotClientProps) {
   const [language, setLanguage] = useState<Language>("en");
   const t = translations[language].morgenrot;
 
@@ -50,7 +55,7 @@ export default function MorgenrotClient() {
       <MorgenrotGlimpse t={t} />
 
       {/* Journal/Blog Section */}
-      <MorgenrotJournal t={t} language={language} />
+      <MorgenrotJournal t={t} language={language} posts={morgenrotPosts} />
 
       {/* Author Section */}
       <MorgenrotAuthor t={t} />

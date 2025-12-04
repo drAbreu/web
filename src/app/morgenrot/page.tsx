@@ -1,4 +1,5 @@
 import MorgenrotClient from "./MorgenrotClient";
+import { getBlogPostsByTag } from "@/lib/mdx";
 
 export const metadata = {
   title: "Morgenrot - The Path from Darkness to Light",
@@ -6,5 +7,8 @@ export const metadata = {
 };
 
 export default function MorgenrotPage() {
-  return <MorgenrotClient />;
+  // Get all blog posts tagged with "morgenrot"
+  const morgenrotPosts = getBlogPostsByTag("morgenrot");
+  
+  return <MorgenrotClient morgenrotPosts={morgenrotPosts} />;
 }
