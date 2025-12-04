@@ -13,6 +13,7 @@ interface NavbarProps {
     home: string;
     projects: string;
     blog: string;
+    morgenrot: string;
     services: string;
     research: string;
     about: string;
@@ -73,6 +74,9 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
               </Link>
               <Link href="/blog" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
                 {navTranslations.blog}
+              </Link>
+              <Link href="/morgenrot" className="text-sm px-4 py-2 text-white/70 hover:text-brand-gold transition-all">
+                {navTranslations.morgenrot}
               </Link>
               <Link href="/cv" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
                 {navTranslations.cv}
@@ -179,15 +183,22 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
               >
                 {navTranslations.projects}
               </Link>
-              <Link 
-                href="/blog" 
+              <Link
+                href="/blog"
                 className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {navTranslations.blog}
               </Link>
-              <Link 
-                href="/cv" 
+              <Link
+                href="/morgenrot"
+                className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {navTranslations.morgenrot}
+              </Link>
+              <Link
+                href="/cv"
                 className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

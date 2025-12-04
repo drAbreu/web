@@ -3,6 +3,7 @@ export const en = {
     home: "Home",
     projects: "Projects",
     blog: "Blog",
+    morgenrot: "Morgenrot",
     services: "Services",
     research: "Research",
     about: "About",
@@ -117,6 +118,106 @@ With a unique perspective that spans from cosmic phenomena to molecular biology,
         success: "Message sent successfully!",
         error: "Failed to send message. Please try again.",
       },
+    },
+  },
+  morgenrot: {
+    nav: {
+      backToMain: "← Back to datastar.space",
+    },
+    hero: {
+      title: "THE MORGENROT TRAIL",
+      subtitle: "A book about conquering anxiety through science and epic determination",
+      comingSoon: "COMING 2025",
+      editorSeeking: "The book is currently in the editor seeking and review process",
+      cta: "Join the Journey",
+    },
+    whatIs: {
+      title: "WHAT IS MORGENROT?",
+      definition: '"Morgenrot" - The reddish glow before dawn. Not the sunrise itself, but the herald that light has come to relegate the darkness. A pure evocation of hope.',
+      pillarsTitle: "This book combines four essential elements:",
+      pillars: {
+        testimony: {
+          title: "Raw Personal Testimony",
+          description: "The real suffering, unfiltered",
+        },
+        science: {
+          title: "Scientific Rigor",
+          description: "Evidence-based cognitive behavioral therapy",
+        },
+        process: {
+          title: "The Real Process",
+          description: "Falls, mistakes, relapses included",
+        },
+        transparency: {
+          title: "Complete Transparency",
+          description: "Inside the anxious mind, without filters",
+        },
+      },
+      status: "Seeking Publisher - In Review",
+    },
+    glimpse: {
+      title: "A GLIMPSE INSIDE",
+      quote: '"No hay manera de que perdamos\nEsta es nuestra vida, esta es nuestra canción\nLucharemos contra los poderes que nos oprimen\n¡No lo vamos a aceptar!"',
+      quoteAuthor: 'Twisted Sister, "We Are Not Gonna Take It"',
+      excerpt: "Welcome to an epic adventure. Not just any adventure, but the most important you'll ever undertake: the reconquest of your own life...",
+      cta: "Get notified when it launches",
+      flashCards: {
+        title: "EXCERPTS FROM THE BOOK",
+        cards: [
+          {
+            label: "THE FIRST ATTACK",
+            category: "Testimony - Chapter 1",
+            text: "My hands trembled uncontrollably, my breathing had mutated into hyperventilation. The tremor made it impossible to open the bar and grab the bottle to drink.\n\nWhat should have been a peaceful session in the Odenwald had become a Stephen King movie. The sensation of panic and imminent death forced me to stop.\n\n—YOU MUST REACH A POPULATED PLACE AS SOON AS POSSIBLE. EVERY SECOND COUNTS. EVERY HEARTBEAT COULD BE THE LAST. —roared Gríma, making every nerve in my body vibrate.\n\nMy heart rate skyrocketed in seconds! 120, 130, 140, 150, 160… I could only make a phone call under the emotional certainty that the next few minutes would be critical to save my life.",
+          },
+          {
+            label: "UNDERSTANDING ANXIETY",
+            category: "Practical Guide - Chapter 1",
+            text: "Anxiety is not fear of things. It's fear of sensations.\n\nIt's anticipatory terror: the fear of what will happen when our own bodily reactions activate. It's as if our internal alarm system has become hyperactive and now sees threats where there are only normal sensations. It confuses an open water tap with a tsunami, a firecracker with a long-range missile.\n\nThe good news is that if your brain learned to fear those sensations, it can also learn not to fear them. If you fell into this trap following a specific process, you can get out of it by following the reverse process.",
+          },
+          {
+            label: "GOING AFTER THE PANIC",
+            category: "Testimony - Chapter 7",
+            text: "Already at the ancient Celtic hillforts I felt nervous. When I reached the first staircase, I felt the usual mental block. But I wanted to show Manon the beauty of the place. With a deep breath, and my eyes fixed on the ground, I began to climb.\n\nAfter barely ten steps, all alarms went off.\n\n—Let's go down now! We're risking our lives! —shouted Gríma.\n\n—Enough nonsense! Only by moving forward will this torture end. —replied my rational part, fed up with so much weakness.\n\nThe healthy mind won the battle. I took a breath of humid oceanic air and continued climbing without stopping until I reached the top.",
+          },
+          {
+            label: "ATTACKING THE PANIC",
+            category: "Testimony - Chapter 7",
+            text: "When Manon caught up with me, one look was enough to understand what was happening. I was ready to turn around and flee, but she had other plans. She ordered me to be quiet and sit down. She didn't want to hear me talk or see me run. She simply asked me to stay there for five or ten minutes.\n\nThe first moments were eternal. Erratic movements, intense palpitations, stabbing chest pain, numb hands…\n\nHowever, as I contemplated the course of the Miño River, something extraordinary happened: the anxiety gradually subsided, giving way to a clear mind. A mind that knew exactly what it had to do: get up and complete the ascent.",
+          },
+          {
+            label: "THE CARNIVAL OF LIFE",
+            category: "Lyrical Moment - Chapter 13",
+            text: "The carnival of life doesn't come when everything is perfect. It comes when your structure is solid enough that imperfection no longer scares you. When your foundations are so firm that you can dance on them without fear of them collapsing.\n\nIn the first part of the book we rode each day toward twilight, until it became night. Now, after true epics, we've turned the situation around. The same crepuscular light we saw for the last time now greets us in the form of Morgenrot: a dawn that brings us back to a carnival of life with more colors, more nuances, more experiences, more joy.",
+          },
+          {
+            label: "THE GOLDEN THRESHOLD",
+            category: "Lyrical Moment - Chapter 13",
+            text: "Your brain wants to heal. Your body wants to be well. You just need to give them the right conditions. Give it routine, give it natural light, give it real food, give it restorative sleep, give it clean water.\n\nGive it time.\n\nAnd when the moment comes, and it will come, when you feel that Lebenshungrig running through your veins, you'll know that all this daily work was worth it. Because you won't just have overcome anxiety; you'll have discovered an amplified capacity for joy that only those who have walked through darkness and chosen, day after day, to build their own dawn know.\n\nThe Morgenrot is there, waiting for you. You just have to keep walking toward it, one step at a time.",
+          },
+        ],
+      },
+    },
+    journal: {
+      title: "THE JOURNEY CONTINUES",
+      description: "Follow the ongoing story through journal entries",
+      readMore: "Read",
+      viewAll: "View All Posts",
+    },
+    community: {
+      title: "JOIN THE COMMUNITY",
+      description: "Get updates on the book launch and new journal posts",
+      emailPlaceholder: "Email address",
+      subscribe: "Subscribe",
+      awaits: "Your Morgenrot awaits",
+      subscribing: "Subscribing...",
+      success: "Thank you for joining! You'll receive updates soon.",
+      error: "Failed to subscribe. Please try again.",
+    },
+    author: {
+      title: "ABOUT THE AUTHOR",
+      description: "Writing from personal experience of living with anxiety and finding the way back. Currently seeking publisher.",
+      location: "41°53'27.03\"N, 08°52'8.00\"W",
+      inquiries: "Publishing inquiries:",
     },
   },
 };
