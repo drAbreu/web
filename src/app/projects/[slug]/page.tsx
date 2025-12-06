@@ -58,8 +58,9 @@ const createComponents = (headings: { text: string; id: string }[]) => ({
   },
   div: (props: any) => {
     // Check if it's the PDF button container
-    if (props.className === 'pdf-button-container') {
-      return <div className="pdf-button-container" {...props} />;
+    const classNames = props.className || props.class || '';
+    if (typeof classNames === 'string' && classNames.includes('pdf-button-container')) {
+      return <div className={classNames} {...props} />;
     }
     return <div {...props} />;
   },

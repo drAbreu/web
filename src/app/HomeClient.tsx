@@ -325,6 +325,19 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
                             {tag}
                           </span>
                         ))}
+                        {(project.slug === 'morgenrot' || project.slug === 'morgenrot-es') && (
+                          <Link
+                            href="/morgenrot"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                            }}
+                            className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full hover:bg-green-600/50 transition-colors flex items-center gap-1"
+                            title={language === "en" ? "Visit Morgenrot" : "Visitar Morgenrot"}
+                          >
+                            <span>🌅</span>
+                            <span>Morgenrot</span>
+                          </Link>
+                        )}
                       </div>
                       <div className={`inline-flex items-center ${colors.linkColor} transition-colors text-sm font-semibold`}>
                         {language === "en" ? "Learn More" : "Saber Más"}

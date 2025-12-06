@@ -7,7 +7,7 @@ export interface ProjectMatter {
   description: string
   subtitle?: string
   date: string
-  category: string
+  category: string | string[]
   tags: string[]
   featured: boolean
   image?: string

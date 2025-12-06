@@ -105,12 +105,23 @@ export default function ProjectPageClient({
 
               {/* Article Header */}
               <header className="mb-12">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-2 flex-wrap mb-6">
                   {frontmatter.tags?.map((tag: string, i: number) => (
                     <span key={i} className="px-3 py-1 bg-brand-purple/30 text-brand-gold text-xs rounded-full font-semibold">
                       {tag}
                     </span>
                   ))}
+                  {(slug === 'morgenrot' || slug === 'morgenrot-es' || frontmatter.tags?.includes('morgenrot')) && (
+                    <Link 
+                      href="/morgenrot"
+                      className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full font-semibold hover:bg-green-600/50 transition-colors flex items-center gap-1"
+                      title={language === "en" ? "Visit Morgenrot" : "Visitar Morgenrot"}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <span>🌅</span>
+                      <span>Morgenrot</span>
+                    </Link>
+                  )}
                 </div>
                 <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
                   {frontmatter.title}
@@ -121,7 +132,7 @@ export default function ProjectPageClient({
                 <p className="text-xl text-gray-400 mb-6">
                   {frontmatter.description}
                 </p>
-                <div className="flex items-center gap-6 text-sm text-gray-500">
+                <div className="flex items-center gap-6 text-sm text-gray-500 flex-wrap">
                   <time dateTime={frontmatter.date}>
                     {new Date(frontmatter.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', {
                       year: 'numeric',
@@ -129,7 +140,14 @@ export default function ProjectPageClient({
                     })}
                   </time>
                   <span>•</span>
-                  <span>{frontmatter.category}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {(Array.isArray(frontmatter.category) ? frontmatter.category : [frontmatter.category]).map((cat: string, i: number, arr: string[]) => (
+                      <span key={i}>
+                        {cat}
+                        {i < arr.length - 1 && <span className="mx-1">•</span>}
+                      </span>
+                    ))}
+                  </div>
                   <span>•</span>
                   <span className="flex items-center gap-1">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

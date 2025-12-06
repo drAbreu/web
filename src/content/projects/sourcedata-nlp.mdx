@@ -1,11 +1,12 @@
 ---
-title: "SourceData NLP"
-description: "Natural language processing pipeline for automated extraction and structuring of biological knowledge from scientific literature."
-date: "2023-10-15"
-category: "NLP"
-tags: ["NLP", "Text Mining", "Open Science"]
+title: "SourceData-NLP"
+subtitle: "Integrating curation into scientific publishing to train AI models"
+description: "The largest Named Entity Recognition (NER) and Named Entity Linking (NEL) dataset in biomedical sciences. Integrating AI-ready curation directly into the publishing workflow at EMBO Press."
+date: "2023-10-20"
+category: ["NLP", "AI", "Machine Learning", "Biomedical Research"]
+tags: ["NLP", "Dataset", "Biomedical AI", "Knowledge Graphs", "AI/ML", "EMBO", "HuggingFace", "PyTorch", "Python", "GPU", "Neo4j", "Graph Database"]
 featured: true
-image: "/projects/sourcedata.jpg"
+image: "/projects/sourcedata-nlp-1.png"
 link: "https://arxiv.org/abs/2310.20440"
 color: "orange"
 icon: "document"
@@ -13,125 +14,130 @@ order: 2
 lang: "en"
 ---
 
-# SourceData NLP: Automated Knowledge Extraction from Scientific Literature
+# SourceData-NLP: When Publishing Meets AI
 
-## Overview
+What if we could capture structured knowledge from scientific papers the moment they're published, rather than mining them years later? That's the revolutionary idea behind SourceData-NLP—**the largest Named Entity Recognition (NER) and Named Entity Linking (NEL) dataset in biomedical sciences to date**. The paper is approved for publication in the Oxford University Press journal *Bioinformatics*.
 
-SourceData NLP is a sophisticated natural language processing pipeline designed to automatically extract and structure biological knowledge from scientific papers. This project addresses one of the biggest challenges in modern research: making sense of the exponentially growing scientific literature.
+## The Vision: Publishing as Knowledge Infrastructure
 
-## The Problem
+Scientific publishing has been humanity's primary mechanism for sharing knowledge for centuries. Yet this rich repository remains locked in unstructured text, requiring enormous effort to extract and organize. SourceData-NLP reimagines this process by embedding AI-ready curation directly into the publishing workflow at EMBO Press.
 
-### Information Overload
-- 2+ million new papers published annually
-- Researchers can't keep up with their field
-- Critical insights buried in PDFs
-- Manual curation is unsustainable
+Rather than retrospectively annotating papers, we work with authors during peer review to capture structured data as part of the publication process itself. This approach transforms scientific publishing from a static archive into a living, machine-readable knowledge infrastructure.
 
-## Our Solution
+![Workflow diagram showing the SourceData-NLP curation process. Research papers flow through figure segmentation, NER/NEL annotation, and semantic interpretation with author quality checks, producing AI-ready datasets, code repositories, fine-tuned models, and knowledge graphs. The diagram displays eight annotated entity types including small molecules, genes/proteins, subcellular components, cell lines/types, tissues/organs, organisms, diseases, and experimental assays, with semantic interpretation showing relationships between entities.](/projects/sourcedata-nlp-1.png)
 
-### Automated Knowledge Extraction
-SourceData NLP uses state-of-the-art NLP techniques to:
-- **Identify entities** - Genes, proteins, diseases, chemicals
-- **Extract relationships** - Experimental findings, causal links
-- **Structure knowledge** - Convert text to structured data
-- **Generate knowledge graphs** - Connect findings across papers
+**Figure 1: The SourceData-NLP curation workflow.** The integration of NLP-assisted curation into the publishing process enables the capture of structured knowledge from research papers. Authors validate entity annotations during peer review, ensuring high-quality training data. The process generates multiple data products including machine-learning ready datasets, fine-tuned models, and semantic knowledge graphs connecting biomedical entities across the literature.
 
-## Technical Approach
+## By the Numbers
 
-### Pipeline Architecture
+SourceData-NLP is unprecedented in scale and scope:
 
-1. **Document Processing**
-   - PDF parsing and text extraction
-   - Section identification (Methods, Results, Discussion)
-   - Figure and table extraction
+- **661,862 annotated entities** across 8 biomedical categories
+- **623,162 entities linked** to external ontologies and databases  
+- **62,543 annotated figure panels** from 18,689 scientific figures
+- **3,223 research articles** from 25 leading journals in molecular and cell biology
 
-2. **Named Entity Recognition (NER)**
-   - BERT-based models fine-tuned on biomedical text
-   - 9 entity classes: genes, proteins, small molecules, cell types, etc.
-   - 95%+ F1 score on benchmark datasets
+But size isn't everything. What makes SourceData-NLP unique is its focus on **figure legends**—the narrative core of scientific evidence where experimental results are described. Unlike datasets built from isolated sentences, SourceData-NLP preserves the rich context of real scientific communication.
 
-3. **Relation Extraction**
-   - Identify experimental relationships
-   - Classify interaction types
-   - Extract causality and directionality
+![Statistical table showing comprehensive breakdown of annotated bioentities in SourceData-NLP. The table displays NER totals (801,818 total, 67,077 unique entities), role assignments across controlled intervention, measured assayed, and other categories (160,213, 243,505, and 240,585 respectively), and NEL statistics (686,846 total linked entities, 39,997 unique, 5.82% uniqueness ratio) for eight entity types: small molecules, gene products, subcellular components, cell lines, cell types, tissues, organisms, diseases, and experimental assays.](/projects/sourcedata-nlp-2.png)
 
-4. **Knowledge Graph Construction**
-   - Entities → Nodes
-   - Relationships → Edges
-   - Metadata enrichment from databases
+**Table 1: Comprehensive overview of annotated bioentities in the SourceData-NLP dataset.** The table presents detailed statistics for Named Entity Recognition (NER), experimental role assignments, and Named Entity Linking (NEL) across all entity categories. The uniqueness percentages reflect the diversity of entity mentions, with experimental assays showing the lowest uniqueness (0.63%) due to repeated methodologies, while small molecules show the highest (9.71%) reflecting diverse chemical compounds studied across papers.
 
-### Models & Performance
+## What We Annotate
 
-**Custom BERT Models:**
-- `EMBO/sd-ner-v2` - Named Entity Recognition
-- `EMBO/sd-geneprod-roles-v2` - Gene/Protein role detection
-- `EMBO/sd-smallmol-roles-v2` - Chemical role detection
+The dataset captures the essential elements of biomedical research:
 
-**Training Data:**
-- 100,000+ manually curated papers
-- SourceData dataset (largest biomedical NLP dataset)
-- Available on [HuggingFace](https://huggingface.co/datasets/EMBO/SourceData)
+**Eight biological entity types:** small molecules, gene products, subcellular components, cell lines, cell types, tissues, organisms, and diseases
 
-**Performance Metrics:**
-- Precision: 94%
-- Recall: 91%
-- F1 Score: 92.5%
+**Experimental context:** Beyond simply identifying entities, we annotate their roles in experimental designs and the methodologies used to study them
 
-## Impact
+**Semantic relationships:** Each entity is linked to authoritative databases, enabling disambiguation and connecting findings across the literature
 
-### For Researchers
-- ✅ Discover relevant papers faster
-- ✅ Identify knowledge gaps
-- ✅ Generate hypotheses from existing data
-- ✅ Track research trends
+This granular annotation, validated by original authors, ensures the highest quality training data for AI models.
 
-### For Publishers
-- ✅ Enhance article discoverability
-- ✅ Generate semantic metadata
-- ✅ Improve search functionality
-- ✅ Enable new editorial tools
+## Why This Matters
 
-### For the Community
-- ✅ Open-source models
-- ✅ Publicly available datasets
-- ✅ Reproducible research
-- ✅ Community-driven improvements
+Integrating curation into publishing isn't just about building a better dataset—it's about fundamentally rethinking how scientific knowledge flows. When structured data is captured at the source, it becomes immediately available for:
 
-## Dataset
+### Knowledge Discovery
+AI models can identify patterns and relationships across millions of experiments that no human could manually track.
 
-**SourceData: The Largest Biomedical NLP Dataset**
+### Accelerated Research
+Researchers can instantly query what's known about specific genes, diseases, or experimental approaches without reading thousands of papers.
 
-- **Size:** 500,000+ annotated entities
-- **Papers:** 18,000+ full-text articles
-- **Annotations:** Expert-curated by scientists
-- **License:** Open (CC BY 4.0)
-- **Access:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+### Reproducibility & Rigor
+Standardized entity annotation during publishing helps resolve terminological ambiguities and unclear concepts before they propagate through the literature.
 
-## Code & Resources
+### AI Training at Scale
+Large language models trained on SourceData-NLP understand not just biomedical terminology, but the experimental context in which discoveries are made.
 
-### Open Source
-- **Models:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
-- **Code:** [GitHub/source-data](https://github.com/source-data)
-- **Documentation:** Comprehensive guides and tutorials
+## Downstream Applications
 
-### Try It
-- Web interface at [sourcedata.embo.org](http://sourcedata.embo.org)
-- Python library: `pip install sourcedata`
-- API access available
+The SourceData-NLP dataset enables a new generation of biomedical AI tools:
 
-## Publications
+**Literature Intelligence**
+- Automated systematic reviews and meta-analyses
+- Real-time research trend tracking and gap analysis
+- Evidence synthesis across decades of publications
 
-**"SourceData-NLP: A Large-Scale Dataset for Biomedical NLP"**
+**Drug Discovery**
+- Novel target identification through entity relationship mining
+- Drug repurposing by connecting known compounds to new disease contexts
+- Adverse effect prediction from experimental literature
 
-Presented at top NLP conferences and cited by 100+ papers in machine learning and bioinformatics.
+**Clinical Translation**
+- Linking basic research findings to clinical applications
+- Building comprehensive disease-gene-drug knowledge graphs
+- Supporting precision medicine with literature-derived evidence
 
-[Read on arXiv →](https://arxiv.org/abs/2310.20440)
+**Research Assistance**
+- Experimental design recommendations based on similar studies
+- Methodology suggestions for specific entity types
+- Hypothesis generation from unexpected entity co-occurrences
 
-## Future Directions
+**Scientific Understanding**
+- Multimodal figure interpretation combining images and captions
+- Automated extraction of experimental protocols and conditions
+- Tracking the evolution of scientific concepts over time
 
-- Multi-lingual support (beyond English)
-- Real-time processing of new publications
-- Integration with laboratory information systems
-- Federated learning across institutions
+## The Path Forward
 
+SourceData-NLP demonstrates that publication-integrated curation is not only feasible but transformative. As the dataset continues to grow with each new publication at EMBO Press, it becomes an increasingly powerful resource for training AI models that understand the nuances of biomedical research.
 
+This is more than a dataset—it's a blueprint for how scientific publishing can evolve to serve both human readers and AI systems, accelerating the pace of discovery while maintaining the rigor that defines quality science.
+
+## Tools & Technologies
+
+The SourceData-NLP project leverages a comprehensive stack of modern AI and data technologies:
+
+- **HuggingFace Transformers** - Pre-trained models and fine-tuning infrastructure
+- **PyTorch** - Deep learning framework for model training and inference
+- **Python** - Primary programming language for data processing and model development
+- **GPU Computing** - Accelerated training and inference for large language models
+- **NLP** - Natural Language Processing pipelines for entity recognition and linking
+- **Neo4j** - Graph database for knowledge graph storage and querying
+- **Graph Database** - Storage and retrieval of semantic relationships between entities
+
+## Access the Dataset
+
+- **Paper:** [arXiv:2310.20440](https://arxiv.org/abs/2310.20440)
+- **EMBO on HuggingFace:** [HuggingFace - EMBO](https://huggingface.co/EMBO)
+- **Dataset:** [HuggingFace - EMBO/SourceData](https://huggingface.co/datasets/EMBO/SourceData)
+- **Model Repository:** [GitHub - soda-model](https://github.com/source-data/soda-model)
+- **Data Repository:** [GitHub - soda-data](https://github.com/source-data/soda-data)
+
+### Citation
+
+```bibtex
+@article{AbreuVicente2023,
+  title={The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models},
+  author={Abreu-Vicente, Jorge and Sonntag, Hannah and Eidens, Thomas and Lemberger, Thomas},
+  journal={arXiv preprint arXiv:2310.20440},
+  year={2023},
+  month={October}
+}
+```
+
+---
+
+*By capturing knowledge at its source—the moment of publication—we're building the foundation for AI systems that can truly understand and advance biomedical research.*

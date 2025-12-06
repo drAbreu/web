@@ -101,7 +101,7 @@ export default function ProjectContent({ projectEn, projectEs }: ProjectContentP
         <p className="text-xl text-gray-400 mb-6">
           {frontmatter.description}
         </p>
-        <div className="flex items-center gap-6 text-sm text-gray-500">
+        <div className="flex items-center gap-6 text-sm text-gray-500 flex-wrap">
           <time dateTime={frontmatter.date}>
             {new Date(frontmatter.date).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', {
               year: 'numeric',
@@ -109,7 +109,14 @@ export default function ProjectContent({ projectEn, projectEs }: ProjectContentP
             })}
           </time>
           <span>•</span>
-          <span>{frontmatter.category}</span>
+          <div className="flex items-center gap-2 flex-wrap">
+            {(Array.isArray(frontmatter.category) ? frontmatter.category : [frontmatter.category]).map((cat: string, i: number, arr: string[]) => (
+              <span key={i}>
+                {cat}
+                {i < arr.length - 1 && <span className="mx-1">•</span>}
+              </span>
+            ))}
+          </div>
         </div>
       </header>
 

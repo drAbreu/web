@@ -1,11 +1,12 @@
 ---
-title: "SourceData NLP"
-description: "Pipeline de procesamiento de lenguaje natural para la extracción y estructuración automatizada de conocimiento biológico de la literatura científica."
-date: "2023-10-15"
-category: "NLP"
-tags: ["NLP", "Minería de Texto", "Ciencia Abierta"]
+title: "SourceData-NLP"
+subtitle: "Integrando la curación en la publicación científica para entrenar modelos de IA"
+description: "El dataset más grande de Reconocimiento de Entidades Nombradas (NER) y Vinculación de Entidades Nombradas (NEL) en ciencias biomédicas. Integrando curación lista para IA directamente en el flujo de trabajo de publicación en EMBO Press."
+date: "2023-10-20"
+category: ["NLP", "IA", "Aprendizaje Automático", "Investigación Biomédica"]
+tags: ["NLP", "Dataset", "IA Biomédica", "Grafos de Conocimiento", "IA/ML", "EMBO", "HuggingFace", "PyTorch", "Python", "GPU", "Neo4j", "Graph Database"]
 featured: true
-image: "/projects/sourcedata.jpg"
+image: "/projects/sourcedata-nlp-1.png"
 link: "https://arxiv.org/abs/2310.20440"
 color: "orange"
 icon: "document"
@@ -13,123 +14,130 @@ order: 2
 lang: "es"
 ---
 
-# SourceData NLP: Extracción Automatizada de Conocimiento de Literatura Científica
+# SourceData-NLP: Cuando la Publicación se Encuentra con la IA
 
-## Visión General
+¿Qué pasaría si pudiéramos capturar conocimiento estructurado de artículos científicos en el momento en que se publican, en lugar de extraerlos años después? Esa es la idea revolucionaria detrás de SourceData-NLP—**el dataset más grande de Reconocimiento de Entidades Nombradas (NER) y Vinculación de Entidades Nombradas (NEL) en ciencias biomédicas hasta la fecha**. El artículo está aprobado para publicación en la revista *Bioinformatics* de Oxford University Press.
 
-SourceData NLP es un sofisticado pipeline de procesamiento de lenguaje natural diseñado para extraer y estructurar automáticamente conocimiento biológico de artículos científicos. Este proyecto aborda uno de los mayores desafíos de la investigación moderna: dar sentido a la literatura científica en crecimiento exponencial.
+## La Visión: Publicación como Infraestructura de Conocimiento
 
-## El Problema
+La publicación científica ha sido el mecanismo principal de la humanidad para compartir conocimiento durante siglos. Sin embargo, este rico repositorio permanece bloqueado en texto no estructurado, requiriendo un esfuerzo enorme para extraer y organizar. SourceData-NLP reimagina este proceso al integrar curación lista para IA directamente en el flujo de trabajo de publicación en EMBO Press.
 
-### Sobrecarga de Información
-- 2+ millones de nuevos artículos publicados anualmente
-- Los investigadores no pueden mantenerse al día con su campo
-- Conocimientos críticos enterrados en PDFs
-- La curación manual es insostenible
+En lugar de anotar artículos retrospectivamente, trabajamos con los autores durante la revisión por pares para capturar datos estructurados como parte del proceso de publicación en sí. Este enfoque transforma la publicación científica de un archivo estático en una infraestructura de conocimiento viva y legible por máquinas.
 
-## Nuestra Solución
+![Diagrama de flujo que muestra el proceso de curación de SourceData-NLP. Los artículos de investigación fluyen a través de segmentación de figuras, anotación NER/NEL e interpretación semántica con verificaciones de calidad del autor, produciendo datasets listos para IA, repositorios de código, modelos afinados y grafos de conocimiento. El diagrama muestra ocho tipos de entidades anotadas incluyendo moléculas pequeñas, genes/proteínas, componentes subcelulares, líneas celulares/tipos, tejidos/órganos, organismos, enfermedades y ensayos experimentales, con interpretación semántica mostrando relaciones entre entidades.](/projects/sourcedata-nlp-1.png)
 
-### Extracción Automatizada de Conocimiento
-SourceData NLP utiliza técnicas de NLP de última generación para:
-- **Identificar entidades** - Genes, proteínas, enfermedades, químicos
-- **Extraer relaciones** - Hallazgos experimentales, vínculos causales
-- **Estructurar conocimiento** - Convertir texto en datos estructurados
-- **Generar grafos de conocimiento** - Conectar hallazgos entre artículos
+**Figura 1: El flujo de trabajo de curación de SourceData-NLP.** La integración de curación asistida por NLP en el proceso de publicación permite la captura de conocimiento estructurado de artículos de investigación. Los autores validan las anotaciones de entidades durante la revisión por pares, asegurando datos de entrenamiento de alta calidad. El proceso genera múltiples productos de datos incluyendo datasets listos para aprendizaje automático, modelos afinados y grafos de conocimiento semántico que conectan entidades biomédicas a través de la literatura.
 
-## Enfoque Técnico
+## Por los Números
 
-### Arquitectura del Pipeline
+SourceData-NLP no tiene precedentes en escala y alcance:
 
-1. **Procesamiento de Documentos**
-   - Análisis y extracción de texto de PDF
-   - Identificación de secciones (Métodos, Resultados, Discusión)
-   - Extracción de figuras y tablas
+- **661,862 entidades anotadas** en 8 categorías biomédicas
+- **623,162 entidades vinculadas** a ontologías y bases de datos externas  
+- **62,543 paneles de figuras anotados** de 18,689 figuras científicas
+- **3,223 artículos de investigación** de 25 revistas líderes en biología molecular y celular
 
-2. **Reconocimiento de Entidades Nombradas (NER)**
-   - Modelos basados en BERT afinados en texto biomédico
-   - 9 clases de entidades: genes, proteínas, moléculas pequeñas, tipos celulares, etc.
-   - Puntuación F1 de 95%+ en conjuntos de datos de referencia
+Pero el tamaño no lo es todo. Lo que hace único a SourceData-NLP es su enfoque en las **leyendas de figuras**—el núcleo narrativo de la evidencia científica donde se describen los resultados experimentales. A diferencia de los datasets construidos a partir de oraciones aisladas, SourceData-NLP preserva el rico contexto de la comunicación científica real.
 
-3. **Extracción de Relaciones**
-   - Identificar relaciones experimentales
-   - Clasificar tipos de interacción
-   - Extraer causalidad y direccionalidad
+![Tabla estadística que muestra el desglose completo de bioentidades anotadas en SourceData-NLP. La tabla muestra totales de NER (801,818 total, 67,077 entidades únicas), asignaciones de roles en intervención controlada, ensayo medido y otras categorías (160,213, 243,505 y 240,585 respectivamente), y estadísticas de NEL (686,846 entidades vinculadas totales, 39,997 únicas, 5.82% ratio de unicidad) para ocho tipos de entidades: moléculas pequeñas, productos génicos, componentes subcelulares, líneas celulares, tipos celulares, tejidos, organismos, enfermedades y ensayos experimentales.](/projects/sourcedata-nlp-2.png)
 
-4. **Construcción de Grafos de Conocimiento**
-   - Entidades → Nodos
-   - Relaciones → Aristas
-   - Enriquecimiento de metadatos desde bases de datos
+**Tabla 1: Visión general completa de bioentidades anotadas en el dataset SourceData-NLP.** La tabla presenta estadísticas detalladas para Reconocimiento de Entidades Nombradas (NER), asignaciones de roles experimentales y Vinculación de Entidades Nombradas (NEL) en todas las categorías de entidades. Los porcentajes de unicidad reflejan la diversidad de menciones de entidades, con ensayos experimentales mostrando la menor unicidad (0.63%) debido a metodologías repetidas, mientras que las moléculas pequeñas muestran la más alta (9.71%) reflejando diversos compuestos químicos estudiados en los artículos.
 
-### Modelos y Rendimiento
+## Lo que Anotamos
 
-**Modelos BERT Personalizados:**
-- `EMBO/sd-ner-v2` - Reconocimiento de Entidades Nombradas
-- `EMBO/sd-geneprod-roles-v2` - Detección de roles de genes/proteínas
-- `EMBO/sd-smallmol-roles-v2` - Detección de roles químicos
+El dataset captura los elementos esenciales de la investigación biomédica:
 
-**Datos de Entrenamiento:**
-- 100,000+ artículos curados manualmente
-- Dataset SourceData (el dataset más grande de NLP biomédico)
-- Disponible en [HuggingFace](https://huggingface.co/datasets/EMBO/SourceData)
+**Ocho tipos de entidades biológicas:** moléculas pequeñas, productos génicos, componentes subcelulares, líneas celulares, tipos celulares, tejidos, organismos y enfermedades
 
-**Métricas de Rendimiento:**
-- Precisión: 94%
-- Recall: 91%
-- Puntuación F1: 92.5%
+**Contexto experimental:** Más allá de simplemente identificar entidades, anotamos sus roles en diseños experimentales y las metodologías utilizadas para estudiarlas
 
-## Impacto
+**Relaciones semánticas:** Cada entidad está vinculada a bases de datos autoritativas, permitiendo la desambiguación y conectando hallazgos a través de la literatura
 
-### Para Investigadores
-- ✅ Descubrir artículos relevantes más rápido
-- ✅ Identificar brechas de conocimiento
-- ✅ Generar hipótesis a partir de datos existentes
-- ✅ Rastrear tendencias de investigación
+Esta anotación granular, validada por los autores originales, asegura los datos de entrenamiento de más alta calidad para modelos de IA.
 
-### Para Editores
-- ✅ Mejorar la descubribilidad de artículos
-- ✅ Generar metadatos semánticos
-- ✅ Mejorar la funcionalidad de búsqueda
-- ✅ Habilitar nuevas herramientas editoriales
+## Por Qué Esto Importa
 
-### Para la Comunidad
-- ✅ Modelos de código abierto
-- ✅ Datasets disponibles públicamente
-- ✅ Investigación reproducible
-- ✅ Mejoras impulsadas por la comunidad
+Integrar la curación en la publicación no se trata solo de construir un mejor dataset—se trata de repensar fundamentalmente cómo fluye el conocimiento científico. Cuando los datos estructurados se capturan en la fuente, están inmediatamente disponibles para:
 
-## Dataset
+### Descubrimiento de Conocimiento
+Los modelos de IA pueden identificar patrones y relaciones a través de millones de experimentos que ningún humano podría rastrear manualmente.
 
-**SourceData: El Dataset de NLP Biomédico Más Grande**
+### Investigación Acelerada
+Los investigadores pueden consultar instantáneamente lo que se sabe sobre genes específicos, enfermedades o enfoques experimentales sin leer miles de artículos.
 
-- **Tamaño:** 500,000+ entidades anotadas
-- **Artículos:** 18,000+ artículos de texto completo
-- **Anotaciones:** Curadas por expertos científicos
-- **Licencia:** Abierta (CC BY 4.0)
-- **Acceso:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+### Reproducibilidad y Rigor
+La anotación estandarizada de entidades durante la publicación ayuda a resolver ambigüedades terminológicas y conceptos poco claros antes de que se propaguen a través de la literatura.
 
-## Código y Recursos
+### Entrenamiento de IA a Escala
+Los modelos de lenguaje grandes entrenados en SourceData-NLP entienden no solo la terminología biomédica, sino el contexto experimental en el que se hacen los descubrimientos.
 
-### Código Abierto
-- **Modelos:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
-- **Código:** [GitHub/source-data](https://github.com/source-data)
-- **Documentación:** Guías y tutoriales completos
+## Aplicaciones Derivadas
 
-### Pruébalo
-- Interfaz web en [sourcedata.embo.org](http://sourcedata.embo.org)
-- Librería Python: `pip install sourcedata`
-- Acceso a API disponible
+El dataset SourceData-NLP permite una nueva generación de herramientas de IA biomédica:
 
-## Publicaciones
+**Inteligencia de Literatura**
+- Revisiones sistemáticas y meta-análisis automatizados
+- Seguimiento de tendencias de investigación en tiempo real y análisis de brechas
+- Síntesis de evidencia a través de décadas de publicaciones
 
-**"SourceData-NLP: A Large-Scale Dataset for Biomedical NLP"**
+**Descubrimiento de Fármacos**
+- Identificación de objetivos novedosos mediante minería de relaciones de entidades
+- Reutilización de fármacos conectando compuestos conocidos a nuevos contextos de enfermedades
+- Predicción de efectos adversos a partir de literatura experimental
 
-Presentado en las principales conferencias de NLP y citado por más de 100 artículos en aprendizaje automático y bioinformática.
+**Traducción Clínica**
+- Vincular hallazgos de investigación básica a aplicaciones clínicas
+- Construir grafos de conocimiento completos de enfermedad-gen-fármaco
+- Apoyar la medicina de precisión con evidencia derivada de la literatura
 
-[Leer en arXiv →](https://arxiv.org/abs/2310.20440)
+**Asistencia a la Investigación**
+- Recomendaciones de diseño experimental basadas en estudios similares
+- Sugerencias de metodología para tipos de entidades específicos
+- Generación de hipótesis a partir de co-ocurrencias inesperadas de entidades
 
-## Direcciones Futuras
+**Comprensión Científica**
+- Interpretación multimodal de figuras combinando imágenes y leyendas
+- Extracción automatizada de protocolos y condiciones experimentales
+- Seguimiento de la evolución de conceptos científicos a lo largo del tiempo
 
-- Soporte multilingüe (más allá del inglés)
-- Procesamiento en tiempo real de nuevas publicaciones
-- Integración con sistemas de información de laboratorio
-- Aprendizaje federado entre instituciones
+## El Camino Hacia Adelante
+
+SourceData-NLP demuestra que la curación integrada en la publicación no solo es factible sino transformadora. A medida que el dataset continúa creciendo con cada nueva publicación en EMBO Press, se convierte en un recurso cada vez más poderoso para entrenar modelos de IA que entienden los matices de la investigación biomédica.
+
+Esto es más que un dataset—es un plan para cómo la publicación científica puede evolucionar para servir tanto a lectores humanos como a sistemas de IA, acelerando el ritmo del descubrimiento mientras mantiene el rigor que define la ciencia de calidad.
+
+## Herramientas y Tecnologías
+
+El proyecto SourceData-NLP utiliza un stack completo de tecnologías modernas de IA y datos:
+
+- **HuggingFace Transformers** - Modelos pre-entrenados e infraestructura de fine-tuning
+- **PyTorch** - Framework de aprendizaje profundo para entrenamiento e inferencia de modelos
+- **Python** - Lenguaje de programación principal para procesamiento de datos y desarrollo de modelos
+- **Computación GPU** - Entrenamiento e inferencia acelerados para modelos de lenguaje grandes
+- **NLP** - Pipelines de Procesamiento de Lenguaje Natural para reconocimiento y vinculación de entidades
+- **Neo4j** - Base de datos de grafos para almacenamiento y consulta de grafos de conocimiento
+- **Base de Datos de Grafos** - Almacenamiento y recuperación de relaciones semánticas entre entidades
+
+## Acceder al Dataset
+
+- **Artículo:** [arXiv:2310.20440](https://arxiv.org/abs/2310.20440)
+- **EMBO en HuggingFace:** [HuggingFace - EMBO](https://huggingface.co/EMBO)
+- **Dataset:** [HuggingFace - EMBO/SourceData](https://huggingface.co/datasets/EMBO/SourceData)
+- **Repositorio de Modelos:** [GitHub - soda-model](https://github.com/source-data/soda-model)
+- **Repositorio de Datos:** [GitHub - soda-data](https://github.com/source-data/soda-data)
+
+### Cita
+
+```bibtex
+@article{AbreuVicente2023,
+  title={The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models},
+  author={Abreu-Vicente, Jorge and Sonntag, Hannah and Eidens, Thomas and Lemberger, Thomas},
+  journal={arXiv preprint arXiv:2310.20440},
+  year={2023},
+  month={October}
+}
+```
+
+---
+
+*Al capturar el conocimiento en su fuente—el momento de la publicación—estamos construyendo la base para sistemas de IA que pueden verdaderamente entender y avanzar la investigación biomédica.*
