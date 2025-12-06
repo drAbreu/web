@@ -168,9 +168,11 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
           <div className="text-center">
             {/* Main Headline */}
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight">
-              <span className="block text-white drop-shadow-2xl">{t.hero.title}</span>
-              <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-coral to-brand-gold text-4xl sm:text-5xl lg:text-6xl">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-coral to-brand-gold">
                 {t.hero.subtitle}
+              </span>
+              <span className="block mt-6 text-white text-2xl sm:text-3xl lg:text-4xl font-normal">
+                {t.hero.title}
               </span>
             </h1>
 
