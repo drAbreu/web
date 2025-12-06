@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -48,7 +49,20 @@ const createComponents = (headings: { text: string; id: string }[]) => ({
   ul: (props: any) => <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
   ol: (props: any) => <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
   li: (props: any) => <li className="text-gray-300" {...props} />,
-  a: (props: any) => <a className="text-brand-orange hover:text-brand-gold transition-colors underline" {...props} />,
+  a: (props: any) => {
+    // Check if it's the PDF download button
+    if (props.className === 'pdf-download-button' || props.href?.includes('paleontología-galactica-pdf.pdf')) {
+      return <a className="pdf-download-button" {...props} />;
+    }
+    return <a className="text-brand-orange hover:text-brand-gold transition-colors underline" {...props} />;
+  },
+  div: (props: any) => {
+    // Check if it's the PDF button container
+    if (props.className === 'pdf-button-container') {
+      return <div className="pdf-button-container" {...props} />;
+    }
+    return <div {...props} />;
+  },
   blockquote: (props: any) => (
     <blockquote className="border-l-4 border-brand-coral pl-4 italic text-gray-400 my-6" {...props} />
   ),
@@ -70,12 +84,72 @@ async function getProject(slug: string) {
   }
 }
 
+async function checkAlternateLanguageExists(baseSlug: string, targetLang: 'en' | 'es'): Promise<boolean> {
+  const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
+  let checkSlug: string;
+  
+  if (targetLang === 'es') {
+    checkSlug = `${baseSlug}-es`;
+  } else {
+    checkSlug = baseSlug;
+  }
+  
+  const fullPath = path.join(projectsDirectory, `${checkSlug}.mdx`);
+  return fs.existsSync(fullPath);
+}
+
 export async function generateStaticParams() {
   const projectsDirectory = path.join(process.cwd(), 'src/content/projects');
   const files = fs.readdirSync(projectsDirectory);
   return files
     .filter(file => file.endsWith('.mdx'))
     .map(file => ({ slug: file.replace(/\.mdx$/, '') }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = await getProject(slug);
+
+  if (!project) {
+    return {
+      title: 'Project Not Found | DATASTAR',
+    };
+  }
+
+  const { frontmatter } = project;
+  const imageUrl = frontmatter.image 
+    ? (frontmatter.image.startsWith('http') ? frontmatter.image : `https://datastar.space${frontmatter.image}`)
+    : 'https://datastar.space/datastar-logo.png';
+
+  return {
+    title: `${frontmatter.title}${frontmatter.subtitle ? `: ${frontmatter.subtitle}` : ''} | DATASTAR Projects`,
+    description: frontmatter.description,
+    keywords: frontmatter.tags || [],
+    authors: [{ name: 'Dr. Jorge Abreu-Vicente' }],
+    openGraph: {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      type: 'article',
+      publishedTime: frontmatter.date,
+      authors: ['Dr. Jorge Abreu-Vicente'],
+      tags: frontmatter.tags || [],
+      images: [
+        {
+          url: imageUrl,
+          alt: frontmatter.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title,
+      description: frontmatter.description,
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: `https://datastar.space/projects/${slug}`,
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -93,6 +167,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   // Get language from frontmatter, default to 'en'
   const lang = (frontmatter as any).lang || 'en';
+  
+  // Determine base slug (remove language suffix)
+  const baseSlug = slug.replace(/-es$/, '').replace(/-en$/, '');
+  
+  // Check if alternate language versions exist
+  const hasEnglishVersion = await checkAlternateLanguageExists(baseSlug, 'en');
+  const hasSpanishVersion = await checkAlternateLanguageExists(baseSlug, 'es');
+  
+  // Determine alternate slug
+  let alternateSlug: string | null = null;
+  let alternateLang: 'en' | 'es' | null = null;
+  
+  if (lang === 'en' && hasSpanishVersion) {
+    alternateSlug = `${baseSlug}-es`;
+    alternateLang = 'es';
+  } else if (lang === 'es' && hasEnglishVersion) {
+    alternateSlug = baseSlug;
+    alternateLang = 'en';
+  }
 
   // Render MDX content server-side
   const mdxContent = <MDXRemote source={content} components={components} />;
@@ -105,6 +198,8 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       headings={headings}
       slug={slug}
       lang={lang}
+      alternateSlug={alternateSlug}
+      alternateLang={alternateLang}
     />
   );
 }

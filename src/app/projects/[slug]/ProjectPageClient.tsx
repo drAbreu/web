@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { translations, type Language } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +16,8 @@ interface ProjectPageClientProps {
   headings: { text: string; id: string }[];
   slug: string;
   lang: string;
+  alternateSlug?: string | null;
+  alternateLang?: 'en' | 'es' | null;
 }
 
 export default function ProjectPageClient({
@@ -23,8 +26,11 @@ export default function ProjectPageClient({
   readingTime,
   headings,
   slug,
-  lang: initialLang
+  lang: initialLang,
+  alternateSlug,
+  alternateLang
 }: ProjectPageClientProps) {
+  const router = useRouter();
   const [language, setLanguage] = useState<Language>(initialLang as Language);
   const navT = translations[language];
 
@@ -33,13 +39,39 @@ export default function ProjectPageClient({
     const savedLang = localStorage.getItem('language') as Language | null;
     if (savedLang && (savedLang === 'en' || savedLang === 'es')) {
       setLanguage(savedLang);
+    } else {
+      setLanguage(initialLang as Language);
     }
-  }, []);
+  }, [initialLang]);
 
-  // Save language preference when it changes
+  // Save language preference when it changes and navigate to correct version
   const handleLanguageChange = (lang: Language) => {
     setLanguage(lang);
     localStorage.setItem('language', lang);
+    
+    // If clicking on the alternate language, navigate to it
+    if (lang === alternateLang && alternateSlug) {
+      router.push(`/projects/${alternateSlug}`);
+      return;
+    }
+    
+    // Otherwise, determine the correct slug for the selected language
+    let newSlug = slug;
+    
+    // Remove any existing language suffix
+    const baseSlug = slug.replace(/-es$/, '').replace(/-en$/, '');
+    
+    // Add appropriate suffix based on language
+    if (lang === 'es') {
+      newSlug = `${baseSlug}-es`;
+    } else {
+      newSlug = baseSlug; // English doesn't have suffix
+    }
+    
+    // Navigate to the correct language version if it exists
+    if (newSlug !== slug) {
+      router.push(`/projects/${newSlug}`);
+    }
   };
 
   return (
@@ -106,6 +138,22 @@ export default function ProjectPageClient({
                     {readingTime} {language === 'es' ? 'min lectura' : 'min read'}
                   </span>
                 </div>
+
+                {/* Language Switcher */}
+                {alternateSlug && alternateLang && (
+                  <div className="mb-6 p-4 bg-brand-navy/30 backdrop-blur-sm rounded-lg border border-white/10">
+                    <p className="text-sm text-gray-400 mb-2">
+                      {language === 'en' ? 'Also available in:' : 'También disponible en:'}
+                    </p>
+                    <Link
+                      href={`/projects/${alternateSlug}`}
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-brand-coral/20 hover:bg-brand-coral/30 text-brand-coral rounded-lg text-sm font-semibold transition-colors"
+                    >
+                      <span>{alternateLang === 'es' ? '🇪🇸' : '🇬🇧'}</span>
+                      <span>{alternateLang === 'es' ? 'Leer en Español' : 'Read in English'}</span>
+                    </Link>
+                  </div>
+                )}
 
                 {/* Share Buttons */}
                 <div className="mt-6">
