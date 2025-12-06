@@ -1,114 +1,207 @@
 ---
 title: "Mapeo de Conocimiento Científico"
-description: "Construcción de paisajes de conocimiento comprehensivos en ciencias de la vida usando bases de datos de grafos, grafos de conocimiento y embeddings semánticos para conectar insights de investigación."
-date: "2023-08-20"
-category: "Grafos de Conocimiento"
-tags: ["Grafos de Conocimiento", "Graph DB", "Semántica"]
+subtitle: "Cartografía Semántica de la Ciencia Biomédica"
+description: "Usando aprendizaje auto-supervisado novedoso para mapear todo el paisaje del conocimiento biomédico más allá de citas y factores de impacto"
+date: "2025-12-06"
+category: ["Grafo de Conocimiento", "IA/ML", "Investigación Biomédica", "Ciencia de la Ciencia"]
+tags: ["Embeddings", "Grafo de Conocimiento", "Aprendizaje Auto-Supervisado", "Ciencia de la Ciencia", "Barlow Twins", "VICReg", "PubMed", "OpenAlex", "Python", "Neo4j"]
 featured: true
-image: "/projects/knowledge-graph.jpg"
-link: "/research"
-color: "gold"
-icon: "globe"
+image: "/projects/knowledge_graph.jpg"
+link: "#"
+color: "burgundy"
+icon: "map"
 order: 3
 lang: "es"
 ---
 
-# Mapeo de Conocimiento Científico: Conectando los Puntos en Ciencias de la Vida
+# Mapeo de Conocimiento Científico: Revelando las Conexiones Ocultas en la Ciencia
 
-## Visión
+La ciencia se construye sobre conexiones. Cada descubrimiento se vincula con trabajos previos, inspira nuevas preguntas y abre avenidas inesperadas. Sin embargo, estas conexiones a menudo permanecen ocultas en los silos de artículos individuales, bases de datos y la experiencia de los investigadores.
 
-La ciencia se construye sobre conexiones. Cada descubrimiento se vincula con trabajos anteriores, inspira nuevas preguntas y abre avenidas inesperadas. Sin embargo, estas conexiones a menudo permanecen ocultas en los silos de artículos individuales, bases de datos y experiencia de investigadores.
+**El Mapeo de Conocimiento Científico** tiene como objetivo hacer estas conexiones visibles, buscables y accionables al crear un atlas semántico de todo el conocimiento biomédico.
 
-**El Mapeo de Conocimiento Científico** tiene como objetivo hacer estas conexiones visibles, buscables y accionables.
+## El Desafío: Un Paisaje Científico Fragmentado
 
-## El Desafío
+La investigación biológica moderna está dispersa en un ecosistema imposiblemente complejo:
 
-### Fragmentación de Información
-La investigación biológica moderna está dispersa en:
-- 📄 **35+ millones de artículos** en PubMed
-- 🗄️ **Cientos de bases de datos** (UniProt, KEGG, GO, etc.)
-- 🧪 **Conjuntos de datos propietarios** en laboratorios
-- 🧠 **Conocimiento tácito** en las mentes de los investigadores
+- 📄 **35+ millones de artículos** solo en PubMed
+- 🗄️ **Cientos de bases de datos especializadas** (UniProt, KEGG, Gene Ontology, etc.)
+- 🧪 **Conjuntos de datos propietarios** encerrados en laboratorios individuales
+- 🧠 **Conocimiento tácito** que reside solo en las mentes de los investigadores
 
-### El Costo
-- Experimentos duplicados
-- Conexiones perdidas
-- Generación lenta de hipótesis
-- Desperdicio de investigación
+### El Costo Oculto
 
-## Nuestro Enfoque
+Esta fragmentación tiene consecuencias reales:
 
-### Tecnología de Grafos de Conocimiento
+**Experimentos Duplicados**: Los investigadores repiten inconscientemente trabajo ya realizado en otros lugares, desperdiciando tiempo y recursos.
 
-Transformar texto científico no estructurado en conocimiento estructurado y consultable:
+**Conexiones Perdidas**: Las perspectivas revolucionarias a menudo surgen de conectar campos distantes, pero estos puentes permanecen invisibles.
 
-```
-Texto: "La Proteína X inhibe la vía Y en células cancerosas"
-       ↓
-Grafo: (Proteína X)-[INHIBE]→(Vía Y)-[ACTIVA_EN]→(Cáncer)
-```
+**Generación Lenta de Hipótesis**: Los científicos pasan incontables horas buscando trabajo previo relevante en lugar de hacer ciencia.
 
-### Arquitectura
+**Desperdicio de Investigación**: Los estudios estiman que más del 85% de la inversión en investigación biomédica se desperdicia debido a la mala integración del conocimiento.
 
-1. **Integración de Datos**
-   - Ingerir desde múltiples fuentes
-   - Normalizar identificadores de entidades
-   - Resolver conflictos
-   - Mantener procedencia
+## Nuestro Enfoque: Comprensión Semántica a Través del Aprendizaje Auto-Supervisado
 
-2. **Construcción de Grafos**
-   - Entidades como nodos (genes, proteínas, enfermedades, químicos)
-   - Relaciones como aristas (activa, inhibe, causa)
-   - Propiedades almacenan metadatos (confianza, publicación, fecha)
+Estamos creando el primer mapa semántico comprensivo de la literatura de ciencias de la vida usando un enfoque fundamentalmente nuevo para la generación de embeddings.
 
-3. **Capa Semántica**
-   - Embeddings vectoriales para búsqueda de similitud
-   - Alineación de ontologías (GO, MeSH, ChEBI)
-   - Reglas de inferencia para conexiones implícitas
+### Más Allá de los Métodos Tradicionales: Aprendiendo Qué Hace que la Ciencia Sea "Ciencia"
 
-4. **Interfaz de Consulta**
-   - Consultas Cypher para recorrido de grafos
-   - Consultas en lenguaje natural vía LLM
-   - Herramientas de exploración visual
+Los modelos de embedding tradicionales dependen del **aprendizaje contrastivo**—mostrando al modelo pares de ejemplos similares y diferentes y pidiéndole que distinga entre ellos. Esto es como enseñar a alguien qué es un perro mostrándole perros y no-perros.
 
-## Casos de Uso
+En cambio, nos estamos inspirando en la neurociencia.
 
-### 1. Reposicionamiento de Medicamentos
-**Consulta:** "¿Qué medicamentos aprobados afectan las mismas vías que esta proteína objetivo?"
+### El Principio de los Gemelos Barlow
 
-**Resultado:** Descubrir medicamentos existentes que podrían reposicionarse para nuevas indicaciones.
+En el cerebro, las neuronas aprenden a representar información **reduciendo la redundancia**—diferentes neuronas aprenden a codificar características diferentes e independientes del mundo. Este es el principio detrás de los Gemelos Barlow, un concepto de neurociencia que ayuda a explicar cómo nuestros cerebros representan eficientemente información compleja.
 
-### 2. Descubrimiento Basado en Literatura
-**Consulta:** "¿Cuáles son las conexiones indirectas entre la Enfermedad A y el Gen B?"
+Hemos adaptado este principio al aprendizaje automático usando dos artículos fundamentales:
 
-**Resultado:** Descubrir conexiones ocultas a través de conceptos intermedios.
+- **Barlow Twins** ([Zbontar et al., 2021](https://arxiv.org/abs/2103.03230)): Aprendizaje auto-supervisado a través de la reducción de redundancia
+- **VICReg** (Meta AI Research): Regularización de Varianza-Invarianza-Covarianza para representaciones robustas
 
-### 3. Análisis de Tendencias de Investigación
-**Consulta:** "Muéstrame temas emergentes en inmunoterapia en los últimos 5 años"
+### La Innovación Clave
 
-**Resultado:** Línea de tiempo visual de la evolución de la investigación.
+En lugar de decirle a nuestro modelo "estos artículos son similares, aquellos son diferentes", le permitimos descubrir las **características fundamentales** que distinguen diferentes tipos de conocimiento científico. Cada dimensión de nuestro espacio de embedding aprende a codificar un aspecto significativo del contenido científico—metodología, enfoque de enfermedad, mecanismos moleculares, enfoques experimentales.
 
-## El Grafo
+Este es un enfoque más holístico para comprender el lenguaje y el significado, evitando los sesgos introducidos por el muestreo manual positivo/negativo y permitiendo que las matemáticas revelen la estructura natural del conocimiento científico.
 
-### Escala Actual
-- **Nodos:** 50 millones+ de entidades
-- **Aristas:** 200 millones+ de relaciones
-- **Artículos:** 1 millón+ de artículos de texto completo
-- **Frecuencia de Actualización:** Semanal
+### Realidad Actual: Un Trabajo en Progreso
 
-## Código Abierto
+**Transparencia en la Ciencia**: Nuestro benchmarking preliminar muestra que los métodos clásicos de muestreo negativo aún superan nuestro enfoque en tareas estándar posteriores. Estamos iterando en la arquitectura y el procedimiento de entrenamiento para cerrar esta brecha mientras preservamos las ventajas teóricas de la reducción de redundancia.
 
-Todos los componentes son de código abierto:
-- **Código:** [GitHub/source-data/sd-graph](https://github.com/source-data/sd-graph)
-- **Modelos:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
-- **Datos:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+Esta es investigación de vanguardia—desordenada, incierta, pero potencialmente transformadora.
 
-## Contacto
+## El Atlas Semántico de la Ciencia
 
-¿Interesado en colaboración o tienes preguntas?
-- 📧 Email: [jorge.abreu@embl.org](mailto:jorge.abreu@embl.org)
-- 🐙 GitHub: [github.com/source-data](https://github.com/source-data)
+Usando nuestros embeddings, estamos mapeando todo el paisaje del conocimiento biomédico de PubMed y OpenAlex. Esto crea un espacio semántico donde:
+
+**Cada artículo tiene coordenadas** basadas en su significado, no en sus citas o factor de impacto.
+
+**Conceptos similares se agrupan juntos** independientemente de la terminología, revista o campo.
+
+**Las distancias reflejan relaciones semánticas** entre ideas, enfoques y descubrimientos.
+
+### Reimaginando la Geografía Científica
+
+En este nuevo mapa, podemos visualizar la ciencia como teniendo "países" (disciplinas), "ciudades" (temas de investigación) y "puntos de referencia" (trabajos seminales). Pero a diferencia de los mapas bibliométricos tradicionales:
+
+**Las revistas se convierten en regiones** definidas por el espacio semántico que cubren, revelando superposiciones y nichos únicos.
+
+**Las instituciones aparecen como nubes** mostrando su enfoque de investigación colectivo y cómo evoluciona con el tiempo.
+
+**Los investigadores están representados** por el embedding promedio de su trabajo, haciendo que la experiencia sea verdaderamente buscable.
+
+**Los programas de financiamiento se mapean a territorios** que apoyan, revelando brechas y redundancias.
+
+### Liberándose del Sesgo de Citación
+
+El mapeo científico tradicional se basa en citas—quién cita a quién. Pero las citas son:
+
+- **Endogámicas**: La gente cita su propio campo, perdiendo conexiones interdisciplinarias
+- **Sesgadas por impacto**: Las revistas de alto impacto se citan más, independientemente de la relevancia semántica
+- **Lentas**: Toma años para que se formen redes de citación
+- **Incompletas**: El trabajo fundamental en revistas oscuras puede nunca ser "descubierto"
+
+Nuestro enfoque semántico da **igual peso a todo el trabajo**, dejando que el contenido hable por sí mismo.
+
+## Aplicaciones Transformadoras
+
+### 1. Asignación de Revisión por Pares Sin Sesgos
+
+Emparejar artículos y propuestas de subvenciones con los revisores semánticamente más relevantes, no solo aquellos en la misma red de citación. Encontrar al árbitro perfecto incluso si nunca han trabajado en el "mismo campo" según definiciones tradicionales.
+
+### 2. Detección de Sesgos en la Ciencia
+
+Revelar brechas sistemáticas en financiamiento, publicación o atención. ¿Qué áreas de investigación están conectadas semánticamente pero tienen cero citas cruzadas? ¿Dónde se superponen innecesariamente los programas de financiamiento? ¿Qué perspectivas se excluyen sistemáticamente?
+
+### 3. Seguimiento de la Evolución del Conocimiento
+
+Seguir cómo emergen, se fusionan, se dividen y se transforman los conceptos a lo largo del tiempo. Ver el nacimiento de nuevos campos antes de que la terminología se estabilice. Identificar cambios de paradigma mientras ocurren.
+
+### 4. Descubrimiento Trans-Dominio
+
+Encontrar conexiones ocultas entre campos distantes. El tratamiento desarrollado en oncología que podría revolucionar la enfermedad neurodegenerativa. El método estadístico de la ecología que resuelve un problema de proteómica. Estas conexiones existen—solo necesitamos verlas.
+
+### 5. Integración con SourceData-NLP
+
+Al conectar nuestro mapa de conocimiento semántico con la comprensión a nivel de entidad de SourceData-NLP, creamos un poderoso motor de descubrimiento:
+
+- **Reposicionamiento de fármacos**: Encontrar compuestos estudiados en una enfermedad que podrían funcionar en condiciones semánticamente relacionadas
+- **Predicción de interacción proteica**: Identificar interacciones probables basadas en el contexto semántico de la literatura existente
+- **Generación de hipótesis**: Sugerir experimentos novedosos al cerrar brechas semánticas en el grafo de conocimiento
+
+### 6. Optimización de Estrategia de Investigación
+
+Ayudar a instituciones y financiadores a entender su portafolio de investigación no a través de categorías administrativas, sino a través del espacio semántico real que ocupan. Identificar innovación genuina vs. trabajo incremental.
+
+## La Arquitectura Técnica
+
+Nuestro pipeline procesa millones de artículos a través de varias etapas:
+
+**1. Procesamiento de Documentos**: Extraer texto completo, resúmenes y metadatos de PubMed y OpenAlex
+
+**2. Generación de Embeddings**: Transformar cada documento en un vector denso usando nuestro modelo inspirado en Barlow Twins
+
+**3. Construcción de Grafo de Conocimiento**: Conectar documentos a través de similitud semántica, co-ocurrencia de entidades (de SourceData-NLP) y relaciones de citación
+
+**4. Análisis Dimensional**: Interpretar qué codifica cada dimensión de embedding a través de estudios sistemáticos de perturbación
+
+**5. Exploración Interactiva**: Permitir a los investigadores navegar el espacio de conocimiento a través de consultas en lenguaje natural e interfaces visuales
+
+## Qué Hace Esto Diferente
+
+**Semántica Primero**: El contenido importa más que las citas o el prestigio de la revista
+
+**Sin Sesgos**: Sin curación manual de ejemplos "similares" y "diferentes"
+
+**Comprensivo**: Literatura biomédica completa, no solo artículos recientes o de alto impacto
+
+**Interpretable**: Las dimensiones tienen significado, no solo correlaciones matemáticas
+
+**Integrado**: Se conecta con el conocimiento a nivel de entidad de SourceData-NLP
+
+**Abierto**: Los métodos, modelos y herramientas estarán disponibles libremente
+
+**Evolutivo**: El mapa crece y mejora a medida que se publica nueva investigación
+
+## Estado Actual y Direcciones Futuras
+
+Este trabajo está activamente en curso en EMBL Heidelberg. Estamos:
+
+- Refinando la arquitectura del modelo de embedding para mejorar el rendimiento en benchmarks
+- Escalando al corpus completo de PubMed y OpenAlex (35M+ artículos)
+- Desarrollando herramientas de visualización interactiva para explorar el espacio de conocimiento
+- Construyendo la capa de integración con SourceData-NLP
+- Realizando estudios de usuario con investigadores, financiadores y editores
+
+**Cronograma de Publicación**: Estamos preparando un artículo de aplicación para envío en Q1 2026, que introducirá la metodología, resultados de benchmarking y aplicaciones iniciales.
+
+## Un Mundo Infinito de Aplicaciones
+
+El Mapeo de Conocimiento Científico abre puertas que apenas estamos comenzando a imaginar:
+
+- **Recomendaciones personalizadas de literatura** que entienden tu trayectoria de investigación
+- **Análisis automatizado de brechas de investigación** para agencias de financiamiento
+- **Modelos predictivos** de qué campos probablemente se fusionarán o generarán nuevas subdisciplinas
+- **Análisis de equidad** revelando qué comunidades y perspectivas se excluyen sistemáticamente
+- **Herramientas educativas** que ayudan a los estudiantes a navegar el paisaje conceptual de su campo
+- **Perspectivas de política científica** fundamentadas en la estructura real del conocimiento, no en categorías administrativas
+
+El mapa no es el destino—es la herramienta que nos ayuda a navegar más sabiamente, descubrir más fácilmente y conectar más significativamente.
+
+## Únete al Viaje
+
+Este proyecto representa un replanteamiento fundamental de cómo organizamos y navegamos el conocimiento científico. Aunque el trabajo aún está en progreso, estamos comprometidos con la transparencia sobre tanto los éxitos como los desafíos.
+
+El objetivo no es solo construir un mejor motor de búsqueda—es revelar la estructura profunda de la comprensión científica y hacer esas perspectivas accionables para el descubrimiento.
+
+### Mantente Actualizado
+
+- **Estado del Proyecto**: En desarrollo en EMBL Heidelberg
+- **Publicación Esperada**: Q1 2026
+- **Código y Modelos**: Serán de código abierto al momento de la publicación
 
 ---
 
-*Última actualización: Marzo 2024*
+*El mapa de la ciencia debería reflejar la geografía de las ideas, no la sociología de las citas. Estamos dibujando ese mapa, un embedding a la vez.*

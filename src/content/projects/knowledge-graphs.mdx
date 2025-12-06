@@ -1,248 +1,207 @@
 ---
 title: "Scientific Knowledge Mapping"
-description: "Building comprehensive knowledge landscapes in life sciences using graph databases, knowledge graphs, and semantic embeddings to connect research insights."
-date: "2023-08-20"
-category: "Knowledge Graphs"
-tags: ["Knowledge Graphs", "Graph DB", "Semantics"]
+subtitle: "Semantic Cartography of Biomedical Science"
+description: "Using novel self-supervised learning to map the entire landscape of biomedical knowledge beyond citations and impact factors"
+date: "2025-12-06"
+category: ["Knowledge Graph", "AI/ML", "Biomedical Research", "Science of Science"]
+tags: ["Embeddings", "Knowledge Graph", "Self-Supervised Learning", "Science of Science", "Barlow Twins", "VICReg", "PubMed", "OpenAlex", "Python", "Neo4j"]
 featured: true
-image: "/projects/knowledge-graph.jpg"
-link: "/research"
-color: "gold"
-icon: "globe"
+image: "/projects/knowledge_graph.jpg"
+link: "#"
+color: "burgundy"
+icon: "map"
 order: 3
 lang: "en"
 ---
 
-# Scientific Knowledge Mapping: Connecting the Dots in Life Sciences
-
-## Vision
+# Scientific Knowledge Mapping: Revealing the Hidden Connections in Science
 
 Science is built on connections. Every discovery links to previous work, inspires new questions, and opens unexpected avenues. Yet, these connections often remain hidden in the silos of individual papers, databases, and researcher expertise.
 
-**Scientific Knowledge Mapping** aims to make these connections visible, searchable, and actionable.
+**Scientific Knowledge Mapping** aims to make these connections visible, searchable, and actionable by creating a semantic atlas of all biomedical knowledge.
 
-## The Challenge
+## The Challenge: A Fragmented Scientific Landscape
 
-### Information Fragmentation
-Modern biological research is scattered across:
-- 📄 **35+ million papers** in PubMed
-- 🗄️ **Hundreds of databases** (UniProt, KEGG, GO, etc.)
-- 🧪 **Proprietary datasets** in labs
-- 🧠 **Tacit knowledge** in researchers' minds
+Modern biological research is scattered across an impossibly complex ecosystem:
 
-### The Cost
-- Duplicate experiments
-- Missed connections
-- Slow hypothesis generation
-- Research waste
+- 📄 **35+ million papers** in PubMed alone
+- 🗄️ **Hundreds of specialized databases** (UniProt, KEGG, Gene Ontology, etc.)
+- 🧪 **Proprietary datasets** locked in individual laboratories
+- 🧠 **Tacit knowledge** residing only in researchers' minds
 
-## Our Approach
+### The Hidden Cost
 
-### Knowledge Graph Technology
+This fragmentation has real consequences:
 
-Transform unstructured scientific text into structured, queryable knowledge:
+**Duplicate Experiments**: Researchers unknowingly repeat work already done elsewhere, wasting time and resources.
 
-```
-Text: "Protein X inhibits pathway Y in cancer cells"
-       ↓
-Graph: (Protein X)-[INHIBITS]→(Pathway Y)-[ACTIVE_IN]→(Cancer)
-```
+**Missed Connections**: Revolutionary insights often emerge from connecting distant fields, but these bridges remain invisible.
 
-### Architecture
+**Slow Hypothesis Generation**: Scientists spend countless hours searching for relevant prior work instead of doing science.
 
-1. **Data Integration**
-   - Ingest from multiple sources
-   - Normalize entity identifiers
-   - Resolve conflicts
-   - Maintain provenance
+**Research Waste**: Studies estimate that over 85% of biomedical research investment is wasted due to poor knowledge integration.
 
-2. **Graph Construction**
-   - Entities as nodes (genes, proteins, diseases, chemicals)
-   - Relationships as edges (activates, inhibits, causes)
-   - Properties store metadata (confidence, publication, date)
+## Our Approach: Semantic Understanding Through Self-Supervised Learning
 
-3. **Semantic Layer**
-   - Vector embeddings for similarity search
-   - Ontology alignment (GO, MeSH, ChEBI)
-   - Inference rules for implicit connections
+We're creating the first comprehensive semantic map of life sciences literature using a fundamentally new approach to embedding generation.
 
-4. **Query Interface**
-   - Cypher queries for graph traversal
-   - Natural language queries via LLM
-   - Visual exploration tools
+### Beyond Traditional Methods: Learning What Makes Science "Science"
 
-### Technologies
+Traditional embedding models rely on **contrastive learning**—showing the model pairs of similar and dissimilar examples and asking it to distinguish between them. This is like teaching someone what a dog is by showing them dogs and not-dogs.
 
-**Graph Database:** Neo4j
-- Optimized for relationship queries
-- ACID transactions
-- Scalable to billions of nodes
+We're taking inspiration from neuroscience instead.
 
-**Vector Store:** Pinecone / FAISS
-- Semantic similarity search
-- Fast nearest-neighbor retrieval
+### The Barlow Twins Principle
 
-**Processing:** Python + Apache Spark
-- Distributed processing of millions of papers
-- Incremental updates
+In the brain, neurons learn to represent information by **reducing redundancy**—different neurons learn to encode different, independent features of the world. This is the principle behind Barlow Twins, a neuroscience concept that helps explain how our brains efficiently represent complex information.
 
-**Frontend:** React + D3.js
-- Interactive graph visualization
-- Zoom, pan, filter capabilities
+We've adapted this principle to machine learning using two foundational papers:
 
-## Use Cases
+- **Barlow Twins** ([Zbontar et al., 2021](https://arxiv.org/abs/2103.03230)): Self-supervised learning through redundancy reduction
+- **VICReg** (Meta AI Research): Variance-Invariance-Covariance Regularization for robust representations
 
-### 1. Drug Repurposing
-**Query:** "Which approved drugs affect the same pathways as this target protein?"
+### The Key Innovation
 
-**Result:** Discover existing drugs that could be repurposed for new indications.
+Instead of telling our model "these papers are similar, those are different," we let it discover the **fundamental features** that distinguish different types of scientific knowledge. Each dimension of our embedding space learns to encode a meaningful aspect of scientific content—methodology, disease focus, molecular mechanisms, experimental approaches.
 
-**Impact:** Faster, cheaper drug development.
+This is a more holistic approach to understanding language and meaning, avoiding the biases introduced by manual positive/negative sampling and letting the mathematics reveal the natural structure of scientific knowledge.
 
-### 2. Literature-Based Discovery
-**Query:** "What are the indirect connections between Disease A and Gene B?"
+### Current Reality: A Work in Progress
 
-**Result:** Uncover hidden connections through intermediate concepts.
+**Transparency in Science**: Our preliminary benchmarking shows that classical negative sampling methods still outperform our approach on standard downstream tasks. We're iterating on the architecture and training procedure to close this gap while preserving the theoretical advantages of redundancy reduction.
 
-**Impact:** Novel hypothesis generation.
+This is cutting-edge research—messy, uncertain, but potentially transformative.
 
-### 3. Research Trend Analysis
-**Query:** "Show me emerging topics in immunotherapy over the last 5 years"
+## The Semantic Atlas of Science
 
-**Result:** Visual timeline of research evolution.
+Using our embeddings, we're mapping the entire landscape of biomedical knowledge from PubMed and OpenAlex. This creates a semantic space where:
 
-**Impact:** Strategic research planning.
+**Every paper has coordinates** based on its meaning, not its citations or impact factor.
 
-### 4. Expert Finding
-**Query:** "Who are the leading researchers at the intersection of X and Y?"
+**Similar concepts cluster together** regardless of terminology, journal, or field.
 
-**Result:** Network of experts and their contributions.
+**Distances reflect semantic relationships** between ideas, approaches, and discoveries.
 
-**Impact:** Collaboration opportunities.
+### Reimagining Scientific Geography
 
-## The Graph
+In this new map, we can visualize science as having "countries" (disciplines), "cities" (research topics), and "landmarks" (seminal works). But unlike traditional bibliometric maps:
 
-### Current Scale
-- **Nodes:** 50 million+ entities
-- **Edges:** 200 million+ relationships
-- **Papers:** 1 million+ full-text articles
-- **Update Frequency:** Weekly
+**Journals become regions** defined by the semantic space they cover, revealing overlap and unique niches.
 
-### Entity Types
-- Genes & Proteins
-- Small Molecules & Drugs
-- Diseases & Phenotypes
-- Cell Types & Tissues
-- Biological Processes
-- Experimental Methods
-- Organisms
+**Institutions appear as clouds** showing their collective research focus and how it evolves over time.
 
-### Relationship Types
-- Activates / Inhibits
-- Causes / Prevents
-- Binds To
-- Expressed In
-- Associated With
-- Part Of / Has Part
+**Researchers are represented** by the average embedding of their work, making expertise truly searchable.
 
-## Technical Details
+**Funding programs map to territories** they support, revealing gaps and redundancies.
 
-### Graph Schema
+### Breaking Free from Citation Bias
 
-```cypher
-// Example: Gene-Disease relationship
-(:Gene {id: "BRCA1", name: "Breast cancer type 1"})-
-  [:ASSOCIATED_WITH {
-    confidence: 0.98,
-    source: "PMID:12345678",
-    evidence: "Genetic study"
-  }]->
-(:Disease {id: "DOID:1612", name: "Breast cancer"})
-```
+Traditional science mapping relies on citations—who cites whom. But citations are:
 
-### Query Examples
+- **Endogamous**: People cite their own field, missing cross-disciplinary connections
+- **Impact-biased**: High-impact journals get cited more, regardless of semantic relevance
+- **Slow**: It takes years for citation networks to form
+- **Incomplete**: Fundamental work in obscure journals may never be "discovered"
 
-```cypher
-// Find all proteins that interact with TP53
-MATCH (p:Protein {name: "TP53"})-[r:INTERACTS_WITH]-(other:Protein)
-RETURN other.name, r.confidence
-ORDER BY r.confidence DESC
-LIMIT 20
+Our semantic approach gives **equal weight to all work**, letting the content speak for itself.
 
-// Find shortest path between two concepts
-MATCH path = shortestPath(
-  (a:Gene {name: "BRCA1"})-[*..5]-(b:Disease {name: "Alzheimer's"})
-)
-RETURN path
-```
+## Transformative Applications
 
-### Vector Embeddings
+### 1. Unbiased Peer Review Assignment
 
-```python
-# Semantic similarity search
-query = "immune response to viral infection"
-similar_papers = vector_store.similarity_search(query, k=10)
+Match papers and grant proposals to the most semantically relevant reviewers, not just those in the same citation network. Find the perfect referee even if they've never worked in the "same field" by traditional definitions.
 
-# Cluster related concepts
-embeddings = model.encode(entity_descriptions)
-clusters = kmeans(embeddings, n_clusters=50)
-```
+### 2. Bias Detection in Science
 
-## Impact & Adoption
+Reveal systematic gaps in funding, publication, or attention. Which research areas are semantically connected but have zero cross-citations? Where do funding programs overlap unnecessarily? Which perspectives are systematically excluded?
 
-### Users
-- 🏛️ **Academic institutions** - 50+ universities
-- 🏥 **Pharmaceutical companies** - Drug discovery teams
-- 📊 **Research organizations** - EMBO, EBI, NCBI collaborations
-- 👨‍🔬 **Individual researchers** - 10,000+ monthly users
+### 3. Evolution of Knowledge Tracking
 
-### Publications
-- 8 peer-reviewed papers
-- 100+ citations
-- Featured in Nature Methods, Bioinformatics
+Follow how concepts emerge, merge, split, and transform over time. See the birth of new fields before the terminology even stabilizes. Identify paradigm shifts as they happen.
 
-## Open Science
+### 4. Cross-Domain Discovery
 
-All components are open-source:
-- **Code:** [GitHub/source-data/sd-graph](https://github.com/source-data/sd-graph)
-- **Models:** [HuggingFace/EMBO](https://huggingface.co/EMBO)
-- **Data:** [HuggingFace Datasets](https://huggingface.co/datasets/EMBO/SourceData)
+Find hidden connections between distant fields. The treatment developed in oncology that could revolutionize neurodegenerative disease. The statistical method from ecology that solves a proteomics problem. These connections exist—we just need to see them.
 
-## Future Roadmap
+### 5. Integration with SourceData-NLP
 
-### Phase 1: Expansion (2025)
-- Include preprints (bioRxiv, medRxiv)
-- Add clinical trial data
-- Integrate patient registries
+By connecting our semantic knowledge map with SourceData-NLP's entity-level understanding, we create a powerful discovery engine:
 
-### Phase 2: Intelligence (2026)
-- Automated hypothesis generation
-- Predictive modeling of research trends
-- Personalized research recommendations
+- **Drug repurposing**: Find compounds studied in one disease that might work in semantically related conditions
+- **Protein interaction prediction**: Identify likely interactions based on semantic context of existing literature
+- **Hypothesis generation**: Suggest novel experiments by bridging semantic gaps in the knowledge graph
 
-### Phase 3: Federation (2027)
-- Distributed graph across institutions
-- Privacy-preserving queries
-- Federated machine learning
+### 6. Research Strategy Optimization
+
+Help institutions and funders understand their research portfolio not through administrative categories, but through the actual semantic space they occupy. Identify genuine innovation vs. incremental work.
+
+## The Technical Architecture
+
+Our pipeline processes millions of papers through several stages:
+
+**1. Document Processing**: Extract full text, abstracts, and metadata from PubMed and OpenAlex
+
+**2. Embedding Generation**: Transform each document into a dense vector using our Barlow Twins-inspired model
+
+**3. Knowledge Graph Construction**: Connect documents through semantic similarity, entity co-occurrence (from SourceData-NLP), and citation relationships
+
+**4. Dimensional Analysis**: Interpret what each embedding dimension encodes through systematic perturbation studies
+
+**5. Interactive Exploration**: Enable researchers to navigate the knowledge space through natural language queries and visual interfaces
+
+## What Makes This Different
+
+**Semantic-First**: Content matters more than citations or venue prestige
+
+**Unbiased**: No manual curation of "similar" and "dissimilar" examples
+
+**Comprehensive**: Entire biomedical literature, not just recent or high-impact papers
+
+**Interpretable**: Dimensions have meaning, not just mathematical correlations
+
+**Integrated**: Connects with entity-level knowledge from SourceData-NLP
+
+**Open**: Methods, models, and tools will be freely available
+
+**Evolving**: The map grows and improves as new research is published
+
+## Current Status & Future Directions
+
+This work is actively ongoing at EMBL Heidelberg. We're:
+
+- Refining the embedding model architecture to improve benchmark performance
+- Scaling to the full PubMed and OpenAlex corpus (35M+ papers)
+- Developing interactive visualization tools for exploring the knowledge space
+- Building the integration layer with SourceData-NLP
+- Conducting user studies with researchers, funders, and publishers
+
+**Publication Timeline**: We're preparing an application paper for submission in Q1 2026, which will introduce the methodology, benchmark results, and initial applications.
+
+## An Endless World of Applications
+
+Scientific Knowledge Mapping opens doors we're only beginning to imagine:
+
+- **Personalized literature recommendations** that understand your research trajectory
+- **Automated research gap analysis** for funding agencies
+- **Predictive models** of which fields are likely to merge or spawn new subdisciplines
+- **Equity analysis** revealing which communities and perspectives are systematically excluded
+- **Education tools** that help students navigate the conceptual landscape of their field
+- **Science policy insights** grounded in the actual structure of knowledge, not administrative categories
+
+The map is not the destination—it's the tool that helps us navigate more wisely, discover more readily, and connect more meaningfully.
+
+## Join the Journey
+
+This project represents a fundamental rethinking of how we organize and navigate scientific knowledge. While the work is still in progress, we're committed to transparency about both successes and challenges.
+
+The goal isn't just to build a better search engine—it's to reveal the deep structure of scientific understanding and make those insights actionable for discovery.
+
+### Stay Updated
+
+- **Project Status**: In development at EMBL Heidelberg
+- **Expected Publication**: Q1 2026
+- **Code & Models**: Will be open-sourced upon publication
 
 ---
 
-## Team
-
-This project is a collaborative effort between:
-- **EMBO** - European Molecular Biology Organization
-- **EBI** - European Bioinformatics Institute
-- **Academic partners** - Heidelberg University, ETH Zurich
-
-## Contact
-
-Interested in collaboration or have questions?
-- 📧 Email: [jorge.abreu@embl.org](mailto:jorge.abreu@embl.org)
-- 🐙 GitHub: [github.com/source-data](https://github.com/source-data)
-- 💬 Discussions: GitHub Discussions
-
----
-
-*Last updated: March 2024*
-
-
+*The map of science should reflect the geography of ideas, not the sociology of citations. We're drawing that map, one embedding at a time.*
