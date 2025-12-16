@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 interface ShareButtonsProps {
@@ -11,10 +11,10 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug, lang }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
-  const [url, setUrl] = useState(`https://datastar.space/projects/${slug}`);
+  const [url, setUrl] = useState(`https://datastar.space/blog/${slug}`);
 
   // Use useEffect to set URL only on client to avoid hydration mismatch
-  React.useEffect(() => {
+  useEffect(() => {
     setUrl(window.location.href);
   }, []);
 
@@ -113,3 +113,4 @@ export default function ShareButtons({ title, slug, lang }: ShareButtonsProps) {
     </div>
   );
 }
+

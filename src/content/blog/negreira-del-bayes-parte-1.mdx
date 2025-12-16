@@ -1,0 +1,359 @@
+---
+title: "Negreira del Bayes (I): La Liga de los Dados Trucados"
+description: "Aprende estadística a través del fútbol: Introducción al Teorema de Bayes y detección de patrones estadísticos usando el Caso Barça-Negreira como ejemplo educativo."
+date: "2025-12-01"
+author: "Jorge Abreu-Vicente, PhD"
+category: "Análisis Estadístico"
+tags: ["estadística", "bayes", "fútbol", "análisis de datos", "ciencia de datos", "negreira"]
+featured: true
+image: "/blog/negreira/main_image.jpg"
+lang: "es"
+---
+
+## Introducción: Un Escándalo que Sacudió el Fútbol Español
+
+En marzo de 2023, saltó a la luz pública uno de los escándalos más graves en la historia del fútbol español: el [**Caso Barça-Negreira**](https://es.wikipedia.org/wiki/Caso_Negreira). Los hechos son, cuando menos, sorprendentes: el FC Barcelona pagó **más de 8 millones de euros** entre 2001 y 2018 a José María Enríquez Negreira, quien durante ese período ejercía como **vicepresidente del Comité Técnico de Árbitros (CTA)** de la Real Federación Española de Fútbol.
+
+En su defensa, los dirigentes barcelonistas, liderados por el actual presidente, Joan Laporta (quien en su momento aumentó de forma considerable los pagos a Negreira) apelan que estos pagos eran por "asesoramiento arbitral neutral". Pertenece a los jueces ahora dictaminar sentencia. 
+
+Aunque las evidencias judiciales y las científicas no siempre vayan de la mano (testigos oculares en juicio tienen gran validez mientras que la evidencia científica de los mismos es nula), un caso como este nos permite una gran oportunidad. Usar algo tan oscuro como el escandaloso pago a uno de los responsables de un estamento que reparte justicia deportiva para acercar a la población una serie de conceptos sobre estadística y como determinar si una estadística es realmente significativa o no.
+
+Estamos en el primero de una serie de tres artículos que versarán sobre el análisis estadístico de ciertas anomalías que se han vivido en esos años de pagos a Negreira.
+
+Empezaremos por ver cómo usar las matemáticas para descubrir un sistema trucado, usando como ejemplo los dados. En el segundo artículo aplicaremos lo visto en éste primero a las estadísticas de la liga española y acabaremos por comparar qué ha pasado en España en esos plomizos años de pagos y lo que, en el mismo tiempo, ha pasado en una competición independiente como es la Liga de Campeones.
+
+### ¿Por Qué Importa Esto?
+
+La pregunta que surge naturalmente es: **¿Estos pagos tuvieron algún efecto real en el campo de juego?**
+
+Es una pregunta difícil de responder de manera definitiva. No podemos leer las mentes de los árbitros. No tenemos acceso a conversaciones privadas. Pero lo que **sí podemos hacer** es analizar los datos estadísticos de todas las tarjetas amarillas y rojas mostradas en La Liga durante ese período... Y ver qué nos dicen los fríos datos sobre este asunto.
+
+Y aquí es donde la historia se pone interesante.
+
+---
+
+## Un Viaje Educativo: Aprendiendo Estadística a Través del Fútbol
+
+Este análisis no es solo sobre el Caso Barça-Negreira. Es también una **oportunidad educativa** para entender conceptos fundamentales de estadística que nos ayudan a distinguir entre:
+
+- **Coincidencia** vs. **Patrón significativo**
+- **Ruido aleatorio** vs. **Señal real**
+- **Casualidad** vs. **Causalidad**
+
+A lo largo de estas tres partes, vamos a aprender sobre:
+
+1. **Teorema de Bayes** - Cómo actualizar nuestras creencias con nueva evidencia
+2. **Valores p y significancia estadística** - ¿Qué tan improbable es un resultado?
+3. **Desviaciones sigma** - ¿Qué tan lejos está algo de lo "normal"?
+4. **Experimentos naturales** - Cómo la comparación con otros datos valida nuestros hallazgos
+
+Usaremos el fútbol como vehículo, pero los conceptos que aprenderemos son universales y aplicables a cualquier análisis de datos. 
+
+---
+
+## La Analogía del Dado: ¿Justo o Trucado?
+
+Antes de sumergirnos en los datos del caso Barça-Negreira, empecemos con un ejemplo simple que nos ayudará a entender el razonamiento estadístico.
+
+### Experimento: Dos Dados de 6 Caras
+
+Imagina que estás jugando un juego de dados con un amigo. Usáis **dos dados de 6 caras** y sumáis los resultados. Después de muchas partidas, notas que tu amigo parece obtener sumas altas con más frecuencia de lo normal.
+
+**¿Mala suerte tuya o dados trucados?**
+
+La estadística nos ayuda a responder esta pregunta.
+
+### ¿Qué Esperamos de Dados Justos?
+
+Con dos dados justos de 6 caras, cada cara (1, 2, 3, 4, 5, 6) debería aparecer con la misma probabilidad: **1/6 o 16.67%**.
+
+Si lanzamos los dados miles de veces, esperaríamos ver cada cara aproximadamente el **16.67% del tiempo**. Veamos esto visualmente:
+
+![Distribución esperada de dados justos](/blog/negreira/dice_probs.png)
+*Figura 1: Distribución esperada cuando tiramos dos dados justos 10,000 veces. La línea roja punteada muestra la frecuencia esperada (1/6 = 1,667 veces). Los dados azul y naranja muestran distribuciones casi idénticas y equilibradas.*
+
+**Observa en la figura:**
+- Cada cara (1-6) aparece aproximadamente **1,667 veces** (16.67% de 10,000)
+- Los dos dados (azul y naranja) tienen distribuciones casi idénticas
+- No hay ninguna cara que sobresalga significativamente
+- La variación es pequeña y simétrica alrededor de la línea roja
+
+**Esto es lo que esperamos de un sistema justo.**
+
+### ¿Y Si Un Dado Está Trucado?
+
+Ahora imagina que **uno de los dados está trucado** para favorecer el número 6. En lugar del 16.67% esperado, digamos que saca un 6 el **30% de las veces** (casi el doble).
+
+Veamos cómo cambia todo:
+
+![Gráfico estadístico compuesto de cuatro histogramas que comparan la distribución de probabilidad de la suma de dos dados justos frente a uno justo y uno trucado. Los gráficos muestran cómo el sesgo hacia el número 6 desplaza la curva de frecuencia hacia sumas más altas (7-12) y reduce la probabilidad de obtener sumas bajas.](/blog/negreira/fair_vs_biased_dice_comparison.png)
+*Figura 2: **Impacto de un dado trucado en la distribución de sumas.** El **panel superior izquierdo** muestra la distribución de probabilidad simétrica esperada al lanzar dos dados justos. En contraste, el **panel superior derecho** ilustra cómo la introducción de un dado cargado (que favorece el 6) desplaza la curva hacia la derecha. Los **paneles inferiores** detallan esta discrepancia: la comparación directa (izq.) y el gráfico de diferencias (der.) evidencian que las sumas altas (7-12) aumentan su frecuencia drásticamente a costa de las sumas bajas (2-6), las cuales aparecen menos de lo esperado.*
+
+**Cambios evidentes:**
+1. **Panel superior derecho (clave):** El dado trucado (naranja) muestra el 6 casi **3,000 veces** en lugar de ~1,667
+2. **Panel superior izquierdo:** Las sumas altas (7-12) son más frecuentes con el dado trucado
+3. **Panel inferior izquierdo:** Diferencias absolutas - sumas altas tienen +200-400 apariciones extra
+4. **Panel inferior derecho:** La suma 12 (6+6) aumenta casi **80%** en frecuencia
+
+### ¿Son Estas Diferencias Significativas?
+
+Aquí es donde entra la **estadística inferencial**. No basta con ver diferencias - necesitamos saber si son **estadísticamente significativas** o podrían deberse al azar.
+
+Usamos el [**test Chi-cuadrado**](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2), que responde: *"Si el dado NO estuviera trucado, ¿cuál es la probabilidad de observar estas diferencias por puro azar?"*
+
+**Resultado del test:**
+- **Chi-cuadrado:** 373.80
+- **P-value:** 3.51 × 10⁻⁷⁴ (¡un número increíblemente pequeño!)
+
+**¿Qué significa p = 3.51 × 10⁻⁷⁴?**
+
+Significa que la probabilidad de ver estas diferencias por azar puro es prácticamente **CERO**.
+
+Para poner esto en perspectiva:
+- **p < 0.05** → "Probablemente no es azar" (evidencia)
+- **p < 0.01** → "Muy probablemente no es azar" (evidencia fuerte)
+- **p < 0.001** → "Casi seguro que no es azar" (evidencia muy fuerte)
+- **p = 10⁻⁷⁴** → "**Absolutamente imposible que sea azar**" (certeza total)
+
+### ¿Qué Concluimos del Ejemplo de los Dados?
+
+Cuando vemos un evento con probabilidad prácticamente **cero** de ocurrir por azar, tenemos dos opciones:
+
+1. **Aceptar que tuvimos una suerte cósmica extraordinaria** - Presenciamos un milagro estadístico
+2. **Concluir que el dado está trucado** - Hay algo sistemático causando el resultado
+
+---
+
+## Introducción al Teorema de Bayes
+
+Ahora que entendimos cómo detectar dados trucados con tests estadísticos, aprendamos una herramienta aún más poderosa: el **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**.
+
+Bayes nos permite **actualizar nuestras creencias paso a paso** conforme recibimos nueva evidencia.
+
+### Experimento: Un Dado de 4 Caras Sospechoso
+
+Imagina que te doy un dado de 4 caras (un tetraedro con caras numeradas 1, 2, 3, 4).
+
+**Pregunta inicial:** ¿Es un dado justo?
+
+**Tu creencia inicial (prior):** Eres escéptico. Piensas que hay solo **1% de probabilidad** de que esté trucado.
+
+- P(trucado) = 0.01 (1%)
+- P(justo) = 0.99 (99%)
+
+Ahora empezamos a lanzar el dado...
+
+### Lanzamiento 1: Sale el 4
+
+**Evidencia:** El dado cayó en 4.
+
+**Probabilidades Condicionales:**
+
+* **Si el dado es justo:** La probabilidad de obtener un 4 es P(4 | justo) = 0.25 (25%). Esto se debe a que todas las caras son igualmente probables.
+* **Si el dado está trucado (cargado) para el 4:** La probabilidad de obtener un 4 aumenta significativamente a P(4 | trucado) = 0.90 (90%). El dado casi siempre caerá en 4.
+
+**Interpretación:** La expresión  P(4 | justo) se lee como "*la probabilidad de que el dado saque un 4, dado que el dado es justo*".
+
+**Aplicamos Bayes:**
+
+```
+P(trucado | sale 4) = [P(4|trucado) × P(trucado)] / [P(4|trucado) × P(trucado) + P(4|justo) × P(justo)]
+
+P(trucado | sale 4) = [0.90 × 0.01] / [0.90 × 0.01 + 0.25 × 0.99]
+P(trucado | sale 4) = 0.009 / (0.009 + 0.2475)
+P(trucado | sale 4) = 0.009 / 0.2565
+P(trucado | sale 4) ≈ 0.035 = 3.5%
+```
+
+**Actualización:** Tu creencia pasó de **1%** a **3.5%**. Sigues escéptico, pero un poco menos.
+
+### Lanzamiento 2: Sale el 4 otra vez
+
+Ahora tu **nuevo prior** es 3.5% (el posterior del lanzamiento anterior).
+
+**Aplicamos Bayes de nuevo:**
+
+```
+P(trucado | 2 cuatros) = [0.90 × 0.035] / [0.90 × 0.035 + 0.25 × 0.965]
+P(trucado | 2 cuatros) = 0.0315 / (0.0315 + 0.2413)
+P(trucado | 2 cuatros) ≈ 0.115 = 11.5%
+```
+
+**Actualización:** De 3.5% a **11.5%**. Empiezas a sospechar...
+
+### Lanzamiento 3: Sale el 4 de nuevo
+
+```
+P(trucado | 3 cuatros) = [0.90 × 0.115] / [0.90 × 0.115 + 0.25 × 0.885]
+P(trucado | 3 cuatros) ≈ 0.319 = 31.9%
+```
+
+**Actualización:** De 11.5% a **31.9%**. ¡Ya no estás tan seguro de que sea justo!
+
+### Lanzamiento 4: Sale el 4 OTRA VEZ
+
+```
+P(trucado | 4 cuatros) ≈ 0.635 = 63.5%
+```
+
+**Actualización:** Ahora piensas que es **más probable** que esté trucado (63.5%) que justo (36.5%).
+
+### Lanzamientos 5-10: Todos salen 4
+
+Continuamos aplicando Bayes:
+
+| Lanzamientos | P(trucado) |
+|--------------|------------|
+| 1 | 3.5% |
+| 2 | 11.5% |
+| 3 | 31.9% |
+| 4 | 63.5% |
+| 5 | 85.5% |
+| 6 | 95.0% |
+| 7 | 98.3% |
+| 8 | 99.4% |
+| 9 | 99.8% |
+| 10 | 99.9% |
+
+**Después de 10 lanzamientos consecutivos en "4", tu certeza es del 99.9%.**
+
+### ¿Qué Acabamos de Hacer?
+
+**Esto es el poder del Teorema de Bayes:**
+
+1. **Empezamos escépticos:** Solo 1% de creencia en sesgo
+2. **Cada evidencia actualiza:** Cada "4" que sale aumenta nuestra certeza
+3. **La evidencia se acumula:** 10 cuatros consecutivos → 99.9% de certeza
+4. **No necesitamos certeza absoluta desde el inicio:** Bayes nos permite ser escépticos pero honestos con los datos
+
+**Fórmula general de Bayes:**
+
+```
+P(Hipótesis | Evidencia) = [P(Evidencia | Hipótesis) × P(Hipótesis)] / P(Evidencia total)
+```
+
+O en palabras:
+
+> Creencia DESPUÉS de ver datos = (Probabilidad de los datos si hipótesis cierta × Creencia ANTES) / Probabilidad total de los datos
+
+### La Lección Clave
+
+Bayes nos dice: **No importa cuán escéptico seas al principio. Si la evidencia es suficientemente fuerte, DEBES actualizar tu creencia.**
+
+- Empezaste al 1% → Acabaste al 99.9%
+- Los datos te obligaron a cambiar de opinión
+- Esto es pensamiento racional, no sesgo de confirmación
+
+---
+
+## Preparando el Escenario para el Análisis del caso Barça-Negreira
+
+Ahora que entendemos:
+1. Cómo detectar patrones improbables (los dados)
+2. Cómo actualizar creencias con evidencia (Bayes)
+
+Podemos aplicar exactamente el mismo razonamiento al caso del Barça-Negreira.
+
+### La Analogía Directa: Del Dado de 6 Caras al Dado de 4 Caras (Cuartiles)
+
+Acabamos de ver cómo detectar un dado trucado de 6 caras. Ahora apliquemos este razonamiento al fútbol, pero con un pequeño cambio de perspectiva.
+
+#### ¿Qué Son los Cuartiles?
+
+En estadística, los **cuartiles** dividen un conjunto de datos ordenados en **4 partes iguales** de 25% cada una:
+
+- **Q1 (Cuartil 1):** El 25% más bajo (menos tarjetas)
+- **Q2 (Cuartil 2):** El siguiente 25%
+- **Q3 (Cuartil 3):** El siguiente 25%
+- **Q4 (Cuartil 4):** El 25% más alto (más tarjetas)
+
+**Analogía:** Es como si cada temporada, cada equipo **lanza un dado de 4 caras** y cae en uno de estos cuatro cuartiles.
+
+**Si todo es aleatorio** (no hay favoritismo), cada equipo debería pasar aproximadamente:
+- **25% del tiempo en Q1** (menos tarjetas)
+- **25% del tiempo en Q2**
+- **25% del tiempo en Q3**
+- **25% del tiempo en Q4** (más tarjetas)
+
+#### La Analogía Aplicada al caso Barça-Negreira
+
+Ahora pensemos en el Barcelona durante el período Negreira (2005-2018):
+
+- **El dado de 4 caras** = Las 4 posiciones posibles de un equipo en tarjetas amarillas (Q1, Q2, Q3, Q4)
+- **Lanzar el dado 14 veces** = 14 temporadas (2005-2018)
+- **Caer en "1" las 14 veces** = Estar en Q1 (menos tarjetas) las 14 temporadas
+- **¿El dado está trucado?** = ¿Hubo favoritismo arbitral sistemático?
+
+---
+
+*Continúa en la [Parte 2: Los Datos Hablan](/blog/negreira-del-bayes-parte-2)*
+
+---
+
+## Nota Importante: Carácter Académico y Educativo
+
+Este es un **análisis estadístico con fines exclusivamente educativos**. Queremos ser completamente transparentes sobre lo que este estudio puede y no puede demostrar:
+
+### Lo Que Este Análisis ES:
+
+✅ **Una exploración educativa** de métodos estadísticos aplicados a datos reales
+
+✅ **Una demostración** de cómo el Teorema de Bayes y los tests de significancia funcionan en la práctica
+
+✅ **Un análisis de correlaciones** entre períodos de tiempo y patrones de datos
+
+✅ **Una oportunidad** para aprender a distinguir entre señal y ruido en grandes conjuntos de datos
+
+### Lo Que Este Análisis NO ES:
+
+❌ **NO es prueba legal** de causalidad directa
+
+❌ **NO identifica culpables** individuales ni prueba intenciones
+
+❌ **NO sustituye** investigaciones judiciales o forenses
+
+❌ **NO establece relaciones causales** (correlación ≠ causalidad)
+
+### Contexto Académico
+
+Este análisis sigue la tradición de estudios académicos que utilizan eventos públicamente documentados como casos de estudio para la enseñanza. Similar a cómo:
+
+- Los testimonios del caso Clinton-Lewinsky se han usado en estudios de psicología sobre cómo las personas mienten
+- El escándalo Volkswagen se usa en cursos de ética empresarial
+- El caso Enron se enseña en análisis de fraude contable
+
+En nuestro caso, el hecho **documentado por la Guardia Civil** de que existieron pagos de más de 8 millones de euros al vicepresidente del Comité de Árbitros durante 17 años nos permite formular preguntas estadísticas legítimas:
+
+- ¿Existen patrones inusuales en los datos durante ese período?
+- ¿Qué tan improbables son estos patrones si asumimos aleatoriedad?
+- ¿Cómo se comparan con períodos o competiciones diferentes?
+
+**El objetivo es iluminar, no acusar. Presentar datos, no sentencias. Enseñar estadística, no impartir justicia.**
+
+Los hechos documentados proporcionan el contexto. Las matemáticas proporcionan las herramientas. El lector saca sus propias conclusiones.
+
+---
+
+## Fuentes y Referencias
+
+### ⚖️ Caso Negreira - Contexto
+
+- **[Wikipedia: Caso Negreira](https://es.wikipedia.org/wiki/Caso_Negreira)** - Resumen del caso, cronología de eventos, y principales actores involucrados.
+- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - Cobertura internacional del caso por la BBC.
+- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Análisis del caso por The Guardian.
+- **[Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+
+### 📚 Recursos de Estadística Bayesiana
+
+- **["Think Bayes" por Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Libro open-source sobre razonamiento bayesiano. Excelente introducción a la actualización de creencias con ejemplos prácticos.
+- **["Statistical Rethinking" por Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Texto avanzado sobre inferencia bayesiana aplicada.
+- **[Test Chi-cuadrado](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2)**
+- **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**
+- **[Test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)**
+- **[Distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)**
+
+### 🔧 Código y Datos
+
+- **[Repositorio GitHub: drAbreu/negreira](https://github.com/drAbreu/negreira)** - Todo el código fuente y análisis reproducible.
+- **[Notebook de dados](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Análisis interactivo de detección de dados trucados con tests estadísticos.
+

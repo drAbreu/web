@@ -13,7 +13,7 @@ export const cvEn = {
   sections: {
     about: {
       title: "About",
-      content: "I research how to use natural language processing (NLP) to build open science tools that revolutionize the way we do and understand science, by developing generative means of structuring data via large language models (LLMs) and knowledge graphs (KGs). I use these technologies to annotate and curate all molecular and cell biology knowledge into data structures that are understandable by both, human and machine.",
+      content: "I research how to use natural language processing (NLP) and artificial intelligence to build open science tools that revolutionize the way we do and understand science. My work spans from developing generative means of structuring biomedical data via large language models (LLMs) and knowledge graphs (KGs) to creating semantic maps of scientific knowledge. I use these technologies to annotate and curate molecular and cell biology knowledge into data structures that are understandable by both humans and machines. My background in astrophysics, where I studied molecular cloud structure and star formation at galactic scales, provides a unique perspective on handling complex, multi-dimensional datasets and understanding universal patterns in complex systems.",
     },
     education: {
       title: "Education",
@@ -102,29 +102,52 @@ export const cvEn = {
       items: [
         {
           name: "BioChatter",
-          year: "2024",
-          description: "Platform for biomedical application of large language models. Collaborator in Nature Biotechnology publication advancing AI in life sciences research.",
+          year: "2025",
+          description: "Open-source platform for biomedical application of large language models. Published in Nature Biotechnology (2025). Democratizing AI in biomedical research through transparent, customizable conversational interfaces with RAG, knowledge graph integration, and local LLM support.",
           link: "https://www.nature.com/articles/s41587-024-02534-3",
-          tags: ["AI/ML", "Biomedicine", "LLMs", "Open Science"],
+          tags: ["AI/ML", "Biomedicine", "LLMs", "Open Science", "Nature Biotechnology"],
         },
         {
-          name: "SourceDataNLP",
+          name: "SourceData-NLP",
           year: "2023",
-          description: "The largest biomedical AI-ready dataset for NER and NEL. Natural language processing pipeline for automated extraction and structuring of biological knowledge from scientific literature.",
+          description: "The largest Named Entity Recognition (NER) and Named Entity Linking (NEL) dataset in biomedical sciences. Integrating AI-ready curation directly into the publishing workflow at EMBO Press. Paper approved for publication in Bioinformatics (Oxford University Press).",
           link: "https://arxiv.org/abs/2310.20440",
-          tags: ["NLP", "Dataset", "Biomedical AI"],
+          tags: ["NLP", "Dataset", "Biomedical AI", "Knowledge Graphs", "HuggingFace"],
         },
         {
           name: "Scientific Knowledge Mapping",
-          year: "2023 - Present",
-          description: "Building comprehensive knowledge landscapes in life sciences using graph databases, knowledge graphs, and semantic embeddings to connect research insights and create the map of scientific knowledge.",
-          tags: ["Knowledge Graphs", "Graph Databases", "Semantic Embedding"],
+          year: "2025 - Present",
+          description: "Creating a semantic atlas of all biomedical knowledge using novel self-supervised learning (Barlow Twins, VICReg) to map 35+ million papers beyond citations and impact factors. Building comprehensive knowledge landscapes using graph databases, knowledge graphs, and semantic embeddings.",
+          link: "/projects/knowledge-graphs",
+          tags: ["Knowledge Graphs", "Graph Databases", "Semantic Embedding", "Self-Supervised Learning", "Science of Science"],
         },
         {
-          name: "Agent AI for Author Disambiguation",
+          name: "Morgenrot: A Journey from Darkness to Dawn",
           year: "2024",
-          description: "Developing AI agent systems to disambiguate author identities in scientific literature, improving research attribution and knowledge graph accuracy in biomedical sciences.",
-          tags: ["AI Agents", "Author Disambiguation", "Knowledge Graphs"],
+          description: "A science-backed personal journey helping others overcome panic attacks and anxiety through lived experience. Currently seeking publisher. Combining autobiographical chapters with evidence-based techniques for recovery.",
+          link: "/morgenrot",
+          tags: ["Mental Health", "Book", "Anxiety", "Recovery", "Psychology"],
+        },
+        {
+          name: "Galactic Paleontology: Unraveling the Cosmic Web",
+          year: "2016",
+          description: "Discovery of large-scale filamentary structures forming a galactic skeleton, challenging theoretical models and revealing key insights into star formation at galactic scales. Published in Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2016A%26A...589A..70A",
+          tags: ["Astrophysics", "Star Formation", "Filaments", "Galactic Structure", "Molecular Clouds"],
+        },
+        {
+          name: "Deciphering the Evolutionary Journey of Molecular Clouds",
+          year: "2015",
+          description: "First systematic study of density distribution in molecular clouds across the Galactic plane, revealing the roles of turbulence and gravity in star formation. Published in Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2015A%26A...580A..26A",
+          tags: ["Astrophysics", "Star Formation", "Molecular Clouds", "Galactic Evolution"],
+        },
+        {
+          name: "Enhanced Calibration of Herschel and Planck Data",
+          year: "2017",
+          description: "Innovative recalibration of Herschel and Planck telescope data achieving unparalleled precision in mapping molecular cloud temperature and density across the Galactic plane. Published in Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2017A%26A...604A..20A",
+          tags: ["Astrophysics", "Herschel", "Planck", "Calibration", "Molecular Clouds"],
         },
       ],
     },
@@ -134,6 +157,20 @@ export const cvEn = {
         subtitle: "Refereed Publications",
         total: "10+ peer-reviewed publications",
         items: [
+          {
+            year: "2025",
+            title: "A platform for the biomedical application of large language models",
+            authors: "Lobentanzer, S., Feng, S., Bruderer, N., Maier, A., Wang, C., Baumbach, J., Abreu-Vicente, J., et al.",
+            journal: "Nature Biotechnology 43, 166-169",
+            link: "https://www.nature.com/articles/s41587-024-02534-3",
+          },
+          {
+            year: "2023",
+            title: "The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models",
+            authors: "Abreu-Vicente, J., Sonntag, H., Eidens, T., Lemberger, T.",
+            journal: "Bioinformatics (accepted for publication)",
+            link: "https://arxiv.org/abs/2310.20440",
+          },
           {
             year: "2017",
             title: "Constraining the Dust Opacity Law in Three Small and Isolated Molecular Clouds",
@@ -160,23 +197,30 @@ export const cvEn = {
           },
           {
             year: "2015",
-            title: "Relationship between the column density distribution and evolutionary class of molecular clouds",
+            title: "Relationship between the column density distribution and evolutionary class of molecular clouds as viewed by ATLASGAL",
             authors: "J. Abreu-Vicente et al.",
             journal: "A&A, 581A, 74A",
+            link: "https://doi.org/10.1051/0004-6361/201424959",
+          },
+          {
+            year: "2013",
+            title: "Gas and dust cooling along the major axis of M 33 (HerM33es)",
+            authors: "J. Abreu-Vicente et al.",
+            journal: "A&A, 554A, 103A",
+            link: "https://doi.org/10.1051/0004-6361/201220683",
+          },
+          {
+            year: "2013",
+            title: "Spectral energy distributions of H ii regions in M 33 (HerM33es)",
+            authors: "J. Abreu-Vicente et al.",
+            journal: "A&A, 552A, 46A",
+            link: "https://doi.org/10.1051/0004-6361/201220073",
           },
         ],
       },
       preprints: {
-        subtitle: "Preprints",
-        items: [
-          {
-            year: "2023",
-            title: "The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models",
-            authors: "Abreu-Vicente et al.",
-            journal: "arXiv.cs.CL, 2310.20440",
-            link: "https://arxiv.org/abs/2310.20440",
-          },
-        ],
+        subtitle: "Preprints & In Review",
+        items: [],
       },
     },
     awards: {
@@ -250,6 +294,12 @@ export const cvEn = {
     outreach: {
       title: "Media, Outreach & Teaching",
       items: [
+        {
+          years: "2024 - Present",
+          title: "Morgenrot: A Journey from Darkness to Dawn",
+          description: "Science-backed book on overcoming panic attacks and anxiety. Currently seeking publisher. Website and blog documenting the journey and recovery process.",
+          link: "/morgenrot",
+        },
         {
           years: "2020-21",
           title: "Astronomy Podcast: La cúpula",

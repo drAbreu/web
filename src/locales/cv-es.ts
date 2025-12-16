@@ -13,7 +13,7 @@ export const cvEs = {
   sections: {
     about: {
       title: "Acerca de",
-      content: "Investigo cómo utilizar el procesamiento de lenguaje natural (PLN) para construir herramientas de ciencia abierta que revolucionen la forma en que hacemos y entendemos la ciencia, desarrollando medios generativos para estructurar datos mediante modelos de lenguaje grandes (LLMs) y grafos de conocimiento (KGs). Utilizo estas tecnologías para anotar y curar todo el conocimiento de biología molecular y celular en estructuras de datos comprensibles tanto para humanos como para máquinas.",
+      content: "Investigo cómo utilizar el procesamiento de lenguaje natural (PLN) y la inteligencia artificial para construir herramientas de ciencia abierta que revolucionen la forma en que hacemos y entendemos la ciencia. Mi trabajo abarca desde desarrollar medios generativos para estructurar datos biomédicos mediante modelos de lenguaje grandes (LLMs) y grafos de conocimiento (KGs) hasta crear mapas semánticos del conocimiento científico. Utilizo estas tecnologías para anotar y curar el conocimiento de biología molecular y celular en estructuras de datos comprensibles tanto para humanos como para máquinas. Mi formación en astrofísica, donde estudié la estructura de nubes moleculares y la formación estelar a escalas galácticas, proporciona una perspectiva única para manejar conjuntos de datos complejos y multidimensionales y comprender patrones universales en sistemas complejos.",
     },
     education: {
       title: "Educación",
@@ -102,29 +102,52 @@ export const cvEs = {
       items: [
         {
           name: "BioChatter",
-          year: "2024",
-          description: "Plataforma para la aplicación biomédica de modelos de lenguaje grandes. Colaborador en publicación de Nature Biotechnology que impulsa la IA en investigación de ciencias de la vida.",
+          year: "2025",
+          description: "Plataforma de código abierto para la aplicación biomédica de modelos de lenguaje grandes. Publicado en Nature Biotechnology (2025). Democratizando la IA en investigación biomédica mediante interfaces conversacionales transparentes y personalizables con RAG, integración de grafos de conocimiento y soporte para LLMs locales.",
           link: "https://www.nature.com/articles/s41587-024-02534-3",
-          tags: ["IA/ML", "Biomedicina", "LLMs", "Ciencia Abierta"],
+          tags: ["IA/ML", "Biomedicina", "LLMs", "Ciencia Abierta", "Nature Biotechnology"],
         },
         {
-          name: "SourceDataNLP",
+          name: "SourceData-NLP",
           year: "2023",
-          description: "El mayor conjunto de datos biomédicos listos para IA para NER y NEL. Pipeline de procesamiento de lenguaje natural para extracción y estructuración automatizada del conocimiento biológico de la literatura científica.",
+          description: "El mayor conjunto de datos de Reconocimiento de Entidades Nombradas (NER) y Vinculación de Entidades Nombradas (NEL) en ciencias biomédicas. Integrando curación lista para IA directamente en el flujo de trabajo de publicación en EMBO Press. Artículo aprobado para publicación en Bioinformatics (Oxford University Press).",
           link: "https://arxiv.org/abs/2310.20440",
-          tags: ["PLN", "Conjunto de Datos", "IA Biomédica"],
+          tags: ["PLN", "Conjunto de Datos", "IA Biomédica", "Grafos de Conocimiento", "HuggingFace"],
         },
         {
           name: "Mapeo del Conocimiento Científico",
-          year: "2023 - Presente",
-          description: "Construyendo paisajes de conocimiento comprehensivos en ciencias de la vida utilizando bases de datos de grafos, grafos de conocimiento e incrustaciones semánticas para conectar hallazgos de investigación y crear el mapa del conocimiento científico.",
-          tags: ["Grafos de Conocimiento", "BD de Grafos", "Incrustación Semántica"],
+          year: "2025 - Presente",
+          description: "Creando un atlas semántico de todo el conocimiento biomédico usando aprendizaje auto-supervisado novedoso (Barlow Twins, VICReg) para mapear más de 35 millones de artículos más allá de citas y factores de impacto. Construyendo paisajes de conocimiento comprehensivos usando bases de datos de grafos, grafos de conocimiento e incrustaciones semánticas.",
+          link: "/projects/knowledge-graphs",
+          tags: ["Grafos de Conocimiento", "BD de Grafos", "Incrustación Semántica", "Aprendizaje Auto-Supervisado", "Ciencia de la Ciencia"],
         },
         {
-          name: "Agente IA para Desambiguación de Autores",
+          name: "Morgenrot: Un camino desde la oscuridad hacia el amanecer",
           year: "2024",
-          description: "Desarrollando sistemas de agentes de IA para desambiguar identidades de autores en literatura científica, mejorando la atribución de investigación y la precisión del grafo de conocimiento en ciencias biomédicas.",
-          tags: ["Agentes IA", "Desambiguación de Autores", "Grafos de Conocimiento"],
+          description: "Un viaje personal respaldado por la ciencia que ayuda a otros a superar ataques de pánico y ansiedad a través de la experiencia vivida. Actualmente en búsqueda de editor. Combinando capítulos autobiográficos con técnicas basadas en evidencia para la recuperación.",
+          link: "/morgenrot",
+          tags: ["Salud Mental", "Libro", "Ansiedad", "Recuperación", "Psicología"],
+        },
+        {
+          name: "Paleontología Galáctica: Desenredando la Red Cósmica",
+          year: "2016",
+          description: "Descubrimiento de estructuras filamentarias a gran escala formando un esqueleto galáctico, desafiando modelos teóricos y revelando perspectivas clave sobre la formación estelar a escalas galácticas. Publicado en Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2016A%26A...589A..70A",
+          tags: ["Astrofísica", "Formación Estelar", "Filamentos", "Estructura Galáctica", "Nubes Moleculares"],
+        },
+        {
+          name: "Descifrando el Viaje Evolutivo de las Nubes Moleculares",
+          year: "2015",
+          description: "Primer estudio sistemático de la distribución de densidad en nubes moleculares en el plano Galáctico, revelando los roles de la turbulencia y la gravedad en la formación estelar. Publicado en Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2015A%26A...580A..26A",
+          tags: ["Astrofísica", "Formación Estelar", "Nubes Moleculares", "Evolución Galáctica"],
+        },
+        {
+          name: "Calibración Mejorada de Datos de Herschel y Planck",
+          year: "2017",
+          description: "Recalibración innovadora de datos de los telescopios Herschel y Planck logrando una precisión sin precedentes en el mapeo de la temperatura y densidad de las nubes moleculares en el plano Galáctico. Publicado en Astronomy & Astrophysics.",
+          link: "https://ui.adsabs.harvard.edu/abs/2017A%26A...604A..20A",
+          tags: ["Astrofísica", "Herschel", "Planck", "Calibración", "Nubes Moleculares"],
         },
       ],
     },
@@ -134,6 +157,20 @@ export const cvEs = {
         subtitle: "Publicaciones Revisadas",
         total: "Más de 10 publicaciones revisadas por pares",
         items: [
+          {
+            year: "2025",
+            title: "A platform for the biomedical application of large language models",
+            authors: "Lobentanzer, S., Feng, S., Bruderer, N., Maier, A., Wang, C., Baumbach, J., Abreu-Vicente, J., et al.",
+            journal: "Nature Biotechnology 43, 166-169",
+            link: "https://www.nature.com/articles/s41587-024-02534-3",
+          },
+          {
+            year: "2023",
+            title: "The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models",
+            authors: "Abreu-Vicente, J., Sonntag, H., Eidens, T., Lemberger, T.",
+            journal: "Bioinformatics (aceptado para publicación)",
+            link: "https://arxiv.org/abs/2310.20440",
+          },
           {
             year: "2017",
             title: "Constraining the Dust Opacity Law in Three Small and Isolated Molecular Clouds",
@@ -160,23 +197,30 @@ export const cvEs = {
           },
           {
             year: "2015",
-            title: "Relationship between the column density distribution and evolutionary class of molecular clouds",
+            title: "Relationship between the column density distribution and evolutionary class of molecular clouds as viewed by ATLASGAL",
             authors: "J. Abreu-Vicente et al.",
             journal: "A&A, 581A, 74A",
+            link: "https://doi.org/10.1051/0004-6361/201424959",
+          },
+          {
+            year: "2013",
+            title: "Gas and dust cooling along the major axis of M 33 (HerM33es)",
+            authors: "J. Abreu-Vicente et al.",
+            journal: "A&A, 554A, 103A",
+            link: "https://doi.org/10.1051/0004-6361/201220683",
+          },
+          {
+            year: "2013",
+            title: "Spectral energy distributions of H ii regions in M 33 (HerM33es)",
+            authors: "J. Abreu-Vicente et al.",
+            journal: "A&A, 552A, 46A",
+            link: "https://doi.org/10.1051/0004-6361/201220073",
           },
         ],
       },
       preprints: {
-        subtitle: "Preimpresiones",
-        items: [
-          {
-            year: "2023",
-            title: "The SourceData-NLP dataset: integrating curation into scientific publishing for training large language models",
-            authors: "Abreu-Vicente et al.",
-            journal: "arXiv.cs.CL, 2310.20440",
-            link: "https://arxiv.org/abs/2310.20440",
-          },
-        ],
+        subtitle: "Preimpresiones y En Revisión",
+        items: [],
       },
     },
     awards: {
@@ -250,6 +294,12 @@ export const cvEs = {
     outreach: {
       title: "Medios, Divulgación y Enseñanza",
       items: [
+        {
+          years: "2024 - Presente",
+          title: "Morgenrot: Un camino desde la oscuridad hacia el amanecer",
+          description: "Libro respaldado por la ciencia sobre superar ataques de pánico y ansiedad. Actualmente en búsqueda de editor. Sitio web y blog documentando el viaje y proceso de recuperación.",
+          link: "/morgenrot",
+        },
         {
           years: "2020-21",
           title: "Podcast de Astronomía: La cúpula",

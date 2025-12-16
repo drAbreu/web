@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import type { Metadata } from 'next';
 import BlogPostClient from './BlogPostClient';
+import React from 'react';
 
 // Function to calculate reading time
 function calculateReadingTime(content: string): number {
@@ -45,7 +46,22 @@ const createComponents = (headings: { text: string; id: string }[]) => ({
   },
   h3: (props: any) => <h3 className="text-2xl font-semibold text-brand-coral mb-3 mt-6" {...props} />,
   h4: (props: any) => <h4 className="text-xl font-semibold text-gray-300 mb-2 mt-4" {...props} />,
-  p: (props: any) => <p className="text-gray-300 leading-relaxed mb-4" {...props} />,
+  p: (props: any) => {
+    // Check if children contain block-level elements (img, table, etc.)
+    const children = props.children;
+    const hasBlockElements = React.Children.toArray(children).some((child: any) => {
+      if (React.isValidElement(child)) {
+        return child.type === 'img' || child.type === 'table' || child.type === 'div';
+      }
+      return false;
+    });
+    
+    // If it contains block elements, render as div instead of p
+    if (hasBlockElements) {
+      return <div className="text-gray-300 leading-relaxed mb-4" {...props} />;
+    }
+    return <p className="text-gray-300 leading-relaxed mb-4" {...props} />;
+  },
   ul: (props: any) => <ul className="list-disc list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
   ol: (props: any) => <ol className="list-decimal list-inside text-gray-300 space-y-2 mb-4 ml-4" {...props} />,
   li: (props: any) => <li className="text-gray-300" {...props} />,
@@ -59,6 +75,58 @@ const createComponents = (headings: { text: string; id: string }[]) => ({
   ),
   strong: (props: any) => <strong className="font-bold text-white" {...props} />,
   em: (props: any) => <em className="italic text-gray-300" {...props} />,
+  img: (props: any) => {
+    // Use a span wrapper to avoid hydration errors when img is inside <p>
+    return (
+      <span className="block my-6 text-center">
+        <span className="inline-block bg-white p-2 rounded-lg">
+          <img {...props} className="max-w-full h-auto block" />
+        </span>
+      </span>
+    );
+  },
+  table: (props: any) => (
+    <div className="my-6 overflow-x-auto">
+      <table 
+        className="w-full border-collapse" 
+        style={{ 
+          border: '1px solid rgba(255, 255, 255, 0.4)',
+          borderSpacing: 0
+        }} 
+        {...props} 
+      />
+    </div>
+  ),
+  thead: (props: any) => <thead className="bg-brand-navy/50" {...props} />,
+  tbody: (props: any) => <tbody {...props} />,
+  tr: (props: any) => (
+    <tr 
+      className="border-b" 
+      style={{ borderColor: 'rgba(255, 255, 255, 0.25)' }} 
+      {...props} 
+    />
+  ),
+  th: (props: any) => (
+    <th 
+      className="px-4 py-3 text-left text-white font-semibold text-sm" 
+      style={{ 
+        borderRight: '1px solid rgba(255, 255, 255, 0.25)',
+        borderCollapse: 'collapse',
+        backgroundColor: 'rgba(13, 21, 32, 0.5)'
+      }}
+      {...props} 
+    />
+  ),
+  td: (props: any) => (
+    <td 
+      className="px-4 py-3 text-gray-300 text-sm" 
+      style={{ 
+        borderRight: '1px solid rgba(255, 255, 255, 0.25)',
+        borderCollapse: 'collapse'
+      }}
+      {...props} 
+    />
+  ),
 });
 
 async function getBlogPost(slug: string) {

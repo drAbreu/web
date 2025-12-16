@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthorCard from "@/components/AuthorCard";
 import TableOfContents from '@/app/projects/[slug]/TableOfContents';
-import ShareButtons from '@/app/projects/[slug]/ShareButtons';
+import ShareButtons from './ShareButtons';
 
 interface BlogPostClientProps {
   frontmatter: any;
