@@ -1,94 +1,94 @@
 ---
-title: "Negreira del Bayes (II): La Liga de los Dados Trucados"
-description: "Análisis estadístico completo de las tarjetas en La Liga (2005-2018): Barcelona siempre en Q1, ratios de tarjetas a rivales, y actualizaciones bayesianas."
+title: "Negreira's Bayes (II): The League of Loaded Dice"
+description: "Complete statistical analysis of cards in La Liga (2005-2018): Barcelona always in Q1, card ratios against rivals, and Bayesian updates."
 date: "2025-12-16"
 author: "Jorge Abreu-Vicente, PhD"
-category: "Análisis Estadístico"
-tags: ["estadística", "bayes", "fútbol", "análisis de datos", "ciencia de datos", "negreira"]
+category: "Statistical Analysis"
+tags: ["statistics", "bayes", "football", "data analysis", "data science", "negreira"]
 featured: true
 image: "/blog/negreira/main_image.jpg"
-lang: "es"
+lang: "en"
 ---
 
-## Los Datos Hablan: Análisis de Tarjetas en La Liga (2005-2018)
+## The Data Speaks: Card Analysis in La Liga (2005-2018)
 
-En la [Parte 1](/blog/negreira-del-bayes-parte-1), aprendimos a detectar dados trucados usando estadística y el Teorema de Bayes. Vimos cómo:
+In [Part 1](/blog/negreira-del-bayes-part-1), we learned to detect loaded dice using statistics and Bayes' Theorem. We saw how to:
 
-- **Detectar patrones imposibles** con tests estadísticos (Chi-cuadrado, p-values)
-- **Actualizar creencias** paso a paso con el Teorema de Bayes
-- **Entender los cuartiles** como un "dado de 4 caras"
+- **Detect impossible patterns** with statistical tests (Chi-square, p-values)
+- **Update beliefs** step by step with Bayes' Theorem
+- **Understand quartiles** as a "4-sided die"
 
-Ahora, nos preguntamos: **¿En qué cuartil estuvo Barcelona durante esas 14 temporadas de pagos a Negreira?**
+Now, we ask ourselves: **In which quartile was Barcelona during those 14 seasons of payments to Negreira?**
 
-Ahora ha llegado el momento de revelar los datos. Prepárate.
-
----
-
-## Los Datos: Fuentes y Metodología
-
-### Fuentes de Datos
-
-Para este análisis utilizamos dos fuentes principales:
-1. **[Football-Data.co.uk](https://www.football-data.co.uk/spainm.php)** - Datos partido a partido (2005-2018)
-   - 5,320 partidos de La Liga
-   - Tarjetas amarillas y rojas por equipo
-   - Faltas cometidas
-   - 14 temporadas completas
-2. **[Futbolgate.com](https://www.futbolgate.com/investigaci%C3%B3n/las-estad%C3%ADsticas-del-saldo-arbitral)** - Datos complementarios (2002-2006)
-   - Estadísticas de saldo arbitral
-   - Análisis histórico del período
-
-Hemos decidido usar solo los datos de **Football-Data.co.uk**, aunque una comprobación muestra que los de **Futbolgate.com** son verídicos y podrían ampliar el resultado.
-
-### Período de Análisis
-
-Nos enfocamos en **2005-2018** porque:
-- Coincide con el **período de pagos a Negreira** (2001-2018)
-- Tenemos **datos completos** de tarjetas (no disponibles antes de 2005)
-- Son **14 temporadas consecutivas** - perfecto para nuestro análisis de "dado de 4 caras"
-
-### Transparencia Total
-
-Los datos y el código se encuentran públicos en [GitHub](https://github.com/drAbreu/negreira) para total transparencia y didáctica del análisis.
+Now it's time to reveal the data. Brace yourself.
 
 ---
 
-## El Sistema de Cuartiles (Q1, Q2, Q3, Q4)
+## The Data: Sources and Methodology
 
-Para analizar las tarjetas, dividimos a los equipos en **4 grupos iguales** cada temporada:
+### Data Sources
 
-- **Q1 (Cuartil 1):** 25% de equipos con **MENOS tarjetas** (5 equipos)
-- **Q2 (Cuartil 2):** Siguiente 25% (5 equipos)
-- **Q3 (Cuartil 3):** Siguiente 25% (5 equipos)
-- **Q4 (Cuartil 4):** 25% de equipos con **MÁS tarjetas** (5 equipos)
+For this analysis we used two main sources:
+1. **[Football-Data.co.uk](https://www.football-data.co.uk/spainm.php)** - Match-by-match data (2005-2018)
+   - 5,320 La Liga matches
+   - Yellow and red cards per team
+   - Fouls committed
+   - 14 complete seasons
+2. **[Futbolgate.com](https://www.futbolgate.com/investigaci%C3%B3n/las-estad%C3%ADsticas-del-saldo-arbitral)** - Complementary data (2002-2006)
+   - Referee balance statistics
+   - Historical analysis of the period
 
-**Analogía:** Es exactamente como nuestro dado de 4 caras. Cada equipo "lanza el dado" cada temporada y cae en uno de los 4 cuartiles.
+We decided to use only data from **Football-Data.co.uk**, although a check shows that **Futbolgate.com** data is accurate and could extend the results.
 
-**Si todo es aleatorio**, esperaríamos que cada equipo pase el 25% del tiempo en cada cuartil.
+### Analysis Period
+
+We focus on **2005-2018** because:
+- It coincides with the **Negreira payment period** (2001-2018)
+- We have **complete card data** (not available before 2005)
+- It's **14 consecutive seasons** - perfect for our "4-sided die" analysis
+
+### Total Transparency
+
+The data and code are publicly available on [GitHub](https://github.com/drAbreu/negreira) for complete transparency and educational purposes.
 
 ---
 
-## Hallazgo #1: Barcelona SIEMPRE en Q1
+## The Quartile System (Q1, Q2, Q3, Q4)
 
-### El Resultado
+To analyze cards, we divide teams into **4 equal groups** each season:
 
-Analicemos las **tarjetas amarillas** de los 3 grandes durante el período Negreira (2005-2018):
+- **Q1 (Quartile 1):** 25% of teams with **FEWER cards** (5 teams)
+- **Q2 (Quartile 2):** Next 25% (5 teams)
+- **Q3 (Quartile 3):** Next 25% (5 teams)
+- **Q4 (Quartile 4):** 25% of teams with **MORE cards** (5 teams)
+
+**Analogy:** It's exactly like our 4-sided die. Each team "rolls the die" each season and lands in one of the 4 quartiles.
+
+**If everything is random**, we would expect each team to spend 25% of the time in each quartile.
+
+---
+
+## Finding #1: Barcelona ALWAYS in Q1
+
+### The Result
+
+Let's analyze the **yellow cards** of the big 3 during the Negreira period (2005-2018):
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th rowSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporada</th>
+      <th rowSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Season</th>
       <th colSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Barcelona</th>
       <th colSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Real Madrid</th>
       <th colSpan="2" style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Atlético Madrid</th>
     </tr>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
       <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Quartile</th>
       <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Quartile</th>
       <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
-      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Quartile</th>
     </tr>
   </thead>
   <tbody>
@@ -212,137 +212,137 @@ Analicemos las **tarjetas amarillas** de los 3 grandes durante el período Negre
   </tbody>
 </table>
 
-**Resultados:**
+**Results:**
 
-- **Barcelona:** Q1 las **13 temporadas consecutivas** (100%)
-- **Real Madrid:** Q1 en 5 temporadas (38%), distribución más equilibrada
-- **Atlético:** Q4 en 6 temporadas (46%), distribución hacia más tarjetas
+- **Barcelona:** Q1 for **13 consecutive seasons** (100%)
+- **Real Madrid:** Q1 in 5 seasons (38%), more balanced distribution
+- **Atlético:** Q4 in 6 seasons (46%), distribution toward more cards
 
-**Posición promedio de Barcelona:** 1.7 de 20 equipos (casi siempre #1 o #2)
+**Barcelona's average position:** 1.7 out of 20 teams (almost always #1 or #2)
 
-### ¿Qué Probabilidad Tiene Esto?
+### What's the Probability of This?
 
-#### Análisis del "Dado de 4 Caras" (Cuartiles)
+#### "4-Sided Die" Analysis (Quartiles)
 
-Recordemos nuestro dado de 4 caras de la Parte 1. Si cada temporada Barcelona "tira el dado" y puede caer en Q1, Q2, Q3 o Q4 (25% cada uno):
+Remember our 4-sided die from Part 1. If each season Barcelona "rolls the die" and can land on Q1, Q2, Q3 or Q4 (25% each):
 
 ```text
-P(13 veces en Q1 | aleatorio) = (0.25)^13 = 1.46 × 10⁻⁸
+P(13 times in Q1 | random) = (0.25)^13 = 1.46 × 10⁻⁸
 ```
 
-**Esto es 1 entre 68 millones**
+**This is 1 in 68 million**
 
-Para contexto:
-- Probabilidad de que te caiga un rayo en tu vida: ~1 en 15,300
-- Probabilidad de ganar la lotería primitiva: ~1 en 14 millones
-- **Probabilidad de Barcelona en Q1 las `13/13` veces: 1 en 68 MILLONES**
+For context:
+- Probability of being struck by lightning in your lifetime: ~1 in 15,300
+- Probability of winning the lottery: ~1 in 14 million
+- **Probability of Barcelona in Q1 `13/13` times: 1 in 68 MILLION**
 
-Es **casi 5 veces más improbable** que ganar la lotería.
+It's **almost 5 times more improbable** than winning the lottery.
 
-#### Análisis del "Dado de 20 Caras" (Rankings Exactos)
+#### "20-Sided Die" Analysis (Exact Rankings)
 
-Pero hay más. No solo Barcelona estuvo en Q1 (top 5 de 20), sino que estuvo **casi siempre en los primeros 2 lugares**.
+But there's more. Not only was Barcelona in Q1 (top 5 of 20), but they were **almost always in the first 2 places**.
 
-De las 13 temporadas:
-- **#1:** 9 veces
-- **#2:** 3 veces
-- **#3:** 1 vez
-- **#4 o peor:** 1 veces
+Of the 13 seasons:
+- **#1:** 9 times
+- **#2:** 3 times
+- **#3:** 1 time
+- **#4 or worse:** 1 time
 
-Si cada equipo tiene igual probabilidad de cada ranking (dado de 20 caras), la probabilidad de estar siempre en el top 3 es:
+If each team has equal probability of each ranking (20-sided die), the probability of always being in the top 3 is:
 
 ```
-P(12 veces en top 3 | aleatorio) = (3/20)^12 = 1.3 × 10⁻¹⁰
+P(12 times in top 3 | random) = (3/20)^12 = 1.3 × 10⁻¹⁰
 ```
 
-**Esto es 1 entre 7700 MILLONES**. 
+**This is 1 in 7.7 BILLION**.
 
-> Que a cualquiera de los que leen este post le pueda matar un rayo en 2026 es 430 veces mayor que estar en el top 3 de equipos menos tarjeteados de la liga 12 temporadas seguidas.
+> The probability that any reader of this post will be struck by lightning in 2026 is 430 times greater than being in the top 3 least-carded teams in the league for 12 consecutive seasons.
 
 
-### Test Estadístico: Test Binomial
+### Statistical Test: Binomial Test
 
-Ahora formalicemos esto con estadística rigurosa.
+Now let's formalize this with rigorous statistics.
 
-#### ¿Qué es una Hipótesis Nula?
+#### What is a Null Hypothesis?
 
-En estadística, siempre empezamos siendo **escépticos** y asumiendo que **no hay nada especial** pasando. A esto lo llamamos la **hipótesis nula (H₀)**.
+In statistics, we always start by being **skeptical** and assuming that **nothing special** is happening. We call this the **null hypothesis (H₀)**.
 
-**Analogía:** Es como en un juicio - asumimos inocencia (hipótesis nula) hasta que la evidencia pruebe lo contrario.
+**Analogy:** It's like in a trial - we assume innocence (null hypothesis) until evidence proves otherwise.
 
-En nuestro caso:
-- **H₀ (Hipótesis Nula):** "Barcelona es como cualquier otro equipo. Tiene 25% de probabilidad de caer en Q1 cada temporada, aleatoriamente."
-- **H₁ (Hipótesis Alternativa):** "Barcelona NO es aleatorio. Hay algo sistemático favoreciendo Q1."
+In our case:
+- **H₀ (Null Hypothesis):** "Barcelona is like any other team. They have a 25% probability of landing in Q1 each season, randomly."
+- **H₁ (Alternative Hypothesis):** "Barcelona is NOT random. There is something systematic favoring Q1."
 
-#### ¿Qué es el Test Binomial?
+#### What is the Binomial Test?
 
-El **[test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)** es perfecto para nuestro caso porque estamos analizando:
+The **[binomial test](https://en.wikipedia.org/wiki/Binomial_test)** is perfect for our case because we're analyzing:
 
-- Una serie de **eventos independientes** (cada temporada)
-- Cada evento tiene **dos resultados posibles** (en Q1 o no en Q1)
-- Cada evento tiene una **probabilidad fija** (25% si es aleatorio)
+- A series of **independent events** (each season)
+- Each event has **two possible outcomes** (in Q1 or not in Q1)
+- Each event has a **fixed probability** (25% if random)
 
-Es exactamente como nuestro dado de 4 caras de la Parte 1: cada temporada "lanzamos el dado" y preguntamos "¿cayó en la cara '1' (Q1)?" Si el dado es justo, la probabilidad es 25% cada vez.
+It's exactly like our 4-sided die from Part 1: each season we "roll the die" and ask "did it land on face '1' (Q1)?" If the die is fair, the probability is 25% each time.
 
-#### Aplicando el Test
+#### Applying the Test
 
-**Pregunta del test:** "Si H₀ es cierta (Barcelona es aleatorio), ¿cuál es la probabilidad de observar `13/13` veces en Q1?"
+**Test question:** "If H₀ is true (Barcelona is random), what is the probability of observing `13/13` times in Q1?"
 
-**Cálculo:**
+**Calculation:**
 ```text
-P(13/13 en Q1 | H₀) = (0.25)^13 = 1.46 × 10⁻⁸
+P(13/13 in Q1 | H₀) = (0.25)^13 = 1.46 × 10⁻⁸
 ```
 
-Este número se llama **p-value** (valor p).
+This number is called the **p-value**.
 
-#### Interpretación del P-value
+#### P-value Interpretation
 
-Estos son los umbrales estándar que se usan en ciencia para interpretar p-values:
+These are the standard thresholds used in science to interpret p-values:
 
-- **p > 0.05:** "No hay evidencia suficiente, podría ser azar" → No rechazamos H₀
-- **p < 0.05:** "Evidencia significativa, poco probable que sea azar" → Rechazamos H₀
-  (Este es el umbral estándar en la mayoría de disciplinas científicas)
-- **p < 0.01:** "Evidencia muy fuerte"
-- **p < 0.001:** "Evidencia extremadamente fuerte"
-- **p < 0.0001:** "Práctica certeza - virtualmente imposible que sea azar"
+- **p > 0.05:** "Not enough evidence, could be chance" → We don't reject H₀
+- **p < 0.05:** "Significant evidence, unlikely to be chance" → We reject H₀
+  (This is the standard threshold in most scientific disciplines)
+- **p < 0.01:** "Very strong evidence"
+- **p < 0.001:** "Extremely strong evidence"
+- **p < 0.0001:** "Practical certainty - virtually impossible to be chance"
 
-**Nuestro p-value: 1.46 × 10⁻⁸**
+**Our p-value: 1.46 × 10⁻⁸**
 
-Esto es **14,600 veces más pequeño** que el umbral de práctica certeza (p < 0.0001).
+This is **14,600 times smaller** than the practical certainty threshold (p < 0.0001).
 
-En términos científicos: **Es estadísticamente imposible que sea azar.**
+In scientific terms: **It is statistically impossible to be chance.**
 
-#### Conclusión del Test
+#### Test Conclusion
 
-**Rechazamos la hipótesis nula con >99.9999% de confianza.**
+**We reject the null hypothesis with >99.9999% confidence.**
 
-En lenguaje claro: La probabilidad de que esto sea casualidad es **prácticamente cero**. 
+In plain language: The probability that this is coincidence is **practically zero**.
 
-> **Hay algo sistemático causando que Barcelona caiga en Q1.**
+> **There is something systematic causing Barcelona to land in Q1.**
 
-Pero es muy importante dejar claro que, en este punto: **No tenemos ninguna evidencia de que ese algo sistemático sea el favor arbitral.** Podría ser el estilo de juego, la limpieza, u otros intangibles. No podemos hacer la conexión directa de que esta estadística, por sí sola, implica prácticas de corrupción.
+But it's very important to make clear that, at this point: **We have no evidence that this systematic something is referee favoritism.** It could be playing style, cleanliness, or other intangibles. We cannot make the direct connection that this statistic, by itself, implies corrupt practices.
 
 ---
 
-## Hallazgo #2: Los Rivales Reciben MÁS Tarjetas
+## Finding #2: Rivals Receive MORE Cards
 
-No es solo que Barcelona reciba pocas tarjetas. Hay un segundo patrón igualmente importante: las tarjetas que reciben sus rivales.
+It's not just that Barcelona receives few cards. There's a second equally important pattern: the cards their rivals receive.
 
-### Comparación: Barcelona vs Real Madrid vs Atlético
+### Comparison: Barcelona vs Real Madrid vs Atlético
 
-Calculemos las tarjetas **promedio por temporada** (2005-2018):
+Let's calculate the **average cards per season** (2005-2018):
 
-#### Tarjetas Amarillas
+#### Yellow Cards
 
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Propias</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivales</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Team</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Own</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivals</th>
       <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Ratio</th>
-      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Diferencia</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Difference</th>
     </tr>
   </thead>
   <tbody>
@@ -368,7 +368,7 @@ Calculemos las tarjetas **promedio por temporada** (2005-2018):
       <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>-3.9</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Otros (promedio)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Others (average)</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>98.9</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>97.5</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>0.99x</code></strong></td>
@@ -377,31 +377,31 @@ Calculemos las tarjetas **promedio por temporada** (2005-2018):
   </tbody>
 </table>
 
-![Gráfico de cuadrícula con 14 histogramas horizontales que muestran la distribución de tarjetas amarillas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid en las temporadas 2005-2018. El patrón clave es la consistencia del Barcelona, que se sitúa cerca de la parte inferior de la lista (menor cantidad de tarjetas) en casi todas las temporadas, mientras que los equipos rivales se encuentran consistentemente más arriba.](/blog/negreira/yellow_cards_distribution_grid.png)
-*Figura 1: **Consistencia atípica en tarjetas amarillas del F.C. Barcelona (2005-2018).** La visualización en cuadrícula muestra la distribución de tarjetas amarillas recibidas por F.C. Barcelona (azul), Real Madrid (negro) y Atlético Madrid (rojo) por temporada. Se observa que, durante todo el período 2005-2018, el Barcelona se mantuvo consistentemente entre los equipos con la menor cantidad de tarjetas recibidas, situándose en el tercio inferior de la liga en casi todas las temporadas. En contraste, el Atlético y el Real Madrid frecuentemente se encontraron entre los equipos con mayor número de amonestaciones.*
+![Grid chart with 14 horizontal histograms showing the distribution of yellow cards received by F.C. Barcelona, Real Madrid and Atlético Madrid in the 2005-2018 seasons. The key pattern is Barcelona's consistency, which is near the bottom of the list (fewer cards) in almost all seasons, while rival teams are consistently higher.](/blog/negreira/yellow_cards_distribution_grid.png)
+*Figure 1: **Atypical consistency in F.C. Barcelona's yellow cards (2005-2018).** The grid visualization shows the distribution of yellow cards received by F.C. Barcelona (blue), Real Madrid (black) and Atlético Madrid (red) per season. It can be observed that, throughout the 2005-2018 period, Barcelona consistently remained among the teams with the fewest cards received, ranking in the lower third of the league in almost all seasons. In contrast, Atlético and Real Madrid were frequently among the teams with the highest number of bookings.*
 
-**Observaciones clave:**
+**Key observations:**
 
-1. **Barcelona: 70.4 tarjetas propias** - El más bajo de todos
-2. **Rivales de Barcelona: 106.6 tarjetas** - Muy similar a Real Madrid (106.8)
-3. **Diferencia de +36.2** - Barcelona recibe 36 tarjetas MENOS que sus rivales
-4. **Real Madrid: +19.4** - También positivo, pero casi la MITAD que Barcelona
-   - **Importante:** Real Madrid recibe CASI las mismas tarjetas amarillas que Barcelona de sus rivales (106.8 vs 106.6), pero la diferencia está en las tarjetas PROPIAS más bajas de Barcelona
-5. **Atlético: -3.9** - Sus rivales reciben MENOS tarjetas que ellos
-6. **Otros: -1.4** - Prácticamente equilibrado
+1. **Barcelona: 70.4 own cards** - The lowest of all
+2. **Barcelona's rivals: 106.6 cards** - Very similar to Real Madrid (106.8)
+3. **Difference of +36.2** - Barcelona receives 36 fewer cards than their rivals
+4. **Real Madrid: +19.4** - Also positive, but almost HALF of Barcelona's
+   - **Important:** Real Madrid receives ALMOST the same yellow cards from their rivals as Barcelona (106.8 vs 106.6), but the difference is in Barcelona's LOWER own cards
+5. **Atlético: -3.9** - Their rivals receive FEWER cards than them
+6. **Others: -1.4** - Practically balanced
 
-**Conclusión para amarillas:** Barcelona recibe menos tarjetas propias que cualquier otro equipo, pero las tarjetas a sus rivales son similares a las de Real Madrid. La diferencia principal está en las tarjetas rojas (ver abajo).
+**Conclusion for yellows:** Barcelona receives fewer own cards than any other team, but cards to their rivals are similar to Real Madrid's. The main difference is in red cards (see below).
 
-#### Tarjetas Rojas
+#### Red Cards
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Propias</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivales</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Team</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Own</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivals</th>
       <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Ratio</th>
-      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Diferencia</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Difference</th>
     </tr>
   </thead>
   <tbody>
@@ -427,7 +427,7 @@ Calculemos las tarjetas **promedio por temporada** (2005-2018):
       <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>+0.3</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Otros (promedio)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Others (average)</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>6.1</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>5.9</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>0.97x</code></strong></td>
@@ -436,237 +436,237 @@ Calculemos las tarjetas **promedio por temporada** (2005-2018):
   </tbody>
 </table>
 
-![Gráfico de cuadrícula con 14 histogramas horizontales que muestran la distribución de tarjetas rojas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid en las temporadas 2005-2018. El patrón clave es la consistencia del Barcelona, que se sitúa cerca de la parte inferior de la lista (menor cantidad de tarjetas) en casi todas las temporadas, mientras que los equipos rivales se encuentran consistentemente más arriba.](/blog/negreira/red_cards_distribution_grid.png)
-*Figura 2: **Consistencia atípica en tarjetas rojas del F.C. Barcelona (2005-2018).** La visualización en cuadrícula muestra la distribución de tarjetas rojas recibidas por F.C. Barcelona (azul), Real Madrid (negro) y Atlético Madrid (rojo) por temporada. Se observa que, durante todo el período 2005-2018, el Barcelona se mantuvo consistentemente entre los equipos con la menor cantidad de tarjetas recibidas, situándose en el tercio inferior de la liga en todas las temporadas. En contraste, el Atlético y el Real Madrid frecuentemente se encontraron entre los equipos con mayor número de amonestaciones.*
+![Grid chart with 14 horizontal histograms showing the distribution of red cards received by F.C. Barcelona, Real Madrid and Atlético Madrid in the 2005-2018 seasons. The key pattern is Barcelona's consistency, which is near the bottom of the list (fewer cards) in almost all seasons, while rival teams are consistently higher.](/blog/negreira/red_cards_distribution_grid.png)
+*Figure 2: **Atypical consistency in F.C. Barcelona's red cards (2005-2018).** The grid visualization shows the distribution of red cards received by F.C. Barcelona (blue), Real Madrid (black) and Atlético Madrid (red) per season. It can be observed that, throughout the 2005-2018 period, Barcelona consistently remained among the teams with the fewest cards received, ranking in the lower third of the league in all seasons. In contrast, Atlético and Real Madrid were frequently among the teams with the highest number of bookings.*
 
-**Observaciones clave:**
+**Key observations:**
 
-1. **Barcelona: ratio de 1.98x** - Sus rivales reciben ¡CASI EL DOBLE de rojas!
-   - Rivales: 6.8 rojas/temporada
-   - Barcelona: 3.4 rojas/temporada
-2. **Real Madrid: ratio de 1.00x** - Perfectamente balanceado (5.9 vs 5.9)
-3. **Atlético: ratio de 1.05x** - Casi neutral
-4. Los rivales de Barcelona reciben 6.8 rojas vs 5.9 de Madrid (15% más)
-5. Barcelona recibe 3.4 rojas vs 5.9 de Madrid (42% menos)
+1. **Barcelona: ratio of 1.98x** - Their rivals receive ALMOST DOUBLE the reds!
+   - Rivals: 6.8 reds/season
+   - Barcelona: 3.4 reds/season
+2. **Real Madrid: ratio of 1.00x** - Perfectly balanced (5.9 vs 5.9)
+3. **Atlético: ratio of 1.05x** - Almost neutral
+4. Barcelona's rivals receive 6.8 reds vs Madrid's 5.9 (15% more)
+5. Barcelona receives 3.4 reds vs Madrid's 5.9 (42% less)
 
-Estos son los datos. Veremos más abajo si son estadísticas significativas o entran dentro de una variación natural esperada.
+These are the data. We'll see below whether these are significant statistics or fall within expected natural variation.
 
-### Visualización: Series Temporales y Comparaciones
+### Visualization: Time Series and Comparisons
 
-Veamos esto de forma visual. Las siguientes figuras muestran las tarjetas amarillas y rojas para los 3 grandes de forma temporal:
+Let's see this visually. The following figures show yellow and red cards for the big 3 over time:
 
-![Análisis estadístico de tarjetas recibidas por Barcelona, Real Madrid y Atlético Madrid entre 2005-2018. Seis gráficos (series de tiempo, promedios y diferencias) comparan las tarjetas propias frente a las tarjetas de los equipos rivales. La visualización muestra que los rivales del Barcelona reciben significativamente más tarjetas amarillas (ratio 1.51x) y rojas (ratio 1.98x) que los rivales del Real Madrid y el Atlético Madrid.](/blog/negreira/opponent_cards_analysis.png)
-*Figura 3: **Discrepancia en Tarjetas Recibidas: Análisis Propio vs. Rival (2005-2018).** La figura presenta un análisis comparativo de las tarjetas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid frente a las tarjetas recibidas por sus respectivos equipos rivales durante cada temporada. El Panel Superior se centra en las Tarjetas Amarillas, mientras que el Panel Inferior analiza las Tarjetas Rojas. Cada panel incluye: 1. Evolución Temporal (Izquierda): Serie de tiempo de tarjetas propias (línea sólida) y rivales (línea punteada). 2. Promedio (Centro): Comparación de promedios del periodo, destacando la ratio (ej. 1.51x, 1.98x). 3. Diferencia (Derecha): Bar plot de la diferencia total (Tarjetas Rival - Tarjetas Propias).*
+![Statistical analysis of cards received by Barcelona, Real Madrid and Atlético Madrid between 2005-2018. Six graphs (time series, averages and differences) compare own cards versus rival team cards. The visualization shows that Barcelona's rivals receive significantly more yellow cards (ratio 1.51x) and red cards (ratio 1.98x) than Real Madrid and Atlético Madrid's rivals.](/blog/negreira/opponent_cards_analysis.png)
+*Figure 3: **Discrepancy in Cards Received: Own vs. Rival Analysis (2005-2018).** The figure presents a comparative analysis of cards received by F.C. Barcelona, Real Madrid and Atlético Madrid versus cards received by their respective rival teams during each season. The Upper Panel focuses on Yellow Cards, while the Lower Panel analyzes Red Cards. Each panel includes: 1. Time Evolution (Left): Time series of own cards (solid line) and rivals (dashed line). 2. Average (Center): Comparison of period averages, highlighting the ratio (e.g. 1.51x, 1.98x). 3. Difference (Right): Bar plot of total difference (Rival Cards - Own Cards).*
 
-**¿Qué vemos en estos gráficos?**
+**What do we see in these graphs?**
 
-1. **Barcelona (azul):** Línea sólida muy baja (pocas tarjetas propias), línea punteada alta (muchas tarjetas a rivales)
-2. **Real Madrid (gris):** Líneas más equilibradas, diferencia menor
-3. **Atlético Madrid (rojo):** Líneas casi iguales o invertidas (más tarjetas propias que rivales)
+1. **Barcelona (blue):** Very low solid line (few own cards), high dashed line (many cards to rivals)
+2. **Real Madrid (gray):** More balanced lines, smaller difference
+3. **Atlético Madrid (red):** Almost equal or inverted lines (more own cards than rivals)
 
-**El patrón visual es claro:** Solo Barcelona muestra esta separación dramática entre tarjetas propias (bajas) y tarjetas a rivales (altas). **Pero seguimos sin saber cuán significativas son estas observaciones, por lo quer no podemos sacar conclusiones aún.**
+**The visual pattern is clear:** Only Barcelona shows this dramatic separation between own cards (low) and cards to rivals (high). **But we still don't know how significant these observations are, so we cannot draw conclusions yet.**
 
 ---
 
-## Hallazgo #3: Desviación Sigma - ¿Qué tan "Raro" es Barcelona?
+## Finding #3: Sigma Deviation - How "Rare" is Barcelona?
 
-### El Contexto: ¿Por Qué Necesitamos Este Análisis?
+### The Context: Why Do We Need This Analysis?
 
-Hasta ahora hemos visto que Barcelona estuvo en Q1 las `13/13` temporadas. Pero alguien podría argumentar:
+So far we've seen that Barcelona was in Q1 `13/13` seasons. But someone could argue:
 
-**"Claro, pero ALGUIEN tiene que ser el mejor en esta estadística. ¿No es normal que un equipo grande como Barcelona reciba menos tarjetas?"**
+**"Sure, but SOMEONE has to be the best in this statistic. Isn't it normal for a big team like Barcelona to receive fewer cards?"**
 
-**Es un buen punto.** En cualquier liga, siempre habrá un equipo que reciba menos tarjetas. Ser el mejor en una estadística no implica automáticamente favoritismo sistemático.
+**That's a good point.** In any league, there will always be a team that receives fewer cards. Being the best in a statistic doesn't automatically imply systematic favoritism.
 
-**La pregunta clave es:** ¿Hasta qué punto es **normal** ser el mejor? ¿Y en qué punto te conviertes en un **outlier** (valor atípico) que se sale de lo esperado?
+**The key question is:** To what extent is it **normal** to be the best? And at what point do you become an **outlier** (atypical value) that falls outside what's expected?
 
-Para responder esto, necesitamos entender las **distribuciones normales** y las **desviaciones sigma**.
+To answer this, we need to understand **normal distributions** and **sigma deviations**.
 
-### ¿Qué es una Distribución Normal (Gaussiana)?
+### What is a Normal (Gaussian) Distribution?
 
-Muchos fenómenos naturales siguen una **[distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)** (también llamada gaussiana o "curva de campana"):
+Many natural phenomena follow a **[normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)** (also called Gaussian or "bell curve"):
 
-![Curva normal con desviaciones sigma](/blog/negreira/Bell-curve.jpg)
-*Figura 4: **Distribución normal (gaussiana) mostrando las desviaciones estándar (σ).** El 68% de los datos caen dentro de ±1σ, el 95% dentro de ±2σ, y el 99.7% dentro de ±3σ. Valores más allá de ±2σ son considerados inusuales, y más allá de ±3σ son outliers extremos.*
+![Normal curve with sigma deviations](/blog/negreira/Bell-curve.jpg)
+*Figure 4: **Normal (Gaussian) distribution showing standard deviations (σ).** 68% of data falls within ±1σ, 95% within ±2σ, and 99.7% within ±3σ. Values beyond ±2σ are considered unusual, and beyond ±3σ are extreme outliers.*
 
-**¿Qué nos dice esta curva?**
+**What does this curve tell us?**
 
-- **Centro (media):** Es donde está la mayoría de los datos
-- **Desviaciones estándar (σ):** Miden qué tan lejos está algo del promedio
-- **La regla empírica:**
-  - **68%** de los datos están dentro de ±1σ del promedio (común)
-  - **95%** están dentro de ±2σ (poco común fuera de esto)
-  - **99.7%** están dentro de ±3σ (muy raro fuera de esto)
+- **Center (mean):** Where most of the data is
+- **Standard deviations (σ):** Measure how far something is from the average
+- **The empirical rule:**
+  - **68%** of data is within ±1σ of the average (common)
+  - **95%** is within ±2σ (uncommon outside this)
+  - **99.7%** is within ±3σ (very rare outside this)
 
-**Ser el mejor NO es necesariamente anormal.** Pero **estar a +3σ del promedio** sí lo es.
+**Being the best is NOT necessarily abnormal.** But **being +3σ from the average** is.
 
-### ¿Qué es una Desviación Sigma?
+### What is a Sigma Deviation?
 
-En estadística, medimos qué tan lejos está un valor del promedio usando **desviaciones estándar (σ)**:
+In statistics, we measure how far a value is from the average using **standard deviations (σ)**:
 
-- **±1σ:** Cubre el 68% de los datos (común)
-- **±2σ:** Cubre el 95% de los datos (inusual)
-- **±3σ:** Cubre el 99.7% de los datos (muy raro)
+- **±1σ:** Covers 68% of data (common)
+- **±2σ:** Covers 95% of data (unusual)
+- **±3σ:** Covers 99.7% of data (very rare)
 
-**Analogía:** Si la altura promedio es 170 cm con σ=10 cm:
+**Analogy:** If average height is 170 cm with σ=10 cm:
 - 160-180 cm (±1σ): Normal
-- 150-190 cm (±2σ): Inusual pero posible
-- &lt;150 cm o &gt;190 cm (±3σ): Muy raro
+- 150-190 cm (±2σ): Unusual but possible
+- &lt;150 cm or &gt;190 cm (±3σ): Very rare
 
-### Cálculo para Barcelona - Tarjetas Amarillas
+### Calculation for Barcelona - Yellow Cards
 
-**Media de la liga:** 97.9 tarjetas/temporada
-**Desviación estándar:** 15.4 tarjetas
-**Barcelona:** 70.4 tarjetas/temporada
+**League mean:** 97.9 cards/season
+**Standard deviation:** 15.4 cards
+**Barcelona:** 70.4 cards/season
 
 ```text
 Z-score = (70.4 - 97.9) / 15.4 = -1.79σ
 ```
 
-**Interpretación:** Barcelona está **1.79 desviaciones estándar** por debajo de la media.
+**Interpretation:** Barcelona is **1.79 standard deviations** below the mean.
 
-Esto significa que solo ~**5% de los equipos** reciben tan pocas tarjetas como Barcelona.
+This means only ~**5% of teams** receive as few cards as Barcelona.
 
-**¿Es esto evidencia de favoritismo?** Por sí solo, **no necesariamente**. Estar en el 5% más bajo es inusual, pero no es imposible por azar. Muchos fenómenos tienen valores en ese rango que son perfectamente explicables por variabilidad natural, calidad de equipo, estilo de juego, etc.
+**Is this evidence of favoritism?** By itself, **not necessarily**. Being in the lowest 5% is unusual, but not impossible by chance. Many phenomena have values in that range that are perfectly explainable by natural variability, team quality, playing style, etc.
 
-### Comparación Visual - Distribución de la Liga
+### Visual Comparison - League Distribution
 
-Veamos cómo se compara Barcelona con la distribución completa de toda La Liga:
+Let's see how Barcelona compares to the complete distribution of all La Liga:
 
-![Dos histogramas de distribución de frecuencia de tarjetas por equipo y temporada en La Liga (2005-2018). El gráfico de la izquierda muestra que la media de tarjetas amarillas del Barcelona está a -1.79 desviaciones estándar de la media de la liga. El gráfico de la derecha muestra la distribución de tarjetas rojas. Ambas visualizaciones ilustran que el Barcelona recibe un número de tarjetas significativamente menor que el promedio de la liga.](/blog/negreira/league_distribution_with_sigma.png)
-*Figura 5: **Desviación Estadística en las Amonestaciones del F.C. Barcelona (2005-2018).** Los histogramas de distribución representan la frecuencia de tarjetas por equipo y por temporada a nivel de toda La Liga (total de 260 observaciones). La media de la liga ($\mu$) y las desviaciones estándar ($\sigma$) están marcadas para contextualizar las medias de los tres equipos.*
+![Two frequency distribution histograms of cards per team and season in La Liga (2005-2018). The left graph shows that Barcelona's mean yellow cards is -1.79 standard deviations from the league mean. The right graph shows the distribution of red cards. Both visualizations illustrate that Barcelona receives a significantly lower number of cards than the league average.](/blog/negreira/league_distribution_with_sigma.png)
+*Figure 5: **Statistical Deviation in F.C. Barcelona's Bookings (2005-2018).** The distribution histograms represent the frequency of cards per team and per season at the league-wide level (total of 260 observations). The league mean ($\mu$) and standard deviations ($\sigma$) are marked to contextualize the means of the three teams.*
 
-**¿Qué nos dice esta figura?**
+**What does this figure tell us?**
 
-1. **La curva gris (gaussiana):** Muestra la distribución de tarjetas de todos los equipos participantes en la liga entre 2005 y 2018
-2. **Media del Barcelona (línea azul):** Está muy a la izquierda - menos tarjetas amarillas que casi todos
-3. **Media del Real Madrid (línea negra):** Está más cerca del centro, pero ligeramente a la izquierda
-4. **Media del Atlético (línea roja):** Está a la derecha del centro - más tarjetas que el promedio
-5. **Barcelona está a -1.79σ:** Solo ~5% de los equipos reciben tan pocas tarjetas
+1. **The gray curve (Gaussian):** Shows the card distribution of all teams participating in the league between 2005 and 2018
+2. **Barcelona's mean (blue line):** Is far to the left - fewer yellow cards than almost everyone
+3. **Real Madrid's mean (black line):** Is closer to the center, but slightly to the left
+4. **Atlético's mean (red line):** Is to the right of center - more cards than average
+5. **Barcelona is at -1.79σ:** Only ~5% of teams receive as few cards
 
-**Resultado visual:** Barcelona está claramente separado del resto de equipos top de la liga, en la cola izquierda, pero **los resultados no evidencian un sesgo estadísticamente significativo en este sentido.**
+**Visual result:** Barcelona is clearly separated from the rest of the top teams in the league, in the left tail, but **the results don't show statistically significant bias in this sense.**
 
-**Contexto importante:** Nuevamente, esto por sí solo no prueba nada definitivo. Estar en la cola de una distribución puede tener múltiples explicaciones (calidad de plantilla, estilo de juego, etc.). Lo que hace este hallazgo significativo es que **se combina** con todos los demás patrones que hemos observado. La evidencia se acumula - no es un solo dato aislado.
+**Important context:** Again, this alone doesn't prove anything definitive. Being in the tail of a distribution can have multiple explanations (squad quality, playing style, etc.). What makes this finding significant is that it **combines** with all the other patterns we've observed. Evidence accumulates - it's not a single isolated data point.
 
 ---
 
-## Actualización Bayesiana #1: Después del Hallazgo Q1
+## Bayesian Update #1: After the Q1 Finding
 
-Ahora que hemos visto la evidencia de que Barcelona estuvo en Q1 las `14/14` temporadas, actualicemos nuestras creencias usando el **Teorema de Bayes**.
+Now that we've seen the evidence that Barcelona was in Q1 `14/14` seasons, let's update our beliefs using **Bayes' Theorem**.
 
-### Recordatorio: Nuestro Prior
+### Reminder: Our Prior
 
-En la Parte 1, establecimos un **prior extremadamente escéptico**:
+In Part 1, we established an **extremely skeptical prior**:
 
 ```text
-P(sesgo arbitral) = 0.01% = 0.0001
+P(referee bias) = 0.01% = 0.0001
 ```
 
-Es decir, empezamos creyendo que hay solo **1 posibilidad en 10,000** de que exista sesgo.
+That is, we start believing there's only **1 chance in 10,000** that bias exists.
 
-### Aplicando Bayes con la Evidencia Q1
+### Applying Bayes with the Q1 Evidence
 
-**Evidencia observada:** Barcelona en Q1 las `14/14` temporadas
+**Observed evidence:** Barcelona in Q1 `14/14` seasons
 
-**Probabilidades:**
-1. **Si hay sesgo** (los árbitros favorecen a Barcelona):
-   - `P(14/14 en Q1 | sesgo) ≈ 0.80` (muy probable que estén en Q1)
-2. **Si NO hay sesgo** (todo es aleatorio):
-   - `P(14/14 en Q1 | no sesgo) = (0.25)^14 = 3.73 × 10⁻⁹`
+**Probabilities:**
+1. **If there is bias** (referees favor Barcelona):
+   - `P(14/14 in Q1 | bias) ≈ 0.80` (very likely to be in Q1)
+2. **If there is NO bias** (everything is random):
+   - `P(14/14 in Q1 | no bias) = (0.25)^14 = 3.73 × 10⁻⁹`
 
-**Aplicamos Bayes:**
+**We apply Bayes:**
 
 ```text
-P(sesgo | 14/14 en Q1) = [P(14/14|sesgo) × P(sesgo)] / P(14/14)
+P(bias | 14/14 in Q1) = [P(14/14|bias) × P(bias)] / P(14/14)
 
-P(14/14) = P(14/14|sesgo) × P(sesgo) + P(14/14|no sesgo) × P(no sesgo)
+P(14/14) = P(14/14|bias) × P(bias) + P(14/14|no bias) × P(no bias)
 P(14/14) = (0.80 × 0.0001) + (3.73×10⁻⁹ × 0.9999)
 P(14/14) ≈ 0.00008
 
-P(sesgo | 14/14 en Q1) = [0.80 × 0.0001] / 0.00008
-P(sesgo | 14/14 en Q1) ≈ 0.999 = 99.9%
+P(bias | 14/14 in Q1) = [0.80 × 0.0001] / 0.00008
+P(bias | 14/14 in Q1) ≈ 0.999 = 99.9%
 ```
 
-### ¿Qué Acabamos de Calcular?
+### What Did We Just Calculate?
 
-Empezamos con **0.01% de creencia** en sesgo (ultra-escépticos).
+We started with **0.01% belief** in bias (ultra-skeptical).
 
-Después de ver que Barcelona estuvo en Q1 las `14/14` temporadas, nuestra creencia se actualiza a **99.9%**.
+After seeing that Barcelona was in Q1 `14/14` seasons, our belief updates to **99.9%**.
 
-**Incluso siendo extremadamente escépticos al inicio, los datos nos obligan a cambiar de opinión.**
+**Even being extremely skeptical at the start, the data forces us to change our mind.**
 
 ---
 
-## Actualización Bayesiana #2: Agregando la Evidencia de Rivales
+## Bayesian Update #2: Adding the Rivals Evidence
 
-Ahora agreguemos la segunda pieza de evidencia: **Los rivales de Barcelona reciben 1.51x más tarjetas amarillas**.
+Now let's add the second piece of evidence: **Barcelona's rivals receive 1.51x more yellow cards**.
 
-### ¿Qué tan Improbable es Esto?
+### How Improbable Is This?
 
-Si todo fuera aleatorio, esperaríamos que el ratio de tarjetas (Rivales/Equipo) sea cercano a **1.0** para todos los equipos.
+If everything were random, we would expect the card ratio (Rivals/Team) to be close to **1.0** for all teams.
 
-**Observamos:**
+**We observe:**
 - Barcelona: **1.51**
 - Real Madrid: 1.22
 - Atlético: 0.96
-- Otros: 0.99
+- Others: 0.99
 
-Para calcular la probabilidad, necesitamos la distribución de ratios en la liga:
+To calculate the probability, we need the distribution of ratios in the league:
 
-- **Media de ratios:** 1.01 (casi perfecto equilibrio)
-- **Desviación estándar:** 0.18
+- **Mean of ratios:** 1.01 (almost perfect balance)
+- **Standard deviation:** 0.18
 
-**Z-score de Barcelona:**
+**Barcelona's Z-score:**
 ```text
 Z = (1.51 - 1.01) / 0.18 = 2.78σ
 ```
 
-**Probabilidad de un ratio ≥ 1.51 por azar:**
+**Probability of a ratio ≥ 1.51 by chance:**
 ```text
 P(Z ≥ 2.78) ≈ 0.0027 = 0.27%
 ```
 
-Es decir, **1 entre 370** equipos tendría un ratio tan alto por pura casualidad. 
+That is, **1 in 370** teams would have such a high ratio by pure chance.
 
-### Actualizando Bayes de Nuevo
+### Updating Bayes Again
 
-Ahora tenemos **DOS evidencias independientes**:
+Now we have **TWO independent pieces of evidence**:
 
-1. Barcelona `14/14` en Q1 → P = 3.73 × 10⁻⁹
-2. Ratio de rivales 1.51 → P = 0.0027
+1. Barcelona `14/14` in Q1 → P = 3.73 × 10⁻⁹
+2. Rivals ratio 1.51 → P = 0.0027
 
-**Probabilidad combinada de AMBAS por casualidad:**
+**Combined probability of BOTH by chance:**
 ```text
-P(ambas | no sesgo) = (3.73×10⁻⁹) × (0.0027) ≈ 1 × 10⁻¹¹
+P(both | no bias) = (3.73×10⁻⁹) × (0.0027) ≈ 1 × 10⁻¹¹
 ```
 
-**Esto es 1 entre 100 MIL MILLONES.**
+**This is 1 in 100 BILLION.**
 
-Actualizando Bayes:
+Updating Bayes:
 ```text
-P(sesgo | ambas evidencias) > 99.99%
+P(bias | both evidences) > 99.99%
 ```
 
-**Ya no hay duda razonable.**
+**There is no longer reasonable doubt.**
 
 ---
 
-## Comparación con Real Madrid y Atlético
+## Comparison with Real Madrid and Atlético
 
-Un punto crítico: **¿Todos los equipos grandes tienen este patrón?**
+A critical point: **Do all big teams have this pattern?**
 
-Si la respuesta es "sí", entonces quizás es solo una característica de equipos top (mejor disciplina, más posesión, etc.).
+If the answer is "yes", then maybe it's just a characteristic of top teams (better discipline, more possession, etc.).
 
-### Resultados de Cuartiles (2005-2018)
+### Quartile Results (2005-2018)
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q1</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q2</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q3</th>
-      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q4</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Team</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Seasons in Q1</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Seasons in Q2</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Seasons in Q3</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Seasons in Q4</th>
     </tr>
   </thead>
   <tbody>
@@ -694,237 +694,237 @@ Si la respuesta es "sí", entonces quizás es solo una característica de equipo
   </tbody>
 </table>
 
-**Interpretación:**
+**Interpretation:**
 
-- **Barcelona:** 100% en Q1 (estadísticamente imposible por azar)
-- **Real Madrid:** Distribución razonable, tendencia hacia Q1 pero no extrema
-- **Atlético:** Distribución normal, incluso tendencia hacia Q3 y Q4 (más tarjetas)
+- **Barcelona:** 100% in Q1 (statistically impossible by chance)
+- **Real Madrid:** Reasonable distribution, tendency toward Q1 but not extreme
+- **Atlético:** Normal distribution, even tendency toward Q3 and Q4 (more cards)
 
-**Conclusión:** El patrón de Barcelona es **único**. No es una característica de "equipos grandes".
+**Conclusion:** Barcelona's pattern is **unique**. It's not a characteristic of "big teams".
 
 ---
 
-## El Caso Busquets: Cuando las Estadísticas Se Hacen Realidad
+## The Busquets Case: When Statistics Become Reality
 
-A veces, las anomalías estadísticas tienen [ejemplos concretos documentados](https://www.futbolgate.com/investigaci%C3%B3n/el-d%C3%ADa-que-un-%C3%A1rbitro-sac%C3%B3-una-segunda-amarilla-a-busquets-pero-decidi%C3%B3-no-expulsarle).
+Sometimes, statistical anomalies have [concrete documented examples](https://www.futbolgate.com/investigaci%C3%B3n/el-d%C3%ADa-que-un-%C3%A1rbitro-sac%C3%B3-una-segunda-amarilla-a-busquets-pero-decidi%C3%B3-no-expulsarle).
 
-En la temporada 2009-10 Sergio Busquets (Barcelona) recibió una **segunda tarjeta amarilla** en un partido arbitrado por Teixeira Vitienes. Sin embargo, el jugador no fue expulsado. 
+In the 2009-10 season, Sergio Busquets (Barcelona) received a **second yellow card** in a match refereed by Teixeira Vitienes. However, the player was not sent off.
 
-La situación se repitió años después, en la última temporada analizada en estos documentos, la 2017-2018, con el jugador del F.C. Barcelona, Gerard Pique, que recibió también dos cartulinas amarillas sin llegar a ser expulsado del terreno de juego.
+The situation repeated years later, in the last season analyzed in these documents, 2017-2018, with F.C. Barcelona player Gerard Piqué, who also received two yellow cards without being sent off the pitch.
 
-Veamos qué tipo de probabilidad estadística tiene que fallos tan flagrantes se den en dos ocasiones, en los años en que los pagos están documentados, y que ambos favorezcan al mismo equipo.
+Let's see what kind of statistical probability such flagrant errors have occurring twice, in the years when payments are documented, and both favoring the same team.
 
+**Error Probability (P_error):**
 
-**Probabilidad de un Error (P_error):**
+We assume that the probability of a referee making this specific error in any match is tiny. It has happened 3 documented times in football history. The two known Barcelona cases and in 2006, at the World Cup, in the case of Josip Šimunić.
 
-Asumimos que la probabilidad de que un árbitro cometa este error específico en cualquier partido es ínfima. Ha pasado 3 veces documentadas en la historia del fútbol. Los dos casos conocidos del Barcelona y en 2006, en el Mundial, en el caso de Josip Šimunić.
-
-Si estimamos 20 ligas de élite, a 380 partidos por año y 100 años de competición, hablamos de que la posibilidad de que este error tenga lugar, y esto es muy conservativo:
+If we estimate 20 elite leagues, at 380 matches per year and 100 years of competition, we're talking about the possibility of this error occurring, and this is very conservative:
 
 ```text
 P_error ~ 3 / 760,000 = 0.000003947
 ```
 
-Esto pasa una vez cada 250 000 partidos. La probabilidad de que esto pase dos veces al mismo equipo es entonces P_error^2 / número total de equipos en esas 20 ligas. Consideremos 40 equipos por liga en cien años. Es decir, 800 equipos distintos. Esto significa que la probabilidad de que esto pase al Barcelona es de P_Barça = 1 / 800.
+This happens once every 250,000 matches. The probability of this happening twice to the same team is then P_error^2 / total number of teams in those 20 leagues. Let's consider 40 teams per league over one hundred years. That is, 800 different teams. This means the probability of this happening to Barcelona is P_Barça = 1 / 800.
 
 ```text
-P(Doble Coincidencia Barça) = (P_error × P_Barça)^2
+P(Double Barça Coincidence) = (P_error × P_Barça)^2
 
-P(Doble Coincidencia Barça) ~ (0.000003947 × (1/800))^2
+P(Double Barça Coincidence) ~ (0.000003947 × (1/800))^2
 
-P(Doble Coincidencia Barça) ~ 1 / 41,074,755,770,000,000
+P(Double Barça Coincidence) ~ 1 / 41,074,755,770,000,000
 ```
 
-> La probabilidad de que esto pase es de una entre 41 cuatrillones, y ha pasado durante esos años de plomo de los pagos.
+> The probability of this happening is one in 41 quadrillion, and it happened during those leaden years of payments.
 ---
 
-## Resumen de Evidencias (Hasta Ahora)
+## Summary of Evidence (So Far)
 
-### Evidencia #1: Cuartiles Q1
-- **Hecho:** Barcelona en Q1 las `14/14` temporadas
-- **Probabilidad por azar:** 1 en 268 millones
+### Evidence #1: Q1 Quartiles
+- **Fact:** Barcelona in Q1 `14/14` seasons
+- **Probability by chance:** 1 in 268 million
 - **P-value:** < 0.0001
 
-### Evidencia #2: Ratios de Rivales
-- **Hecho:** Rivales de Barcelona reciben 1.51x más amarillas, 1.98x más rojas
-- **Z-score:** 2.78σ (amarillas)
-- **Patrón único:** No se ve en Real Madrid ni Atlético, aunque un resultado por debajo de 3σ puede considerarse normal.
+### Evidence #2: Rivals Ratios
+- **Fact:** Barcelona's rivals receive 1.51x more yellows, 1.98x more reds
+- **Z-score:** 2.78σ (yellows)
+- **Unique pattern:** Not seen in Real Madrid or Atlético, although a result below 3σ can be considered normal.
 
-### Evidencia #3: Desviación de la Media
-- **Hecho:** Barcelona está 1.79σ por debajo de la media de la liga
-- **Interpretación:** Solo ~5% de equipos tan bajos. Sin embargo, un resultado por debajo de 3σ puede considerarse normal.
+### Evidence #3: Deviation from Mean
+- **Fact:** Barcelona is 1.79σ below the league mean
+- **Interpretation:** Only ~5% of teams this low. However, a result below 3σ can be considered normal.
 
-### Evidencia #4: Dobles amarillas sin expulsiones
-- **Hecho:** Dos jugadores del Barcelona reciben una doble amarilla sin ser expulsados
-- **Interpretación:** Que esto suceda al mismo equipo dos veces tiene una conservadora probabilidad de 1 entre 41 cuatrillones.
+### Evidence #4: Double yellows without sending off
+- **Fact:** Two Barcelona players receive a double yellow without being sent off
+- **Interpretation:** This happening to the same team twice has a conservative probability of 1 in 41 quadrillion.
 
-### Actualización Bayesiana Acumulada
+### Cumulative Bayesian Update
 
-Hasta ahora tenemos **TRES evidencias independientes**:
+So far we have **THREE independent pieces of evidence**:
 
-1. **Barcelona 14/14 en Q1** → P = 3.73 × 10⁻⁹ (1 en 268 millones)
-2. **Ratio de rivales 1.51x en amarillas** → P = 0.0027 (1 en 370)
-3. **Caso Busquets/Piqué: Doble error arbitral** → P = 2.43 × 10⁻¹⁷ (1 en 41 cuatrillones)
+1. **Barcelona 14/14 in Q1** → P = 3.73 × 10⁻⁹ (1 in 268 million)
+2. **Rivals ratio 1.51x in yellows** → P = 0.0027 (1 in 370)
+3. **Busquets/Piqué Case: Double referee error** → P = 2.43 × 10⁻¹⁷ (1 in 41 quadrillion)
 
-**Probabilidad combinada de las TRES evidencias por casualidad:**
+**Combined probability of all THREE evidences by chance:**
 ```text
-P(todas | no sesgo) = (3.73×10⁻⁹) × (0.0027) × (2.43×10⁻¹⁷) ≈ 2.4×10⁻²⁷
+P(all | no bias) = (3.73×10⁻⁹) × (0.0027) × (2.43×10⁻¹⁷) ≈ 2.4×10⁻²⁷
 ```
 
-**Esto es 1 entre 400 SEXTILLONES.**
+**This is 1 in 400 SEXTILLION.**
 
-**Actualización Bayesiana:**
-- **Prior:** 0.01% (ultra-escépticos)
-- **Posterior:** >99.999999999999% (virtualmente ciertos, 15 nueves)
+**Bayesian Update:**
+- **Prior:** 0.01% (ultra-skeptical)
+- **Posterior:** >99.999999999999% (virtually certain, 15 nines)
 
-**Incluso empezando extremadamente escépticos, los datos nos obligan a concluir que hay un patrón no aleatorio.**
-
----
-
-## Pero... ¿Podría Haber Otras Explicaciones?
-
-Has visto las cifras. Has visto las probabilidades. El Teorema de Bayes nos dice que hay >99.99% de certeza de un patrón no aleatorio.
-
-**Pero seamos justos:** Antes de concluir algo tan grave, debemos considerar todas las explicaciones alternativas posibles.
-
-### Hipótesis Alternativas
-
-
-#### Hipótesis #1: "Barcelona tiene más posesión, comete menos faltas"
-
-**Argumento:** El famoso "tiki-taka" de Barcelona les da más posesión, por lo tanto cometen menos faltas y reciben menos tarjetas.
-
-**Problemas con esta hipótesis:**
-
-- ✅ Podría explicar las **pocas tarjetas propias** de Barcelona
-- ❌ NO explica por qué los **RIVALES** de Barcelona reciben 1.51x más tarjetas amarillas
-- ❌ NO explica por qué los rivales de Barcelona reciben 1.98x más tarjetas rojas
-- Los rivales de Real Madrid también enfrentan un equipo con mucha posesión, pero su ratio es solo 1.22x
-- **¿Por qué los rivales de Barcelona son castigados más duramente que los rivales de otros equipos grandes?**
-
-#### Hipótesis #2: "Barcelona tiene mejores jugadores que provocan más faltas"
-
-**Argumento:** Messi, Iniesta, Xavi eran tan buenos que los rivales cometían más faltas contra ellos.
-
-**Problemas con esta hipótesis:**
-
-- Real Madrid tenía a Cristiano Ronaldo, Benzema, Modric, Kroos - jugadores de calidad equivalente
-- Real Madrid también provocaba faltas, pero ratio de 1.22 vs 1.51 de Barcelona
-- **¿Por qué Barcelona provocaría 25% más faltas que Real Madrid?**
-- Atlético también tenía jugadores de élite mundial, pero ratio de solo 0.96x
-- **No explica la magnitud de la diferencia**
-
-#### Hipótesis #3: "Es el estilo de juego específico de ciertos entrenadores"
-
-**Argumento:** Guardiola y Luis Enrique tenían un estilo que generaba este patrón.
-
-**Problemas con esta hipótesis:**
-
-- El patrón abarca **13 temporadas** con múltiples entrenadores muy diferentes:
-  - **Frank Rijkaard** (2005-2008): 3 temporadas - Q1 las 3 veces
-  - **Pep Guardiola** (2008-2012): 4 temporadas - Q1 las 4 veces
-  - **Tito Vilanova** (2012-2013): 1 temporada - Q1
-  - **Tata Martino** (2013-2014): 1 temporada - Q1
-  - **Luis Enrique** (2014-2017): 3 temporadas - Q1 las 3 veces (Que ha declarado no haber visto ningún informe arbitral)
-  - **Ernesto Valverde** (2017-2018): 1 temporada - Q1 (Que ha declarado no haber visto ningún informe arbitral)
-- **6 entrenadores diferentes, estilos diferentes, pero mismo patrón**
-- **La probabilidad de que 6 entrenadores distintos produzcan el mismo resultado extremo por casualidad es astronómicamente baja**
-
-### La Pregunta que No Podemos Ignorar
-
-Todas estas hipótesis alternativas tienen un problema fundamental. Ninguna explica:
-
-1. La **consistencia perfecta** (`13/13` temporadas en Q1, probabilidad 1 en 68 millones)
-2. El **patrón único** de Barcelona (no replicado por Real Madrid ni Atlético)
-3. Los **ratios extremos** de tarjetas a rivales (1.51x amarillas, 1.98x rojas)
-4. La **independencia de entrenadores** (6 técnicos diferentes, mismo resultado)
-
-**Entonces... ¿es posible que todas estas sean coincidencias? ¿Que Barcelona simplemente tuvo "suerte" de tener el estilo perfecto, los entrenadores perfectos, en el momento perfecto, durante 13 años seguidos?**
-
-Posible, sí. **Probable, tal como demuestran las estadísticas, no.**
-
-### La Prueba Definitiva: Un Experimento Natural
-
-Pero hay una forma de resolver esto de manera concluyente.
-
-**La pregunta clave es:**
-
-¿Es este patrón sobre **Barcelona como equipo** (calidad, estilo, disciplina)?
-
-¿Es este patrón **relacionado con los pagos al vicepresidente del comité de árbitros**?
-
-Si el patrón es sobre **Barcelona como equipo**, debería aparecer **en todas las competiciones** donde Barcelona juega.
-
-Si el patrón está **relacionado con los pagos al vicepresidente del comité de árbitros**, debería aparecer **solo en La Liga** y desaparecer con árbitros independientes de Negreira.
-
-**¿Cómo podemos probar esto?**
-
-Necesitaríamos una competición donde:
-
-1. ✅ Barcelona y Real Madrid participan
-2. ✅ Juegan contra equipos de calidad similar
-3. ✅ Pero los árbitros son **internacionales**, no españoles
-4. ✅ Los árbitros no tienen conexión con Negreira ni con el Comité de Árbitros español
-
-**¿Existe tal competición?**
-
-Sí.
-
-Se llama **La Liga de Campeones de la UEFA**.
-
-En la Champions League:
-
-- Los mismos equipos (Barcelona, Real Madrid)
-- Los mismos jugadores (Messi, Cristiano)
-- Los mismos entrenadores (Guardiola, Mourinho, Luis Enrique, Zidane)
-- Los mismos estilos de juego (tiki-taka, posesión, presión alta)
-- **Pero árbitros completamente diferentes** - designados por UEFA, no por España
-
-**Si el patrón de Barcelona desaparece en Champions League, eso probaría que NO es sobre el equipo.**
-
-**Si el patrón persiste, entonces hay algo intrínseco al Barcelona que causa esto.**
-
-Hemos analizado 13 temporadas de La Liga. Hemos visto probabilidades de 1 en 68 millones. Hemos actualizado nuestras creencias bayesianas a >99.99%.
-
-Pero una duda razonable permanece: **¿Y si todas las explicaciones alternativas, combinadas, de alguna forma producen este patrón extraordinario?**
-
-Es improbable. Extremadamente improbable. Pero no imposible....
-
-**¿Qué crees que vamos a encontrar?**
+**Even starting extremely skeptical, the data forces us to conclude there is a non-random pattern.**
 
 ---
 
-## Fuentes y Referencias
+## But... Could There Be Other Explanations?
 
-### ⚖️ Caso Negreira - Contexto
+You've seen the figures. You've seen the probabilities. Bayes' Theorem tells us there's >99.99% certainty of a non-random pattern.
 
-- **[Wikipedia: Caso Negreira](https://es.wikipedia.org/wiki/Caso_Negreira)** - Resumen del caso, cronología de eventos, y principales actores involucrados.
-- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - Cobertura internacional del caso por la BBC.
-- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Análisis del caso por The Guardian.
-- **[Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+**But let's be fair:** Before concluding something so serious, we must consider all possible alternative explanations.
 
-### 📚 Recursos de Estadística Bayesiana
+### Alternative Hypotheses
 
-- **["Think Bayes" por Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Libro open-source sobre razonamiento bayesiano. Excelente introducción a la actualización de creencias con ejemplos prácticos.
-- **["Statistical Rethinking" por Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Texto avanzado sobre inferencia bayesiana aplicada.
-- **[Test Chi-cuadrado](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2)**
-- **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**
-- **[Test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)**
-- **[Distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)**
 
-### 🔧 Código y Datos
+#### Hypothesis #1: "Barcelona has more possession, commits fewer fouls"
 
-- **[Repositorio GitHub: drAbreu/negreira](https://github.com/drAbreu/negreira)** - Todo el código fuente y análisis reproducible.
-- **[Notebook de dados](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Análisis interactivo de detección de dados trucados con tests estadísticos.
+**Argument:** Barcelona's famous "tiki-taka" gives them more possession, therefore they commit fewer fouls and receive fewer cards.
 
-### 🎨 Créditos de Imagen
+**Problems with this hypothesis:**
 
-- **Imagen principal:** Generada por Google Gemini Banana.
+- ✅ Could explain Barcelona's **few own cards**
+- ❌ Does NOT explain why Barcelona's **RIVALS** receive 1.51x more yellow cards
+- ❌ Does NOT explain why Barcelona's rivals receive 1.98x more red cards
+- Real Madrid's rivals also face a team with lots of possession, but their ratio is only 1.22x
+- **Why are Barcelona's rivals punished more harshly than other big teams' rivals?**
+
+#### Hypothesis #2: "Barcelona has better players who draw more fouls"
+
+**Argument:** Messi, Iniesta, Xavi were so good that rivals committed more fouls against them.
+
+**Problems with this hypothesis:**
+
+- Real Madrid had Cristiano Ronaldo, Benzema, Modric, Kroos - players of equivalent quality
+- Real Madrid also drew fouls, but ratio of 1.22 vs Barcelona's 1.51
+- **Why would Barcelona draw 25% more fouls than Real Madrid?**
+- Atlético also had world-class players, but ratio of only 0.96x
+- **Doesn't explain the magnitude of the difference**
+
+#### Hypothesis #3: "It's the specific playing style of certain coaches"
+
+**Argument:** Guardiola and Luis Enrique had a style that generated this pattern.
+
+**Problems with this hypothesis:**
+
+- The pattern spans **13 seasons** with multiple very different coaches:
+  - **Frank Rijkaard** (2005-2008): 3 seasons - Q1 all 3 times
+  - **Pep Guardiola** (2008-2012): 4 seasons - Q1 all 4 times
+  - **Tito Vilanova** (2012-2013): 1 season - Q1
+  - **Tata Martino** (2013-2014): 1 season - Q1
+  - **Luis Enrique** (2014-2017): 3 seasons - Q1 all 3 times (Who has stated he never saw any referee reports)
+  - **Ernesto Valverde** (2017-2018): 1 season - Q1 (Who has stated he never saw any referee reports)
+- **6 different coaches, different styles, but same pattern**
+- **The probability that 6 different coaches produce the same extreme result by chance is astronomically low**
+
+### The Question We Cannot Ignore
+
+All these alternative hypotheses have a fundamental problem. None explains:
+
+1. The **perfect consistency** (`13/13` seasons in Q1, probability 1 in 68 million)
+2. Barcelona's **unique pattern** (not replicated by Real Madrid or Atlético)
+3. The **extreme ratios** of cards to rivals (1.51x yellows, 1.98x reds)
+4. The **coach independence** (6 different managers, same result)
+
+**So... is it possible that all these are coincidences? That Barcelona simply got "lucky" to have the perfect style, the perfect coaches, at the perfect moment, for 13 consecutive years?**
+
+Possible, yes. **Probable, as the statistics demonstrate, no.**
+
+### The Definitive Test: A Natural Experiment
+
+But there's a way to resolve this conclusively.
+
+**The key question is:**
+
+Is this pattern about **Barcelona as a team** (quality, style, discipline)?
+
+Is this pattern **related to payments to the vice president of the referees committee**?
+
+If the pattern is about **Barcelona as a team**, it should appear **in all competitions** where Barcelona plays.
+
+If the pattern is **related to payments to the vice president of the referees committee**, it should appear **only in La Liga** and disappear with referees independent of Negreira.
+
+**How can we test this?**
+
+We would need a competition where:
+
+1. ✅ Barcelona and Real Madrid participate
+2. ✅ They play against teams of similar quality
+3. ✅ But the referees are **international**, not Spanish
+4. ✅ The referees have no connection to Negreira or the Spanish Referees Committee
+
+**Does such a competition exist?**
+
+Yes.
+
+It's called **The UEFA Champions League**.
+
+In the Champions League:
+
+- The same teams (Barcelona, Real Madrid)
+- The same players (Messi, Cristiano)
+- The same coaches (Guardiola, Mourinho, Luis Enrique, Zidane)
+- The same playing styles (tiki-taka, possession, high pressing)
+- **But completely different referees** - appointed by UEFA, not by Spain
+
+**If Barcelona's pattern disappears in the Champions League, that would prove it's NOT about the team.**
+
+**If the pattern persists, then there's something intrinsic to Barcelona that causes this.**
+
+We've analyzed 13 seasons of La Liga. We've seen probabilities of 1 in 68 million. We've updated our Bayesian beliefs to >99.99%.
+
+But a reasonable doubt remains: **What if all the alternative explanations, combined, somehow produce this extraordinary pattern?**
+
+It's improbable. Extremely improbable. But not impossible....
+
+**What do you think we're going to find?**
 
 ---
 
-*Continúa en la [Parte 3: La Prueba Definitiva](/blog/negreira-del-bayes-parte-3)*
+## Sources and References
 
-**"Los dados están echados. Ahora veamos quién los lanzó."**
+### ⚖️ Negreira Case - Context
 
-**Nota Metodológica:** Este análisis usa estadística descriptiva e inferencia bayesiana. Los p-values y probabilidades son calculados usando métodos estándar (test binomial, z-scores). Todos los cálculos son verificables y reproducibles.
+- **[Wikipedia: Negreira Case](https://en.wikipedia.org/wiki/Negreira_case)** - Case summary, timeline of events, and main actors involved.
+- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - International coverage of the case by the BBC.
+- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Analysis of the case by The Guardian.
+- **[Planeta Real Madrid Analysis (complete 21st century data)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+
+### 📚 Bayesian Statistics Resources
+
+- **["Think Bayes" by Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Open-source book on Bayesian reasoning. Excellent introduction to belief updating with practical examples.
+- **["Statistical Rethinking" by Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Advanced text on applied Bayesian inference.
+- **[Chi-squared test](https://en.wikipedia.org/wiki/Chi-squared_test)**
+- **[Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)**
+- **[Binomial test](https://en.wikipedia.org/wiki/Binomial_test)**
+- **[Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)**
+
+### 🔧 Code and Data
+
+- **[GitHub Repository: drAbreu/negreira](https://github.com/drAbreu/negreira)** - All source code and reproducible analysis.
+- **[Dice notebook](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Interactive analysis of loaded dice detection with statistical tests.
+
+### 🎨 Image Credits
+
+- **Main image:** Generated by Google Gemini Banana.
+
+---
+
+*Continues in [Part 3: The Definitive Proof](/blog/negreira-del-bayes-part-3)*
+
+**"The dice are cast. Now let's see who rolled them."**
+
+**Methodological Note:** This analysis uses descriptive statistics and Bayesian inference. P-values and probabilities are calculated using standard methods (binomial test, z-scores). All calculations are verifiable and reproducible.
+

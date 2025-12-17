@@ -1,363 +1,402 @@
 ---
-title: "Negreira del Bayes (I): La Liga de los Dados Trucados"
-description: "Aprende estadística a través del fútbol: Introducción al Teorema de Bayes y detección de patrones estadísticos usando el Caso Barça-Negreira como ejemplo educativo."
+title: "Negreira's Bayes (I): The League of Loaded Dice"
+description: "Learn statistics through football: Introduction to Bayes' Theorem and statistical pattern detection using the Barça-Negreira Case as an educational example."
 date: "2025-12-01"
 author: "Jorge Abreu-Vicente, PhD"
-category: "Análisis Estadístico"
-tags: ["estadística", "bayes", "fútbol", "análisis de datos", "ciencia de datos", "negreira"]
+category: "Statistical Analysis"
+tags: ["statistics", "bayes", "football", "data analysis", "data science", "negreira"]
 featured: true
 image: "/blog/negreira/main_image.jpg"
-lang: "es"
+lang: "en"
 ---
 
-## Introducción: Un Escándalo que Sacudió el Fútbol Español
+## Introduction: A Scandal That Shook Spanish Football
 
-En marzo de 2023, saltó a la luz pública uno de los escándalos más graves en la historia del fútbol español: el [**Caso Barça-Negreira**](https://es.wikipedia.org/wiki/Caso_Negreira). Los hechos son, cuando menos, sorprendentes: el FC Barcelona pagó **más de 8 millones de euros** entre 2001 y 2018 a José María Enríquez Negreira, quien durante ese período ejercía como **vicepresidente del Comité Técnico de Árbitros (CTA)** de la Real Federación Española de Fútbol.
+In March 2023, one of the most serious scandals in Spanish football history came to light: the [**Barça-Negreira Case**](https://en.wikipedia.org/wiki/Negreira_case). The facts are, to say the least, surprising: FC Barcelona paid **more than 8 million euros** between 2001 and 2018 to José María Enríquez Negreira, who during that period served as **Vice President of the Technical Committee of Referees (CTA)** of the Royal Spanish Football Federation.
 
-En su defensa, los dirigentes barcelonistas, liderados por el actual presidente, Joan Laporta (quien en su momento aumentó de forma considerable los pagos a Negreira) apelan que estos pagos eran por "asesoramiento arbitral neutral". Pertenece a los jueces ahora dictaminar sentencia. 
+In their defense, Barcelona's directors, led by current president Joan Laporta (who at the time significantly increased payments to Negreira), claim these payments were for "neutral refereeing advice." It is now up to the judges to deliver their verdict.
 
-Aunque las evidencias judiciales y las científicas no siempre vayan de la mano (testigos oculares en juicio tienen gran validez mientras que la evidencia científica de los mismos es nula), un caso como este nos permite una gran oportunidad. Usar algo tan oscuro como el escandaloso pago a uno de los responsables de un estamento que reparte justicia deportiva para acercar a la población una serie de conceptos sobre estadística y como determinar si una estadística es realmente significativa o no.
+Although judicial and scientific evidence don't always go hand in hand (eyewitness testimony in trials has great validity while its scientific evidence is null), a case like this presents us with a great opportunity. To use something as dark as the scandalous payments to one of those responsible for an institution that delivers sporting justice to introduce the public to a series of concepts about statistics and how to determine whether a statistic is truly significant or not.
 
-Estamos en el primero de una serie de tres artículos que versarán sobre el análisis estadístico de ciertas anomalías que se han vivido en esos años de pagos a Negreira.
+This is the first of a series of three articles that will deal with the statistical analysis of certain anomalies that occurred during those years of payments to Negreira.
 
-Empezaremos por ver cómo usar las matemáticas para descubrir un sistema trucado, usando como ejemplo los dados. En el segundo artículo aplicaremos lo visto en éste primero a las estadísticas de la liga española y acabaremos por comparar qué ha pasado en España en esos plomizos años de pagos y lo que, en el mismo tiempo, ha pasado en una competición independiente como es la Liga de Campeones.
+We'll start by looking at how to use mathematics to discover a rigged system, using dice as an example. In the second article, we'll apply what we learned in this first one to Spanish league statistics, and we'll finish by comparing what happened in Spain during those leaden years of payments and what, at the same time, happened in an independent competition like the Champions League.
 
-### ¿Por Qué Importa Esto?
+### Why Does This Matter?
 
-La pregunta que surge naturalmente es: **¿Estos pagos tuvieron algún efecto real en el campo de juego?**
+The question that naturally arises is: **Did these payments have any real effect on the field of play?**
 
-Es una pregunta difícil de responder de manera definitiva. No podemos leer las mentes de los árbitros. No tenemos acceso a conversaciones privadas. Pero lo que **sí podemos hacer** es analizar los datos estadísticos de todas las tarjetas amarillas y rojas mostradas en La Liga durante ese período... Y ver qué nos dicen los fríos datos sobre este asunto.
+It's a difficult question to answer definitively. We cannot read referees' minds. We don't have access to private conversations. But what we **can do** is analyze the statistical data of all yellow and red cards shown in La Liga during that period... And see what the cold data tells us about this matter.
 
-Y aquí es donde la historia se pone interesante.
-
----
-
-## Un Viaje Educativo: Aprendiendo Estadística a Través del Fútbol
-
-Este análisis no es solo sobre el Caso Barça-Negreira. Es también una **oportunidad educativa** para entender conceptos fundamentales de estadística que nos ayudan a distinguir entre:
-
-- **Coincidencia** vs. **Patrón significativo**
-- **Ruido aleatorio** vs. **Señal real**
-- **Casualidad** vs. **Causalidad**
-
-A lo largo de estas tres partes, vamos a aprender sobre:
-
-1. **Teorema de Bayes** - Cómo actualizar nuestras creencias con nueva evidencia
-2. **Valores p y significancia estadística** - ¿Qué tan improbable es un resultado?
-3. **Desviaciones sigma** - ¿Qué tan lejos está algo de lo "normal"?
-4. **Experimentos naturales** - Cómo la comparación con otros datos valida nuestros hallazgos
-
-Usaremos el fútbol como vehículo, pero los conceptos que aprenderemos son universales y aplicables a cualquier análisis de datos. 
+And this is where the story gets interesting.
 
 ---
 
-## La Analogía del Dado: ¿Justo o Trucado?
+## An Educational Journey: Learning Statistics Through Football
 
-Antes de sumergirnos en los datos del caso Barça-Negreira, empecemos con un ejemplo simple que nos ayudará a entender el razonamiento estadístico.
+This analysis is not just about the Barça-Negreira Case. It's also an **educational opportunity** to understand fundamental statistical concepts that help us distinguish between:
 
-### Experimento: Dos Dados de 6 Caras
+- **Coincidence** vs. **Significant pattern**
+- **Random noise** vs. **Real signal**
+- **Chance** vs. **Causation**
 
-Imagina que estás jugando un juego de dados con un amigo. Usáis **dos dados de 6 caras** y sumáis los resultados. Después de muchas partidas, notas que tu amigo parece obtener sumas altas con más frecuencia de lo normal.
+Throughout these three parts, we're going to learn about:
 
-**¿Mala suerte tuya o dados trucados?**
+1. **Bayes' Theorem** - How to update our beliefs with new evidence
+2. **P-values and statistical significance** - How unlikely is a result?
+3. **Sigma deviations** - How far is something from "normal"?
+4. **Natural experiments** - How comparison with other data validates our findings
 
-La estadística nos ayuda a responder esta pregunta.
-
-### ¿Qué Esperamos de Dados Justos?
-
-Con dos dados justos de 6 caras, cada cara (1, 2, 3, 4, 5, 6) debería aparecer con la misma probabilidad: **1/6 o 16.67%**.
-
-Si lanzamos los dados miles de veces, esperaríamos ver cada cara aproximadamente el **16.67% del tiempo**. Veamos esto visualmente:
-
-![Distribución esperada de dados justos](/blog/negreira/dice_probs.png)
-*Figura 1: Distribución esperada cuando tiramos dos dados justos 10,000 veces. La línea roja punteada muestra la frecuencia esperada (1/6 = 1,667 veces). Los dados azul y naranja muestran distribuciones casi idénticas y equilibradas.*
-
-**Observa en la figura:**
-- Cada cara (1-6) aparece aproximadamente **1,667 veces** (16.67% de 10,000)
-- Los dos dados (azul y naranja) tienen distribuciones casi idénticas
-- No hay ninguna cara que sobresalga significativamente
-- La variación es pequeña y simétrica alrededor de la línea roja
-
-**Esto es lo que esperamos de un sistema justo.**
-
-### ¿Y Si Un Dado Está Trucado?
-
-Ahora imagina que **uno de los dados está trucado** para favorecer el número 6. En lugar del 16.67% esperado, digamos que saca un 6 el **30% de las veces** (casi el doble).
-
-Veamos cómo cambia todo:
-
-![Gráfico estadístico compuesto de cuatro histogramas que comparan la distribución de probabilidad de la suma de dos dados justos frente a uno justo y uno trucado. Los gráficos muestran cómo el sesgo hacia el número 6 desplaza la curva de frecuencia hacia sumas más altas (7-12) y reduce la probabilidad de obtener sumas bajas.](/blog/negreira/fair_vs_biased_dice_comparison.png)
-*Figura 2: **Impacto de un dado trucado en la distribución de sumas.** El **panel superior izquierdo** muestra la distribución de probabilidad simétrica esperada al lanzar dos dados justos. En contraste, el **panel superior derecho** ilustra cómo la introducción de un dado cargado (que favorece el 6) desplaza la curva hacia la derecha. Los **paneles inferiores** detallan esta discrepancia: la comparación directa (izq.) y el gráfico de diferencias (der.) evidencian que las sumas altas (7-12) aumentan su frecuencia drásticamente a costa de las sumas bajas (2-6), las cuales aparecen menos de lo esperado.*
-
-**Cambios evidentes:**
-1. **Panel superior derecho (clave):** El dado trucado (naranja) muestra el 6 casi **3,000 veces** en lugar de ~1,667
-2. **Panel superior izquierdo:** Las sumas altas (7-12) son más frecuentes con el dado trucado
-3. **Panel inferior izquierdo:** Diferencias absolutas - sumas altas tienen +200-400 apariciones extra
-4. **Panel inferior derecho:** La suma 12 (6+6) aumenta casi **80%** en frecuencia
-
-### ¿Son Estas Diferencias Significativas?
-
-Aquí es donde entra la **estadística inferencial**. No basta con ver diferencias - necesitamos saber si son **estadísticamente significativas** o podrían deberse al azar.
-
-Usamos el [**test Chi-cuadrado**](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2), que responde: *"Si el dado NO estuviera trucado, ¿cuál es la probabilidad de observar estas diferencias por puro azar?"*
-
-**Resultado del test:**
-- **Chi-cuadrado:** 373.80
-- **P-value:** 3.51 × 10⁻⁷⁴ (¡un número increíblemente pequeño!)
-
-**¿Qué significa p = 3.51 × 10⁻⁷⁴?**
-
-Significa que la probabilidad de ver estas diferencias por azar puro es prácticamente **CERO**.
-
-Para poner esto en perspectiva:
-- **p < 0.05** → "Probablemente no es azar" (evidencia)
-- **p < 0.01** → "Muy probablemente no es azar" (evidencia fuerte)
-- **p < 0.001** → "Casi seguro que no es azar" (evidencia muy fuerte)
-- **p = 10⁻⁷⁴** → "**Absolutamente imposible que sea azar**" (certeza total)
-
-### ¿Qué Concluimos del Ejemplo de los Dados?
-
-Cuando vemos un evento con probabilidad prácticamente **cero** de ocurrir por azar, tenemos dos opciones:
-
-1. **Aceptar que tuvimos una suerte cósmica extraordinaria** - Presenciamos un milagro estadístico
-2. **Concluir que el dado está trucado** - Hay algo sistemático causando el resultado
+We'll use football as a vehicle, but the concepts we'll learn are universal and applicable to any data analysis.
 
 ---
 
-## Introducción al Teorema de Bayes
+## The Dice Analogy: Fair or Loaded?
 
-Ahora que entendimos cómo detectar dados trucados con tests estadísticos, aprendamos una herramienta aún más poderosa: el **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**.
+Before diving into the Barça-Negreira case data, let's start with a simple example that will help us understand statistical reasoning.
 
-Bayes nos permite **actualizar nuestras creencias paso a paso** conforme recibimos nueva evidencia.
+### Experiment: Two 6-Sided Dice
 
-### Experimento: Un Dado de 4 Caras Sospechoso
+Imagine you're playing a dice game with a friend. You use **two 6-sided dice** and add up the results. After many games, you notice that your friend seems to get high sums more often than normal.
 
-Imagina que te doy un dado de 4 caras (un tetraedro con caras numeradas 1, 2, 3, 4).
+**Is it your bad luck or loaded dice?**
 
-**Pregunta inicial:** ¿Es un dado justo?
+Statistics helps us answer this question.
 
-**Tu creencia inicial (prior):** Eres escéptico. Piensas que hay solo **1% de probabilidad** de que esté trucado.
+### What Do We Expect from Fair Dice?
 
-- P(trucado) = 0.01 (1%)
-- P(justo) = 0.99 (99%)
+With two fair 6-sided dice, each face (1, 2, 3, 4, 5, 6) should appear with the same probability: **1/6 or 16.67%**.
 
-Ahora empezamos a lanzar el dado...
+If we roll the dice thousands of times, we would expect to see each face approximately **16.67% of the time**. Let's see this visually:
 
-### Lanzamiento 1: Sale el 4
+![Expected distribution of fair dice](/blog/negreira/dice_probs.png)
+*Figure 1: Expected distribution when rolling two fair dice 10,000 times. The red dashed line shows the expected frequency (1/6 = 1,667 times). The blue and orange dice show almost identical and balanced distributions.*
 
-**Evidencia:** El dado cayó en 4.
+**Observe in the figure:**
+- Each face (1-6) appears approximately **1,667 times** (16.67% of 10,000)
+- The two dice (blue and orange) have almost identical distributions
+- No face stands out significantly
+- The variation is small and symmetric around the red line
 
-**Probabilidades Condicionales:**
+**This is what we expect from a fair system.**
 
-* **Si el dado es justo:** La probabilidad de obtener un 4 es P(4 | justo) = 0.25 (25%). Esto se debe a que todas las caras son igualmente probables.
-* **Si el dado está trucado (cargado) para el 4:** La probabilidad de obtener un 4 aumenta significativamente a P(4 | trucado) = 0.90 (90%). El dado casi siempre caerá en 4.
+### What If One Die Is Loaded?
 
-**Interpretación:** La expresión  P(4 | justo) se lee como "*la probabilidad de que el dado saque un 4, dado que el dado es justo*".
+Now imagine that **one of the dice is loaded** to favor the number 6. Instead of the expected 16.67%, let's say it rolls a 6 **30% of the time** (almost double).
 
-**Aplicamos Bayes:**
+Let's see how everything changes:
 
-```
-P(trucado | sale 4) = [P(4|trucado) × P(trucado)] / [P(4|trucado) × P(trucado) + P(4|justo) × P(justo)]
+![Composite statistical graph of four histograms comparing the probability distribution of the sum of two fair dice versus one fair and one loaded. The graphs show how the bias toward the number 6 shifts the frequency curve toward higher sums (7-12) and reduces the probability of getting low sums.](/blog/negreira/fair_vs_biased_dice_comparison.png)
+*Figure 2: **Impact of a loaded die on the sum distribution.** The **upper left panel** shows the symmetric probability distribution expected when rolling two fair dice. In contrast, the **upper right panel** illustrates how introducing a loaded die (favoring 6) shifts the curve to the right. The **lower panels** detail this discrepancy: the direct comparison (left) and the difference graph (right) show that high sums (7-12) increase dramatically in frequency at the expense of low sums (2-6), which appear less than expected.*
 
-P(trucado | sale 4) = [0.90 × 0.01] / [0.90 × 0.01 + 0.25 × 0.99]
-P(trucado | sale 4) = 0.009 / (0.009 + 0.2475)
-P(trucado | sale 4) = 0.009 / 0.2565
-P(trucado | sale 4) ≈ 0.035 = 3.5%
-```
+**Evident changes:**
+1. **Upper right panel (key):** The loaded die (orange) shows 6 almost **3,000 times** instead of ~1,667
+2. **Upper left panel:** High sums (7-12) are more frequent with the loaded die
+3. **Lower left panel:** Absolute differences - high sums have +200-400 extra appearances
+4. **Lower right panel:** The sum 12 (6+6) increases almost **80%** in frequency
 
-**Actualización:** Tu creencia pasó de **1%** a **3.5%**. Sigues escéptico, pero un poco menos.
+### Are These Differences Significant?
 
-### Lanzamiento 2: Sale el 4 otra vez
+This is where **inferential statistics** comes in. It's not enough to see differences - we need to know if they are **statistically significant** or could be due to chance.
 
-Ahora tu **nuevo prior** es 3.5% (el posterior del lanzamiento anterior).
+We use the [**Chi-square test**](https://en.wikipedia.org/wiki/Chi-squared_test), which answers: *"If the die were NOT loaded, what is the probability of observing these differences by pure chance?"*
 
-**Aplicamos Bayes de nuevo:**
+**Test result:**
+- **Chi-square:** 373.80
+- **P-value:** 3.51 × 10⁻⁷⁴ (an incredibly small number!)
 
-```
-P(trucado | 2 cuatros) = [0.90 × 0.035] / [0.90 × 0.035 + 0.25 × 0.965]
-P(trucado | 2 cuatros) = 0.0315 / (0.0315 + 0.2413)
-P(trucado | 2 cuatros) ≈ 0.115 = 11.5%
-```
+**What does p = 3.51 × 10⁻⁷⁴ mean?**
 
-**Actualización:** De 3.5% a **11.5%**. Empiezas a sospechar...
+It means that the probability of seeing these differences by pure chance is practically **ZERO**.
 
-### Lanzamiento 3: Sale el 4 de nuevo
+To put this in perspective:
+- **p < 0.05** → "Probably not chance" (evidence)
+- **p < 0.01** → "Very probably not chance" (strong evidence)
+- **p < 0.001** → "Almost certainly not chance" (very strong evidence)
+- **p = 10⁻⁷⁴** → "**Absolutely impossible that it's chance**" (total certainty)
 
-```
-P(trucado | 3 cuatros) = [0.90 × 0.115] / [0.90 × 0.115 + 0.25 × 0.885]
-P(trucado | 3 cuatros) ≈ 0.319 = 31.9%
-```
+### What Do We Conclude from the Dice Example?
 
-**Actualización:** De 11.5% a **31.9%**. ¡Ya no estás tan seguro de que sea justo!
+When we see an event with practically **zero** probability of occurring by chance, we have two options:
 
-### Lanzamiento 4: Sale el 4 OTRA VEZ
-
-```
-P(trucado | 4 cuatros) ≈ 0.635 = 63.5%
-```
-
-**Actualización:** Ahora piensas que es **más probable** que esté trucado (63.5%) que justo (36.5%).
-
-### Lanzamientos 5-10: Todos salen 4
-
-Continuamos aplicando Bayes:
-
-| Lanzamientos | P(trucado) |
-|--------------|------------|
-| 1 | 3.5% |
-| 2 | 11.5% |
-| 3 | 31.9% |
-| 4 | 63.5% |
-| 5 | 85.5% |
-| 6 | 95.0% |
-| 7 | 98.3% |
-| 8 | 99.4% |
-| 9 | 99.8% |
-| 10 | 99.9% |
-
-**Después de 10 lanzamientos consecutivos en "4", tu certeza es del 99.9%.**
-
-### ¿Qué Acabamos de Hacer?
-
-**Esto es el poder del Teorema de Bayes:**
-
-1. **Empezamos escépticos:** Solo 1% de creencia en sesgo
-2. **Cada evidencia actualiza:** Cada "4" que sale aumenta nuestra certeza
-3. **La evidencia se acumula:** 10 cuatros consecutivos → 99.9% de certeza
-4. **No necesitamos certeza absoluta desde el inicio:** Bayes nos permite ser escépticos pero honestos con los datos
-
-**Fórmula general de Bayes:**
-
-```
-P(Hipótesis | Evidencia) = [P(Evidencia | Hipótesis) × P(Hipótesis)] / P(Evidencia total)
-```
-
-O en palabras:
-
-> Creencia DESPUÉS de ver datos = (Probabilidad de los datos si hipótesis cierta × Creencia ANTES) / Probabilidad total de los datos
-
-### La Lección Clave
-
-Bayes nos dice: **No importa cuán escéptico seas al principio. Si la evidencia es suficientemente fuerte, DEBES actualizar tu creencia.**
-
-- Empezaste al 1% → Acabaste al 99.9%
-- Los datos te obligaron a cambiar de opinión
-- Esto es pensamiento racional, no sesgo de confirmación
+1. **Accept that we had extraordinary cosmic luck** - We witnessed a statistical miracle
+2. **Conclude that the die is loaded** - There is something systematic causing the result
 
 ---
 
-## Preparando el Escenario para el Análisis del caso Barça-Negreira
+## Introduction to Bayes' Theorem
 
-Ahora que entendemos:
-1. Cómo detectar patrones improbables (los dados)
-2. Cómo actualizar creencias con evidencia (Bayes)
+Now that we understand how to detect loaded dice with statistical tests, let's learn an even more powerful tool: **[Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)**.
 
-Podemos aplicar exactamente el mismo razonamiento al caso del Barça-Negreira.
+Bayes allows us to **update our beliefs step by step** as we receive new evidence.
 
-### La Analogía Directa: Del Dado de 6 Caras al Dado de 4 Caras (Cuartiles)
+### Experiment: A Suspicious 4-Sided Die
 
-Acabamos de ver cómo detectar un dado trucado de 6 caras. Ahora apliquemos este razonamiento al fútbol, pero con un pequeño cambio de perspectiva.
+Imagine I give you a 4-sided die (a tetrahedron with faces numbered 1, 2, 3, 4).
 
-#### ¿Qué Son los Cuartiles?
+**Initial question:** Is it a fair die?
 
-En estadística, los **cuartiles** dividen un conjunto de datos ordenados en **4 partes iguales** de 25% cada una:
+**Your initial belief (prior):** You're skeptical. You think there's only a **1% probability** that it's loaded.
 
-- **Q1 (Cuartil 1):** El 25% más bajo (menos tarjetas)
-- **Q2 (Cuartil 2):** El siguiente 25%
-- **Q3 (Cuartil 3):** El siguiente 25%
-- **Q4 (Cuartil 4):** El 25% más alto (más tarjetas)
+- P(loaded) = 0.01 (1%)
+- P(fair) = 0.99 (99%)
 
-**Analogía:** Es como si cada temporada, cada equipo **lanza un dado de 4 caras** y cae en uno de estos cuatro cuartiles.
+Now we start rolling the die...
 
-**Si todo es aleatorio** (no hay favoritismo), cada equipo debería pasar aproximadamente:
-- **25% del tiempo en Q1** (menos tarjetas)
-- **25% del tiempo en Q2**
-- **25% del tiempo en Q3**
-- **25% del tiempo en Q4** (más tarjetas)
+### Roll 1: It lands on 4
 
-#### La Analogía Aplicada al caso Barça-Negreira
+**Evidence:** The die landed on 4.
 
-Ahora pensemos en el Barcelona durante el período Negreira (2005-2018):
+**Conditional Probabilities:**
 
-- **El dado de 4 caras** = Las 4 posiciones posibles de un equipo en tarjetas amarillas (Q1, Q2, Q3, Q4)
-- **Lanzar el dado 14 veces** = 14 temporadas (2005-2018)
-- **Caer en "1" las 14 veces** = Estar en Q1 (menos tarjetas) las 14 temporadas
-- **¿El dado está trucado?** = ¿Hubo favoritismo arbitral sistemático?
+* **If the die is fair:** The probability of getting a 4 is P(4 | fair) = 0.25 (25%). This is because all faces are equally likely.
+* **If the die is loaded for 4:** The probability of getting a 4 increases significantly to P(4 | loaded) = 0.90 (90%). The die will almost always land on 4.
+
+**Interpretation:** The expression P(4 | fair) reads as "*the probability that the die rolls a 4, given that the die is fair*".
+
+**We apply Bayes:**
+
+```
+P(loaded | rolls 4) = [P(4|loaded) × P(loaded)] / [P(4|loaded) × P(loaded) + P(4|fair) × P(fair)]
+
+P(loaded | rolls 4) = [0.90 × 0.01] / [0.90 × 0.01 + 0.25 × 0.99]
+P(loaded | rolls 4) = 0.009 / (0.009 + 0.2475)
+P(loaded | rolls 4) = 0.009 / 0.2565
+P(loaded | rolls 4) ≈ 0.035 = 3.5%
+```
+
+**Update:** Your belief went from **1%** to **3.5%**. You're still skeptical, but a little less so.
+
+### Roll 2: It lands on 4 again
+
+Now your **new prior** is 3.5% (the posterior from the previous roll).
+
+**We apply Bayes again:**
+
+```
+P(loaded | 2 fours) = [0.90 × 0.035] / [0.90 × 0.035 + 0.25 × 0.965]
+P(loaded | 2 fours) = 0.0315 / (0.0315 + 0.2413)
+P(loaded | 2 fours) ≈ 0.115 = 11.5%
+```
+
+**Update:** From 3.5% to **11.5%**. You're starting to suspect...
+
+### Roll 3: It lands on 4 again
+
+```
+P(loaded | 3 fours) = [0.90 × 0.115] / [0.90 × 0.115 + 0.25 × 0.885]
+P(loaded | 3 fours) ≈ 0.319 = 31.9%
+```
+
+**Update:** From 11.5% to **31.9%**. You're no longer so sure it's fair!
+
+### Roll 4: It lands on 4 AGAIN
+
+```
+P(loaded | 4 fours) ≈ 0.635 = 63.5%
+```
+
+**Update:** Now you think it's **more likely** that it's loaded (63.5%) than fair (36.5%).
+
+### Rolls 5-10: All land on 4
+
+We continue applying Bayes:
+
+<table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rolls</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>P(loaded)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>3.5%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>11.5%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>3</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>31.9%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>4</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>63.5%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>85.5%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>6</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>95.0%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>7</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>98.3%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>8</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>99.4%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>9</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>99.8%</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>10</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>99.9%</td>
+    </tr>
+  </tbody>
+</table>
+
+**After 10 consecutive rolls on "4", your certainty is 99.9%.**
+
+### What Did We Just Do?
+
+**This is the power of Bayes' Theorem:**
+
+1. **We started skeptical:** Only 1% belief in bias
+2. **Each piece of evidence updates:** Each "4" that comes up increases our certainty
+3. **Evidence accumulates:** 10 consecutive fours → 99.9% certainty
+4. **We don't need absolute certainty from the start:** Bayes allows us to be skeptical but honest with the data
+
+**General Bayes formula:**
+
+```
+P(Hypothesis | Evidence) = [P(Evidence | Hypothesis) × P(Hypothesis)] / P(Total Evidence)
+```
+
+Or in words:
+
+> Belief AFTER seeing data = (Probability of data if hypothesis true × Belief BEFORE) / Total probability of data
+
+### The Key Lesson
+
+Bayes tells us: **It doesn't matter how skeptical you are at first. If the evidence is strong enough, you MUST update your belief.**
+
+- You started at 1% → You ended at 99.9%
+- The data forced you to change your mind
+- This is rational thinking, not confirmation bias
 
 ---
 
-*Continúa en la [Parte 2: Los Datos Hablan](/blog/negreira-del-bayes-parte-2)*
+## Setting the Stage for the Barça-Negreira Case Analysis
+
+Now that we understand:
+1. How to detect improbable patterns (the dice)
+2. How to update beliefs with evidence (Bayes)
+
+We can apply exactly the same reasoning to the Barça-Negreira case.
+
+### The Direct Analogy: From 6-Sided Die to 4-Sided Die (Quartiles)
+
+We just saw how to detect a loaded 6-sided die. Now let's apply this reasoning to football, but with a small change of perspective.
+
+#### What Are Quartiles?
+
+In statistics, **quartiles** divide an ordered data set into **4 equal parts** of 25% each:
+
+- **Q1 (Quartile 1):** The lowest 25% (fewer cards)
+- **Q2 (Quartile 2):** The next 25%
+- **Q3 (Quartile 3):** The next 25%
+- **Q4 (Quartile 4):** The highest 25% (more cards)
+
+**Analogy:** It's as if each season, each team **rolls a 4-sided die** and lands in one of these four quartiles.
+
+**If everything is random** (no favoritism), each team should spend approximately:
+- **25% of the time in Q1** (fewer cards)
+- **25% of the time in Q2**
+- **25% of the time in Q3**
+- **25% of the time in Q4** (more cards)
+
+#### The Analogy Applied to the Barça-Negreira Case
+
+Now let's think about Barcelona during the Negreira period (2005-2018):
+
+- **The 4-sided die** = The 4 possible positions of a team in yellow cards (Q1, Q2, Q3, Q4)
+- **Rolling the die 14 times** = 14 seasons (2005-2018)
+- **Landing on "1" all 14 times** = Being in Q1 (fewer cards) all 14 seasons
+- **Is the die loaded?** = Was there systematic referee favoritism?
 
 ---
 
-## Nota Importante: Carácter Académico y Educativo
-
-Este es un **análisis estadístico con fines exclusivamente educativos**. Queremos ser completamente transparentes sobre lo que este estudio puede y no puede demostrar:
-
-### Lo Que Este Análisis ES:
-
-✅ **Una exploración educativa** de métodos estadísticos aplicados a datos reales
-
-✅ **Una demostración** de cómo el Teorema de Bayes y los tests de significancia funcionan en la práctica
-
-✅ **Un análisis de correlaciones** entre períodos de tiempo y patrones de datos
-
-✅ **Una oportunidad** para aprender a distinguir entre señal y ruido en grandes conjuntos de datos
-
-### Lo Que Este Análisis NO ES:
-
-❌ **NO es prueba legal** de causalidad directa
-
-❌ **NO identifica culpables** individuales ni prueba intenciones
-
-❌ **NO sustituye** investigaciones judiciales o forenses
-
-❌ **NO establece relaciones causales** (correlación ≠ causalidad)
-
-### Contexto Académico
-
-Este análisis sigue la tradición de estudios académicos que utilizan eventos públicamente documentados como casos de estudio para la enseñanza. Similar a cómo:
-
-- Los testimonios del caso Clinton-Lewinsky se han usado en estudios de psicología sobre cómo las personas mienten
-- El escándalo Volkswagen se usa en cursos de ética empresarial
-- El caso Enron se enseña en análisis de fraude contable
-
-En nuestro caso, el hecho **documentado por la Guardia Civil** de que existieron pagos de más de 8 millones de euros al vicepresidente del Comité de Árbitros durante 17 años nos permite formular preguntas estadísticas legítimas:
-
-- ¿Existen patrones inusuales en los datos durante ese período?
-- ¿Qué tan improbables son estos patrones si asumimos aleatoriedad?
-- ¿Cómo se comparan con períodos o competiciones diferentes?
-
-**El objetivo es iluminar, no acusar. Presentar datos, no sentencias. Enseñar estadística, no impartir justicia.**
-
-Los hechos documentados proporcionan el contexto. Las matemáticas proporcionan las herramientas. El lector saca sus propias conclusiones.
+*Continues in [Part 2: The Data Speaks](/blog/negreira-del-bayes-part-2)*
 
 ---
 
-## Fuentes y Referencias
+## Important Note: Academic and Educational Nature
 
-### ⚖️ Caso Negreira - Contexto
+This is a **statistical analysis for exclusively educational purposes**. We want to be completely transparent about what this study can and cannot demonstrate:
 
-- **[Wikipedia: Caso Negreira](https://es.wikipedia.org/wiki/Caso_Negreira)** - Resumen del caso, cronología de eventos, y principales actores involucrados.
-- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - Cobertura internacional del caso por la BBC.
-- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Análisis del caso por The Guardian.
-- **[Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+### What This Analysis IS:
 
-### 📚 Recursos de Estadística Bayesiana
+✅ **An educational exploration** of statistical methods applied to real data
 
-- **["Think Bayes" por Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Libro open-source sobre razonamiento bayesiano. Excelente introducción a la actualización de creencias con ejemplos prácticos.
-- **["Statistical Rethinking" por Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Texto avanzado sobre inferencia bayesiana aplicada.
-- **[Test Chi-cuadrado](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2)**
-- **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**
-- **[Test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)**
-- **[Distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)**
+✅ **A demonstration** of how Bayes' Theorem and significance tests work in practice
 
-### 🔧 Código y Datos
+✅ **A correlation analysis** between time periods and data patterns
 
-- **[Repositorio GitHub: drAbreu/negreira](https://github.com/drAbreu/negreira)** - Todo el código fuente y análisis reproducible.
-- **[Notebook de dados](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Análisis interactivo de detección de dados trucados con tests estadísticos.
+✅ **An opportunity** to learn to distinguish between signal and noise in large datasets
 
-### 🎨 Créditos de Imagen
+### What This Analysis IS NOT:
 
-- **Imagen principal:** Generada por Google Gemini Banana.
+❌ **NOT legal proof** of direct causality
+
+❌ **NOT identifying guilty parties** individually nor proving intentions
+
+❌ **NOT a substitute** for judicial or forensic investigations
+
+❌ **NOT establishing causal relationships** (correlation ≠ causation)
+
+### Academic Context
+
+This analysis follows the tradition of academic studies that use publicly documented events as case studies for teaching. Similar to how:
+
+- Testimony from the Clinton-Lewinsky case has been used in psychology studies on how people lie
+- The Volkswagen scandal is used in business ethics courses
+- The Enron case is taught in accounting fraud analysis
+
+In our case, the fact **documented by the Civil Guard** that payments of more than 8 million euros existed to the Vice President of the Referees Committee over 17 years allows us to formulate legitimate statistical questions:
+
+- Are there unusual patterns in the data during that period?
+- How improbable are these patterns if we assume randomness?
+- How do they compare with different periods or competitions?
+
+**The goal is to illuminate, not to accuse. To present data, not sentences. To teach statistics, not to deliver justice.**
+
+The documented facts provide context. Mathematics provides the tools. The reader draws their own conclusions.
+
+---
+
+## Sources and References
+
+### ⚖️ Negreira Case - Context
+
+- **[Wikipedia: Negreira Case](https://en.wikipedia.org/wiki/Negreira_case)** - Case summary, timeline of events, and main actors involved.
+- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - International coverage of the case by the BBC.
+- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Analysis of the case by The Guardian.
+- **[Planeta Real Madrid Analysis (complete 21st century data)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+
+### 📚 Bayesian Statistics Resources
+
+- **["Think Bayes" by Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Open-source book on Bayesian reasoning. Excellent introduction to belief updating with practical examples.
+- **["Statistical Rethinking" by Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Advanced text on applied Bayesian inference.
+- **[Chi-squared test](https://en.wikipedia.org/wiki/Chi-squared_test)**
+- **[Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)**
+- **[Binomial test](https://en.wikipedia.org/wiki/Binomial_test)**
+- **[Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)**
+
+### 🔧 Code and Data
+
+- **[GitHub Repository: drAbreu/negreira](https://github.com/drAbreu/negreira)** - All source code and reproducible analysis.
+- **[Dice notebook](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Interactive analysis of loaded dice detection with statistical tests.
+
+### 🎨 Image Credits
+
+- **Main image:** Generated by Google Gemini Banana.
+
 

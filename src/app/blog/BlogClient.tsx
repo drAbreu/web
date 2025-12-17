@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState, useEffect, useMemo } from "react";
 import { translations, type Language } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
@@ -21,6 +22,7 @@ function calculateReadingTime(content: string): number {
 }
 
 export default function BlogClient({ posts }: BlogClientProps) {
+  const router = useRouter();
   const [language, setLanguage] = useState<Language>("en");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>('date');
@@ -223,99 +225,101 @@ export default function BlogClient({ posts }: BlogClientProps) {
                   {filteredPosts.map((post) => {
                     const readTime = calculateReadingTime(post.content);
                     return (
-                      <Link key={post.slug} href={`/blog/${post.slug}`}>
-                        <article className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-purple/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-coral/20 h-full flex flex-col">
-                          <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <article 
+                        key={post.slug}
+                        onClick={() => router.push(`/blog/${post.slug}`)}
+                        className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-purple/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-coral/20 h-full flex flex-col cursor-pointer"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                          {/* Image */}
-                          {post.image && (
-                            <div className="relative w-full h-48 overflow-hidden">
-                              <Image
-                                src={post.image}
-                                alt={post.title}
-                                fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-500"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        {/* Image */}
+                        {post.image && (
+                          <div className="relative w-full h-48 overflow-hidden">
+                            <Image
+                              src={post.image}
+                              alt={post.title}
+                              fill
+                              className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                          </div>
+                        )}
+
+                        <div className="relative z-10 p-6 flex-1 flex flex-col">
+                          {/* Metadata */}
+                          <div className="flex items-center gap-3 mb-3 text-xs text-gray-400">
+                            <time dateTime={post.date}>
+                              {new Date(post.date).toLocaleDateString(language === "en" ? "en-US" : "es-ES", {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                              })}
+                            </time>
+                            <span>•</span>
+                            <span className="flex items-center gap-1">
+                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              {readTime} {language === "en" ? "min" : "min"}
+                            </span>
+                          </div>
+
+                          {/* Category Badge & Morgenrot Link */}
+                          <div className="mb-3 flex items-center gap-2 flex-wrap">
+                            <span className="px-3 py-1 bg-brand-purple/50 text-brand-orange text-xs rounded-full font-semibold">
+                              {post.category}
+                            </span>
+                            {post.tags && post.tags.includes('morgenrot') && (
+                              <Link 
+                                href={`/morgenrot/blog/${post.slug}`}
+                                onClick={(e) => e.stopPropagation()}
+                                className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full font-semibold hover:bg-green-600/50 transition-colors flex items-center gap-1"
+                                title={language === "en" ? "View in Morgenrot blog" : "Ver en el blog de Morgenrot"}
+                              >
+                                <span>🌅</span>
+                                <span>Morgenrot</span>
+                              </Link>
+                            )}
+                          </div>
+
+                          {/* Title */}
+                          <h2 className="text-xl font-bold text-white mb-2 group-hover:text-brand-coral transition-colors line-clamp-2">
+                            {post.title}
+                          </h2>
+
+                          {/* Description */}
+                          <p className="text-gray-400 text-sm mb-4 leading-relaxed flex-1 line-clamp-3">
+                            {post.description}
+                          </p>
+
+                          {/* Tags */}
+                          {post.tags && post.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {post.tags.slice(0, 3).map((tag, i) => (
+                                <span key={i} className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded">
+                                  #{tag}
+                                </span>
+                              ))}
+                              {post.tags.length > 3 && (
+                                <span className="px-2 py-1 bg-white/10 text-gray-400 text-xs rounded">
+                                  +{post.tags.length - 3}
+                                </span>
+                              )}
                             </div>
                           )}
 
-                          <div className="relative z-10 p-6 flex-1 flex flex-col">
-                            {/* Metadata */}
-                            <div className="flex items-center gap-3 mb-3 text-xs text-gray-400">
-                              <time dateTime={post.date}>
-                                {new Date(post.date).toLocaleDateString(language === "en" ? "en-US" : "es-ES", {
-                                  year: 'numeric',
-                                  month: 'short',
-                                  day: 'numeric'
-                                })}
-                              </time>
-                              <span>•</span>
-                              <span className="flex items-center gap-1">
-                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                {readTime} {language === "en" ? "min" : "min"}
-                              </span>
-                            </div>
-
-                            {/* Category Badge & Morgenrot Link */}
-                            <div className="mb-3 flex items-center gap-2 flex-wrap">
-                              <span className="px-3 py-1 bg-brand-purple/50 text-brand-orange text-xs rounded-full font-semibold">
-                                {post.category}
-                              </span>
-                              {post.tags && post.tags.includes('morgenrot') && (
-                                <Link 
-                                  href={`/morgenrot/blog/${post.slug}`}
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full font-semibold hover:bg-green-600/50 transition-colors flex items-center gap-1"
-                                  title={language === "en" ? "View in Morgenrot blog" : "Ver en el blog de Morgenrot"}
-                                >
-                                  <span>🌅</span>
-                                  <span>Morgenrot</span>
-                                </Link>
-                              )}
-                            </div>
-
-                            {/* Title */}
-                            <h2 className="text-xl font-bold text-white mb-2 group-hover:text-brand-coral transition-colors line-clamp-2">
-                              {post.title}
-                            </h2>
-
-                            {/* Description */}
-                            <p className="text-gray-400 text-sm mb-4 leading-relaxed flex-1 line-clamp-3">
-                              {post.description}
-                            </p>
-
-                            {/* Tags */}
-                            {post.tags && post.tags.length > 0 && (
-                              <div className="flex flex-wrap gap-2 mb-4">
-                                {post.tags.slice(0, 3).map((tag, i) => (
-                                  <span key={i} className="px-2 py-1 bg-white/10 text-gray-300 text-xs rounded">
-                                    #{tag}
-                                  </span>
-                                ))}
-                                {post.tags.length > 3 && (
-                                  <span className="px-2 py-1 bg-white/10 text-gray-400 text-xs rounded">
-                                    +{post.tags.length - 3}
-                                  </span>
-                                )}
-                              </div>
-                            )}
-
-                            {/* Author & Read More */}
-                            <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                              <span className="text-xs text-gray-500 truncate">{post.author}</span>
-                              <div className="inline-flex items-center text-brand-coral group-hover:text-brand-orange transition-colors text-sm font-semibold">
-                                {language === "en" ? "Read" : "Leer"}
-                                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                </svg>
-                              </div>
+                          {/* Author & Read More */}
+                          <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                            <span className="text-xs text-gray-500 truncate">{post.author}</span>
+                            <div className="inline-flex items-center text-brand-coral group-hover:text-brand-orange transition-colors text-sm font-semibold">
+                              {language === "en" ? "Read" : "Leer"}
+                              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
                             </div>
                           </div>
-                        </article>
-                      </Link>
+                        </div>
+                      </article>
                     );
                   })}
                 </div>

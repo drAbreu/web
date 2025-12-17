@@ -1,509 +1,510 @@
 ---
-title: "Negreira del Bayes (III): La Liga de los Dados Trucados"
-description: "La prueba definitiva: comparación Champions League vs La Liga. El saldo de tarjetas rojas y las conclusiones finales del análisis estadístico del Caso Negreira."
+title: "Negreira's Bayes (III): The League of Loaded Dice"
+description: "The definitive proof: Champions League vs La Liga comparison. The red card balance and final conclusions of the statistical analysis of the Negreira Case."
 date: "2025-12-16"
 author: "Jorge Abreu-Vicente, PhD"
-category: "Análisis Estadístico"
-tags: ["estadística", "bayes", "fútbol", "análisis de datos", "ciencia de datos", "negreira"]
+category: "Statistical Analysis"
+tags: ["statistics", "bayes", "football", "data analysis", "data science", "negreira"]
 featured: true
 image: "/blog/negreira/main_image.jpg"
-lang: "es"
+lang: "en"
 ---
 
-## La Prueba Definitiva: Champions League y el Saldo de Tarjetas Rojas
+## The Definitive Proof: Champions League and the Red Card Balance
 
-En la [Parte 1](/blog/negreira-del-bayes-parte-1), aprendimos a detectar dados trucados con el Teorema de Bayes.
+In [Part 1](/blog/negreira-del-bayes-part-1), we learned to detect loaded dice with Bayes' Theorem.
 
-En la [Parte 2](/blog/negreira-del-bayes-parte-2), vimos que Barcelona estuvo en Q1 las 13/13 temporadas (probabilidad: 1 en 268 millones) y que sus rivales recibían más tarjetas que los rivales de cualquier otro equipo.
+In [Part 2](/blog/negreira-del-bayes-part-2), we saw that Barcelona was in Q1 for 13/13 seasons (probability: 1 in 268 million) and that their rivals received more cards than any other team's rivals.
 
-**La pregunta que quedó:** ¿Es esto sobre Barcelona (su calidad, estilo de juego) o hay algo más relacionado con los pagos al vicepresidente del comité de árbitros?
+**The question that remained:** Is this about Barcelona (their quality, playing style) or is there something more related to payments to the vice president of the referees committee?
 
-En esta parte final, revelaremos **la prueba definitiva**.
-
----
-
-## Hallazgo #4: El Saldo de Tarjetas Rojas
-
-### ¿Qué es el "Saldo"?
-
-El **saldo de tarjetas rojas** es una métrica simple pero poderosa:
-
-```
-Saldo = Tarjetas Rojas a Rivales - Tarjetas Rojas Propias
-```
-
-**Interpretación:**
-- **Saldo positivo (+):** Tus rivales reciben MÁS rojas que tú → Ventaja
-- **Saldo negativo (-):** Recibes MÁS rojas que tus rivales → Desventaja
-- **Saldo cero (0):** Equilibrio perfecto
-
-**Analogía deportiva:** Es como el "goal average" pero con expulsiones.
-
-### Calculando el Saldo Total (2005-2018)
-
-Sumamos **todas las tarjetas rojas** a lo largo de 13 temporadas completas:
-
-![Distribución del saldo de tarjetas rojas para los 40 equipos de La Liga](/blog/negreira/red_card_balance_distribution.png)
-*Figura 1: **Distribución del saldo de tarjetas rojas para todos los equipos que jugaron en La Liga entre 2005-2018.** Barcelona aparece como un caso único y extremo con +47, mientras Real Madrid está perfectamente equilibrado en 0. La mayoría de equipos tienen saldos cercanos a cero, entre +10 y -10.*
-
-**Observaciones impactantes:**
-
-1. **Barcelona: +47** - Un *outlier* extremo sin competencia cercana
-2. **Real Madrid: 0** - Perfectamente equilibrado, ranking #20 de 40 equipos
-3. **Diferencia Barcelona vs Real Madrid: +47 vs 0** - Abismo de 47 tarjetas
-4. **2º y 3º lugar (Villarreal, Sevilla): +10** - Barcelona tiene **4.7x** el saldo del segundo lugar
-5. **Promedio de la liga: -2.4** - La mayoría de equipos están cerca del cero o en negativo
-6. **Barcelona es #1 de 40 equipos** - Completamente separado del resto de la distribución
-
-**Resultado visual:** Barcelona está completamente aislado como un **outlier extremo** sin comparación en la historia reciente de La Liga.
+In this final part, we will reveal **the definitive proof**.
 
 ---
 
-## Hallazgo #5: Probabilidad Estadística del Saldo
+## Finding #4: The Red Card Balance
 
-### ¿Qué tan Improbable es +47?
+### What is the "Balance"?
 
-Si las tarjetas rojas se distribuyeran al azar (hipótesis nula), esperaríamos que cada equipo tenga **saldo cercano a cero**.
+The **red card balance** is a simple but powerful metric:
 
-Calculemos la probabilidad de que Barcelona obtenga un saldo de +47 por pura casualidad.
-
-### Método 1: Test Binomial
-
-Pensemos en cada tarjeta roja en los partidos de Barcelona como un "lanzamiento de moneda":
-- Cara = Roja para el rival
-- Cruz = Roja para Barcelona
-
-**Total de rojas en partidos del Barcelona:** 48 (Barcelona) + 95 (rivales) = **143 tarjetas rojas**
-
-**Si fuera 50/50 (justo):**
-- Esperaríamos ~71.5 para cada lado
-- Barcelona recibió solo **48** (mucho menos)
-- Rivales recibieron **95** (mucho más)
-
-**Test binomial:**
 ```
-P(≤ 48 rojas de 143 | p=0.5) = 0.0000525
+Balance = Red Cards to Rivals - Own Red Cards
 ```
 
-**Esto es aproximadamente 1 entre 19,000**
+**Interpretation:**
+- **Positive balance (+):** Your rivals receive MORE reds than you → Advantage
+- **Negative balance (-):** You receive MORE reds than your rivals → Disadvantage
+- **Zero balance (0):** Perfect equilibrium
 
-**P-value:** 0.0000525 (altamente significativo, p < 0.001)
+**Sports analogy:** It's like "goal difference" but with sending-offs.
 
-### Método 2: Z-Score (Desviación Sigma)
+### Calculating the Total Balance (2005-2018)
 
-Calculamos qué tan lejos está Barcelona de la media de la liga:
+We sum **all red cards** across 13 complete seasons:
 
-- **Media de saldos:** -2.4
-- **Desviación estándar:** 11.0
-- **Saldo de Barcelona:** +47
+![Distribution of red card balance for the 40 La Liga teams](/blog/negreira/red_card_balance_distribution.png)
+*Figure 1: **Distribution of red card balance for all teams that played in La Liga between 2005-2018.** Barcelona appears as a unique and extreme case with +47, while Real Madrid is perfectly balanced at 0. Most teams have balances close to zero, between +10 and -10.*
+
+**Striking observations:**
+
+1. **Barcelona: +47** - An extreme *outlier* with no close competition
+2. **Real Madrid: 0** - Perfectly balanced, ranking #20 of 40 teams
+3. **Difference Barcelona vs Real Madrid: +47 vs 0** - A gap of 47 cards
+4. **2nd and 3rd place (Villarreal, Sevilla): +10** - Barcelona has **4.7x** the balance of second place
+5. **League average: -2.4** - Most teams are close to zero or negative
+6. **Barcelona is #1 of 40 teams** - Completely separated from the rest of the distribution
+
+**Visual result:** Barcelona is completely isolated as an **extreme outlier** without comparison in recent La Liga history.
+
+---
+
+## Finding #5: Statistical Probability of the Balance
+
+### How Improbable is +47?
+
+If red cards were distributed randomly (null hypothesis), we would expect each team to have a **balance close to zero**.
+
+Let's calculate the probability that Barcelona would get a balance of +47 by pure chance.
+
+### Method 1: Binomial Test
+
+Let's think of each red card in Barcelona's matches as a "coin flip":
+- Heads = Red for the rival
+- Tails = Red for Barcelona
+
+**Total reds in Barcelona's matches:** 48 (Barcelona) + 95 (rivals) = **143 red cards**
+
+**If it were 50/50 (fair):**
+- We would expect ~71.5 for each side
+- Barcelona received only **48** (much less)
+- Rivals received **95** (much more)
+
+**Binomial test:**
+```
+P(≤ 48 reds of 143 | p=0.5) = 0.0000525
+```
+
+**This is approximately 1 in 19,000**
+
+**P-value:** 0.0000525 (highly significant, p < 0.001)
+
+### Method 2: Z-Score (Sigma Deviation)
+
+We calculate how far Barcelona is from the league mean:
+
+- **Mean of balances:** -2.4
+- **Standard deviation:** 11.0
+- **Barcelona's balance:** +47
 
 ```
 Z-score = (47 - (-2.4)) / 11.0 = 4.5σ
 ```
 
-**Barcelona está 4.5 desviaciones estándar por encima de la media.**
+**Barcelona is 4.5 standard deviations above the mean.**
 
-**Probabilidad de Z ≥ 4.5:**
+**Probability of Z ≥ 4.5:**
 ```
 P(Z ≥ 4.5) ≈ 3.71 × 10⁻⁶
 ```
 
-**Esto es aproximadamente 1 entre 269,000**
+**This is approximately 1 in 269,000**
 
-**Interpretación sigma:**
-- **±1σ:** 68% de datos (normal)
-- **±2σ:** 95% de datos (inusual)
-- **±3σ:** 99.7% de datos (muy raro)
-- **±4σ:** 99.994% de datos (**extremadamente raro**)
-- **Barcelona: 4.48σ** - Fuera de casi cualquier distribución natural
+**Sigma interpretation:**
+- **±1σ:** 68% of data (normal)
+- **±2σ:** 95% of data (unusual)
+- **±3σ:** 99.7% of data (very rare)
+- **±4σ:** 99.994% of data (**extremely rare**)
+- **Barcelona: 4.48σ** - Outside almost any natural distribution
 
-![Probabilidad estadística del saldo de tarjetas rojas de Barcelona](/blog/negreira/red_balance_statistical_probability.png)
+![Statistical probability of Barcelona's red card balance](/blog/negreira/red_balance_statistical_probability.png)
 
-*Figura 2: **Visualización del Z-score de Barcelona en el contexto de la distribución normal.** Barcelona está a 4.48 desviaciones estándar de la media (-2.4), lo que representa una probabilidad de aproximadamente 1 en 269,000. Las áreas sombreadas muestran los intervalos de confianza estándar (±1σ, ±2σ, ±3σ), y Barcelona está completamente fuera incluso del intervalo ±4σ.*
+*Figure 2: **Visualization of Barcelona's Z-score in the context of the normal distribution.** Barcelona is 4.48 standard deviations from the mean (-2.4), representing a probability of approximately 1 in 269,000. The shaded areas show the standard confidence intervals (±1σ, ±2σ, ±3σ), and Barcelona is completely outside even the ±4σ interval.*
 
-### ¿Qué Significan Estos Números?
+### What Do These Numbers Mean?
 
-Ambos métodos nos dicen lo mismo:
+Both methods tell us the same thing:
 
-**La probabilidad de que Barcelona tenga un saldo de +47 por pura casualidad es entre 1 en 19,000 y 1 en 269,000.** Volvemos a encontrarnos con un concepto visto en la [Parte 2](/blog/negreira-del-bayes-parte-2) de este blog: es más probable que un rayo nos fulmine el próximo año o que ganemos la lotería a que nos pasen cosas tan curiosas como las que se han visto en materias de tarjetas en la liga española entre 2005 y 2018.
+**The probability that Barcelona has a balance of +47 by pure chance is between 1 in 19,000 and 1 in 269,000.** We again encounter a concept seen in [Part 2](/blog/negreira-del-bayes-part-2) of this blog: it's more likely that a reader of this post will be struck by lightning next year or win the lottery than for such curious things to happen regarding cards in the Spanish league between 2005 and 2018.
 
-En el contexto de **40 equipos** en la liga, esto es estadísticamente imposible de explicar por azar.
+In the context of **40 teams** in the league, this is statistically impossible to explain by chance.
 
 ---
 
-## Actualización Bayesiana #3: El Saldo de Rojas
+## Bayesian Update #3: The Red Balance
 
-Ahora tenemos **CUATRO evidencias independientes**. Actualicemos Bayes una vez más.
+Now we have **FOUR independent pieces of evidence**. Let's update Bayes once more.
 
-### Evidencias Acumuladas
+### Accumulated Evidence
 
-1. **Barcelona 14/14 en Q1** → P = 3.73 × 10⁻⁹ (1 en 268 millones)
-2. **Ratio de rivales 1.51x en amarillas** → P = 0.0027 (1 en 370, no significativa por sí sola.)
-3. **Saldo de rojas +47** → P = 5.25 × 10⁻⁵ (1 en 19,057)
-4. **Caso Busquets/Piqué: Doble error arbitral documentado** → P = 2.43 × 10⁻¹⁷ (1 en 41 cuatrillones)
+1. **Barcelona 14/14 in Q1** → P = 3.73 × 10⁻⁹ (1 in 268 million)
+2. **Rivals ratio 1.51x in yellows** → P = 0.0027 (1 in 370, not significant by itself.)
+3. **Red balance +47** → P = 5.25 × 10⁻⁵ (1 in 19,057)
+4. **Busquets/Piqué Case: Documented double referee error** → P = 2.43 × 10⁻¹⁷ (1 in 41 quadrillion)
 
-### Cálculo Bayesiano Conservador
+### Conservative Bayesian Calculation
 
-Usando el método más conservador (asumiendo cierta correlación entre evidencias):
+Using the most conservative method (assuming some correlation between evidences):
 
-**Prior:** 0.01% (extremadamente escépticos, como establecimos en [Parte 1](/blog/negreira-del-bayes-parte-1))
+**Prior:** 0.01% (extremely skeptical, as we established in [Part 1](/blog/negreira-del-bayes-part-1))
 
-**Likelihood ratio (evidencia combinada):**
+**Likelihood ratio (combined evidence):**
 ```
-LR = P(evidencias | sesgo) / P(evidencias | no sesgo)
+LR = P(evidences | bias) / P(evidences | no bias)
 LR ≈ 0.50 / (3.73×10⁻⁹ × 0.0027 × 5.25×10⁻⁵ × 2.43×10⁻¹⁷)
 LR ≈ 0.50 / (1.3×10⁻³²)
-LR ≈ 4×10³¹ (40 quintillones)
+LR ≈ 4×10³¹ (40 quintillion)
 ```
 
-> El número anterior, si fuera en unidades métricas, sería el equivalente a 10 años luz. Imagínate que en esa astronómica distancia te dicen que debes de elegir un metro de espacio para ganar un concurso. Tus opciones de ganarlo serían las mismas que la probabilidad acumulada por la evidencia estadística de que los datos de la liga española bajo los pagos a Negreira fueran casualidad.
+> The number above, if it were in metric units, would be the equivalent of 10 light years. Imagine that in that astronomical distance you're told you must choose one meter of space to win a contest. Your chances of winning would be the same as the cumulative probability from the statistical evidence that the Spanish league data under the Negreira payments was coincidence.
 
 **Posterior:**
 ```
-Odds(sesgo | evidencias) = LR × Odds(prior)
+Odds(bias | evidences) = LR × Odds(prior)
 Odds = 4×10³¹ × (0.0001 / 0.9999)
-Odds ≈ 4×10²⁷ a 1
+Odds ≈ 4×10²⁷ to 1
 
-P(sesgo | evidencias) ≈ 99.999999999999999999999999% (27 nueves)
+P(bias | evidences) ≈ 99.999999999999999999999999% (27 nines)
 ```
 
-### Interpretación
+### Interpretation
 
-Empezamos con **0.01% de creencia** (1 en 10,000).
+We started with **0.01% belief** (1 in 10,000).
 
-Después de ver las cuatro evidencias acumuladas, nuestra certeza es **>99.999999999999999999999999%** (27 nueves).
+After seeing the four accumulated evidences, our certainty is **>99.999999999999999999999999%** (27 nines).
 
-**No hay duda estadística razonable.**
-
----
-
-## El Problema de la Causalidad
-
-Hasta aquí, hemos demostrado:
-- **Hay un patrón estadísticamente significativo**
-- **El patrón es extremadamente improbable por azar**
-- **El patrón es único del F. C. Barcelona**
-
-**Pero...**
-
-La estadística nos dice que **correlación NO implica causalidad**.
-
-Todas las hipótesis alternativas que discutimos en la [Parte 2](/blog/negreira-del-bayes-parte-2) tienen un problema: no explican bien los datos. Pero técnicamente, **no podemos descartar completamente** que haya algún factor del Barcelona como equipo (calidad, estilo, algo que no hemos medido) que cause este patrón.
-
-### La Pregunta Crítica
-
-**¿Cómo podemos saber si el patrón es causado por:**
-- **A) Características del Barcelona** (calidad, estilo de juego, disciplina)
-- **B) Consecuencias intrínsecas de una competición española en la que el vicepresidente arbitral ha recibido pagos documentados del F.C. Barcelona entre 2001 y 2018.**
-
-**La respuesta:** Necesitamos un **experimento natural** - una situación donde Barcelona juega con los mismos rivales de élite pero con **diferentes árbitros**.
-
-**Afortunadamente, ese experimento existe.**
+**There is no reasonable statistical doubt.**
 
 ---
 
-## La Prueba Definitiva: Champions League
+## The Causality Problem
 
-### El Experimento Natural Perfecto
+Up to here, we have demonstrated:
+- **There is a statistically significant pattern**
+- **The pattern is extremely improbable by chance**
+- **The pattern is unique to F.C. Barcelona**
 
-La **UEFA Champions League** nos proporciona el escenario ideal:
+**But...**
 
-**Variables controladas (IGUALES):**
-- ✅ Mismo equipo (Barcelona)
-- ✅ Mismos jugadores
-- ✅ Mismo estilo de juego
-- ✅ Rivales de élite similar
-- ✅ Mismo nivel de competición
+Statistics tells us that **correlation does NOT imply causation**.
 
-**Variable experimental (DIFERENTE):**
-- 🔄 **Comité arbitral:** UEFA asigna árbitros **internacionales**, Negreira no tiene poder en la Champions.
+All the alternative hypotheses we discussed in [Part 2](/blog/negreira-del-bayes-part-2) have a problem: they don't explain the data well. But technically, **we cannot completely rule out** that there is some factor about Barcelona as a team (quality, style, something we haven't measured) that causes this pattern.
 
-**Predicciones de las dos hipótesis:**
-- **A) Es el Barcelona** (calidad/estilo) --> El patrón favorable de tarjetas debería **PERSISTIR** 
-- **B) El patrón está, de alguna forma no identificada, relacionado con los pagos al presidente del CTA** --> El patrón debería **DESAPARECER**
+### The Critical Question
 
-### Los Datos de Champions League (Siglo XXI)
+**How can we know if the pattern is caused by:**
+- **A) Barcelona's characteristics** (quality, playing style, discipline)
+- **B) Intrinsic consequences of a Spanish competition in which the referee vice president received documented payments from F.C. Barcelona between 2001 and 2018.**
 
-Analicemos el **saldo de tarjetas rojas** para Barcelona y Real Madrid en **ambas competiciones**:
+**The answer:** We need a **natural experiment** - a situation where Barcelona plays with the same elite rivals but with **different referees**.
 
-![Comparación del saldo de tarjetas rojas: La Liga vs Champions League](/blog/negreira/champions_league_comparison.png)
+**Fortunately, that experiment exists.**
 
-*Figura 3: **Comparación directa del saldo de tarjetas rojas entre La Liga (árbitros españoles) y Champions League (árbitros UEFA internacionales) para Barcelona y Real Madrid durante el siglo XXI completo.** En La Liga, Barcelona tiene una ventaja de +66 sobre Real Madrid. En Champions League, con los mismos equipos pero diferentes árbitros, esta ventaja desaparece completamente (-1). Mismos equipos, diferentes árbitros, resultados completamente diferentes.*
+---
 
-**Fuente:** [Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)
+## The Definitive Proof: Champions League
 
-### ¿Qué Significa Esto?
+### The Perfect Natural Experiment
 
-**En La Liga:**
-- Barcelona: **+65** (los rivales reciben 65 rojas MÁS que Barcelona)
-- Real Madrid: **-1** (prácticamente equilibrado)
-- **Diferencia:** Barcelona tiene **+66 de ventaja** sobre Real Madrid
+The **UEFA Champions League** provides us with the ideal scenario:
 
-**En Champions League:**
+**Controlled variables (SAME):**
+- ✅ Same team (Barcelona)
+- ✅ Same players
+- ✅ Same playing style
+- ✅ Similar elite rivals
+- ✅ Same competition level
+
+**Experimental variable (DIFFERENT):**
+- 🔄 **Referee committee:** UEFA assigns **international** referees, Negreira has no power in the Champions.
+
+**Predictions of the two hypotheses:**
+- **A) It's Barcelona** (quality/style) --> The favorable card pattern should **PERSIST**
+- **B) The pattern is, in some unidentified way, related to payments to the CTA president** --> The pattern should **DISAPPEAR**
+
+### Champions League Data (21st Century)
+
+Let's analyze the **red card balance** for Barcelona and Real Madrid in **both competitions**:
+
+![Comparison of red card balance: La Liga vs Champions League](/blog/negreira/champions_league_comparison.png)
+
+*Figure 3: **Direct comparison of red card balance between La Liga (Spanish referees) and Champions League (UEFA international referees) for Barcelona and Real Madrid during the complete 21st century.** In La Liga, Barcelona has a +66 advantage over Real Madrid. In the Champions League, with the same teams but different referees, this advantage completely disappears (-1). Same teams, different referees, completely different results.*
+
+**Source:** [Planeta Real Madrid Analysis (complete 21st century data)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)
+
+### What Does This Mean?
+
+**In La Liga:**
+- Barcelona: **+65** (rivals receive 65 MORE reds than Barcelona)
+- Real Madrid: **-1** (practically balanced)
+- **Difference:** Barcelona has **+66 advantage** over Real Madrid
+
+**In Champions League:**
 - Barcelona: **+12**
 - Real Madrid: **+13**
-- **Diferencia:** Barcelona tiene **-1** (¡Real Madrid tiene ligeramente MÁS!)
+- **Difference:** Barcelona has **-1** (Real Madrid has slightly MORE!)
 
-### La Conclusión Devastadora
+### The Devastating Conclusion
 
-**La ventaja de +66 de Barcelona sobre Real Madrid  (+37 al segundo equipo en el intervalo 2005-2018) en La Liga DESAPARECE completamente en Champions League.**
+**Barcelona's +66 advantage over Real Madrid (+37 over second place in the 2005-2018 interval) in La Liga COMPLETELY DISAPPEARS in the Champions League.**
 
-**Mismos equipos. Diferentes árbitros. Resultado diferente.**
+**Same teams. Different referees. Different result.**
 
-**Esto prueba que el patrón NO es sobre Barcelona (su calidad, estilo, jugadores).** Es algún tipo de factor externo podría, **presuntamente**, estar relacionado con los pagos al vicepresidente del comité de árbitros de la Real Federación Española de Fútbol.
+**This proves that the pattern is NOT about Barcelona (their quality, style, players).** It's some kind of external factor that could, **presumably**, be related to payments to the vice president of the Technical Committee of Referees of the Royal Spanish Football Federation.
 
 ---
 
-## Las Cinco Líneas de Evidencia Independientes
+## The Five Independent Lines of Evidence
 
-Recapitulemos todo lo que hemos encontrado:
+Let's recap everything we've found:
 
-### 1️⃣ Imposibilidad de Consistencia (Test Binomial)
-- **Hecho:** 14/14 temporadas en Q1
-- **Probabilidad por azar:** 1 en 268,435,456
+### 1️⃣ Impossibility of Consistency (Binomial Test)
+- **Fact:** 14/14 seasons in Q1
+- **Probability by chance:** 1 in 268,435,456
 - **P-value:** < 0.0001
 
-### 2️⃣ Disparidad de Tarjetas a Rivales
-- **Hecho:** Rivales de Barcelona reciben 1.51x más amarillas, 1.98x más rojas
-- **Comparación:** Real Madrid 1.22x, Atlético 0.96x
-- **Conclusión:** Patrón único de Barcelona
+### 2️⃣ Disparity in Cards to Rivals
+- **Fact:** Barcelona's rivals receive 1.51x more yellows, 1.98x more reds
+- **Comparison:** Real Madrid 1.22x, Atlético 0.96x
+- **Conclusion:** Unique Barcelona pattern
 
-### 3️⃣ Saldo de Tarjetas Rojas - Outlier Extremo
-- **Hecho:** Barcelona +47 (#1 de 40), Real Madrid 0 (#20)
-- **Probabilidad:** 1 en 19,057 (p = 0.0000525)
-- **Z-score:** 4.48σ (extremadamente raro)
+### 3️⃣ Red Card Balance - Extreme Outlier
+- **Fact:** Barcelona +47 (#1 of 40), Real Madrid 0 (#20)
+- **Probability:** 1 in 19,057 (p = 0.0000525)
+- **Z-score:** 4.48σ (extremely rare)
 
-### 4️⃣ Validación Champions League - Experimento Natural
+### 4️⃣ Champions League Validation - Natural Experiment
 - **La Liga:** Barcelona +66 vs Real Madrid
 - **Champions:** Barcelona -1 vs Real Madrid
-- **Conclusión:** El patrón es **específico de árbitros españoles**
+- **Conclusion:** The pattern is **specific to Spanish referees**
 
-### 5️⃣ Casos Documentados de Errores Arbitrales Flagrantes
-- **Hecho:** Dos casos documentados de segunda amarilla no sancionada (Busquets 2009-10, Piqué 2017-18)
-- **Probabilidad por azar:** 1 en 41,074,755,770,000,000 (41 cuatrillones)
-- **Contexto:** Solo 3 casos similares documentados en toda la historia del fútbol, 2 de ellos favoreciendo a Barcelona durante el período de pagos
-- **Conclusión:** Eventos estadísticamente imposibles que ocurrieron durante el período analizado
+### 5️⃣ Documented Cases of Flagrant Referee Errors
+- **Fact:** Two documented cases of unsanctioned second yellow (Busquets 2009-10, Piqué 2017-18)
+- **Probability by chance:** 1 in 41,074,755,770,000,000 (41 quadrillion)
+- **Context:** Only 3 similar cases documented in all football history, 2 of them favoring Barcelona during the payment period
+- **Conclusion:** Statistically impossible events that occurred during the analyzed period
 
 ---
 
-## Actualización Bayesiana Final
+## Final Bayesian Update
 
-Con **todas** las evidencias combinadas:
+With **all** the combined evidence:
 
-### Tabla de Actualización Completa
+### Complete Update Table
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Prior (Escepticismo inicial)</th>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Posterior (Después de evidencias)</th>
-      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Certeza de sesgo</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Prior (Initial Skepticism)</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Posterior (After Evidence)</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Certainty of Bias</th>
     </tr>
   </thead>
   <tbody>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0.01% (ultra-escéptico)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0.01% (ultra-skeptical)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>99.999999999999999999999999%</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nueves</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nines</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0.1% (muy escéptico)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0.1% (very skeptical)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>99.999999999999999999999999%</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nueves</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nines</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1% (escéptico)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1% (skeptical)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>99.999999999999999999999999%</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nueves</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nines</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>10% (neutral)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>99.999999999999999999999999%</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nueves</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nines</td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>50% (indiferente)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>50% (indifferent)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>99.999999999999999999999999%</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nueves</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>27 nines</td>
     </tr>
   </tbody>
 </table>
 
-**No importa cuán escéptico seas al inicio. Los datos te obligan a la misma conclusión.**
+**It doesn't matter how skeptical you are at the start. The data forces you to the same conclusion.**
 
-### La Analogía Final del Dado
+### The Final Dice Analogy
 
-Volvamos a nuestro dado de 4 caras de la Parte 1.
+Let's return to our 4-sided die from Part 1.
 
-Imaginemos que:
-1. **Lanzamos el dado 14 veces** → Cae en "1" las 14 veces (Barcelona en Q1 14/14)
-2. **Medimos el peso del dado** → Está desbalanceado hacia el "1" (ratio de rivales 1.51x)
-3. **Analizamos 40 dados similares** → Este es el ÚNICO con tanto sesgo (saldo +47, #1 de 40)
-4. **Probamos el dado en una mesa diferente** → En la otra mesa cae normalmente (Champions League)
-5. **Observamos dos veces que el dado "rebota" de forma imposible** → Dos errores documentados con probabilidad de 1 en 41 cuatrillones (Caso Busquets/Piqué)
+Imagine that:
+1. **We roll the die 14 times** → It lands on "1" all 14 times (Barcelona in Q1 14/14)
+2. **We measure the die's weight** → It's unbalanced toward "1" (rivals ratio 1.51x)
+3. **We analyze 40 similar dice** → This is the ONLY one with so much bias (balance +47, #1 of 40)
+4. **We test the die on a different table** → On the other table it lands normally (Champions League)
+5. **We observe twice that the die "bounces" impossibly** → Two documented errors with probability of 1 in 41 quadrillion (Busquets/Piqué Case)
 
-**¿Conclusión?**
+**Conclusion?**
 
-> **Con una probabilidad del 99.999999999999999999999999%, el dado está trucado.**
-
----
-
-## Conclusiones Finales
-
-Una vez más, repetimos que este ha sido un ejercicio académico para poder aprender sobre probabilidad y estadística usando un caso del mundo real. Los números aquí mostrados están basados en datos reales e inferencias puramente estadísticas de ellos. Pero aquí acaba nuestro análisis. Cualquier inferencia de culpabilidad o causalidad será responsabilidad, única y exclusiva, del lector. Nosotros no podemos probar nada más que los números.
-
-**Con certeza estadística >99.999999999999999999999999% (27 nueves):**
-1. ✅ Barcelona exhibió un **patrón estadísticamente (casi) imposible** de decisiones arbitrales favorables durante el período Negreira (2001-2018), (2005-2018 analizado en estos artículos)
-2. ✅ Este patrón es **único** - no se observa en Real Madrid, Atlético, ni ningún otro equipo
-3. ✅ El patrón es **específico de competiciones bajo el mandato de la RFEF y el CTA, del que Negreira ejerció como vicepresidente en las fechas analizadas** - desaparece en Champions League, competición independiente del CTA vicepresidido por Negreira
-4. ✅ **Caso Busquets/Piqué:** Dos errores arbitrales documentados (segunda amarilla no sancionada) con probabilidad de 1 en 41 cuatrillones por casualidad
-5. ✅ Cinco líneas independientes de evidencia **convergen** en la misma conclusión
-
-### Lo Que NO Hemos Demostrado
-
-**Con honestidad científica, reconocemos:**
-1. ❌ **NO hemos probado causalidad directa** - La correlación estadística, por fuerte que sea, no es prueba legal de que los pagos a Negreira causaron decisiones específicas
-2. ❌ **NO hemos probado intención** - No podemos leer las mentes de los árbitros individuales
-3. ❌ **NO hemos probado conspiración** - No tenemos evidencia de acuerdos explícitos
-4. ❌ **NO hemos identificado mecanismos** - No sabemos exactamente CÓMO se producía el sesgo (si es que se producía)
-
-### Entonces, ¿Qué Tenemos?
-
-Tenemos **evidencia estadística abrumadora** de que:
-
-> Durante el período en que Barcelona pagaba millones de euros al vicepresidente del Comité Técnico de Árbitros, el club exhibió unas estadísticas muy favorables, las cuáles es prácticamente imposible que se den por simple azar.
-
-**En el lenguaje de la estadística bayesiana:**
-
-**Los dados cayeron en "1" catorce veces seguidas. Los dados están, con una probabilidad del 99.999999999999999999999999% (27 nueves), trucados.**
+> **With a probability of 99.999999999999999999999999%, the die is loaded.**
 
 ---
 
-## 🤯 ¿Qué Tan Improbable Es Esto? Comparación con Otros Eventos
+## Final Conclusions
 
-Para poner en perspectiva la probabilidad de la doble coincidencia arbitral a favor del Barcelona (P ≈ 1 en 41 cuatrillones), comparémosla con otros eventos considerados estadísticamente imposibles por casualidad:
+Once again, we repeat that this has been an academic exercise to learn about probability and statistics using a real-world case. The numbers shown here are based on real data and purely statistical inferences from them. But here our analysis ends. Any inference of guilt or causality will be the sole and exclusive responsibility of the reader. We cannot prove anything more than the numbers.
+
+**With statistical certainty >99.999999999999999999999999% (27 nines):**
+1. ✅ Barcelona exhibited a **statistically (almost) impossible pattern** of favorable referee decisions during the Negreira period (2001-2018), (2005-2018 analyzed in these articles)
+2. ✅ This pattern is **unique** - not observed in Real Madrid, Atlético, or any other team
+3. ✅ The pattern is **specific to competitions under the mandate of the RFEF and CTA, of which Negreira served as vice president during the analyzed dates** - disappears in Champions League, a competition independent of the CTA vice-presided by Negreira
+4. ✅ **Busquets/Piqué Case:** Two documented referee errors (unsanctioned second yellow) with probability of 1 in 41 quadrillion by chance
+5. ✅ Five independent lines of evidence **converge** on the same conclusion
+
+### What We Have NOT Proven
+
+**With scientific honesty, we acknowledge:**
+1. ❌ **We have NOT proven direct causality** - Statistical correlation, however strong, is not legal proof that payments to Negreira caused specific decisions
+2. ❌ **We have NOT proven intention** - We cannot read individual referees' minds
+3. ❌ **We have NOT proven conspiracy** - We have no evidence of explicit agreements
+4. ❌ **We have NOT identified mechanisms** - We don't know exactly HOW the bias was produced (if it was produced)
+
+### So, What Do We Have?
+
+We have **overwhelming statistical evidence** that:
+
+> During the period when Barcelona was paying millions of euros to the vice president of the Technical Committee of Referees, the club exhibited very favorable statistics, which are practically impossible to occur by simple chance.
+
+**In the language of Bayesian statistics:**
+
+**The dice landed on "1" fourteen times in a row. The dice are, with a probability of 99.999999999999999999999999% (27 nines), loaded.**
+
+---
+
+## 🤯 How Improbable Is This? Comparison with Other Events
+
+To put in perspective the probability of the double referee coincidence in favor of Barcelona (P ≈ 1 in 41 quadrillion), let's compare it with other events considered statistically impossible by chance:
 
 <table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
   <thead>
     <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
-      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Evento Improbable</th>
-      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Probabilidad Aproximada</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Improbable Event</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Approximate Probability</th>
     </tr>
   </thead>
   <tbody>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Ganar dos veces seguidas el premio mayor de la Lotería de Navidad</strong> (España, con 100,000 números)</td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 en 10,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹⁰)</span></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Winning the Spanish Christmas Lottery grand prize twice in a row</strong> (with 100,000 numbers)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 in 10,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹⁰)</span></td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Ser alcanzado por un rayo dos veces en la vida</strong> (En EE. UU., por ejemplo)</td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 en 1,000,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹²)</span></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Being struck by lightning twice in your lifetime</strong> (In the U.S., for example)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 in 1,000,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹²)</span></td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>El Sol se levanta mañana</strong> (Probabilidad subjetiva de que NO lo haga)</td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 en 1,000,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹²)</span></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>The Sun rising tomorrow</strong> (Subjective probability that it WON'T)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 in 1,000,000,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(≈ 1 × 10⁻¹²)</span></td>
     </tr>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Aterrizar con éxito una nave espacial en un lugar elegido al azar en Marte</strong></td>
-      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 en 1,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(Variable)</span></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Successfully landing a spacecraft at a randomly chosen spot on Mars</strong></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 in 1,000,000<br/><span style={{ fontSize: '0.9em', color: 'rgb(156, 163, 175)' }}>(Variable)</span></td>
     </tr>
   </tbody>
 </table>
 
-### 🔑 Observación Clave: La Perspectiva
+### 🔑 Key Observation: Perspective
 
-El evento de la **Doble Coincidencia Arbitral a Favor del Barça** es:
+The **Double Referee Coincidence in Favor of Barça** event is:
 
-- **4.100 millones de veces más improbable** que ganar la Lotería de Navidad dos veces seguidas.
-- **41.000 veces más improbable** que ser alcanzado por un rayo dos veces en la vida.
-- Está en la misma escala de probabilidad que **encontrar un grano de arena específico** en todas las playas de la Tierra y **elegir una molécula de aire específica** en el planeta, **simultáneamente**.
+- **4.1 billion times more improbable** than winning the Christmas Lottery twice in a row.
+- **41,000 times more improbable** than being struck by lightning twice in your lifetime.
+- It's on the same probability scale as **finding a specific grain of sand** on all Earth's beaches and **choosing a specific air molecule** on the planet, **simultaneously**.
 
-### 📢 Conclusión Estadística (Rechazo de la Casualidad)
+### 📢 Statistical Conclusion (Rejection of Chance)
 
-Desde una perspectiva estadística rigurosa, un evento con una probabilidad tan baja (≪ 5%) obliga a **rechazar la hipótesis nula de casualidad**. La evidencia estadística sugiere que el patrón de coincidencias no puede explicarse por el azar o la mera ineptitud, sino que apunta a un factor o sesgo sistémico.
-
----
-
-## El Significado Más Amplio
-
-### Más Allá del Fútbol
-
-Este análisis no es solo sobre el Barcelona o el Caso Negreira. Es sobre:
-1. **El poder de los datos** - Los números pueden revelar patrones que son invisibles a simple vista
-2. **El razonamiento bayesiano** - Cómo actualizar creencias racionalmente ante nueva evidencia
-3. **La importancia de la transparencia** - Por eso todo nuestro código y datos son públicos
-4. **Experimentos naturales** - Cómo la comparación con Champions League nos da validación externa
-5. **Pensamiento crítico** - Distinguir entre correlación y causalidad, entre evidencia estadística y prueba legal
-
-### Preguntas que Merecen Respuestas
-
-Este análisis no puede responder (ni pretende responder) preguntas como:
-
-- ¿Quién sabía qué y cuándo?
-- ¿Hubo instrucciones explícitas a árbitros?
-- ¿Qué contenían exactamente los "informes arbitrales"?
-- ¿Hubo beneficio intencionado o fue influencia inconsciente?
-
-**Pero SÍ establece que estas preguntas MERECEN ser respondidas.**
-
-Cuando la probabilidad de un patrón por casualidad es **1 en 100 mil millones**, la sociedad merece una investigación exhaustiva y transparente.
+From a rigorous statistical perspective, an event with such a low probability (≪ 5%) forces us to **reject the null hypothesis of chance**. The statistical evidence suggests that the pattern of coincidences cannot be explained by chance or mere incompetence, but points to a systemic factor or bias.
 
 ---
 
-## Reflexión Final: La Navaja de Occam
+## The Broader Meaning
 
-La **Navaja de Occam** dice: *"Entre varias explicaciones, la más simple suele ser la correcta"*
+### Beyond Football
+
+This analysis is not just about Barcelona or the Negreira Case. It's about:
+1. **The power of data** - Numbers can reveal patterns that are invisible to the naked eye
+2. **Bayesian reasoning** - How to update beliefs rationally when faced with new evidence
+3. **The importance of transparency** - That's why all our code and data are public
+4. **Natural experiments** - How comparison with Champions League gives us external validation
+5. **Critical thinking** - Distinguishing between correlation and causation, between statistical evidence and legal proof
+
+### Questions That Deserve Answers
+
+This analysis cannot answer (nor does it intend to answer) questions such as:
+
+- Who knew what and when?
+- Were there explicit instructions to referees?
+- What exactly did the "referee reports" contain?
+- Was there intentional benefit or unconscious influence?
+
+**But it DOES establish that these questions DESERVE to be answered.**
+
+When the probability of a pattern by chance is **1 in 100 billion**, society deserves an exhaustive and transparent investigation.
 
 ---
 
-## Código y Datos Abiertos
+## Final Reflection: Occam's Razor
 
-**Transparencia total:**
+**Occam's Razor** says: *"Among several explanations, the simplest is usually correct"*
+
+---
+
+## Open Code and Data
+
+**Total transparency:**
 
 - **GitHub:** [github.com/drAbreu/negreira](https://github.com/drAbreu/negreira)
-- **Notebook principal:** `notebooks/laliga_referee_analysis.ipynb`
-- **Datos:** `datasets/laliga_football-data/` (2005-2018)
+- **Main notebook:** `notebooks/laliga_referee_analysis.ipynb`
+- **Data:** `datasets/laliga_football-data/` (2005-2018)
 
 
-**Todos los cálculos son verificables. Todos los datos son públicos. Toda la metodología es reproducible.**
-
----
-
-## Fuentes y Referencias
-
-### ⚖️ Caso Negreira - Contexto
-
-- **[Wikipedia: Caso Negreira](https://es.wikipedia.org/wiki/Caso_Negreira)** - Resumen del caso, cronología de eventos, y principales actores involucrados.
-- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - Cobertura internacional del caso por la BBC.
-- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Análisis del caso por The Guardian.
-- **[Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
-
-### 📚 Recursos de Estadística Bayesiana
-
-- **["Think Bayes" por Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Libro open-source sobre razonamiento bayesiano. Excelente introducción a la actualización de creencias con ejemplos prácticos.
-- **["Statistical Rethinking" por Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Texto avanzado sobre inferencia bayesiana aplicada.
-- **[Test Chi-cuadrado](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2)**
-- **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**
-- **[Test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)**
-- **[Distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)**
-
-### 🔧 Código y Datos
-
-- **[Repositorio GitHub: drAbreu/negreira](https://github.com/drAbreu/negreira)** - Todo el código fuente y análisis reproducible.
-- **[Notebook de dados](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Análisis interactivo de detección de dados trucados con tests estadísticos.
-
-### 🎨 Créditos de Imagen
-
-- **Imagen principal:** Generada por Google Gemini Banana.
+**All calculations are verifiable. All data is public. All methodology is reproducible.**
 
 ---
 
-## Nota Final Sobre Ética y Objetividad
+## Sources and References
 
-La correlación estadística no es prueba legal de causalidad. Pero cuando la probabilidad de casualidad es 1 en 100 mil millones, **merece investigación seria**.
+### ⚖️ Negreira Case - Context
 
-**El objetivo no es acusar. Es iluminar.**
+- **[Wikipedia: Negreira Case](https://en.wikipedia.org/wiki/Negreira_case)** - Case summary, timeline of events, and main actors involved.
+- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - International coverage of the case by the BBC.
+- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Analysis of the case by The Guardian.
+- **[Planeta Real Madrid Analysis (complete 21st century data)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
 
-**Que los datos hablen. Que la verdad prevalezca.**
+### 📚 Bayesian Statistics Resources
+
+- **["Think Bayes" by Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Open-source book on Bayesian reasoning. Excellent introduction to belief updating with practical examples.
+- **["Statistical Rethinking" by Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Advanced text on applied Bayesian inference.
+- **[Chi-squared test](https://en.wikipedia.org/wiki/Chi-squared_test)**
+- **[Bayes' Theorem](https://en.wikipedia.org/wiki/Bayes%27_theorem)**
+- **[Binomial test](https://en.wikipedia.org/wiki/Binomial_test)**
+- **[Normal distribution](https://en.wikipedia.org/wiki/Normal_distribution)**
+
+### 🔧 Code and Data
+
+- **[GitHub Repository: drAbreu/negreira](https://github.com/drAbreu/negreira)** - All source code and reproducible analysis.
+- **[Dice notebook](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Interactive analysis of loaded dice detection with statistical tests.
+
+### 🎨 Image Credits
+
+- **Main image:** Generated by Google Gemini Banana.
+
+---
+
+## Final Note on Ethics and Objectivity
+
+Statistical correlation is not legal proof of causality. But when the probability of chance is 1 in 100 billion, **it deserves serious investigation**.
+
+**The goal is not to accuse. It is to illuminate.**
+
+**Let the data speak. Let truth prevail.**
 
 🎲
+

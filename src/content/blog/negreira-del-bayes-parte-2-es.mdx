@@ -1,0 +1,930 @@
+---
+title: "Negreira del Bayes (II): La Liga de los Dados Trucados"
+description: "Análisis estadístico completo de las tarjetas en La Liga (2005-2018): Barcelona siempre en Q1, ratios de tarjetas a rivales, y actualizaciones bayesianas."
+date: "2025-12-16"
+author: "Jorge Abreu-Vicente, PhD"
+category: "Análisis Estadístico"
+tags: ["estadística", "bayes", "fútbol", "análisis de datos", "ciencia de datos", "negreira"]
+featured: true
+image: "/blog/negreira/main_image.jpg"
+lang: "es"
+---
+
+## Los Datos Hablan: Análisis de Tarjetas en La Liga (2005-2018)
+
+En la [Parte 1](/blog/negreira-del-bayes-parte-1), aprendimos a detectar dados trucados usando estadística y el Teorema de Bayes. Vimos cómo:
+
+- **Detectar patrones imposibles** con tests estadísticos (Chi-cuadrado, p-values)
+- **Actualizar creencias** paso a paso con el Teorema de Bayes
+- **Entender los cuartiles** como un "dado de 4 caras"
+
+Ahora, nos preguntamos: **¿En qué cuartil estuvo Barcelona durante esas 14 temporadas de pagos a Negreira?**
+
+Ahora ha llegado el momento de revelar los datos. Prepárate.
+
+---
+
+## Los Datos: Fuentes y Metodología
+
+### Fuentes de Datos
+
+Para este análisis utilizamos dos fuentes principales:
+1. **[Football-Data.co.uk](https://www.football-data.co.uk/spainm.php)** - Datos partido a partido (2005-2018)
+   - 5,320 partidos de La Liga
+   - Tarjetas amarillas y rojas por equipo
+   - Faltas cometidas
+   - 14 temporadas completas
+2. **[Futbolgate.com](https://www.futbolgate.com/investigaci%C3%B3n/las-estad%C3%ADsticas-del-saldo-arbitral)** - Datos complementarios (2002-2006)
+   - Estadísticas de saldo arbitral
+   - Análisis histórico del período
+
+Hemos decidido usar solo los datos de **Football-Data.co.uk**, aunque una comprobación muestra que los de **Futbolgate.com** son verídicos y podrían ampliar el resultado.
+
+### Período de Análisis
+
+Nos enfocamos en **2005-2018** porque:
+- Coincide con el **período de pagos a Negreira** (2001-2018)
+- Tenemos **datos completos** de tarjetas (no disponibles antes de 2005)
+- Son **14 temporadas consecutivas** - perfecto para nuestro análisis de "dado de 4 caras"
+
+### Transparencia Total
+
+Los datos y el código se encuentran públicos en [GitHub](https://github.com/drAbreu/negreira) para total transparencia y didáctica del análisis.
+
+---
+
+## El Sistema de Cuartiles (Q1, Q2, Q3, Q4)
+
+Para analizar las tarjetas, dividimos a los equipos en **4 grupos iguales** cada temporada:
+
+- **Q1 (Cuartil 1):** 25% de equipos con **MENOS tarjetas** (5 equipos)
+- **Q2 (Cuartil 2):** Siguiente 25% (5 equipos)
+- **Q3 (Cuartil 3):** Siguiente 25% (5 equipos)
+- **Q4 (Cuartil 4):** 25% de equipos con **MÁS tarjetas** (5 equipos)
+
+**Analogía:** Es exactamente como nuestro dado de 4 caras. Cada equipo "lanza el dado" cada temporada y cae en uno de los 4 cuartiles.
+
+**Si todo es aleatorio**, esperaríamos que cada equipo pase el 25% del tiempo en cada cuartil.
+
+---
+
+## Hallazgo #1: Barcelona SIEMPRE en Q1
+
+### El Resultado
+
+Analicemos las **tarjetas amarillas** de los 3 grandes durante el período Negreira (2005-2018):
+
+<table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th rowSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporada</th>
+      <th colSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Barcelona</th>
+      <th colSpan="2" style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Real Madrid</th>
+      <th colSpan="2" style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Atlético Madrid</th>
+    </tr>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Ranking</th>
+      <th style={{ padding: '0.5rem', textAlign: 'left', color: 'white', fontWeight: 500, fontSize: '0.9em' }}>Cuartil</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2005-06</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>7/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>20/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2006-07</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>6/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>19/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2007-08</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>12/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>16/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2008-09</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q1</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>18/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2009-10</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>7/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>17/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2010-11</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>3/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q1</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>19/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2011-12</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>4/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q1</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>14/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2012-13</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>10/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>15/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2013-14</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>3/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q1</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>13/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2014-15</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>9/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>14/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2015-16</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>11/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>17/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2016-17</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>8/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>13/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q3</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2017-18</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>4/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Q1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5/20</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q1</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>10/20</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Q2</td>
+    </tr>
+  </tbody>
+</table>
+
+**Resultados:**
+
+- **Barcelona:** Q1 las **13 temporadas consecutivas** (100%)
+- **Real Madrid:** Q1 en 5 temporadas (38%), distribución más equilibrada
+- **Atlético:** Q4 en 6 temporadas (46%), distribución hacia más tarjetas
+
+**Posición promedio de Barcelona:** 1.7 de 20 equipos (casi siempre #1 o #2)
+
+### ¿Qué Probabilidad Tiene Esto?
+
+#### Análisis del "Dado de 4 Caras" (Cuartiles)
+
+Recordemos nuestro dado de 4 caras de la Parte 1. Si cada temporada Barcelona "tira el dado" y puede caer en Q1, Q2, Q3 o Q4 (25% cada uno):
+
+```text
+P(13 veces en Q1 | aleatorio) = (0.25)^13 = 1.46 × 10⁻⁸
+```
+
+**Esto es 1 entre 68 millones**
+
+Para contexto:
+- Probabilidad de que te caiga un rayo en tu vida: ~1 en 15,300
+- Probabilidad de ganar la lotería primitiva: ~1 en 14 millones
+- **Probabilidad de Barcelona en Q1 las `13/13` veces: 1 en 68 MILLONES**
+
+Es **casi 5 veces más improbable** que ganar la lotería.
+
+#### Análisis del "Dado de 20 Caras" (Rankings Exactos)
+
+Pero hay más. No solo Barcelona estuvo en Q1 (top 5 de 20), sino que estuvo **casi siempre en los primeros 2 lugares**.
+
+De las 13 temporadas:
+- **#1:** 9 veces
+- **#2:** 3 veces
+- **#3:** 1 vez
+- **#4 o peor:** 1 veces
+
+Si cada equipo tiene igual probabilidad de cada ranking (dado de 20 caras), la probabilidad de estar siempre en el top 3 es:
+
+```
+P(12 veces en top 3 | aleatorio) = (3/20)^12 = 1.3 × 10⁻¹⁰
+```
+
+**Esto es 1 entre 7700 MILLONES**. 
+
+> Que a cualquiera de los que leen este post le pueda matar un rayo en 2026 es 430 veces mayor que estar en el top 3 de equipos menos tarjeteados de la liga 12 temporadas seguidas.
+
+
+### Test Estadístico: Test Binomial
+
+Ahora formalicemos esto con estadística rigurosa.
+
+#### ¿Qué es una Hipótesis Nula?
+
+En estadística, siempre empezamos siendo **escépticos** y asumiendo que **no hay nada especial** pasando. A esto lo llamamos la **hipótesis nula (H₀)**.
+
+**Analogía:** Es como en un juicio - asumimos inocencia (hipótesis nula) hasta que la evidencia pruebe lo contrario.
+
+En nuestro caso:
+- **H₀ (Hipótesis Nula):** "Barcelona es como cualquier otro equipo. Tiene 25% de probabilidad de caer en Q1 cada temporada, aleatoriamente."
+- **H₁ (Hipótesis Alternativa):** "Barcelona NO es aleatorio. Hay algo sistemático favoreciendo Q1."
+
+#### ¿Qué es el Test Binomial?
+
+El **[test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)** es perfecto para nuestro caso porque estamos analizando:
+
+- Una serie de **eventos independientes** (cada temporada)
+- Cada evento tiene **dos resultados posibles** (en Q1 o no en Q1)
+- Cada evento tiene una **probabilidad fija** (25% si es aleatorio)
+
+Es exactamente como nuestro dado de 4 caras de la Parte 1: cada temporada "lanzamos el dado" y preguntamos "¿cayó en la cara '1' (Q1)?" Si el dado es justo, la probabilidad es 25% cada vez.
+
+#### Aplicando el Test
+
+**Pregunta del test:** "Si H₀ es cierta (Barcelona es aleatorio), ¿cuál es la probabilidad de observar `13/13` veces en Q1?"
+
+**Cálculo:**
+```text
+P(13/13 en Q1 | H₀) = (0.25)^13 = 1.46 × 10⁻⁸
+```
+
+Este número se llama **p-value** (valor p).
+
+#### Interpretación del P-value
+
+Estos son los umbrales estándar que se usan en ciencia para interpretar p-values:
+
+- **p > 0.05:** "No hay evidencia suficiente, podría ser azar" → No rechazamos H₀
+- **p < 0.05:** "Evidencia significativa, poco probable que sea azar" → Rechazamos H₀
+  (Este es el umbral estándar en la mayoría de disciplinas científicas)
+- **p < 0.01:** "Evidencia muy fuerte"
+- **p < 0.001:** "Evidencia extremadamente fuerte"
+- **p < 0.0001:** "Práctica certeza - virtualmente imposible que sea azar"
+
+**Nuestro p-value: 1.46 × 10⁻⁸**
+
+Esto es **14,600 veces más pequeño** que el umbral de práctica certeza (p < 0.0001).
+
+En términos científicos: **Es estadísticamente imposible que sea azar.**
+
+#### Conclusión del Test
+
+**Rechazamos la hipótesis nula con >99.9999% de confianza.**
+
+En lenguaje claro: La probabilidad de que esto sea casualidad es **prácticamente cero**. 
+
+> **Hay algo sistemático causando que Barcelona caiga en Q1.**
+
+Pero es muy importante dejar claro que, en este punto: **No tenemos ninguna evidencia de que ese algo sistemático sea el favor arbitral.** Podría ser el estilo de juego, la limpieza, u otros intangibles. No podemos hacer la conexión directa de que esta estadística, por sí sola, implica prácticas de corrupción.
+
+---
+
+## Hallazgo #2: Los Rivales Reciben MÁS Tarjetas
+
+No es solo que Barcelona reciba pocas tarjetas. Hay un segundo patrón igualmente importante: las tarjetas que reciben sus rivales.
+
+### Comparación: Barcelona vs Real Madrid vs Atlético
+
+Calculemos las tarjetas **promedio por temporada** (2005-2018):
+
+#### Tarjetas Amarillas
+
+
+<table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Propias</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivales</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Ratio</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Diferencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Barcelona</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>70.4</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>106.6</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>1.51x</code></strong></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>+36.2</strong></td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Real Madrid</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>87.4</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>106.8</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><code>1.22x</code></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>+19.4</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Atlético Madrid</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>101.9</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>98.0</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><code>0.96x</code></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>-3.9</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Otros (promedio)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>98.9</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>97.5</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>0.99x</code></strong></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>-1.4</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+![Gráfico de cuadrícula con 14 histogramas horizontales que muestran la distribución de tarjetas amarillas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid en las temporadas 2005-2018. El patrón clave es la consistencia del Barcelona, que se sitúa cerca de la parte inferior de la lista (menor cantidad de tarjetas) en casi todas las temporadas, mientras que los equipos rivales se encuentran consistentemente más arriba.](/blog/negreira/yellow_cards_distribution_grid.png)
+*Figura 1: **Consistencia atípica en tarjetas amarillas del F.C. Barcelona (2005-2018).** La visualización en cuadrícula muestra la distribución de tarjetas amarillas recibidas por F.C. Barcelona (azul), Real Madrid (negro) y Atlético Madrid (rojo) por temporada. Se observa que, durante todo el período 2005-2018, el Barcelona se mantuvo consistentemente entre los equipos con la menor cantidad de tarjetas recibidas, situándose en el tercio inferior de la liga en casi todas las temporadas. En contraste, el Atlético y el Real Madrid frecuentemente se encontraron entre los equipos con mayor número de amonestaciones.*
+
+**Observaciones clave:**
+
+1. **Barcelona: 70.4 tarjetas propias** - El más bajo de todos
+2. **Rivales de Barcelona: 106.6 tarjetas** - Muy similar a Real Madrid (106.8)
+3. **Diferencia de +36.2** - Barcelona recibe 36 tarjetas MENOS que sus rivales
+4. **Real Madrid: +19.4** - También positivo, pero casi la MITAD que Barcelona
+   - **Importante:** Real Madrid recibe CASI las mismas tarjetas amarillas que Barcelona de sus rivales (106.8 vs 106.6), pero la diferencia está en las tarjetas PROPIAS más bajas de Barcelona
+5. **Atlético: -3.9** - Sus rivales reciben MENOS tarjetas que ellos
+6. **Otros: -1.4** - Prácticamente equilibrado
+
+**Conclusión para amarillas:** Barcelona recibe menos tarjetas propias que cualquier otro equipo, pero las tarjetas a sus rivales son similares a las de Real Madrid. La diferencia principal está en las tarjetas rojas (ver abajo).
+
+#### Tarjetas Rojas
+
+<table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Propias</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Rivales</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Ratio</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Diferencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Barcelona</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>3.4</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>6.8</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>1.98x</code></strong></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>+3.4</strong></td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Real Madrid</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5.9</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5.9</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><code>1.00x</code></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0.0</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Atlético Madrid</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5.5</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5.8</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><code>1.05x</code></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>+0.3</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Otros (promedio)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>6.1</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>5.9</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong><code>0.97x</code></strong></td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>-0.2</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+![Gráfico de cuadrícula con 14 histogramas horizontales que muestran la distribución de tarjetas rojas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid en las temporadas 2005-2018. El patrón clave es la consistencia del Barcelona, que se sitúa cerca de la parte inferior de la lista (menor cantidad de tarjetas) en casi todas las temporadas, mientras que los equipos rivales se encuentran consistentemente más arriba.](/blog/negreira/red_cards_distribution_grid.png)
+*Figura 2: **Consistencia atípica en tarjetas rojas del F.C. Barcelona (2005-2018).** La visualización en cuadrícula muestra la distribución de tarjetas rojas recibidas por F.C. Barcelona (azul), Real Madrid (negro) y Atlético Madrid (rojo) por temporada. Se observa que, durante todo el período 2005-2018, el Barcelona se mantuvo consistentemente entre los equipos con la menor cantidad de tarjetas recibidas, situándose en el tercio inferior de la liga en todas las temporadas. En contraste, el Atlético y el Real Madrid frecuentemente se encontraron entre los equipos con mayor número de amonestaciones.*
+
+**Observaciones clave:**
+
+1. **Barcelona: ratio de 1.98x** - Sus rivales reciben ¡CASI EL DOBLE de rojas!
+   - Rivales: 6.8 rojas/temporada
+   - Barcelona: 3.4 rojas/temporada
+2. **Real Madrid: ratio de 1.00x** - Perfectamente balanceado (5.9 vs 5.9)
+3. **Atlético: ratio de 1.05x** - Casi neutral
+4. Los rivales de Barcelona reciben 6.8 rojas vs 5.9 de Madrid (15% más)
+5. Barcelona recibe 3.4 rojas vs 5.9 de Madrid (42% menos)
+
+Estos son los datos. Veremos más abajo si son estadísticas significativas o entran dentro de una variación natural esperada.
+
+### Visualización: Series Temporales y Comparaciones
+
+Veamos esto de forma visual. Las siguientes figuras muestran las tarjetas amarillas y rojas para los 3 grandes de forma temporal:
+
+![Análisis estadístico de tarjetas recibidas por Barcelona, Real Madrid y Atlético Madrid entre 2005-2018. Seis gráficos (series de tiempo, promedios y diferencias) comparan las tarjetas propias frente a las tarjetas de los equipos rivales. La visualización muestra que los rivales del Barcelona reciben significativamente más tarjetas amarillas (ratio 1.51x) y rojas (ratio 1.98x) que los rivales del Real Madrid y el Atlético Madrid.](/blog/negreira/opponent_cards_analysis.png)
+*Figura 3: **Discrepancia en Tarjetas Recibidas: Análisis Propio vs. Rival (2005-2018).** La figura presenta un análisis comparativo de las tarjetas recibidas por el F.C. Barcelona, Real Madrid y Atlético Madrid frente a las tarjetas recibidas por sus respectivos equipos rivales durante cada temporada. El Panel Superior se centra en las Tarjetas Amarillas, mientras que el Panel Inferior analiza las Tarjetas Rojas. Cada panel incluye: 1. Evolución Temporal (Izquierda): Serie de tiempo de tarjetas propias (línea sólida) y rivales (línea punteada). 2. Promedio (Centro): Comparación de promedios del periodo, destacando la ratio (ej. 1.51x, 1.98x). 3. Diferencia (Derecha): Bar plot de la diferencia total (Tarjetas Rival - Tarjetas Propias).*
+
+**¿Qué vemos en estos gráficos?**
+
+1. **Barcelona (azul):** Línea sólida muy baja (pocas tarjetas propias), línea punteada alta (muchas tarjetas a rivales)
+2. **Real Madrid (gris):** Líneas más equilibradas, diferencia menor
+3. **Atlético Madrid (rojo):** Líneas casi iguales o invertidas (más tarjetas propias que rivales)
+
+**El patrón visual es claro:** Solo Barcelona muestra esta separación dramática entre tarjetas propias (bajas) y tarjetas a rivales (altas). **Pero seguimos sin saber cuán significativas son estas observaciones, por lo quer no podemos sacar conclusiones aún.**
+
+---
+
+## Hallazgo #3: Desviación Sigma - ¿Qué tan "Raro" es Barcelona?
+
+### El Contexto: ¿Por Qué Necesitamos Este Análisis?
+
+Hasta ahora hemos visto que Barcelona estuvo en Q1 las `13/13` temporadas. Pero alguien podría argumentar:
+
+**"Claro, pero ALGUIEN tiene que ser el mejor en esta estadística. ¿No es normal que un equipo grande como Barcelona reciba menos tarjetas?"**
+
+**Es un buen punto.** En cualquier liga, siempre habrá un equipo que reciba menos tarjetas. Ser el mejor en una estadística no implica automáticamente favoritismo sistemático.
+
+**La pregunta clave es:** ¿Hasta qué punto es **normal** ser el mejor? ¿Y en qué punto te conviertes en un **outlier** (valor atípico) que se sale de lo esperado?
+
+Para responder esto, necesitamos entender las **distribuciones normales** y las **desviaciones sigma**.
+
+### ¿Qué es una Distribución Normal (Gaussiana)?
+
+Muchos fenómenos naturales siguen una **[distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)** (también llamada gaussiana o "curva de campana"):
+
+![Curva normal con desviaciones sigma](/blog/negreira/Bell-curve.jpg)
+*Figura 4: **Distribución normal (gaussiana) mostrando las desviaciones estándar (σ).** El 68% de los datos caen dentro de ±1σ, el 95% dentro de ±2σ, y el 99.7% dentro de ±3σ. Valores más allá de ±2σ son considerados inusuales, y más allá de ±3σ son outliers extremos.*
+
+**¿Qué nos dice esta curva?**
+
+- **Centro (media):** Es donde está la mayoría de los datos
+- **Desviaciones estándar (σ):** Miden qué tan lejos está algo del promedio
+- **La regla empírica:**
+  - **68%** de los datos están dentro de ±1σ del promedio (común)
+  - **95%** están dentro de ±2σ (poco común fuera de esto)
+  - **99.7%** están dentro de ±3σ (muy raro fuera de esto)
+
+**Ser el mejor NO es necesariamente anormal.** Pero **estar a +3σ del promedio** sí lo es.
+
+### ¿Qué es una Desviación Sigma?
+
+En estadística, medimos qué tan lejos está un valor del promedio usando **desviaciones estándar (σ)**:
+
+- **±1σ:** Cubre el 68% de los datos (común)
+- **±2σ:** Cubre el 95% de los datos (inusual)
+- **±3σ:** Cubre el 99.7% de los datos (muy raro)
+
+**Analogía:** Si la altura promedio es 170 cm con σ=10 cm:
+- 160-180 cm (±1σ): Normal
+- 150-190 cm (±2σ): Inusual pero posible
+- &lt;150 cm o &gt;190 cm (±3σ): Muy raro
+
+### Cálculo para Barcelona - Tarjetas Amarillas
+
+**Media de la liga:** 97.9 tarjetas/temporada
+**Desviación estándar:** 15.4 tarjetas
+**Barcelona:** 70.4 tarjetas/temporada
+
+```text
+Z-score = (70.4 - 97.9) / 15.4 = -1.79σ
+```
+
+**Interpretación:** Barcelona está **1.79 desviaciones estándar** por debajo de la media.
+
+Esto significa que solo ~**5% de los equipos** reciben tan pocas tarjetas como Barcelona.
+
+**¿Es esto evidencia de favoritismo?** Por sí solo, **no necesariamente**. Estar en el 5% más bajo es inusual, pero no es imposible por azar. Muchos fenómenos tienen valores en ese rango que son perfectamente explicables por variabilidad natural, calidad de equipo, estilo de juego, etc.
+
+### Comparación Visual - Distribución de la Liga
+
+Veamos cómo se compara Barcelona con la distribución completa de toda La Liga:
+
+![Dos histogramas de distribución de frecuencia de tarjetas por equipo y temporada en La Liga (2005-2018). El gráfico de la izquierda muestra que la media de tarjetas amarillas del Barcelona está a -1.79 desviaciones estándar de la media de la liga. El gráfico de la derecha muestra la distribución de tarjetas rojas. Ambas visualizaciones ilustran que el Barcelona recibe un número de tarjetas significativamente menor que el promedio de la liga.](/blog/negreira/league_distribution_with_sigma.png)
+*Figura 5: **Desviación Estadística en las Amonestaciones del F.C. Barcelona (2005-2018).** Los histogramas de distribución representan la frecuencia de tarjetas por equipo y por temporada a nivel de toda La Liga (total de 260 observaciones). La media de la liga ($\mu$) y las desviaciones estándar ($\sigma$) están marcadas para contextualizar las medias de los tres equipos.*
+
+**¿Qué nos dice esta figura?**
+
+1. **La curva gris (gaussiana):** Muestra la distribución de tarjetas de todos los equipos participantes en la liga entre 2005 y 2018
+2. **Media del Barcelona (línea azul):** Está muy a la izquierda - menos tarjetas amarillas que casi todos
+3. **Media del Real Madrid (línea negra):** Está más cerca del centro, pero ligeramente a la izquierda
+4. **Media del Atlético (línea roja):** Está a la derecha del centro - más tarjetas que el promedio
+5. **Barcelona está a -1.79σ:** Solo ~5% de los equipos reciben tan pocas tarjetas
+
+**Resultado visual:** Barcelona está claramente separado del resto de equipos top de la liga, en la cola izquierda, pero **los resultados no evidencian un sesgo estadísticamente significativo en este sentido.**
+
+**Contexto importante:** Nuevamente, esto por sí solo no prueba nada definitivo. Estar en la cola de una distribución puede tener múltiples explicaciones (calidad de plantilla, estilo de juego, etc.). Lo que hace este hallazgo significativo es que **se combina** con todos los demás patrones que hemos observado. La evidencia se acumula - no es un solo dato aislado.
+
+---
+
+## Actualización Bayesiana #1: Después del Hallazgo Q1
+
+Ahora que hemos visto la evidencia de que Barcelona estuvo en Q1 las `14/14` temporadas, actualicemos nuestras creencias usando el **Teorema de Bayes**.
+
+### Recordatorio: Nuestro Prior
+
+En la Parte 1, establecimos un **prior extremadamente escéptico**:
+
+```text
+P(sesgo arbitral) = 0.01% = 0.0001
+```
+
+Es decir, empezamos creyendo que hay solo **1 posibilidad en 10,000** de que exista sesgo.
+
+### Aplicando Bayes con la Evidencia Q1
+
+**Evidencia observada:** Barcelona en Q1 las `14/14` temporadas
+
+**Probabilidades:**
+1. **Si hay sesgo** (los árbitros favorecen a Barcelona):
+   - `P(14/14 en Q1 | sesgo) ≈ 0.80` (muy probable que estén en Q1)
+2. **Si NO hay sesgo** (todo es aleatorio):
+   - `P(14/14 en Q1 | no sesgo) = (0.25)^14 = 3.73 × 10⁻⁹`
+
+**Aplicamos Bayes:**
+
+```text
+P(sesgo | 14/14 en Q1) = [P(14/14|sesgo) × P(sesgo)] / P(14/14)
+
+P(14/14) = P(14/14|sesgo) × P(sesgo) + P(14/14|no sesgo) × P(no sesgo)
+P(14/14) = (0.80 × 0.0001) + (3.73×10⁻⁹ × 0.9999)
+P(14/14) ≈ 0.00008
+
+P(sesgo | 14/14 en Q1) = [0.80 × 0.0001] / 0.00008
+P(sesgo | 14/14 en Q1) ≈ 0.999 = 99.9%
+```
+
+### ¿Qué Acabamos de Calcular?
+
+Empezamos con **0.01% de creencia** en sesgo (ultra-escépticos).
+
+Después de ver que Barcelona estuvo en Q1 las `14/14` temporadas, nuestra creencia se actualiza a **99.9%**.
+
+**Incluso siendo extremadamente escépticos al inicio, los datos nos obligan a cambiar de opinión.**
+
+---
+
+## Actualización Bayesiana #2: Agregando la Evidencia de Rivales
+
+Ahora agreguemos la segunda pieza de evidencia: **Los rivales de Barcelona reciben 1.51x más tarjetas amarillas**.
+
+### ¿Qué tan Improbable es Esto?
+
+Si todo fuera aleatorio, esperaríamos que el ratio de tarjetas (Rivales/Equipo) sea cercano a **1.0** para todos los equipos.
+
+**Observamos:**
+- Barcelona: **1.51**
+- Real Madrid: 1.22
+- Atlético: 0.96
+- Otros: 0.99
+
+Para calcular la probabilidad, necesitamos la distribución de ratios en la liga:
+
+- **Media de ratios:** 1.01 (casi perfecto equilibrio)
+- **Desviación estándar:** 0.18
+
+**Z-score de Barcelona:**
+```text
+Z = (1.51 - 1.01) / 0.18 = 2.78σ
+```
+
+**Probabilidad de un ratio ≥ 1.51 por azar:**
+```text
+P(Z ≥ 2.78) ≈ 0.0027 = 0.27%
+```
+
+Es decir, **1 entre 370** equipos tendría un ratio tan alto por pura casualidad. 
+
+### Actualizando Bayes de Nuevo
+
+Ahora tenemos **DOS evidencias independientes**:
+
+1. Barcelona `14/14` en Q1 → P = 3.73 × 10⁻⁹
+2. Ratio de rivales 1.51 → P = 0.0027
+
+**Probabilidad combinada de AMBAS por casualidad:**
+```text
+P(ambas | no sesgo) = (3.73×10⁻⁹) × (0.0027) ≈ 1 × 10⁻¹¹
+```
+
+**Esto es 1 entre 100 MIL MILLONES.**
+
+Actualizando Bayes:
+```text
+P(sesgo | ambas evidencias) > 99.99%
+```
+
+**Ya no hay duda razonable.**
+
+---
+
+## Comparación con Real Madrid y Atlético
+
+Un punto crítico: **¿Todos los equipos grandes tienen este patrón?**
+
+Si la respuesta es "sí", entonces quizás es solo una característica de equipos top (mejor disciplina, más posesión, etc.).
+
+### Resultados de Cuartiles (2005-2018)
+
+<table style={{ width: '100%', borderCollapse: 'collapse', border: '1px solid rgba(255, 255, 255, 0.3)', marginTop: '1.5rem', marginBottom: '1.5rem' }}>
+  <thead>
+    <tr style={{ borderBottom: '2px solid rgba(255, 255, 255, 0.4)', backgroundColor: 'rgba(13, 21, 32, 0.5)' }}>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Equipo</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q1</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q2</th>
+      <th style={{ borderRight: '1px solid rgba(255, 255, 255, 0.2)', padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q3</th>
+      <th style={{ padding: '0.75rem', textAlign: 'left', color: 'white', fontWeight: 600 }}>Temporadas en Q4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Barcelona</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>14 (100%)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Real Madrid</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5 (36%)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>4 (29%)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>3 (21%)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2 (14%)</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>Atlético</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>1 (7%)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>2 (14%)</td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>5 (36%)</td>
+      <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>6 (43%)</td>
+    </tr>
+  </tbody>
+</table>
+
+**Interpretación:**
+
+- **Barcelona:** 100% en Q1 (estadísticamente imposible por azar)
+- **Real Madrid:** Distribución razonable, tendencia hacia Q1 pero no extrema
+- **Atlético:** Distribución normal, incluso tendencia hacia Q3 y Q4 (más tarjetas)
+
+**Conclusión:** El patrón de Barcelona es **único**. No es una característica de "equipos grandes".
+
+---
+
+## El Caso Busquets: Cuando las Estadísticas Se Hacen Realidad
+
+A veces, las anomalías estadísticas tienen [ejemplos concretos documentados](https://www.futbolgate.com/investigaci%C3%B3n/el-d%C3%ADa-que-un-%C3%A1rbitro-sac%C3%B3-una-segunda-amarilla-a-busquets-pero-decidi%C3%B3-no-expulsarle).
+
+En la temporada 2009-10 Sergio Busquets (Barcelona) recibió una **segunda tarjeta amarilla** en un partido arbitrado por Teixeira Vitienes. Sin embargo, el jugador no fue expulsado. 
+
+La situación se repitió años después, en la última temporada analizada en estos documentos, la 2017-2018, con el jugador del F.C. Barcelona, Gerard Pique, que recibió también dos cartulinas amarillas sin llegar a ser expulsado del terreno de juego.
+
+Veamos qué tipo de probabilidad estadística tiene que fallos tan flagrantes se den en dos ocasiones, en los años en que los pagos están documentados, y que ambos favorezcan al mismo equipo.
+
+
+**Probabilidad de un Error (P_error):**
+
+Asumimos que la probabilidad de que un árbitro cometa este error específico en cualquier partido es ínfima. Ha pasado 3 veces documentadas en la historia del fútbol. Los dos casos conocidos del Barcelona y en 2006, en el Mundial, en el caso de Josip Šimunić.
+
+Si estimamos 20 ligas de élite, a 380 partidos por año y 100 años de competición, hablamos de que la posibilidad de que este error tenga lugar, y esto es muy conservativo:
+
+```text
+P_error ~ 3 / 760,000 = 0.000003947
+```
+
+Esto pasa una vez cada 250 000 partidos. La probabilidad de que esto pase dos veces al mismo equipo es entonces P_error^2 / número total de equipos en esas 20 ligas. Consideremos 40 equipos por liga en cien años. Es decir, 800 equipos distintos. Esto significa que la probabilidad de que esto pase al Barcelona es de P_Barça = 1 / 800.
+
+```text
+P(Doble Coincidencia Barça) = (P_error × P_Barça)^2
+
+P(Doble Coincidencia Barça) ~ (0.000003947 × (1/800))^2
+
+P(Doble Coincidencia Barça) ~ 1 / 41,074,755,770,000,000
+```
+
+> La probabilidad de que esto pase es de una entre 41 cuatrillones, y ha pasado durante esos años de plomo de los pagos.
+---
+
+## Resumen de Evidencias (Hasta Ahora)
+
+### Evidencia #1: Cuartiles Q1
+- **Hecho:** Barcelona en Q1 las `14/14` temporadas
+- **Probabilidad por azar:** 1 en 268 millones
+- **P-value:** < 0.0001
+
+### Evidencia #2: Ratios de Rivales
+- **Hecho:** Rivales de Barcelona reciben 1.51x más amarillas, 1.98x más rojas
+- **Z-score:** 2.78σ (amarillas)
+- **Patrón único:** No se ve en Real Madrid ni Atlético, aunque un resultado por debajo de 3σ puede considerarse normal.
+
+### Evidencia #3: Desviación de la Media
+- **Hecho:** Barcelona está 1.79σ por debajo de la media de la liga
+- **Interpretación:** Solo ~5% de equipos tan bajos. Sin embargo, un resultado por debajo de 3σ puede considerarse normal.
+
+### Evidencia #4: Dobles amarillas sin expulsiones
+- **Hecho:** Dos jugadores del Barcelona reciben una doble amarilla sin ser expulsados
+- **Interpretación:** Que esto suceda al mismo equipo dos veces tiene una conservadora probabilidad de 1 entre 41 cuatrillones.
+
+### Actualización Bayesiana Acumulada
+
+Hasta ahora tenemos **TRES evidencias independientes**:
+
+1. **Barcelona 14/14 en Q1** → P = 3.73 × 10⁻⁹ (1 en 268 millones)
+2. **Ratio de rivales 1.51x en amarillas** → P = 0.0027 (1 en 370)
+3. **Caso Busquets/Piqué: Doble error arbitral** → P = 2.43 × 10⁻¹⁷ (1 en 41 cuatrillones)
+
+**Probabilidad combinada de las TRES evidencias por casualidad:**
+```text
+P(todas | no sesgo) = (3.73×10⁻⁹) × (0.0027) × (2.43×10⁻¹⁷) ≈ 2.4×10⁻²⁷
+```
+
+**Esto es 1 entre 400 SEXTILLONES.**
+
+**Actualización Bayesiana:**
+- **Prior:** 0.01% (ultra-escépticos)
+- **Posterior:** >99.999999999999% (virtualmente ciertos, 15 nueves)
+
+**Incluso empezando extremadamente escépticos, los datos nos obligan a concluir que hay un patrón no aleatorio.**
+
+---
+
+## Pero... ¿Podría Haber Otras Explicaciones?
+
+Has visto las cifras. Has visto las probabilidades. El Teorema de Bayes nos dice que hay >99.99% de certeza de un patrón no aleatorio.
+
+**Pero seamos justos:** Antes de concluir algo tan grave, debemos considerar todas las explicaciones alternativas posibles.
+
+### Hipótesis Alternativas
+
+
+#### Hipótesis #1: "Barcelona tiene más posesión, comete menos faltas"
+
+**Argumento:** El famoso "tiki-taka" de Barcelona les da más posesión, por lo tanto cometen menos faltas y reciben menos tarjetas.
+
+**Problemas con esta hipótesis:**
+
+- ✅ Podría explicar las **pocas tarjetas propias** de Barcelona
+- ❌ NO explica por qué los **RIVALES** de Barcelona reciben 1.51x más tarjetas amarillas
+- ❌ NO explica por qué los rivales de Barcelona reciben 1.98x más tarjetas rojas
+- Los rivales de Real Madrid también enfrentan un equipo con mucha posesión, pero su ratio es solo 1.22x
+- **¿Por qué los rivales de Barcelona son castigados más duramente que los rivales de otros equipos grandes?**
+
+#### Hipótesis #2: "Barcelona tiene mejores jugadores que provocan más faltas"
+
+**Argumento:** Messi, Iniesta, Xavi eran tan buenos que los rivales cometían más faltas contra ellos.
+
+**Problemas con esta hipótesis:**
+
+- Real Madrid tenía a Cristiano Ronaldo, Benzema, Modric, Kroos - jugadores de calidad equivalente
+- Real Madrid también provocaba faltas, pero ratio de 1.22 vs 1.51 de Barcelona
+- **¿Por qué Barcelona provocaría 25% más faltas que Real Madrid?**
+- Atlético también tenía jugadores de élite mundial, pero ratio de solo 0.96x
+- **No explica la magnitud de la diferencia**
+
+#### Hipótesis #3: "Es el estilo de juego específico de ciertos entrenadores"
+
+**Argumento:** Guardiola y Luis Enrique tenían un estilo que generaba este patrón.
+
+**Problemas con esta hipótesis:**
+
+- El patrón abarca **13 temporadas** con múltiples entrenadores muy diferentes:
+  - **Frank Rijkaard** (2005-2008): 3 temporadas - Q1 las 3 veces
+  - **Pep Guardiola** (2008-2012): 4 temporadas - Q1 las 4 veces
+  - **Tito Vilanova** (2012-2013): 1 temporada - Q1
+  - **Tata Martino** (2013-2014): 1 temporada - Q1
+  - **Luis Enrique** (2014-2017): 3 temporadas - Q1 las 3 veces (Que ha declarado no haber visto ningún informe arbitral)
+  - **Ernesto Valverde** (2017-2018): 1 temporada - Q1 (Que ha declarado no haber visto ningún informe arbitral)
+- **6 entrenadores diferentes, estilos diferentes, pero mismo patrón**
+- **La probabilidad de que 6 entrenadores distintos produzcan el mismo resultado extremo por casualidad es astronómicamente baja**
+
+### La Pregunta que No Podemos Ignorar
+
+Todas estas hipótesis alternativas tienen un problema fundamental. Ninguna explica:
+
+1. La **consistencia perfecta** (`13/13` temporadas en Q1, probabilidad 1 en 68 millones)
+2. El **patrón único** de Barcelona (no replicado por Real Madrid ni Atlético)
+3. Los **ratios extremos** de tarjetas a rivales (1.51x amarillas, 1.98x rojas)
+4. La **independencia de entrenadores** (6 técnicos diferentes, mismo resultado)
+
+**Entonces... ¿es posible que todas estas sean coincidencias? ¿Que Barcelona simplemente tuvo "suerte" de tener el estilo perfecto, los entrenadores perfectos, en el momento perfecto, durante 13 años seguidos?**
+
+Posible, sí. **Probable, tal como demuestran las estadísticas, no.**
+
+### La Prueba Definitiva: Un Experimento Natural
+
+Pero hay una forma de resolver esto de manera concluyente.
+
+**La pregunta clave es:**
+
+¿Es este patrón sobre **Barcelona como equipo** (calidad, estilo, disciplina)?
+
+¿Es este patrón **relacionado con los pagos al vicepresidente del comité de árbitros**?
+
+Si el patrón es sobre **Barcelona como equipo**, debería aparecer **en todas las competiciones** donde Barcelona juega.
+
+Si el patrón está **relacionado con los pagos al vicepresidente del comité de árbitros**, debería aparecer **solo en La Liga** y desaparecer con árbitros independientes de Negreira.
+
+**¿Cómo podemos probar esto?**
+
+Necesitaríamos una competición donde:
+
+1. ✅ Barcelona y Real Madrid participan
+2. ✅ Juegan contra equipos de calidad similar
+3. ✅ Pero los árbitros son **internacionales**, no españoles
+4. ✅ Los árbitros no tienen conexión con Negreira ni con el Comité de Árbitros español
+
+**¿Existe tal competición?**
+
+Sí.
+
+Se llama **La Liga de Campeones de la UEFA**.
+
+En la Champions League:
+
+- Los mismos equipos (Barcelona, Real Madrid)
+- Los mismos jugadores (Messi, Cristiano)
+- Los mismos entrenadores (Guardiola, Mourinho, Luis Enrique, Zidane)
+- Los mismos estilos de juego (tiki-taka, posesión, presión alta)
+- **Pero árbitros completamente diferentes** - designados por UEFA, no por España
+
+**Si el patrón de Barcelona desaparece en Champions League, eso probaría que NO es sobre el equipo.**
+
+**Si el patrón persiste, entonces hay algo intrínseco al Barcelona que causa esto.**
+
+Hemos analizado 13 temporadas de La Liga. Hemos visto probabilidades de 1 en 68 millones. Hemos actualizado nuestras creencias bayesianas a >99.99%.
+
+Pero una duda razonable permanece: **¿Y si todas las explicaciones alternativas, combinadas, de alguna forma producen este patrón extraordinario?**
+
+Es improbable. Extremadamente improbable. Pero no imposible....
+
+**¿Qué crees que vamos a encontrar?**
+
+---
+
+## Fuentes y Referencias
+
+### ⚖️ Caso Negreira - Contexto
+
+- **[Wikipedia: Caso Negreira](https://es.wikipedia.org/wiki/Caso_Negreira)** - Resumen del caso, cronología de eventos, y principales actores involucrados.
+- **[BBC Sport: Barcelona charged over 'corruption' in referee payments scandal](https://www.bbc.com/sport/football/64865088)** - Cobertura internacional del caso por la BBC.
+- **[The Guardian: Barcelona charged with corruption over payments to referee official](https://www.theguardian.com/football/2023/mar/10/barcelona-charged-corruption-referee-payments-jose-maria-enriquez-negreira)** - Análisis del caso por The Guardian.
+- **[Análisis de Planeta Real Madrid (datos del siglo XXI completo)](https://www.planetarealmadrid.com/curiosidades/comparativa-entre-saldo-arbitral-barca-real-madrid-en-laliga_317934_102.html)**
+
+### 📚 Recursos de Estadística Bayesiana
+
+- **["Think Bayes" por Allen B. Downey](https://greenteapress.com/wp/think-bayes/)** - Libro open-source sobre razonamiento bayesiano. Excelente introducción a la actualización de creencias con ejemplos prácticos.
+- **["Statistical Rethinking" por Richard McElreath](https://xcelab.net/rm/statistical-rethinking/)** - Texto avanzado sobre inferencia bayesiana aplicada.
+- **[Test Chi-cuadrado](https://es.wikipedia.org/wiki/Prueba_%CF%87%C2%B2)**
+- **[Teorema de Bayes](https://es.wikipedia.org/wiki/Teorema_de_Bayes)**
+- **[Test binomial](https://es.wikipedia.org/wiki/Prueba_binomial)**
+- **[Distribución normal](https://es.wikipedia.org/wiki/Distribuci%C3%B3n_normal)**
+
+### 🔧 Código y Datos
+
+- **[Repositorio GitHub: drAbreu/negreira](https://github.com/drAbreu/negreira)** - Todo el código fuente y análisis reproducible.
+- **[Notebook de dados](https://github.com/drAbreu/negreira/blob/main/notebooks/dice_analogy_fairness.ipynb)** - Análisis interactivo de detección de dados trucados con tests estadísticos.
+
+### 🎨 Créditos de Imagen
+
+- **Imagen principal:** Generada por Google Gemini Banana.
+
+---
+
+*Continúa en la [Parte 3: La Prueba Definitiva](/blog/negreira-del-bayes-parte-3)*
+
+**"Los dados están echados. Ahora veamos quién los lanzó."**
+
+**Nota Metodológica:** Este análisis usa estadística descriptiva e inferencia bayesiana. Los p-values y probabilidades son calculados usando métodos estándar (test binomial, z-scores). Todos los cálculos son verificables y reproducibles.
