@@ -14,7 +14,7 @@ lang: "en"
 
 In [Part 1](/blog/negreira-del-bayes-part-1), we learned to detect loaded dice with Bayes' Theorem.
 
-In [Part 2](/blog/negreira-del-bayes-part-2), we saw that Barcelona was in Q1 for 13/13 seasons (probability: 1 in 268 million) and that their rivals received more cards than any other team's rivals.
+In [Part 2](/blog/negreira-del-bayes-part-2), we saw that Barcelona was in Q1 for 13/13 seasons (probability: 1 in 68 million) and that their rivals received more cards than any other team's rivals.
 
 **The question that remained:** Is this about Barcelona (their quality, playing style) or is there something more related to payments to the vice president of the referees committee?
 
@@ -137,26 +137,41 @@ Now we have **FOUR independent pieces of evidence**. Let's update Bayes once mor
 
 ### Accumulated Evidence
 
-1. **Barcelona 14/14 in Q1** → P = 3.73 × 10⁻⁹ (1 in 268 million)
+1. **Barcelona 13/13 in Q1** → P = 1.46 × 10⁻⁸ (1 in 68 million)
 2. **Rivals ratio 1.51x in yellows** → P = 0.0027 (1 in 370, not significant by itself.)
 3. **Red balance +47** → P = 5.25 × 10⁻⁵ (1 in 19,057)
 4. **Busquets/Piqué Case: Documented double referee error** → P = 2.43 × 10⁻¹⁷ (1 in 41 quadrillion)
 
 ### Conservative Bayesian Calculation
 
-Using the most conservative method (assuming some correlation between evidences):
+**Important note:** The following calculation assumes complete independence between evidences, which is **unrealistic**. We present it as an **illustrative upper bound**, NOT as a precise estimate. The conclusion does NOT depend on this combination.
 
 **Prior:** 0.01% (extremely skeptical, as we established in [Part 1](/blog/negreira-del-bayes-part-1))
 
-**Likelihood ratio (combined evidence):**
+**Likelihood ratio (if we incorrectly assume complete independence):**
 ```
 LR = P(evidences | bias) / P(evidences | no bias)
-LR ≈ 0.50 / (3.73×10⁻⁹ × 0.0027 × 5.25×10⁻⁵ × 2.43×10⁻¹⁷)
-LR ≈ 0.50 / (1.3×10⁻³²)
-LR ≈ 4×10³¹ (40 quintillion)
+LR ≈ 0.50 / (1.46×10⁻⁸ × 0.0027 × 5.25×10⁻⁵ × 2.43×10⁻¹⁷)
+LR ≈ 0.50 / (5×10⁻³²)
+LR ≈ 1×10³¹ (10 quintillion) [UPPER BOUND]
 ```
 
-> The number above, if it were in metric units, would be the equivalent of 10 light years. Imagine that in that astronomical distance you're told you must choose one meter of space to win a contest. Your chances of winning would be the same as the cumulative probability from the statistical evidence that the Spanish league data under the Negreira payments was coincidence.
+> This number is illustrative to show the extreme magnitude of improbability, but it is **not necessary** for our conclusion. Even taking only the most robust evidence individually, the conclusion holds.
+
+#### ⚠️ Critical Methodological Note: Correlation Between Evidences
+
+When multiplying these probabilities, **we assume complete independence** between the four evidences. However:
+
+1. **Potential correlation:** Being in Q1 (few own cards) and having a high ratio of cards to rivals are correlated - both measure aspects of the same underlying phenomenon
+2. **Non-independent cases:** The yellow and red card findings are also related - teams with fewer yellows tend to have fewer reds
+
+**Rigorous conservative approach:**
+Even without combining the evidences, **each independent line alone** is sufficient:
+- 13/13 in Q1: p = 1.46 × 10⁻⁸ (rejects H₀ with >99.9999% confidence)
+- Red balance +47 (Z=4.5σ): p = 5.25 × 10⁻⁵ (rejects H₀ with >99.99% confidence)
+- Champions League validation: Pattern completely disappears with UEFA referees (specificity proof)
+
+**Conclusion:** The combined probability should be interpreted as an **upper bound** of the real p-value. The true conclusion holds even taking only the most robust evidences individually.
 
 **Posterior:**
 ```
@@ -259,8 +274,8 @@ Let's analyze the **red card balance** for Barcelona and Real Madrid in **both c
 Let's recap everything we've found:
 
 ### 1️⃣ Impossibility of Consistency (Binomial Test)
-- **Fact:** 14/14 seasons in Q1
-- **Probability by chance:** 1 in 268,435,456
+- **Fact:** 13/13 seasons in Q1
+- **Probability by chance:** 1 in 68,435,456
 - **P-value:** < 0.0001
 
 ### 2️⃣ Disparity in Cards to Rivals
@@ -336,7 +351,7 @@ With **all** the combined evidence:
 Let's return to our 4-sided die from Part 1.
 
 Imagine that:
-1. **We roll the die 14 times** → It lands on "1" all 14 times (Barcelona in Q1 14/14)
+1. **We roll the die 13 times** → It lands on "1" all 13 times (Barcelona in Q1 13/13)
 2. **We measure the die's weight** → It's unbalanced toward "1" (rivals ratio 1.51x)
 3. **We analyze 40 similar dice** → This is the ONLY one with so much bias (balance +47, #1 of 40)
 4. **We test the die on a different table** → On the other table it lands normally (Champions League)

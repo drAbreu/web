@@ -14,7 +14,7 @@ lang: "es"
 
 En la [Parte 1](/blog/negreira-del-bayes-parte-1), aprendimos a detectar dados trucados con el Teorema de Bayes.
 
-En la [Parte 2](/blog/negreira-del-bayes-parte-2), vimos que Barcelona estuvo en Q1 las 13/13 temporadas (probabilidad: 1 en 268 millones) y que sus rivales recibían más tarjetas que los rivales de cualquier otro equipo.
+En la [Parte 2](/blog/negreira-del-bayes-parte-2), vimos que Barcelona estuvo en Q1 las 13/13 temporadas (probabilidad: 1 en 68 millones) y que sus rivales recibían más tarjetas que los rivales de cualquier otro equipo.
 
 **La pregunta que quedó:** ¿Es esto sobre Barcelona (su calidad, estilo de juego) o hay algo más relacionado con los pagos al vicepresidente del comité de árbitros?
 
@@ -137,26 +137,41 @@ Ahora tenemos **CUATRO evidencias independientes**. Actualicemos Bayes una vez m
 
 ### Evidencias Acumuladas
 
-1. **Barcelona 14/14 en Q1** → P = 3.73 × 10⁻⁹ (1 en 268 millones)
+1. **Barcelona 13/13 en Q1** → P = 1.46 × 10⁻⁸ (1 en 68 millones)
 2. **Ratio de rivales 1.51x en amarillas** → P = 0.0027 (1 en 370, no significativa por sí sola.)
 3. **Saldo de rojas +47** → P = 5.25 × 10⁻⁵ (1 en 19,057)
 4. **Caso Busquets/Piqué: Doble error arbitral documentado** → P = 2.43 × 10⁻¹⁷ (1 en 41 cuatrillones)
 
 ### Cálculo Bayesiano Conservador
 
-Usando el método más conservador (asumiendo cierta correlación entre evidencias):
+**Nota importante:** El siguiente cálculo asume independencia total entre evidencias, lo cual es **poco realista**. Lo presentamos como **límite superior ilustrativo**, NO como estimación precisa. La conclusión NO depende de esta combinación.
 
 **Prior:** 0.01% (extremadamente escépticos, como establecimos en [Parte 1](/blog/negreira-del-bayes-parte-1))
 
-**Likelihood ratio (evidencia combinada):**
+**Likelihood ratio (si asumimos incorrectamente independencia completa):**
 ```
 LR = P(evidencias | sesgo) / P(evidencias | no sesgo)
-LR ≈ 0.50 / (3.73×10⁻⁹ × 0.0027 × 5.25×10⁻⁵ × 2.43×10⁻¹⁷)
-LR ≈ 0.50 / (1.3×10⁻³²)
-LR ≈ 4×10³¹ (40 quintillones)
+LR ≈ 0.50 / (1.46×10⁻⁸ × 0.0027 × 5.25×10⁻⁵ × 2.43×10⁻¹⁷)
+LR ≈ 0.50 / (5×10⁻³²)
+LR ≈ 1×10³¹ (10 quintillones) [LÍMITE SUPERIOR]
 ```
 
-> El número anterior, si fuera en unidades métricas, sería el equivalente a 10 años luz. Imagínate que en esa astronómica distancia te dicen que debes de elegir un metro de espacio para ganar un concurso. Tus opciones de ganarlo serían las mismas que la probabilidad acumulada por la evidencia estadística de que los datos de la liga española bajo los pagos a Negreira fueran casualidad.
+> Este número es ilustrativo para mostrar la magnitud extrema de la improbabilidad, pero **no es necesario** para nuestra conclusión. Incluso tomando solo la evidencia más robusta individualmente, la conclusión se mantiene.
+
+#### ⚠️ Nota Metodológica Crítica: Correlación Entre Evidencias
+
+Al multiplicar estas probabilidades, **asumimos independencia completa** entre las cuatro evidencias. Sin embargo:
+
+1. **Correlación potencial:** Estar en Q1 (pocas tarjetas propias) y tener un ratio alto de tarjetas a rivales están correlacionados - ambos miden aspectos del mismo fenómeno subyacente
+2. **Casos no independientes:** Los hallazgos de tarjetas amarillas y rojas también están relacionados - equipos con menos amarillas tienden a tener menos rojas
+
+**Enfoque conservador riguroso:**
+Incluso sin combinar las evidencias, **cada línea independiente por sí sola** es suficiente:
+- 13/13 en Q1: p = 1.46 × 10⁻⁸ (rechaza H₀ con >99.9999% de confianza)
+- Saldo de rojas +47 (Z=4.5σ): p = 5.25 × 10⁻⁵ (rechaza H₀ con >99.99% de confianza)
+- Validación Champions League: Patrón desaparece completamente con árbitros UEFA (prueba de especificidad)
+
+**Conclusión:** La probabilidad combinada debe interpretarse como un **límite superior** del p-value real. La verdadera conclusión se sostiene incluso tomando solo las evidencias más robustas individualmente.
 
 **Posterior:**
 ```
@@ -259,8 +274,8 @@ Analicemos el **saldo de tarjetas rojas** para Barcelona y Real Madrid en **amba
 Recapitulemos todo lo que hemos encontrado:
 
 ### 1️⃣ Imposibilidad de Consistencia (Test Binomial)
-- **Hecho:** 14/14 temporadas en Q1
-- **Probabilidad por azar:** 1 en 268,435,456
+- **Hecho:** 13/13 temporadas en Q1
+- **Probabilidad por azar:** 1 en 68,435,456
 - **P-value:** < 0.0001
 
 ### 2️⃣ Disparidad de Tarjetas a Rivales
@@ -336,7 +351,7 @@ Con **todas** las evidencias combinadas:
 Volvamos a nuestro dado de 4 caras de la Parte 1.
 
 Imaginemos que:
-1. **Lanzamos el dado 14 veces** → Cae en "1" las 14 veces (Barcelona en Q1 14/14)
+1. **Lanzamos el dado 13 veces** → Cae en "1" las 13 veces (Barcelona en Q1 13/13)
 2. **Medimos el peso del dado** → Está desbalanceado hacia el "1" (ratio de rivales 1.51x)
 3. **Analizamos 40 dados similares** → Este es el ÚNICO con tanto sesgo (saldo +47, #1 de 40)
 4. **Probamos el dado en una mesa diferente** → En la otra mesa cae normalmente (Champions League)

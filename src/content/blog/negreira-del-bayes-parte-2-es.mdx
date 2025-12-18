@@ -18,7 +18,7 @@ En la [Parte 1](/blog/negreira-del-bayes-parte-1), aprendimos a detectar dados t
 - **Actualizar creencias** paso a paso con el Teorema de Bayes
 - **Entender los cuartiles** como un "dado de 4 caras"
 
-Ahora, nos preguntamos: **¿En qué cuartil estuvo Barcelona durante esas 14 temporadas de pagos a Negreira?**
+Ahora, nos preguntamos: **¿En qué cuartil estuvo Barcelona durante esas 13 temporadas analizadas de pagos a Negreira?**
 
 Ahora ha llegado el momento de revelar los datos. Prepárate.
 
@@ -33,7 +33,7 @@ Para este análisis utilizamos dos fuentes principales:
    - 5,320 partidos de La Liga
    - Tarjetas amarillas y rojas por equipo
    - Faltas cometidas
-   - 14 temporadas completas
+   - 13 temporadas completas
 2. **[Futbolgate.com](https://www.futbolgate.com/investigaci%C3%B3n/las-estad%C3%ADsticas-del-saldo-arbitral)** - Datos complementarios (2002-2006)
    - Estadísticas de saldo arbitral
    - Análisis histórico del período
@@ -45,7 +45,7 @@ Hemos decidido usar solo los datos de **Football-Data.co.uk**, aunque una compro
 Nos enfocamos en **2005-2018** porque:
 - Coincide con el **período de pagos a Negreira** (2001-2018)
 - Tenemos **datos completos** de tarjetas (no disponibles antes de 2005)
-- Son **14 temporadas consecutivas** - perfecto para nuestro análisis de "dado de 4 caras"
+- Son **13 temporadas consecutivas** - perfecto para nuestro análisis de "dado de 4 caras"
 
 ### Transparencia Total
 
@@ -552,7 +552,7 @@ Veamos cómo se compara Barcelona con la distribución completa de toda La Liga:
 
 ## Actualización Bayesiana #1: Después del Hallazgo Q1
 
-Ahora que hemos visto la evidencia de que Barcelona estuvo en Q1 las `14/14` temporadas, actualicemos nuestras creencias usando el **Teorema de Bayes**.
+Ahora que hemos visto la evidencia de que Barcelona estuvo en Q1 las `13/13` temporadas, actualicemos nuestras creencias usando el **Teorema de Bayes**.
 
 ### Recordatorio: Nuestro Prior
 
@@ -566,32 +566,32 @@ Es decir, empezamos creyendo que hay solo **1 posibilidad en 10,000** de que exi
 
 ### Aplicando Bayes con la Evidencia Q1
 
-**Evidencia observada:** Barcelona en Q1 las `14/14` temporadas
+**Evidencia observada:** Barcelona en Q1 las `13/13` temporadas
 
 **Probabilidades:**
 1. **Si hay sesgo** (los árbitros favorecen a Barcelona):
-   - `P(14/14 en Q1 | sesgo) ≈ 0.80` (muy probable que estén en Q1)
+   - `P(13/13 en Q1 | sesgo) ≈ 0.80` (muy probable que estén en Q1)
 2. **Si NO hay sesgo** (todo es aleatorio):
-   - `P(14/14 en Q1 | no sesgo) = (0.25)^14 = 3.73 × 10⁻⁹`
+   - `P(13/13 en Q1 | no sesgo) = (0.25)^13 = 1.46 × 10⁻⁸`
 
 **Aplicamos Bayes:**
 
 ```text
-P(sesgo | 14/14 en Q1) = [P(14/14|sesgo) × P(sesgo)] / P(14/14)
+P(sesgo | 13/13 en Q1) = [P(13/13|sesgo) × P(sesgo)] / P(13/13)
 
-P(14/14) = P(14/14|sesgo) × P(sesgo) + P(14/14|no sesgo) × P(no sesgo)
-P(14/14) = (0.80 × 0.0001) + (3.73×10⁻⁹ × 0.9999)
-P(14/14) ≈ 0.00008
+P(13/13) = P(13/13|sesgo) × P(sesgo) + P(13/13|no sesgo) × P(no sesgo)
+P(13/13) = (0.80 × 0.0001) + (1.46×10⁻⁸ × 0.9999)
+P(13/13) ≈ 0.00008
 
-P(sesgo | 14/14 en Q1) = [0.80 × 0.0001] / 0.00008
-P(sesgo | 14/14 en Q1) ≈ 0.999 = 99.9%
+P(sesgo | 13/13 en Q1) = [0.80 × 0.0001] / 0.00008
+P(sesgo | 13/13 en Q1) ≈ 0.999 = 99.9%
 ```
 
 ### ¿Qué Acabamos de Calcular?
 
 Empezamos con **0.01% de creencia** en sesgo (ultra-escépticos).
 
-Después de ver que Barcelona estuvo en Q1 las `14/14` temporadas, nuestra creencia se actualiza a **99.9%**.
+Después de ver que Barcelona estuvo en Q1 las `13/13` temporadas, nuestra creencia se actualiza a **99.9%**.
 
 **Incluso siendo extremadamente escépticos al inicio, los datos nos obligan a cambiar de opinión.**
 
@@ -632,12 +632,12 @@ Es decir, **1 entre 370** equipos tendría un ratio tan alto por pura casualidad
 
 Ahora tenemos **DOS evidencias independientes**:
 
-1. Barcelona `14/14` en Q1 → P = 3.73 × 10⁻⁹
+1. Barcelona `13/13` en Q1 → P = 1.46 × 10⁻⁸
 2. Ratio de rivales 1.51 → P = 0.0027
 
 **Probabilidad combinada de AMBAS por casualidad:**
 ```text
-P(ambas | no sesgo) = (3.73×10⁻⁹) × (0.0027) ≈ 1 × 10⁻¹¹
+P(ambas | no sesgo) = (1.46×10⁻⁸) × (0.0027) ≈ 4 × 10⁻¹¹
 ```
 
 **Esto es 1 entre 100 MIL MILLONES.**
@@ -648,6 +648,12 @@ P(sesgo | ambas evidencias) > 99.99%
 ```
 
 **Ya no hay duda razonable.**
+
+#### ⚠️ Nota Metodológica Importante: Independencia de Evidencias
+
+Es importante señalar que al combinar estas probabilidades multiplicándolas, **asumimos que las evidencias son independientes**. Sin embargo, existe una correlación potencial entre estar en Q1 (recibir pocas tarjetas) y tener un ratio alto de tarjetas a rivales. Si un equipo recibe menos tarjetas, es más probable que esté en Q1.
+
+**Enfoque conservador:** Incluso si existe cierta correlación entre estas métricas, la evidencia más fuerte por sí sola (13/13 en Q1, p = 1.46 × 10⁻⁸) es suficiente para rechazar la hipótesis nula con más del 99.99% de confianza. La segunda evidencia (ratio 1.51x) refuerza el patrón pero no es estrictamente necesaria para la conclusión principal.
 
 ---
 
@@ -672,7 +678,7 @@ Si la respuesta es "sí", entonces quizás es solo una característica de equipo
   <tbody>
     <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.15)' }}>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>Barcelona</strong></td>
-      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>14 (100%)</strong></td>
+      <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}><strong>13 (100%)</strong></td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
       <td style={{ borderRight: '1px solid rgba(255, 255, 255, 0.15)', padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
       <td style={{ padding: '0.75rem', color: 'rgb(209, 213, 219)' }}>0 (0%)</td>
@@ -736,13 +742,24 @@ P(Doble Coincidencia Barça) ~ 1 / 41,074,755,770,000,000
 ```
 
 > La probabilidad de que esto pase es de una entre 41 cuatrillones, y ha pasado durante esos años de plomo de los pagos.
+
+#### ⚠️ Nota sobre Sesgo de Documentación
+
+**Limitación importante:** Esta estimación se basa únicamente en casos **documentados** (3 en la historia del fútbol). Es muy probable que existan casos adicionales no documentados en ligas menores, divisiones inferiores, o partidos sin cobertura televisiva completa. Esto significa que nuestra tasa base podría ser una **subestimación severa**.
+
+**Análisis de sensibilidad:**
+- Si hubiera **10x más casos** no documentados (30 casos reales): P ≈ 2.43 × 10⁻¹³ (1 en 4 billones) - todavía extremadamente improbable
+- Si hubiera **100x más casos** (300 casos reales): P ≈ 2.43 × 10⁻⁹ (1 en 411 millones) - comparable con la probabilidad del hallazgo Q1
+
+**Interpretación conservadora:** Incluso asumiendo una subestimación severa del fenómeno, el patrón sigue siendo estadísticamente extraordinario. Esta evidencia se presenta como **cualitativa** más que cuantitativa, mostrando que los patrones estadísticos tienen manifestaciones concretas documentadas.
+
 ---
 
 ## Resumen de Evidencias (Hasta Ahora)
 
 ### Evidencia #1: Cuartiles Q1
-- **Hecho:** Barcelona en Q1 las `14/14` temporadas
-- **Probabilidad por azar:** 1 en 268 millones
+- **Hecho:** Barcelona en Q1 las `13/13` temporadas
+- **Probabilidad por azar:** 1 en 68 millones
 - **P-value:** < 0.0001
 
 ### Evidencia #2: Ratios de Rivales
@@ -760,15 +777,19 @@ P(Doble Coincidencia Barça) ~ 1 / 41,074,755,770,000,000
 
 ### Actualización Bayesiana Acumulada
 
+#### ⚠️ Nota sobre Independencia
+
+El siguiente cálculo asume independencia total entre evidencias, lo cual es **poco realista**. Lo presentamos como **límite superior ilustrativo**. La conclusión NO depende de esta combinación - la evidencia más fuerte sola (13/13 en Q1) es suficiente.
+
 Hasta ahora tenemos **TRES evidencias independientes**:
 
-1. **Barcelona 14/14 en Q1** → P = 3.73 × 10⁻⁹ (1 en 268 millones)
+1. **Barcelona 13/13 en Q1** → P = 1.46 × 10⁻⁸ (1 en 68 millones)
 2. **Ratio de rivales 1.51x en amarillas** → P = 0.0027 (1 en 370)
 3. **Caso Busquets/Piqué: Doble error arbitral** → P = 2.43 × 10⁻¹⁷ (1 en 41 cuatrillones)
 
-**Probabilidad combinada de las TRES evidencias por casualidad:**
+**Probabilidad combinada (si asumimos incorrectamente independencia completa):**
 ```text
-P(todas | no sesgo) = (3.73×10⁻⁹) × (0.0027) × (2.43×10⁻¹⁷) ≈ 2.4×10⁻²⁷
+P(todas | no sesgo) = (1.46×10⁻⁸) × (0.0027) × (2.43×10⁻¹⁷) ≈ 1×10⁻²⁶
 ```
 
 **Esto es 1 entre 400 SEXTILLONES.**
