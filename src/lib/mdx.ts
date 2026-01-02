@@ -27,6 +27,7 @@ export interface BlogPostMatter {
   tags?: string[]
   featured?: boolean
   image?: string
+  color?: 'coral' | 'orange' | 'gold' | 'burgundy' | 'purple'
   lang: 'en' | 'es'
 }
 

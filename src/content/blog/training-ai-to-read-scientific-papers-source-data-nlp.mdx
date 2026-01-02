@@ -1,0 +1,133 @@
+---
+title: "Training AI to Read Scientific Papers: How We Built the Largest Dataset of Its Kind"
+subtitle: "We embedded data curation directly into scientific publishing—and created a unique resource for biomedical AI"
+description: "How we built SourceData-NLP, the largest dataset of its kind for biomedical NLP, by embedding curation directly into the academic publishing process at EMBO Press."
+author: "Jorge Abreu-Vicente, PhD"
+date: "2026-01-03"
+category: "AI & Machine Learning"
+tags: ["AI", "NLP", "biomedical AI", "machine learning", "datasets", "scientific publishing", "knowledge extraction", "SourceData"]
+featured: true
+image: "/blog/sourcedata-nlp/main_image.png"
+color: "purple"
+lang: "en"
+---
+
+# Training AI to Read Scientific Papers: How We Built the Largest Dataset of Its Kind
+
+We embedded data curation directly into scientific publishing—and created a unique resource for biomedical AI
+
+When a biologist publishes a paper showing that knocking out a specific gene reduces tumor growth, that finding represents years of work compressed into a few figures and captions. Now imagine if AI could automatically extract that causal relationship—not just identify "gene X" and "tumors" as entities, but understand that one was experimentally manipulated to test its effect on the other.
+
+That's exactly what we built with [SourceData-NLP](https://huggingface.co/EMBO), and our work has just recently been accepted for publication in [Bioinformatics](https://academic.oup.com/bioinformatics).
+
+## The Problem: Scientific Knowledge Is Locked in Figures
+
+Over 38 million articles sit in [PubMed](https://pubmed.ncbi.nlm.nih.gov/), with millions more added each year. Most AI systems that try to extract knowledge from this literature focus on abstracts or run basic named entity recognition: "Here's a gene, here's a disease, here's a drug." But they miss something crucial: the *experimental logic* behind the findings.
+
+In molecular biology, the heart of a paper isn't in the abstract. It's in the figures, where researchers show their experimental results. Each figure caption describes a mini-experiment: what was measured, what was manipulated, and what the comparison was.
+
+## The Innovation: Curate During Publishing, Not After
+
+Instead of trying to annotate published papers years later, we embedded curation directly into the editorial process at [EMBO Press](https://www.embopress.org/). When authors submit papers, trained curators annotate the figures *before* publication. Then we send those annotations back to the authors for validation.
+
+This creates something unique: high-quality, author-validated annotations that capture experimental design, available the moment a paper publishes.
+
+![SourceData-NLP process for embedding article curation as part of the academic publishing process](/blog/sourcedata-nlp/main_image.png)
+*SourceData-NLP process for embedding article curation as part of the academic publishing process.*
+
+![Overview of the data curation and validation feedback loops](/blog/sourcedata-nlp/validation_workflow.png)
+*Overview of the data curation and validation feedback loops. Top: Schematic representation of the quality control (QC) workflow illustrating the bidirectional feedback mechanisms. The process involves three stakeholders: author (yellow), primary curator (green), and QC curator (black). Two distinct feedback loops are depicted: (1) the internal QC loop, wherein manuscripts failing validation are returned to the primary curator with specific correction requirements, and (2) the author consultation (i.e. external) loop, wherein curators address standardized queries to authors to request clarification in case of uncertainties and unresolved ambiguities. Bottom left: Frequency distribution of manuscripts (n=1,258 for the period 2020–2022) by required correction count following internal QC review. Bottom right: Distribution of query responses across nine primary query categories, stratified by response type: informative (black), affirmative (green), corrective (yellow), and indeterminate (gray). This quantitative analysis illustrates the functioning of the author feedback loop across different entity normalization challenges.*
+
+## We Built the Largest of Its Kind Dataset for Biomed NLP
+
+The SourceData-NLP dataset comprises:
+
+- **18,689 figures** segmented into **62,543 panels** from **3,223 papers**
+- **Over 620,000 annotated entities** including genes, proteins, small molecules, cells, tissues, organisms, and diseases
+- **686,846 entities linked** to standardized databases (like [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene), [UniProt](https://www.uniprot.org/), [ChEBI](https://www.ebi.ac.uk/chebi/))
+- **Experimental roles defined** for each entity
+
+But we don't simply tag entities. We classify their experimental roles:
+
+- **Controlled variable:** What was experimentally manipulated (e.g., the gene that was knocked out)
+- **Measured variable:** What was observed or measured (e.g., tumor growth)
+- **Experimental variable:** Context without clear causal relationships (e.g., comparing across different cell types)
+
+This distinction captures the *causal hypotheses* being tested in experiments.
+
+![Comprehensive overview of annotated bioentities in the SourceData-NLP dataset](/blog/sourcedata-nlp/dataset_statistics.png)
+*Comprehensive overview of annotated bioentities in the SourceData-NLP dataset.*
+
+## Making It Multimodal
+
+Scientific figures aren't just text—they're images with complex layouts. We tackled this too:
+
+1. **Figure segmentation:** We fine-tuned [YOLOv10](https://github.com/THU-MIG/yolov10) to separate compound figures into individual panels (98.2% accuracy)
+2. **Caption matching:** We used [GPT-4o](https://openai.com/index/hello-gpt-4o/) to match each panel image to its corresponding text description (97.4% accuracy)
+
+This creates a truly multimodal dataset where every panel image is paired with its annotated caption.
+
+## Training State-of-the-Art Models
+
+To demonstrate the dataset's utility, we fine-tuned leading biomedical language models ([PubMedBERT](https://huggingface.co/microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext) and [BioLinkBERT](https://huggingface.co/michiyasunaga/BioLinkBERT-base)) on three tasks:
+
+### 1. Named Entity Recognition (NER)
+
+Identifying biomedical entities in text achieved up to **84.7% F1 score** across nine entity types.
+
+### 2. Experimental Role Classification
+
+Our novel task—determining if a gene is a controlled or measured variable—achieved up to **85.7% F1 score**. This is genuinely new: teaching AI to understand experimental design, not just extract entity names.
+
+### 3. Generalization vs. Memorization
+
+We tested whether models truly understand biology or just memorize training examples. BioLinkBERT showed better generalization to unseen entities, suggesting it learned meaningful patterns.
+
+## Why This Matters
+
+**For researchers:** Imagine querying "What genes have been shown to causally affect autophagy?" and getting not just a list of co-occurring terms, but actual experimental relationships extracted from the literature.
+
+**For AI developers:** This dataset provides training data for models that understand not just *what* was studied, but *how* it was studied—the experimental logic that underpins causal claims in biology.
+
+**For the field:** By integrating curation into publishing, we created a sustainable model. As EMBO continues publishing, the dataset grows organically.
+
+## The Limitations We're Honest About
+
+No dataset is perfect. Ours focuses on molecular and cell biology (mostly from EMBO journals), so it's less representative of clinical medicine or ecology. Some entity types (like diseases) are underrepresented because they were added later in the project. And human curation, even with quality control, introduces some noise.
+
+But these limitations also point toward future work: expanding to other fields, incorporating more journals, and using data augmentation to balance entity distributions.
+
+## What's Next: Building Knowledge Graphs
+
+The most exciting application? Using SourceData-NLP to build causal knowledge graphs for molecular biology. Imagine nodes representing genes, proteins, and diseases, with directed edges showing "gene X was manipulated to measure its effect on protein Y"—all automatically extracted from the literature and linked to the specific experimental evidence.
+
+We've done preliminary work clustering relationships from [bioRxiv](https://www.biorxiv.org/) preprints, and the results are promising. With models trained on SourceData-NLP, we could potentially map the entire causal hypothesis space of molecular biology.
+
+## Try It Yourself
+
+Everything is open:
+
+- **Dataset:** Available on [HuggingFace](https://huggingface.co/EMBO) (620K+ entities, pre-tokenized and ready to use)
+- **Models:** [17 fine-tuned models](https://huggingface.co/EMBO) for NER and role classification on HuggingFace
+- **Code:** Full training and evaluation scripts on [GitHub—soda-data](https://github.com/source-data/soda-data)
+- **Raw data:** Scripts to generate the dataset from [SourceData API](https://api.sourcedata.io/)
+
+Whether you're building the next generation of biomedical AI or just curious about how machines learn to read scientific papers, the tools are there.
+
+---
+
+## Publication Details
+
+**Published in:** [Bioinformatics](https://academic.oup.com/bioinformatics), 2025
+
+**Authors:** Jorge Abreu-Vicente, Hannah Sonntag, Thomas Eidens, Cassie S. Mitchell, Thomas Lemberger
+
+**Links:**
+- **Paper:** [DOI: 10.1093/bioinformatics/btaf685](https://doi.org/10.1093/bioinformatics/btaf685)
+- **Models:** [https://huggingface.co/EMBO](https://huggingface.co/EMBO)
+- **Code:** [GitHub—soda-data](https://github.com/source-data/soda-data)
+
+---
+
+What questions do you have about SourceData-NLP? What applications can you envision? Let me know in the comments below.
+

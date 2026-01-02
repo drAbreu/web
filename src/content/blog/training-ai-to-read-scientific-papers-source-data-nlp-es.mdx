@@ -1,0 +1,133 @@
+---
+title: "Entrenando IA para Leer Artículos Científicos: Cómo Construimos el Conjunto de Datos Más Grande de su Tipo"
+subtitle: "Incrustamos la curación de datos directamente en la publicación científica—y creamos un recurso único para IA biomédica"
+description: "Cómo construimos SourceData-NLP, el conjunto de datos más grande de su tipo para NLP biomédico, incrustando la curación directamente en el proceso de publicación académica en EMBO Press."
+author: "Jorge Abreu-Vicente, PhD"
+date: "2026-01-03"
+category: "IA y Aprendizaje Automático"
+tags: ["IA", "NLP", "IA biomédica", "aprendizaje automático", "conjuntos de datos", "publicación científica", "extracción de conocimiento", "SourceData"]
+featured: true
+image: "/blog/sourcedata-nlp/main_image.png"
+color: "purple"
+lang: "es"
+---
+
+# Entrenando IA para Leer Artículos Científicos: Cómo Construimos el Conjunto de Datos Más Grande de su Tipo
+
+Incrustamos la curación de datos directamente en la publicación científica—y creamos un recurso único para IA biomédica
+
+Cuando un biólogo publica un artículo mostrando que eliminar un gen específico reduce el crecimiento tumoral, ese hallazgo representa años de trabajo comprimidos en unas pocas figuras y leyendas. Ahora imagina si la IA pudiera extraer automáticamente esa relación causal—no solo identificar "gen X" y "tumores" como entidades, sino entender que uno fue manipulado experimentalmente para probar su efecto en el otro.
+
+Eso es exactamente lo que construimos con [SourceData-NLP](https://huggingface.co/EMBO), y nuestro trabajo acaba de ser aceptado para publicación en [Bioinformatics](https://academic.oup.com/bioinformatics).
+
+## El Problema: El Conocimiento Científico Está Encerrado en Figuras
+
+Más de 38 millones de artículos se encuentran en [PubMed](https://pubmed.ncbi.nlm.nih.gov/), con millones más agregados cada año. La mayoría de los sistemas de IA que intentan extraer conocimiento de esta literatura se enfocan en resúmenes o ejecutan reconocimiento básico de entidades nombradas: "Aquí hay un gen, aquí hay una enfermedad, aquí hay un fármaco." Pero se pierden algo crucial: la *lógica experimental* detrás de los hallazgos.
+
+En biología molecular, el corazón de un artículo no está en el resumen. Está en las figuras, donde los investigadores muestran sus resultados experimentales. Cada leyenda de figura describe un mini-experimento: qué se midió, qué se manipuló y cuál fue la comparación.
+
+## La Innovación: Curar Durante la Publicación, No Después
+
+En lugar de intentar anotar artículos publicados años después, incrustamos la curación directamente en el proceso editorial en [EMBO Press](https://www.embopress.org/). Cuando los autores envían artículos, curadores entrenados anotan las figuras *antes* de la publicación. Luego enviamos esas anotaciones de vuelta a los autores para validación.
+
+Esto crea algo único: anotaciones de alta calidad validadas por autores que capturan el diseño experimental, disponibles en el momento en que se publica un artículo.
+
+![Proceso de SourceData-NLP para incrustar la curación de artículos como parte del proceso de publicación académica](/blog/sourcedata-nlp/main_image.png)
+*Proceso de SourceData-NLP para incrustar la curación de artículos como parte del proceso de publicación académica.*
+
+![Resumen de los bucles de retroalimentación de curación y validación de datos](/blog/sourcedata-nlp/validation_workflow.png)
+*Resumen de los bucles de retroalimentación de curación y validación de datos. Arriba: Representación esquemática del flujo de trabajo de control de calidad (QC) que ilustra los mecanismos de retroalimentación bidireccional. El proceso involucra tres partes interesadas: autor (amarillo), curador principal (verde) y curador de QC (negro). Se representan dos bucles de retroalimentación distintos: (1) el bucle interno de QC, en el que los manuscritos que fallan la validación se devuelven al curador principal con requisitos de corrección específicos, y (2) el bucle de consulta al autor (es decir, externo), en el que los curadores abordan consultas estandarizadas a los autores para solicitar aclaraciones en caso de incertidumbres y ambigüedades no resueltas. Abajo izquierda: Distribución de frecuencia de manuscritos (n=1,258 para el período 2020–2022) por número de correcciones requeridas después de la revisión interna de QC. Abajo derecha: Distribución de respuestas de consulta en nueve categorías principales de consulta, estratificadas por tipo de respuesta: informativa (negra), afirmativa (verde), correctiva (amarilla) e indeterminada (gris). Este análisis cuantitativo ilustra el funcionamiento del bucle de retroalimentación del autor a través de diferentes desafíos de normalización de entidades.*
+
+## Construimos el Conjunto de Datos Más Grande de su Tipo para NLP Biomédico
+
+El conjunto de datos SourceData-NLP comprende:
+
+- **18,689 figuras** segmentadas en **62,543 paneles** de **3,223 artículos**
+- **Más de 620,000 entidades anotadas** incluyendo genes, proteínas, moléculas pequeñas, células, tejidos, organismos y enfermedades
+- **686,846 entidades vinculadas** a bases de datos estandarizadas (como [NCBI Gene](https://www.ncbi.nlm.nih.gov/gene), [UniProt](https://www.uniprot.org/), [ChEBI](https://www.ebi.ac.uk/chebi/))
+- **Roles experimentales definidos** para cada entidad
+
+Pero no simplemente etiquetamos entidades. Clasificamos sus roles experimentales:
+
+- **Variable controlada:** Lo que fue manipulado experimentalmente (por ejemplo, el gen que fue eliminado)
+- **Variable medida:** Lo que fue observado o medido (por ejemplo, crecimiento tumoral)
+- **Variable experimental:** Contexto sin relaciones causales claras (por ejemplo, comparar entre diferentes tipos de células)
+
+Esta distinción captura las *hipótesis causales* que se están probando en los experimentos.
+
+![Resumen completo de bioentidades anotadas en el conjunto de datos SourceData-NLP](/blog/sourcedata-nlp/dataset_statistics.png)
+*Resumen completo de bioentidades anotadas en el conjunto de datos SourceData-NLP.*
+
+## Haciéndolo Multimodal
+
+Las figuras científicas no son solo texto—son imágenes con diseños complejos. También abordamos esto:
+
+1. **Segmentación de figuras:** Ajustamos finamente [YOLOv10](https://github.com/THU-MIG/yolov10) para separar figuras compuestas en paneles individuales (98.2% de precisión)
+2. **Coincidencia de leyendas:** Usamos [GPT-4o](https://openai.com/index/hello-gpt-4o/) para hacer coincidir cada imagen de panel con su descripción de texto correspondiente (97.4% de precisión)
+
+Esto crea un conjunto de datos verdaderamente multimodal donde cada imagen de panel está emparejada con su leyenda anotada.
+
+## Entrenando Modelos de Última Generación
+
+Para demostrar la utilidad del conjunto de datos, ajustamos finamente modelos de lenguaje biomédico líderes ([PubMedBERT](https://huggingface.co/microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext) y [BioLinkBERT](https://huggingface.co/michiyasunaga/BioLinkBERT-base)) en tres tareas:
+
+### 1. Reconocimiento de Entidades Nombradas (NER)
+
+Identificar entidades biomédicas en texto logró hasta **84.7% de puntuación F1** en nueve tipos de entidades.
+
+### 2. Clasificación de Roles Experimentales
+
+Nuestra tarea novedosa—determinar si un gen es una variable controlada o medida—logró hasta **85.7% de puntuación F1**. Esto es genuinamente nuevo: enseñar a la IA a entender el diseño experimental, no solo extraer nombres de entidades.
+
+### 3. Generalización vs. Memorización
+
+Probamos si los modelos realmente entienden biología o solo memorizan ejemplos de entrenamiento. BioLinkBERT mostró mejor generalización a entidades no vistas, sugiriendo que aprendió patrones significativos.
+
+## Por Qué Esto Importa
+
+**Para investigadores:** Imagina consultar "¿Qué genes se ha demostrado que afectan causalmente a la autofagia?" y obtener no solo una lista de términos que co-ocurren, sino relaciones experimentales reales extraídas de la literatura.
+
+**Para desarrolladores de IA:** Este conjunto de datos proporciona datos de entrenamiento para modelos que entienden no solo *qué* se estudió, sino *cómo* se estudió—la lógica experimental que sustenta las afirmaciones causales en biología.
+
+**Para el campo:** Al integrar la curación en la publicación, creamos un modelo sostenible. A medida que EMBO continúa publicando, el conjunto de datos crece orgánicamente.
+
+## Las Limitaciones de las que Somos Honestos
+
+Ningún conjunto de datos es perfecto. El nuestro se enfoca en biología molecular y celular (principalmente de revistas EMBO), por lo que es menos representativo de medicina clínica o ecología. Algunos tipos de entidades (como enfermedades) están subrepresentados porque se agregaron más tarde en el proyecto. Y la curación humana, incluso con control de calidad, introduce algo de ruido.
+
+Pero estas limitaciones también apuntan hacia trabajo futuro: expandir a otros campos, incorporar más revistas y usar aumento de datos para equilibrar las distribuciones de entidades.
+
+## Lo que Sigue: Construir Grafos de Conocimiento
+
+¿La aplicación más emocionante? Usar SourceData-NLP para construir grafos de conocimiento causal para biología molecular. Imagina nodos que representan genes, proteínas y enfermedades, con aristas dirigidas mostrando "el gen X fue manipulado para medir su efecto en la proteína Y"—todo extraído automáticamente de la literatura y vinculado a la evidencia experimental específica.
+
+Hemos hecho trabajo preliminar agrupando relaciones de preprints de [bioRxiv](https://www.biorxiv.org/), y los resultados son prometedores. Con modelos entrenados en SourceData-NLP, podríamos potencialmente mapear todo el espacio de hipótesis causales de la biología molecular.
+
+## Pruébalo Tú Mismo
+
+Todo está abierto:
+
+- **Conjunto de datos:** Disponible en [HuggingFace](https://huggingface.co/EMBO) (620K+ entidades, pre-tokenizado y listo para usar)
+- **Modelos:** [17 modelos ajustados finamente](https://huggingface.co/EMBO) para NER y clasificación de roles en HuggingFace
+- **Código:** Scripts completos de entrenamiento y evaluación en [GitHub—soda-data](https://github.com/source-data/soda-data)
+- **Datos brutos:** Scripts para generar el conjunto de datos desde la [API de SourceData](https://api.sourcedata.io/)
+
+Ya sea que estés construyendo la próxima generación de IA biomédica o solo tengas curiosidad sobre cómo las máquinas aprenden a leer artículos científicos, las herramientas están ahí.
+
+---
+
+## Detalles de Publicación
+
+**Publicado en:** [Bioinformatics](https://academic.oup.com/bioinformatics), 2025
+
+**Autores:** Jorge Abreu-Vicente, Hannah Sonntag, Thomas Eidens, Cassie S. Mitchell, Thomas Lemberger
+
+**Enlaces:**
+- **Artículo:** [DOI: 10.1093/bioinformatics/btaf685](https://doi.org/10.1093/bioinformatics/btaf685)
+- **Modelos:** [https://huggingface.co/EMBO](https://huggingface.co/EMBO)
+- **Código:** [GitHub—soda-data](https://github.com/source-data/soda-data)
+
+---
+
+¿Qué preguntas tienes sobre SourceData-NLP? ¿Qué aplicaciones puedes imaginar? Déjame saber en los comentarios a continuación.
+

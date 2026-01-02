@@ -21,6 +21,49 @@ function calculateReadingTime(content: string): number {
   return Math.ceil(words / wordsPerMinute);
 }
 
+const getColorClasses = (color?: string) => {
+  const colorMap: Record<string, { 
+    cardClasses: string; 
+    hoverOverlay: string; 
+    titleHover: string;
+    categoryText: string;
+  }> = {
+    coral: {
+      cardClasses: "from-brand-navy/50 to-brand-purple/30 hover:border-brand-coral/50 hover:shadow-brand-coral/20",
+      hoverOverlay: "from-brand-coral/0 to-brand-coral/10",
+      titleHover: "group-hover:text-brand-coral",
+      categoryText: "text-brand-coral"
+    },
+    orange: {
+      cardClasses: "from-brand-burgundy/40 to-brand-coral/30 hover:border-brand-orange/50 hover:shadow-brand-orange/20",
+      hoverOverlay: "from-brand-orange/0 to-brand-orange/10",
+      titleHover: "group-hover:text-brand-orange",
+      categoryText: "text-brand-orange"
+    },
+    gold: {
+      cardClasses: "from-brand-purple/40 to-brand-burgundy/30 hover:border-brand-gold/50 hover:shadow-brand-gold/20",
+      hoverOverlay: "from-brand-gold/0 to-brand-gold/10",
+      titleHover: "group-hover:text-brand-gold",
+      categoryText: "text-brand-gold"
+    },
+    burgundy: {
+      cardClasses: "from-brand-coral/40 to-brand-burgundy/30 hover:border-brand-coral/50 hover:shadow-brand-coral/20",
+      hoverOverlay: "from-brand-coral/0 to-brand-coral/10",
+      titleHover: "group-hover:text-brand-coral",
+      categoryText: "text-brand-coral"
+    },
+    purple: {
+      cardClasses: "from-brand-purple/40 to-brand-navy/30 hover:border-brand-purple/50 hover:shadow-brand-purple/20",
+      hoverOverlay: "from-brand-purple/0 to-brand-purple/10",
+      titleHover: "group-hover:text-brand-purple",
+      categoryText: "text-brand-purple"
+    },
+  };
+  
+  const defaultColor = colorMap.coral;
+  return color && colorMap[color] ? colorMap[color] : defaultColor;
+};
+
 export default function BlogClient({ posts }: BlogClientProps) {
   const router = useRouter();
   const [language, setLanguage] = useState<Language>("en");
@@ -224,13 +267,14 @@ export default function BlogClient({ posts }: BlogClientProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {filteredPosts.map((post) => {
                     const readTime = calculateReadingTime(post.content);
+                    const colors = getColorClasses(post.color);
                     return (
                       <article 
                         key={post.slug}
                         onClick={() => router.push(`/blog/${post.slug}`)}
-                        className="group relative bg-gradient-to-br from-brand-navy/50 to-brand-purple/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 hover:border-brand-coral/50 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-coral/20 h-full flex flex-col cursor-pointer"
+                        className={`group relative bg-gradient-to-br ${colors.cardClasses} backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl h-full flex flex-col cursor-pointer`}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-coral/0 to-brand-coral/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div className={`absolute inset-0 bg-gradient-to-br ${colors.hoverOverlay} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
                         {/* Image */}
                         {post.image && (
@@ -266,7 +310,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
 
                           {/* Category Badge & Morgenrot Link */}
                           <div className="mb-3 flex items-center gap-2 flex-wrap">
-                            <span className="px-3 py-1 bg-brand-purple/50 text-brand-orange text-xs rounded-full font-semibold">
+                            <span className={`px-3 py-1 bg-brand-purple/50 ${colors.categoryText} text-xs rounded-full font-semibold`}>
                               {post.category}
                             </span>
                             {post.tags && post.tags.includes('morgenrot') && (
@@ -283,7 +327,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
                           </div>
 
                           {/* Title */}
-                          <h2 className="text-xl font-bold text-white mb-2 group-hover:text-brand-coral transition-colors line-clamp-2">
+                          <h2 className={`text-xl font-bold text-white mb-2 ${colors.titleHover} transition-colors line-clamp-2`}>
                             {post.title}
                           </h2>
 
