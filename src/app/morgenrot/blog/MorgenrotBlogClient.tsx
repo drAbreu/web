@@ -68,7 +68,18 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
       }
     });
 
-    return result.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // Sort posts: pin "beginning-of-morgenrot" first, then by date
+    return result.sort((a, b) => {
+      const aIsBeginning = a.slug.includes('beginning-of-morgenrot');
+      const bIsBeginning = b.slug.includes('beginning-of-morgenrot');
+      
+      // If one is the beginning post and the other isn't, beginning comes first
+      if (aIsBeginning && !bIsBeginning) return -1;
+      if (!aIsBeginning && bIsBeginning) return 1;
+      
+      // Otherwise sort by date
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
   }, [posts, language]);
 
   return (
@@ -117,43 +128,60 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
                 const readTime = calculateReadingTime(post.content);
                 // Use the post's actual slug (which should match the selected language)
                 const postSlug = post.slug;
+                const isPinned = post.slug.includes('beginning-of-morgenrot');
                 return (
                   <Link key={`${post.slug}-${language}`} href={`/morgenrot/blog/${postSlug}`}>
                     <article className="journal-card morgenrot-card">
-                      <div className="journal-meta">
-                        <span className="journal-lang-tag">[{post.lang.toUpperCase()}]</span>
-                        <span className="journal-date">
-                          {new Date(post.date).toLocaleDateString(
-                            language === 'en' ? 'en-US' : 'es-ES',
-                            { year: 'numeric', month: 'short', day: 'numeric' }
+                      {post.image && (
+                        <div className="journal-image-container">
+                          <img 
+                            src={post.image} 
+                            alt={post.title}
+                            className="journal-image"
+                          />
+                          {isPinned && (
+                            <div className="pinned-badge">
+                              📌 {language === 'en' ? 'START HERE' : 'EMPIEZA AQUÍ'}
+                            </div>
                           )}
-                        </span>
-                      </div>
-                      <h3 className="journal-title">{post.title}</h3>
-                      <p className="journal-excerpt">{post.description}</p>
-                      {post.tags && post.tags.length > 0 && (
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-sm)', marginBottom: 'var(--spacing-lg)' }}>
-                          {post.tags.slice(0, 3).map((tag, i) => (
-                            <span key={i} style={{
-                              padding: 'var(--spacing-xs) var(--spacing-sm)',
-                              backgroundColor: 'var(--accent-light)',
-                              color: 'var(--accent-foreground)',
-                              borderRadius: 'var(--radius)',
-                              fontSize: 'var(--text-xs)',
-                              fontWeight: 600
-                            }}>
-                              #{tag}
-                            </span>
-                          ))}
                         </div>
                       )}
-                      <div className="journal-link-container">
-                        <span className="journal-link">
-                          {t.journal.readMore} →
-                        </span>
-                        <span style={{ color: 'var(--muted-foreground)', fontSize: 'var(--text-sm)', marginLeft: 'auto' }}>
-                          {readTime} {language === 'en' ? 'min read' : 'min lectura'}
-                        </span>
+                      <div className="journal-content">
+                        <div className="journal-meta">
+                          <span className="journal-lang-tag">[{post.lang.toUpperCase()}]</span>
+                          <span className="journal-date">
+                            {new Date(post.date).toLocaleDateString(
+                              language === 'en' ? 'en-US' : 'es-ES',
+                              { year: 'numeric', month: 'short', day: 'numeric' }
+                            )}
+                          </span>
+                        </div>
+                        <h3 className="journal-title">{post.title}</h3>
+                        <p className="journal-excerpt">{post.description}</p>
+                        {post.tags && post.tags.length > 0 && (
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-sm)', marginBottom: 'var(--spacing-lg)' }}>
+                            {post.tags.slice(0, 3).map((tag, i) => (
+                              <span key={i} style={{
+                                padding: 'var(--spacing-xs) var(--spacing-sm)',
+                                backgroundColor: 'var(--accent-light)',
+                                color: 'var(--accent-foreground)',
+                                borderRadius: 'var(--radius)',
+                                fontSize: 'var(--text-xs)',
+                                fontWeight: 600
+                              }}>
+                                #{tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        <div className="journal-link-container">
+                          <span className="journal-link">
+                            {t.journal.readMore} →
+                          </span>
+                          <span style={{ color: 'var(--muted-foreground)', fontSize: 'var(--text-sm)', marginLeft: 'auto' }}>
+                            {readTime} {language === 'en' ? 'min read' : 'min lectura'}
+                          </span>
+                        </div>
                       </div>
                     </article>
                   </Link>
@@ -190,7 +218,7 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
           flex-direction: column;
           background-color: var(--card);
           transition: all var(--transition-base);
-          padding: var(--spacing-2xl);
+          overflow: hidden;
           min-height: 320px;
           text-decoration: none;
           color: inherit;
@@ -202,6 +230,55 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
           transform: translateY(-6px);
           box-shadow: var(--shadow-xl);
           border-color: var(--primary);
+        }
+
+        .journal-image-container {
+          position: relative;
+          width: 100%;
+          height: 220px;
+          overflow: hidden;
+        }
+
+        .journal-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform var(--transition-base);
+        }
+
+        .journal-card:hover .journal-image {
+          transform: scale(1.05);
+        }
+
+        .pinned-badge {
+          position: absolute;
+          top: var(--spacing-md);
+          right: var(--spacing-md);
+          background: linear-gradient(135deg, var(--primary), var(--accent));
+          color: white;
+          padding: var(--spacing-sm) var(--spacing-lg);
+          border-radius: var(--radius-full);
+          font-size: var(--text-sm);
+          font-weight: 700;
+          box-shadow: var(--shadow-lg);
+          backdrop-filter: blur(8px);
+          animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+
+        .journal-content {
+          padding: var(--spacing-2xl);
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
         }
 
         .journal-meta {
@@ -267,9 +344,16 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
             grid-template-columns: 1fr;
           }
 
-          .journal-card {
+          .journal-content {
             padding: var(--spacing-xl);
+          }
+
+          .journal-card {
             min-height: 280px;
+          }
+
+          .journal-image-container {
+            height: 180px;
           }
 
           .journal-title {
@@ -278,6 +362,11 @@ export default function MorgenrotBlogClient({ posts }: MorgenrotBlogClientProps)
 
           .journal-excerpt {
             font-size: var(--text-base);
+          }
+
+          .pinned-badge {
+            font-size: var(--text-xs);
+            padding: var(--spacing-xs) var(--spacing-md);
           }
         }
       `}</style>
