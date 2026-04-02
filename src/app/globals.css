@@ -3,6 +3,24 @@
 @tailwind utilities;
 
 :root {
+  /* ── Telescope Simulator ─────────────────────────────────────────────── */
+  --sim-bg:         #080810;
+  --sim-panel:      #10101e;
+  --sim-border:     #1e1e38;
+  --sim-accent:     #00e5a0;
+  --sim-planet:     #f5a623;
+  --sim-error:      #ff6b6b;
+  --sim-warn:       #f5a623;
+  --sim-good:       #00c896;
+  --sim-muted:      #4a4a6a;
+  --sim-number:     #e0e0ff;
+  --sim-thread-out: #ef4444;
+  --sim-thread-in:  #22c55e;
+  --sim-card:       #13132a;
+  --sim-chip:       #1e1e38;
+  /* ──────────────────────────────────────────────────────────────────── */
+
+
   /* DATASTAR Twilight Color Palette */
   --brand-navy: 26 40 69;
   --brand-purple: 74 58 90;

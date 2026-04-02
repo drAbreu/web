@@ -278,6 +278,42 @@ export default function HomeClient({ featuredProjects }: HomeClientProps) {
         </div>
       </section>
 
+      {/* Telescope Simulator Feature Banner */}
+      <section className="relative z-10 bg-black py-12 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="/simulator" className="group block">
+            <div className="relative rounded-2xl border border-brand-gold/30 bg-gradient-to-r from-brand-navy/80 via-brand-purple/40 to-brand-burgundy/30 p-8 hover:border-brand-gold/60 transition-all hover:shadow-xl hover:shadow-brand-gold/10 overflow-hidden">
+              {/* Subtle star background */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{ backgroundImage: 'radial-gradient(circle, #ffc488 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+              <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <div className="text-5xl shrink-0">🔭</div>
+                <div className="flex-1">
+                  <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-1">New Tool</p>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-gold transition-colors">
+                    Telescope Simulator
+                    <span className="ml-2 text-base font-normal text-white/50">/ Configura tu Telescopio</span>
+                  </h2>
+                  <p className="text-gray-400 mt-2 max-w-2xl">
+                    Plan your astronomy setup interactively — compare telescopes, cameras, eyepieces and check FOV, plate scale, and connection compatibility with real equipment data.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {['850 telescopes', '95 cameras', '422 eyepieces', 'DSS sky images', '110 Messier objects'].map(tag => (
+                      <span key={tag} className="text-xs px-3 py-1 rounded-full bg-brand-purple/40 text-brand-gold border border-brand-purple/50">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="shrink-0 self-center">
+                  <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/40 group-hover:bg-brand-gold group-hover:text-black transition-all font-semibold text-sm">
+                    Try it →
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section className="relative z-10 bg-black py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

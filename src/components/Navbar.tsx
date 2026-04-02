@@ -78,6 +78,12 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
               <Link href="/morgenrot" className="text-sm px-4 py-2 text-white/70 hover:text-brand-gold transition-all">
                 {navTranslations.morgenrot}
               </Link>
+              <Link href="/gallery" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
+                Gallery
+              </Link>
+              <Link href="/simulator" className="text-sm px-4 py-2 text-brand-gold hover:text-white transition-all font-medium">
+                🔭 Simulator
+              </Link>
               <Link href="/cv" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
                 {navTranslations.cv}
               </Link>
@@ -196,6 +202,20 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {navTranslations.morgenrot}
+              </Link>
+              <Link
+                href="/gallery"
+                className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Gallery
+              </Link>
+              <Link
+                href="/simulator"
+                className="block text-brand-gold py-2 hover:text-white transition-colors font-medium"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                🔭 Simulator
               </Link>
               <Link
                 href="/cv"

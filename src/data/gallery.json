@@ -1,0 +1,80 @@
+[
+  {
+    "id": "moon-copernicus-eratosthenes-2026-02-26",
+    "title": "Copernicus & Eratosthenes",
+    "subject": "Moon",
+    "category": "lunar",
+    "date": "2026-02-26",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125396/2026-02-26-2058_copernico_eratostenes_alma_scy8ax.png",
+    "description": "The craters Copernicus and Eratosthenes in striking detail. Copernicus (~93 km diameter) shows its terraced walls and central peak clearly, captured during the waxing gibbous phase when the terminator light brings out the maximum relief.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "uv_ir_filter"],
+    "tags": ["moon", "lunar", "crater", "copernicus", "eratosthenes"],
+    "print_available": false
+  },
+  {
+    "id": "sun-color-2026-03-01",
+    "title": "My First Sun — Full Disk",
+    "subject": "Sun",
+    "category": "solar",
+    "date": "2026-03-01",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125390/2026-03-01-my_first_sun_color_yimovf.png",
+    "description": "First solar image in color. The sun near solar maximum (Cycle 25) showing active regions and sunspots visible to the eye. Shot through a UV/IR cut filter for safe solar imaging.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "uv_ir_filter"],
+    "tags": ["sun", "solar", "sunspot", "solar-cycle-25"],
+    "print_available": false
+  },
+  {
+    "id": "sunspot-edge-2026-03-01",
+    "title": "Sunspot at the Limb",
+    "subject": "Sun",
+    "category": "solar",
+    "date": "2026-03-01",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125388/2026-03-01-sunspot_2_edge_mud4zo.png",
+    "description": "A sunspot group approaching the solar limb, where foreshortening compresses the umbra and penumbra into an elliptical form. The Wilson depression effect is visible — the umbra appearing recessed into the solar surface.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "uv_ir_filter"],
+    "tags": ["sun", "solar", "sunspot", "limb"],
+    "print_available": false
+  },
+  {
+    "id": "jupiter-2026-02-09-a",
+    "title": "Jupiter — Cloud Belts",
+    "subject": "Jupiter",
+    "category": "planetary",
+    "date": "2026-02-09",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125382/2026-02-09-Jupiter_behwqe.png",
+    "description": "Jupiter showing the North and South Equatorial Belts, with the Equatorial Zone between them. The gas giant was well-placed at ~50° altitude from Lisbon, reducing atmospheric dispersion.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "zwo_adc", "uv_ir_filter"],
+    "tags": ["jupiter", "planetary", "gas-giant", "belts"],
+    "print_available": false
+  },
+  {
+    "id": "jupiter-alma-2026-02-26",
+    "title": "Jupiter with ALMA",
+    "subject": "Jupiter",
+    "category": "planetary",
+    "date": "2026-02-26",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125378/2026-02-26-1916_jupiter_with_alma_cpj5fv.png",
+    "description": "Jupiter captured on the same night as the lunar detail session — the equatorial belts and polar regions are clearly differentiated. Processed with ALMA stacking techniques for improved sharpness.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "zwo_adc", "uv_ir_filter"],
+    "tags": ["jupiter", "planetary", "gas-giant"],
+    "print_available": false
+  },
+  {
+    "id": "jupiter-2026-02-09-b",
+    "title": "Jupiter — Early Session",
+    "subject": "Jupiter",
+    "category": "planetary",
+    "date": "2026-02-09",
+    "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1775125282/2026-02-09-Jupiter_iiilcg.png",
+    "description": "An earlier capture from the same evening, showing Jupiter in different seeing conditions. Compare the atmospheric detail with the later image from the same night.",
+    "location": "Lisbon, Portugal",
+    "equipment": ["celestron_sc8", "asi662mc", "zwo_adc", "uv_ir_filter"],
+    "tags": ["jupiter", "planetary", "gas-giant"],
+    "print_available": false
+  }
+]

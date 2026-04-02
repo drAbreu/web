@@ -1,0 +1,44 @@
+{
+  "celestron_sc8": {
+    "id": "celestron_sc8",
+    "name": "Celestron NexStar Evolution 8\"",
+    "short": "8\" SCT GoTo",
+    "affiliate_url": "https://www.astroshop.eu/telescopes/celestron-schmidt-cassegrain-telescope-sc-203-2032-cpc-deluxe-800-edgehd-goto/p,25117?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/25117_1.jpg"
+  },
+  "starsense": {
+    "id": "starsense",
+    "name": "Celestron StarSense AutoAlign",
+    "short": "Auto alignment",
+    "affiliate_url": "https://www.astroshop.eu/gps-modules-autoalignment/celestron-starsense-autoalign-for-skywatcher-synscan-mounts/p,51606?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/51606_1.jpg"
+  },
+  "asi662mc": {
+    "id": "asi662mc",
+    "name": "ZWO ASI 662 MC Color",
+    "short": "Planetary camera",
+    "affiliate_url": "https://www.astroshop.eu/astronomical-cameras/zwo-camera-asi-662-mc-color/p,75719?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/75719_1.jpg"
+  },
+  "uv_ir_filter": {
+    "id": "uv_ir_filter",
+    "name": "Omegon UV/IR Cut-Off Filter 1.25\"",
+    "short": "UV/IR filter",
+    "affiliate_url": "https://www.astroshop.eu/blocking-filters/omegon-blocking-filters-1-25-uv-ir-cut-off-filter/p,33218?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/33218_1.jpg"
+  },
+  "zwo_adc": {
+    "id": "zwo_adc",
+    "name": "ZWO ADC Mark II",
+    "short": "Atmospheric corrector",
+    "affiliate_url": "https://www.astroshop.eu/adcs-active-optics/zwo-adc-atmospheric-dispersion-corrector-mark-ii/p,49646?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/49646_5.jpg"
+  },
+  "bahtinov": {
+    "id": "bahtinov",
+    "name": "Bahtinov Focusing Mask SC8 / EdgeHD 800",
+    "short": "Focusing mask",
+    "affiliate_url": "https://www.astroshop.eu/focusing-masks/astroprints-focusing-mask-bahtinov-celestron-sc8-edgehd-800/p,83171?affiliate_id=abreudata",
+    "thumb": "https://www.astroshop.eu/Produktbilder/small/83171_1.jpg"
+  }
+}

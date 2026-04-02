@@ -664,4 +664,118 @@ This is a personal portfolio site, but if you find issues or have suggestions:
 
 ---
 
-**Last Updated:** November 30, 2025
+**Last Updated:** April 2026
+
+---
+
+## 📸 Adding Photos to the Gallery
+
+The gallery at `/gallery` is driven by two JSON files you edit manually — no scripts or rebuilds needed beyond a normal `git push`.
+
+### Files
+
+| File | Purpose |
+|------|---------|
+| `src/data/gallery.json` | One entry per photo |
+| `src/data/my-equipment.json` | Your gear catalogue with affiliate links (edit once) |
+
+---
+
+### Step-by-step: adding a new photo
+
+#### 1. Upload to Cloudinary
+
+1. Go to [cloudinary.com](https://cloudinary.com) → **Media Library**
+2. Drag & drop your photo (max 10 MB on free tier; compress with tools like [Squoosh](https://squoosh.app/) if needed)
+3. Click the uploaded image → **Copy URL**
+4. Change the URL to use auto-quality and auto-format for fastest loading:
+   ```
+   # Original URL from Cloudinary:
+   https://res.cloudinary.com/df3dsbfgt/image/upload/v1234567890/my-photo.jpg
+
+   # Optimised URL (add q_auto/f_auto/ after /upload/):
+   https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v1234567890/my-photo.jpg
+   ```
+
+#### 2. Add an entry to `src/data/gallery.json`
+
+Open the file and add a new object to the array. Copy an existing entry and edit it:
+
+```json
+{
+  "id": "saturn-rings-2026-05-10",
+  "title": "Saturn — Ring Plane",
+  "subject": "Saturn",
+  "category": "planetary",
+  "date": "2026-05-10",
+  "image_url": "https://res.cloudinary.com/df3dsbfgt/image/upload/q_auto/f_auto/v.../my-saturn.jpg",
+  "description": "Saturn with the ring plane at ~5° tilt. Cassini division clearly visible. Best seeing of the year so far.",
+  "location": "Lisbon, Portugal",
+  "equipment": ["celestron_sc8", "asi662mc", "zwo_adc", "uv_ir_filter"],
+  "tags": ["saturn", "planetary", "rings"],
+  "print_available": false
+}
+```
+
+**Fields:**
+
+| Field | Required | Values |
+|-------|----------|--------|
+| `id` | ✅ | Unique slug, e.g. `saturn-2026-05-10` |
+| `title` | ✅ | Short display title |
+| `subject` | ✅ | Object name shown as badge, e.g. `Saturn`, `Moon` |
+| `category` | ✅ | `planetary` · `lunar` · `solar` · `dso` · `landscape` · `other` |
+| `date` | ✅ | `YYYY-MM-DD` |
+| `image_url` | ✅ | Cloudinary URL with `q_auto/f_auto` |
+| `description` | ✅ | 1-3 sentences about the image / conditions |
+| `location` | ✅ | Where it was taken |
+| `equipment` | ✅ | Array of keys from `my-equipment.json` — shown as gear cards with affiliate links |
+| `tags` | ✅ | Array of lowercase strings |
+| `print_available` | ✅ | `false` for now; set `true` when print shop is ready |
+
+#### 3. Deploy
+
+```bash
+git add src/data/gallery.json
+git commit -m "Gallery: add Saturn image 2026-05-10"
+git push
+```
+
+Vercel deploys automatically in ~1 minute.
+
+---
+
+### Adding new equipment to `src/data/my-equipment.json`
+
+If you use a piece of gear not already in the file, add an entry:
+
+```json
+"my_new_item": {
+  "id": "my_new_item",
+  "name": "Full product name",
+  "short": "Short label shown in gear card",
+  "affiliate_url": "https://www.astroshop.eu/...?affiliate_id=abreudata",
+  "thumb": "https://www.astroshop.eu/Produktbilder/small/XXXXX_1.jpg"
+}
+```
+
+Then reference its `id` key in the `equipment` array of any photo entry.
+
+---
+
+### Compressing images > 10 MB for Cloudinary
+
+Cloudinary free tier has a 10 MB upload limit. To compress:
+
+1. Open [Squoosh](https://squoosh.app/) in your browser
+2. Drop the image
+3. Choose **MozJPEG** (quality 85) or **WebP** (quality 80)
+4. Download and upload the compressed file to Cloudinary
+
+For astronomy images (often PNG), WebP at quality 85 typically reduces a 30 MB PNG to under 4 MB with no visible quality loss.
+
+---
+
+### Future: print shop
+
+When you're ready to sell prints, set `"print_available": true` on any photo. The gallery UI is already built to detect this flag — a "Order Print" button will appear on those cards. (The print shop integration comes later.)
