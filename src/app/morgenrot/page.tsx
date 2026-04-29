@@ -1,14 +1,15 @@
 import MorgenrotClient from "./MorgenrotClient";
-import { getBlogPostsByTag } from "@/lib/mdx";
+import { getBlogPosts } from "@/lib/mdx";
 
 export const metadata = {
-  title: "Morgenrot - The Path from Darkness to Light",
-  description: "A book about conquering anxiety through science and epic determination. Coming 2025.",
+  title: "Morgenrot — Jorge Abreu-Vicente",
+  description: "A memoir about panic disorder, recovery, and the meaning of dawn. Written in public, published free, chapter by chapter.",
 };
 
 export default function MorgenrotPage() {
-  // Get all blog posts tagged with "morgenrot"
-  const morgenrotPosts = getBlogPostsByTag("morgenrot");
-  
+  const morgenrotPosts = getBlogPosts().filter(
+    (p) => p.category?.toLowerCase().includes("morgenrot") ||
+           (p.tags && p.tags.some((t) => t.toLowerCase() === "morgenrot"))
+  );
   return <MorgenrotClient morgenrotPosts={morgenrotPosts} />;
 }

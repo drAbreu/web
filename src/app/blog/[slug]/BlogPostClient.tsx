@@ -77,7 +77,7 @@ export default function BlogPostClient({
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar language={language} setLanguage={handleLanguageChange} navTranslations={navT.nav} />
+      <Navbar />
 
       {/* Content */}
       <main className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">

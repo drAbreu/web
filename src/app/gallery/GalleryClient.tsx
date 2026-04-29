@@ -318,7 +318,7 @@ export default function GalleryClient() {
 
   return (
     <div className="min-h-screen" style={{ background: "rgb(8,12,24)" }}>
-      <Navbar language={language} setLanguage={setLanguage} navTranslations={t.nav} />
+      <Navbar />
 
       {/* Hero */}
       <section className="pt-32 pb-12 px-4 text-center">

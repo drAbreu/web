@@ -38,7 +38,7 @@ export default function CVPage() {
   return (
     <div className="min-h-screen bg-black relative">
       {/* Navbar */}
-      <Navbar language={language} setLanguage={setLanguage} navTranslations={navT.nav} />
+      <Navbar />
 
       {/* Spotlight Effect */}
       <SpotlightCursor 

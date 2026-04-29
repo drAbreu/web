@@ -43,6 +43,7 @@ export interface BlogPost extends BlogPostMatter {
 
 const projectsDirectory = path.join(process.cwd(), 'src/content/projects')
 const blogDirectory = path.join(process.cwd(), 'src/content/blog')
+const permafrostDirectory = path.join(process.cwd(), 'src/content/permafrost')
 
 export function getProjects(): Project[] {
   if (!fs.existsSync(projectsDirectory)) {
@@ -156,9 +157,40 @@ export function getFeaturedBlogPosts(lang?: 'en' | 'es'): BlogPost[] {
 }
 
 export function getBlogPostsByTag(tag: string, lang?: 'en' | 'es'): BlogPost[] {
-  return getBlogPosts(lang).filter(post => 
+  return getBlogPosts(lang).filter(post =>
     post.tags && post.tags.some(t => t.toLowerCase() === tag.toLowerCase())
   )
 }
 
+export function getPermafrostPosts(lang?: 'en' | 'es'): BlogPost[] {
+  if (!fs.existsSync(permafrostDirectory)) {
+    return []
+  }
+
+  const fileNames = fs.readdirSync(permafrostDirectory)
+  const posts = fileNames
+    .filter((fileName: string) => fileName.endsWith('.mdx'))
+    .map((fileName: string) => {
+      const slug = fileName.replace(/\.mdx$/, '')
+      const fullPath = path.join(permafrostDirectory, fileName)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+      const { data, content } = matter(fileContents)
+      return { slug, content, ...(data as BlogPostMatter) }
+    })
+    .filter((post: BlogPost) => !lang || post.lang === lang)
+    .sort((a: BlogPost, b: BlogPost) => new Date(a.date).getTime() - new Date(b.date).getTime())
+
+  return posts
+}
+
+export function getPermafrostPost(slug: string): BlogPost | null {
+  try {
+    const fullPath = path.join(permafrostDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { data, content } = matter(fileContents)
+    return { slug, content, ...(data as BlogPostMatter) }
+  } catch {
+    return null
+  }
+}
 

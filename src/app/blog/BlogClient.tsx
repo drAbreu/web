@@ -147,7 +147,7 @@ export default function BlogClient({ posts }: BlogClientProps) {
 
   return (
     <div className="min-h-screen bg-black">
-      <Navbar language={language} setLanguage={handleLanguageChange} navTranslations={navT.nav} />
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">

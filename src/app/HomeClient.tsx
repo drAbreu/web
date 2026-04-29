@@ -1,422 +1,327 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { GradientButton } from "@/components/ui/gradient-button";
-import { useState, useEffect } from "react";
-import { translations, type Language } from "@/lib/i18n";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import type { Project } from "@/lib/mdx";
 
-// Icon mapping
-const iconMap: Record<string, React.ReactNode> = {
-  computer: (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  document: (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-    </svg>
-  ),
-  globe: (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-    </svg>
-  ),
-  book: (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-    </svg>
-  ),
-  star: (
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-    </svg>
-  ),
-};
+export default function HomeClient() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#080b16",
+        color: "#f0ece4",
+        fontFamily: "'DM Sans', sans-serif",
+      }}
+    >
+      <Navbar />
 
-// Color class mapping
-const colorClasses = {
-  coral: {
-    bg: 'from-brand-navy/50 to-brand-purple/30',
-    hover: 'hover:border-brand-coral/50 hover:shadow-brand-coral/20',
-    hoverBg: 'from-brand-coral/0 to-brand-coral/10',
-    iconBg: 'bg-brand-coral/20 group-hover:bg-brand-coral/30',
-    iconColor: 'text-brand-coral',
-    titleHover: 'group-hover:text-brand-coral',
-    tagBg: 'bg-brand-purple/50',
-    linkColor: 'text-brand-coral group-hover:text-brand-orange',
-  },
-  orange: {
-    bg: 'from-brand-burgundy/40 to-brand-coral/30',
-    hover: 'hover:border-brand-orange/50 hover:shadow-brand-orange/20',
-    hoverBg: 'from-brand-orange/0 to-brand-orange/10',
-    iconBg: 'bg-brand-orange/20 group-hover:bg-brand-orange/30',
-    iconColor: 'text-brand-orange',
-    titleHover: 'group-hover:text-brand-orange',
-    tagBg: 'bg-brand-coral/50',
-    linkColor: 'text-brand-orange group-hover:text-brand-gold',
-  },
-  gold: {
-    bg: 'from-brand-purple/40 to-brand-burgundy/30',
-    hover: 'hover:border-brand-gold/50 hover:shadow-brand-gold/20',
-    hoverBg: 'from-brand-gold/0 to-brand-gold/10',
-    iconBg: 'bg-brand-gold/20 group-hover:bg-brand-gold/30',
-    iconColor: 'text-brand-gold',
-    titleHover: 'group-hover:text-brand-gold',
-    tagBg: 'bg-brand-gold/50',
-    linkColor: 'text-brand-gold group-hover:text-brand-orange',
-  },
-  burgundy: {
-    bg: 'from-brand-coral/40 to-brand-burgundy/30',
-    hover: 'hover:border-brand-coral/50 hover:shadow-brand-coral/20',
-    hoverBg: 'from-brand-coral/0 to-brand-coral/10',
-    iconBg: 'bg-brand-coral/20 group-hover:bg-brand-coral/30',
-    iconColor: 'text-brand-coral',
-    titleHover: 'group-hover:text-brand-coral',
-    tagBg: 'bg-brand-burgundy/50',
-    linkColor: 'text-brand-coral group-hover:text-brand-orange',
-  },
-  purple: {
-    bg: 'from-brand-navy/50 to-brand-purple/30',
-    hover: 'hover:border-brand-purple/50 hover:shadow-brand-purple/20',
-    hoverBg: 'from-brand-purple/0 to-brand-purple/10',
-    iconBg: 'bg-brand-purple/20 group-hover:bg-brand-purple/30',
-    iconColor: 'text-brand-purple',
-    titleHover: 'group-hover:text-brand-purple',
-    tagBg: 'bg-brand-purple/50',
-    linkColor: 'text-brand-purple group-hover:text-brand-gold',
-  },
-};
+      {/* ── Hero ─────────────────────────────────────────── */}
+      <section
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "0 1.5rem",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        {/* Subtle background texture */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `
+              radial-gradient(1px 1px at 18% 22%, rgba(255,255,255,0.35) 0%, transparent 100%),
+              radial-gradient(1px 1px at 73% 10%, rgba(255,255,255,0.25) 0%, transparent 100%),
+              radial-gradient(1.5px 1.5px at 42% 40%, rgba(200,220,255,0.20) 0%, transparent 100%),
+              radial-gradient(1px 1px at 88% 55%, rgba(255,255,255,0.20) 0%, transparent 100%),
+              radial-gradient(1px 1px at 28% 70%, rgba(255,255,255,0.15) 0%, transparent 100%),
+              radial-gradient(1px 1px at 62% 80%, rgba(200,255,220,0.15) 0%, transparent 100%),
+              radial-gradient(1px 1px at 94% 30%, rgba(255,255,255,0.20) 0%, transparent 100%),
+              radial-gradient(1px 1px at 7% 88%, rgba(255,255,255,0.15) 0%, transparent 100%)
+            `,
+            pointerEvents: "none",
+            opacity: 0.6,
+          }}
+        />
+        {/* Warm glow on morgenrot side, cold on permafrost side */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(30,20,10,0.0) 0%, rgba(8,11,22,0.5) 100%)",
+            pointerEvents: "none",
+          }}
+        />
 
-interface HomeClientProps {
-  featuredProjects: Project[];
+        <div style={{ position: "relative", zIndex: 1, maxWidth: "720px", width: "100%" }}>
+          {/* Author name */}
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "rgba(240,236,228,0.45)",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Jorge Abreu-Vicente
+          </p>
+
+          {/* Tagline */}
+          <h1
+            style={{
+              fontFamily: "'Lora', Georgia, serif",
+              fontSize: "clamp(2rem, 6vw, 3.5rem)",
+              fontWeight: 600,
+              lineHeight: 1.2,
+              color: "#f0ece4",
+              marginBottom: "1.5rem",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            I write about the mind
+            <br />
+            and the cosmos.
+          </h1>
+
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "clamp(1rem, 2.5vw, 1.125rem)",
+              color: "rgba(240,236,228,0.55)",
+              lineHeight: 1.7,
+              maxWidth: "540px",
+              margin: "0 auto 3.5rem",
+            }}
+          >
+            Astrophysicist by training. Writer by compulsion.
+            Two very different projects — one about recovering from anxiety,
+            one about the day we discover we are not alone.
+          </p>
+
+          {/* Project cards */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+              gap: "1.25rem",
+              width: "100%",
+              maxWidth: "640px",
+              margin: "0 auto",
+            }}
+          >
+            <ProjectCard
+              href="/morgenrot"
+              accent="#c47b4a"
+              glow="rgba(196,123,74,0.12)"
+              eyebrow="Memoir · Mental Health"
+              title="Morgenrot"
+              description="A book about panic disorder, recovery, and the meaning of dawn. Written in the open, chapter by chapter."
+              cta="Read the story"
+              ctaColor="#c47b4a"
+            />
+            <ProjectCard
+              href="/permafrost"
+              accent="#5ba4f5"
+              glow="rgba(91,164,245,0.12)"
+              eyebrow="Science Fiction · In Progress"
+              title="Permafrost"
+              description="3I/ATLAS enters the solar system. What follows is not what the scientists expected — or what the world needed."
+              cta="Enter the story"
+              ctaColor="#5ba4f5"
+            />
+          </div>
+        </div>
+
+        {/* Scroll hint */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "2rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.375rem",
+            color: "rgba(240,236,228,0.25)",
+            fontSize: "0.7rem",
+            fontFamily: "'DM Sans', sans-serif",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+          }}
+        >
+          <span>Scroll</span>
+          <svg width="16" height="20" viewBox="0 0 16 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <path d="M8 2v12M3 9l5 7 5-7" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ── About strip ─────────────────────────────────── */}
+      <section
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          padding: "5rem 1.5rem",
+          maxWidth: "680px",
+          margin: "0 auto",
+          textAlign: "center",
+        }}
+      >
+        <p
+          style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: "clamp(1.1rem, 3vw, 1.375rem)",
+            lineHeight: 1.8,
+            color: "rgba(240,236,228,0.70)",
+            marginBottom: "2rem",
+          }}
+        >
+          "I spent years staring at distant galaxies for a living.
+          Then panic disorder showed me that the most terrifying frontier
+          was always closer than that."
+        </p>
+        <Link
+          href="/about"
+          style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: "0.875rem",
+            fontWeight: 600,
+            color: "rgba(240,236,228,0.45)",
+            textDecoration: "none",
+            letterSpacing: "0.06em",
+            borderBottom: "1px solid rgba(240,236,228,0.2)",
+            paddingBottom: "2px",
+            transition: "color 0.15s ease, border-color 0.15s ease",
+          }}
+        >
+          More about Jorge →
+        </Link>
+      </section>
+
+      {/* ── Footer ──────────────────────────────────────── */}
+      <footer
+        style={{
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+          padding: "2rem 1.5rem",
+          textAlign: "center",
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "0.8rem",
+          color: "rgba(240,236,228,0.25)",
+        }}
+      >
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente · datastar.space</p>
+      </footer>
+    </div>
+  );
 }
 
-export default function HomeClient({ featuredProjects }: HomeClientProps) {
-  const [language, setLanguage] = useState<Language>("en");
+interface ProjectCardProps {
+  href: string;
+  accent: string;
+  glow: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  cta: string;
+  ctaColor: string;
+}
 
-  const t = translations[language];
-
-  // Load language preference on mount
-  useEffect(() => {
-    const savedLang = localStorage.getItem('language') as Language | null;
-    if (savedLang && (savedLang === 'en' || savedLang === 'es')) {
-      setLanguage(savedLang);
-    }
-  }, []);
-
-  // Save language preference when it changes
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
-  };
-
-  // Filter projects by language
-  const filteredProjects = (() => {
-    const projectsByBase = new Map<string, Project[]>();
-    featuredProjects.forEach(project => {
-      const baseSlug = project.slug.replace(/-(?:en|es)$/, '');
-      if (!projectsByBase.has(baseSlug)) {
-        projectsByBase.set(baseSlug, []);
-      }
-      projectsByBase.get(baseSlug)!.push(project);
-    });
-
-    const result: Project[] = [];
-    projectsByBase.forEach((versions) => {
-      let chosen = versions.find(p => p.lang === language);
-      if (!chosen) {
-        chosen = versions.find(p => p.lang === 'en');
-      }
-      if (!chosen) {
-        chosen = versions[0];
-      }
-      if (chosen) {
-        result.push(chosen);
-      }
-    });
-
-    return result.sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
-  })();
-
+function ProjectCard({
+  href,
+  accent,
+  glow,
+  eyebrow,
+  title,
+  description,
+  cta,
+  ctaColor,
+}: ProjectCardProps) {
   return (
-    <div className="min-h-screen bg-black">
-      {/* Navbar */}
-      <Navbar language={language} setLanguage={handleLanguageChange} navTranslations={t.nav} />
-
-      {/* Hero Section with Astronomy Background */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Parallax Effect */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/moon_with_cloud.jpg"
-            alt="Celestial background"
-            fill
-            className="object-cover opacity-40"
-            priority
-          />
-          {/* Gradient Overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-          <div className="text-center">
-            {/* Main Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-coral to-brand-gold">
-                {t.hero.subtitle}
-              </span>
-              <span className="block mt-6 text-white text-2xl sm:text-3xl lg:text-4xl font-normal">
-                {t.hero.title}
-              </span>
-            </h1>
-
-            {/* Description */}
-            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-4xl mx-auto mb-12">
-              {t.hero.description}
-            </p>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-gold mb-2">
-                  10+
-                </div>
-                <div className="text-sm text-gray-400">{t.hero.stats.years}</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-brand-orange mb-2">
-                  10+
-                </div>
-                <div className="text-sm text-gray-400">{t.hero.stats.publications}</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-coral to-brand-gold mb-2">
-                  AI/ML
-                </div>
-                <div className="text-sm text-gray-400">{t.hero.stats.aiml}</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/10 transition-all">
-                <div className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-burgundy to-brand-coral mb-2">
-                  ✍️
-                </div>
-                <div className="text-sm text-gray-400">{t.hero.stats.book}</div>
-              </div>
-            </div>
-
-            {/* Expertise Tags */}
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              <span className="px-5 py-2 bg-brand-navy/50 backdrop-blur-sm text-white rounded-full text-sm border border-brand-purple/50">
-                🔭 {t.hero.expertise.astronomy}
-              </span>
-              <span className="px-5 py-2 bg-brand-navy/50 backdrop-blur-sm text-white rounded-full text-sm border border-brand-purple/50">
-                🤖 {t.hero.expertise.dataScience}
-              </span>
-              <span className="px-5 py-2 bg-brand-navy/50 backdrop-blur-sm text-white rounded-full text-sm border border-brand-purple/50">
-                🧬 {t.hero.expertise.aiBiomedicine}
-              </span>
-              <span className="px-5 py-2 bg-brand-navy/50 backdrop-blur-sm text-white rounded-full text-sm border border-brand-purple/50">
-                📚 {t.hero.expertise.mentalHealth}
-              </span>
-              <span className="px-5 py-2 bg-brand-navy/50 backdrop-blur-sm text-white rounded-full text-sm border border-brand-purple/50">
-                🗣 {t.hero.expertise.outreach}
-              </span>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="/projects">
-                <GradientButton className="px-8 py-3 text-lg">
-                  {t.hero.cta.research}
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </GradientButton>
-              </Link>
-              <Link href="/cv">
-                <button className="px-8 py-3 rounded-full text-white border-2 border-white/30 hover:bg-white/10 transition-all backdrop-blur-sm text-lg font-semibold">
-                  {t.hero.cta.cv}
-                </button>
-              </Link>
-            </div>
-
-            {/* Academic Links */}
-            <div className="mt-12 flex justify-center gap-6">
-              <Link 
-                href="https://orcid.org/0000-0002-0211-6416" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-brand-gold transition-colors text-sm"
-              >
-                {t.hero.academicLinks.orcid}
-              </Link>
-              <Link 
-                href="https://ui.adsabs.harvard.edu/search/p_=0&q=abreu-vicente&sort=date%20desc%2C%20bibcode%20desc" 
-            target="_blank"
-            rel="noopener noreferrer"
-                className="text-gray-400 hover:text-brand-gold transition-colors text-sm"
-              >
-                {t.hero.academicLinks.featuredResearch}
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-gray-400 text-sm">{t.hero.scroll}</span>
-            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </div>
-        </div>
-      </section>
-
-      {/* Telescope Simulator Feature Banner */}
-      <section className="relative z-10 bg-black py-12 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/simulator" className="group block">
-            <div className="relative rounded-2xl border border-brand-gold/30 bg-gradient-to-r from-brand-navy/80 via-brand-purple/40 to-brand-burgundy/30 p-8 hover:border-brand-gold/60 transition-all hover:shadow-xl hover:shadow-brand-gold/10 overflow-hidden">
-              {/* Subtle star background */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(circle, #ffc488 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-              <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div className="text-5xl shrink-0">🔭</div>
-                <div className="flex-1">
-                  <p className="text-brand-gold text-xs font-semibold tracking-widest uppercase mb-1">New Tool</p>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-gold transition-colors">
-                    Telescope Simulator
-                    <span className="ml-2 text-base font-normal text-white/50">/ Configura tu Telescopio</span>
-                  </h2>
-                  <p className="text-gray-400 mt-2 max-w-2xl">
-                    Plan your astronomy setup interactively — compare telescopes, cameras, eyepieces and check FOV, plate scale, and connection compatibility with real equipment data.
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {['850 telescopes', '95 cameras', '422 eyepieces', 'DSS sky images', '110 Messier objects'].map(tag => (
-                      <span key={tag} className="text-xs px-3 py-1 rounded-full bg-brand-purple/40 text-brand-gold border border-brand-purple/50">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-                <div className="shrink-0 self-center">
-                  <span className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-gold/20 text-brand-gold border border-brand-gold/40 group-hover:bg-brand-gold group-hover:text-black transition-all font-semibold text-sm">
-                    Try it →
-                  </span>
-                </div>
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="relative z-10 bg-black py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase mb-4">{t.projects.sectionLabel}</p>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              {t.projects.title}
-            </h2>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              {t.projects.description}
-            </p>
-          </div>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {/* Dynamic Featured Projects */}
-            {filteredProjects.map((project) => {
-              const colors = colorClasses[project.color] || colorClasses.coral;
-              const icon = iconMap[project.icon || 'computer'] || iconMap.computer;
-
-              return (
-                <Link key={project.slug} href={`/projects/${project.slug}`} className="block">
-                  <div className={`group relative bg-gradient-to-br ${colors.bg} backdrop-blur-sm rounded-2xl p-6 border border-white/10 ${colors.hover} transition-all duration-500 hover:scale-105 hover:shadow-2xl h-full`}>
-                    <div className={`absolute inset-0 bg-gradient-to-br ${colors.hoverBg} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
-                    <div className="relative z-10">
-                      <div className={`w-16 h-16 ${colors.iconBg} rounded-xl flex items-center justify-center mb-4 transition-colors`}>
-                        <div className={colors.iconColor}>
-                          {icon}
-                        </div>
-                      </div>
-                      <h3 className={`text-2xl font-bold text-white mb-3 ${colors.titleHover} transition-colors`}>
-                        {project.title}
-                      </h3>
-                      {project.subtitle && (
-                        <p className="text-gray-400 mb-2 text-sm italic">
-                          {project.subtitle}
-                        </p>
-                      )}
-                      <p className="text-gray-400 mb-4 leading-relaxed">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tags.map((tag, i) => (
-                          <span key={i} className={`px-3 py-1 ${colors.tagBg} text-white text-xs rounded-full`}>
-                            {tag}
-                          </span>
-                        ))}
-                        {(project.slug === 'morgenrot' || project.slug === 'morgenrot-es') && (
-                          <Link
-                            href="/morgenrot"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                            }}
-                            className="px-3 py-1 bg-green-600/30 text-green-300 text-xs rounded-full hover:bg-green-600/50 transition-colors flex items-center gap-1"
-                            title={language === "en" ? "Visit Morgenrot" : "Visitar Morgenrot"}
-                          >
-                            <span>🌅</span>
-                            <span>Morgenrot</span>
-                          </Link>
-                        )}
-                      </div>
-                      <div className={`inline-flex items-center ${colors.linkColor} transition-colors text-sm font-semibold`}>
-                        {language === "en" ? "Learn More" : "Saber Más"}
-                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            })}
-
-            {/* Call to Action Card */}
-            <div className="group relative bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-brand-orange/50 transition-all duration-500 hover:scale-105 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-brand-orange/20 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-brand-orange/30 transition-colors">
-                  <svg className="w-8 h-8 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {t.projects.viewAll.title}
-                </h3>
-                <p className="text-gray-400 mb-6 text-sm">
-                  {t.projects.viewAll.description}
-                </p>
-                <Link href="/projects">
-                  <GradientButton>
-                    {t.projects.viewAll.button}
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </GradientButton>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <Footer language={language} />
-    </div>
+    <Link
+      href={href}
+      style={{
+        display: "block",
+        padding: "1.75rem",
+        background: "rgba(255,255,255,0.03)",
+        border: `1px solid rgba(255,255,255,0.08)`,
+        borderRadius: "0.75rem",
+        textDecoration: "none",
+        color: "inherit",
+        textAlign: "left",
+        transition: "border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease",
+        boxShadow: "none",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget;
+        el.style.borderColor = accent + "55";
+        el.style.background = "rgba(255,255,255,0.05)";
+        el.style.boxShadow = `0 0 32px ${glow}, 0 4px 20px rgba(0,0,0,0.4)`;
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+        el.style.borderColor = "rgba(255,255,255,0.08)";
+        el.style.background = "rgba(255,255,255,0.03)";
+        el.style.boxShadow = "none";
+      }}
+    >
+      <p
+        style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "0.7rem",
+          fontWeight: 500,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: accent,
+          marginBottom: "0.625rem",
+        }}
+      >
+        {eyebrow}
+      </p>
+      <h2
+        style={{
+          fontFamily: "'Lora', Georgia, serif",
+          fontSize: "1.5rem",
+          fontWeight: 600,
+          color: "#f0ece4",
+          marginBottom: "0.75rem",
+          lineHeight: 1.2,
+        }}
+      >
+        {title}
+      </h2>
+      <p
+        style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "0.9rem",
+          color: "rgba(240,236,228,0.50)",
+          lineHeight: 1.65,
+          marginBottom: "1.5rem",
+        }}
+      >
+        {description}
+      </p>
+      <span
+        style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: "0.875rem",
+          fontWeight: 600,
+          color: ctaColor,
+          letterSpacing: "0.02em",
+        }}
+      >
+        {cta} →
+      </span>
+    </Link>
   );
 }
