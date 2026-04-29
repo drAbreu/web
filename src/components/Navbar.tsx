@@ -19,6 +19,7 @@ interface NavbarProps {
     about: string;
     cv: string;
     contact: string;
+    gallery: string;
   };
 }
 
@@ -79,7 +80,7 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
                 {navTranslations.morgenrot}
               </Link>
               <Link href="/gallery" className="text-sm px-4 py-2 text-white/70 hover:text-white transition-all">
-                Gallery
+                {navTranslations.gallery}
               </Link>
               <Link href="/simulator" className="text-sm px-4 py-2 text-brand-gold hover:text-white transition-all font-medium">
                 🔭 Simulator
@@ -208,7 +209,7 @@ export default function Navbar({ language, setLanguage, navTranslations }: Navba
                 className="block text-white/70 py-2 hover:text-brand-gold transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Gallery
+                {navTranslations.gallery}
               </Link>
               <Link
                 href="/simulator"

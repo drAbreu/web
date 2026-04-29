@@ -9,6 +9,7 @@ export const es = {
     about: "Acerca de",
     cv: "CV",
     contact: "Contacto",
+    gallery: "Galería",
   },
   hero: {
     title: "Dr. Jorge Abreu-Vicente",
@@ -80,6 +81,31 @@ export const es = {
   },
   footer: {
     copyright: "© 2025 • Jorge Abreu-Vicente, PhD - Todos los Derechos Reservados.",
+  },
+  gallery: {
+    documentTitle: "Galería — DATASTAR",
+    sectionLabel: "Astrofotografía y más",
+    title: "La galería",
+    descriptionLine1:
+      'Planetas, la Luna y el Sol — capturados desde Lisboa con un SCT de 8" y una ZWO 662 MC.',
+    descriptionLine2: "Más objetos cuando el cielo y el seeing lo permitan.",
+    categories: {
+      all: "Todas",
+      planetary: "Planetarias",
+      lunar: "Lunar",
+      solar: "Solar",
+      dso: "Cielo profundo",
+      other: "Otras",
+    },
+    emptyCategory: "Aún no hay fotos en esta categoría.",
+    equipmentStrip: "Todo el equipo está disponible en",
+    gearUsed: "Equipo usado",
+    astroShopLink: "AstroShop ↗",
+    astroShopBannerAlt: "Telescopios en AstroShop",
+    close: "Cerrar",
+    previousPhoto: "Foto anterior",
+    nextPhoto: "Foto siguiente",
+    openPhotoAria: "Abrir {title}",
   },
   about: {
     title: "Acerca de & Contacto",

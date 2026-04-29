@@ -9,6 +9,7 @@ export const en = {
     about: "About",
     cv: "CV",
     contact: "Contact",
+    gallery: "Gallery",
   },
   hero: {
     title: "Dr. Jorge Abreu-Vicente",
@@ -80,6 +81,31 @@ export const en = {
   },
   footer: {
     copyright: "© 2025 • Jorge Abreu-Vicente, PhD - All Rights Reserved.",
+  },
+  gallery: {
+    documentTitle: "Gallery — DATASTAR",
+    sectionLabel: "Astrophotography & Beyond",
+    title: "The Gallery",
+    descriptionLine1:
+      'Planets, the Moon, the Sun — captured from Lisbon with an 8" SCT and a ZWO 662 MC.',
+    descriptionLine2: "More objects coming as the sky and seeing allow.",
+    categories: {
+      all: "All",
+      planetary: "Planetary",
+      lunar: "Lunar",
+      solar: "Solar",
+      dso: "Deep Sky",
+      other: "Other",
+    },
+    emptyCategory: "No photos in this category yet.",
+    equipmentStrip: "All equipment is available at",
+    gearUsed: "Gear used",
+    astroShopLink: "AstroShop ↗",
+    astroShopBannerAlt: "Telescopes at AstroShop",
+    close: "Close",
+    previousPhoto: "Previous photo",
+    nextPhoto: "Next photo",
+    openPhotoAria: "Open {title}",
   },
   about: {
     title: "About & Contact",
