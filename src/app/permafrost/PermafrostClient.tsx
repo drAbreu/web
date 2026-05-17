@@ -17,7 +17,7 @@ function readingTime(content: string) {
 const t = {
   en: {
     eyebrow: "A Science Fiction Novel — In Progress",
-    heroTitle: "INTERSTELLAR PERMAFROST",
+    heroTitle: "INTERSTELLAR\nPERMAFROST",
     subtitle: "When 3I/ATLAS entered the solar system, scientists called it a comet. Some called it a message. Others called it proof of God. What it really was may have been worse than any of them imagined.",
     tagline: "Written in public. Published free. Shaped by readers.",
     posts: "Chapters & Dispatches",
@@ -30,7 +30,7 @@ const t = {
   },
   es: {
     eyebrow: "Una Novela de Ciencia Ficción — En Proceso",
-    heroTitle: "PERMAFROST INTERESTELAR",
+    heroTitle: "PERMAFROST\nINTERESTELAR",
     subtitle: "Cuando 3I/ATLAS entró en el sistema solar, los científicos lo llamaron cometa. Algunos lo llamaron mensaje. Otros lo llamaron prueba de Dios. Lo que realmente era puede haber sido peor de lo que cualquiera imaginó.",
     tagline: "Escrita en público. Publicada gratis. Moldeada por lectores.",
     posts: "Capítulos & Despachos",
@@ -90,7 +90,7 @@ export default function PermafrostClient({ posts }: Props) {
       {/* Hero */}
       <section className="pf-hero">
         <p className="pf-hero-eyebrow">{txt.eyebrow}</p>
-        <h1 className="pf-hero-title">{txt.heroTitle}</h1>
+        <h1 className="pf-hero-title" style={{ whiteSpace: "pre-line" }}>{txt.heroTitle}</h1>
         <p className="pf-hero-subtitle">{txt.subtitle}</p>
         <p className="pf-hero-tagline">{txt.tagline}</p>
         <div className="pf-divider" />
@@ -136,8 +136,8 @@ export default function PermafrostClient({ posts }: Props) {
           </p>
         ) : view === "cards" ? (
           <div className="pf-card-grid">
-            {filtered.map((post) => (
-              <CardItem key={post.slug} post={post} txt={txt} />
+            {filtered.map((post, i) => (
+              <CardItem key={post.slug} post={post} index={i} txt={txt} />
             ))}
           </div>
         ) : (
@@ -150,13 +150,13 @@ export default function PermafrostClient({ posts }: Props) {
       </section>
 
       <footer className="pf-footer">
-        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente — Permafrost</p>
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente, PhD — Permafrost</p>
       </footer>
     </div>
   );
 }
 
-function CardItem({ post, txt }: { post: BlogPost; txt: typeof t.en }) {
+function CardItem({ post, index, txt }: { post: BlogPost; index: number; txt: typeof t.en }) {
   const rt = readingTime(post.content);
   return (
     <Link href={`/permafrost/${post.slug}`} className="pf-card">
@@ -168,7 +168,7 @@ function CardItem({ post, txt }: { post: BlogPost; txt: typeof t.en }) {
       <div className="pf-card-body">
         <div className="pf-card-meta">
           <span className="pf-card-chapter">
-            {post.category || "Permafrost"}
+            Chapter {String(index + 1).padStart(2, "0")}
           </span>
           <span>
             {new Date(post.date).toLocaleDateString("en-US", {
@@ -180,13 +180,6 @@ function CardItem({ post, txt }: { post: BlogPost; txt: typeof t.en }) {
         </div>
         <h3 className="pf-card-title">{post.title}</h3>
         <p className="pf-card-excerpt">{post.description}</p>
-        {post.tags && post.tags.length > 0 && (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem", marginBottom: "1rem" }}>
-            {post.tags.slice(0, 3).map((tag) => (
-              <span key={tag} className="pf-tag">#{tag}</span>
-            ))}
-          </div>
-        )}
         <div className="pf-card-footer">
           <span className="pf-card-read">{txt.readMore}</span>
           <span>{rt} {txt.minRead}</span>
@@ -210,7 +203,7 @@ function ListItem({
   const rt = readingTime(post.content);
   return (
     <Link href={`/permafrost/${post.slug}`} className="pf-list-item">
-      <span className="pf-list-chapter">#{String(index + 1).padStart(2, "0")}</span>
+      <span className="pf-list-chapter">Chapter {String(index + 1).padStart(2, "0")}</span>
       <div className="pf-list-content">
         <h3 className="pf-list-title">{post.title}</h3>
         <p className="pf-list-excerpt">{post.description}</p>

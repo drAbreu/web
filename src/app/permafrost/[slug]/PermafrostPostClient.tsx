@@ -150,7 +150,7 @@ export default function PermafrostPostClient({
       </article>
 
       <footer className="pf-footer">
-        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente — Permafrost</p>
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente, PhD — Permafrost</p>
       </footer>
     </div>
   );

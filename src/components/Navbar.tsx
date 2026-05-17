@@ -61,7 +61,7 @@ export default function Navbar() {
           whiteSpace: "nowrap",
         }}
       >
-        Jorge Abreu-Vicente
+        Jorge Abreu-Vicente, PhD
       </Link>
 
       {/* Desktop nav */}

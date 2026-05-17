@@ -74,7 +74,7 @@ export default function HomeClient() {
               marginBottom: "1.5rem",
             }}
           >
-            Jorge Abreu-Vicente
+            Jorge Abreu-Vicente, PhD
           </p>
 
           {/* Tagline */}
@@ -220,7 +220,7 @@ export default function HomeClient() {
           color: "rgba(240,236,228,0.25)",
         }}
       >
-        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente · datastar.space</p>
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente, PhD</p>
       </footer>
     </div>
   );

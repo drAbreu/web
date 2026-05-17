@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Jorge Abreu-Vicente — Writer",
+  title: "Jorge Abreu-Vicente, PhD — Writer",
   description: "Astrophysicist, AI researcher, and writer. Author of Morgenrot (a memoir on anxiety and recovery) and Permafrost (sci-fi in progress). Stories published free, written in public.",
   keywords: ["writer", "science fiction", "memoir", "anxiety", "astrophysics", "Morgenrot", "Permafrost"],
-  authors: [{ name: "Jorge Abreu-Vicente" }],
-  creator: "Jorge Abreu-Vicente",
+  authors: [{ name: "Jorge Abreu-Vicente, PhD" }],
+  creator: "Jorge Abreu-Vicente, PhD",
   metadataBase: new URL("https://datastar.space"),
   openGraph: {
-    title: "Jorge Abreu-Vicente — Writer",
+    title: "Jorge Abreu-Vicente, PhD — Writer",
     description: "Astrophysicist, AI researcher, and writer. Stories published free, written in public.",
     url: "https://datastar.space",
-    siteName: "Jorge Abreu-Vicente",
+    siteName: "Jorge Abreu-Vicente, PhD",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jorge Abreu-Vicente — Writer",
+    title: "Jorge Abreu-Vicente, PhD — Writer",
     description: "Astrophysicist, AI researcher, and writer.",
   },
   icons: {

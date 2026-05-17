@@ -2,15 +2,57 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 
-const bio = [
-  "I'm an astrophysicist who spent years mapping the birthplaces of stars — cold molecular clouds, filamentary structures, the quiet violence of star formation. Then I moved into bioinformatics and AI, building tools to help scientists read the literature at a scale no human could manage alone.",
-  "Writing found me sideways. A panic disorder that I didn't see coming forced me to slow down, to look inward with the same rigour I'd applied to the sky. Morgenrot — 'morning red' in German, the glow before dawn — is the book that came out of that. It is a memoir about anxiety, about the science of recovery, and about what it means to come back to yourself.",
-  "Permafrost is something different: a science fiction story that grew out of watching the world react to 3I/ATLAS. The same object, the same orbital data — and yet people saw in it whatever they most feared or most wanted. That gap between evidence and belief is the territory I'm trying to explore.",
-  "Both projects are published in public as they're written. I believe in the Andy Weir model: write the thing, share it free, let readers shape it. If you've found your way here, I'm glad.",
-];
+type Language = "en" | "es";
+
+const content = {
+  en: {
+    eyebrow: "About",
+    tagline: "Astrophysicist · AI Researcher · Writer",
+    bio: [
+      "I'm an astrophysicist who spent years mapping the birthplaces of stars — cold molecular clouds, filamentary structures, the quiet violence of star formation. Then I moved into bioinformatics and AI, building tools to help scientists read the literature at a scale no human could manage alone.",
+      "Writing found me sideways. A panic disorder that I didn't see coming forced me to slow down, to look inward with the same rigour I'd applied to the sky. Morgenrot — 'morning red' in German, the glow before dawn — is the book that came out of that. It is a memoir about anxiety, about the science of recovery, and about what it means to come back to yourself.",
+      "Permafrost is something different: a science fiction story that grew out of watching the world react to 3I/ATLAS. The same object, the same orbital data — and yet people saw in it whatever they most feared or most wanted. That gap between evidence and belief is the territory I'm trying to explore.",
+      "Both projects are published in public as they're written. I believe in the Andy Weir model: write the thing, share it free, let readers shape it. If you've found your way here, I'm glad.",
+    ],
+    contactTitle: "Get in touch",
+    contactSubtitle: "Reader, fellow writer, researcher — always happy to hear from you.",
+    labelName: "Name",
+    labelEmail: "Email",
+    labelMessage: "Message",
+    placeholderName: "Your name",
+    placeholderEmail: "your@email.com",
+    placeholderMessage: "What's on your mind?",
+    sendBtn: "Send message",
+    sending: "Sending…",
+    successMsg: "Message sent — I'll be in touch.",
+    errorMsg: "Something went wrong. Email me directly at morgenrot@datastar.space",
+  },
+  es: {
+    eyebrow: "Sobre mí",
+    tagline: "Astrofísico · Investigador en IA · Escritor",
+    bio: [
+      "Soy astrofísico. Pasé años cartografiando los lugares de nacimiento de las estrellas — nubes moleculares frías, estructuras filamentosas, la silenciosa violencia de la formación estelar. Después me trasladé a la bioinformática y la inteligencia artificial, construyendo herramientas para ayudar a los científicos a leer la literatura a una escala que ningún ser humano podría manejar solo.",
+      "La escritura me encontró de lado. Un trastorno de pánico que no vi venir me obligó a reducir la velocidad, a mirar hacia adentro con el mismo rigor que había aplicado al cielo. Morgenrot — 'rojo matutino' en alemán, el resplandor antes del amanecer — es el libro que surgió de eso. Son unas memorias sobre la ansiedad, sobre la ciencia de la recuperación, y sobre lo que significa volver a uno mismo.",
+      "Permafrost es algo diferente: una historia de ciencia ficción que creció al ver cómo el mundo reaccionó ante 3I/ATLAS. El mismo objeto, los mismos datos orbitales — y sin embargo la gente vio en él lo que más temía o más deseaba. Esa brecha entre la evidencia y la creencia es el territorio que intento explorar.",
+      "Ambos proyectos se publican en público mientras se escriben. Creo en el modelo Andy Weir: escribe la cosa, compártela gratis, deja que los lectores la moldeen. Si has llegado hasta aquí, me alegro.",
+    ],
+    contactTitle: "Ponte en contacto",
+    contactSubtitle: "Lector, escritor, investigador — siempre encantado de saber de ti.",
+    labelName: "Nombre",
+    labelEmail: "Correo electrónico",
+    labelMessage: "Mensaje",
+    placeholderName: "Tu nombre",
+    placeholderEmail: "tu@correo.com",
+    placeholderMessage: "¿Qué tienes en mente?",
+    sendBtn: "Enviar mensaje",
+    sending: "Enviando…",
+    successMsg: "Mensaje enviado — te responderé pronto.",
+    errorMsg: "Algo salió mal. Escríbeme a morgenrot@datastar.space",
+  },
+};
 
 const socialLinks = [
   {
@@ -54,18 +96,6 @@ const s = {
     margin: "0 auto",
     padding: "7rem 1.5rem 5rem",
   } as React.CSSProperties,
-  header: {
-    marginBottom: "3.5rem",
-  } as React.CSSProperties,
-  eyebrow: {
-    fontFamily: "'DM Sans', sans-serif",
-    fontSize: "0.75rem",
-    fontWeight: 500,
-    letterSpacing: "0.18em",
-    textTransform: "uppercase" as const,
-    color: "rgba(240,236,228,0.40)",
-    marginBottom: "0.75rem",
-  } as React.CSSProperties,
   name: {
     fontFamily: "'Lora', Georgia, serif",
     fontSize: "clamp(2rem, 5vw, 3rem)",
@@ -86,6 +116,18 @@ export default function AboutClient() {
   const [imageError, setImageError] = useState(false);
   const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [language, setLanguage] = useState<Language>("en");
+  const t = content[language];
+
+  useEffect(() => {
+    const saved = localStorage.getItem("language") as Language | null;
+    if (saved === "en" || saved === "es") setLanguage(saved);
+  }, []);
+
+  const handleLang = (lang: Language) => {
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -139,12 +181,46 @@ export default function AboutClient() {
 
       <main style={s.main}>
         {/* ── Header ── */}
-        <div style={s.header}>
-          <p style={s.eyebrow}>About</p>
-          <h1 style={s.name}>Jorge Abreu-Vicente</h1>
-          <p style={s.tagline}>
-            Astrophysicist · AI Researcher · Writer
-          </p>
+        <div style={{ marginBottom: "3.5rem" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.75rem" }}>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontWeight: 500,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: "rgba(240,236,228,0.40)",
+              margin: 0,
+            }}>
+              {t.eyebrow}
+            </p>
+            {/* Language toggle */}
+            <div style={{ display: "flex", gap: "0.125rem", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "0.375rem", padding: "0.2rem" }}>
+              {(["en", "es"] as Language[]).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => handleLang(lang)}
+                  style={{
+                    padding: "0.25rem 0.625rem",
+                    border: "none",
+                    borderRadius: "0.25rem",
+                    background: language === lang ? "rgba(240,236,228,0.12)" : "transparent",
+                    color: language === lang ? "#f0ece4" : "rgba(240,236,228,0.35)",
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: "0.75rem",
+                    fontWeight: language === lang ? 600 : 400,
+                    cursor: "pointer",
+                    letterSpacing: "0.06em",
+                    transition: "all 0.15s ease",
+                  }}
+                >
+                  {lang.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+          <h1 style={s.name}>Jorge Abreu-Vicente, PhD</h1>
+          <p style={s.tagline}>{t.tagline}</p>
         </div>
 
         {/* ── Profile + Bio grid ── */}
@@ -223,7 +299,7 @@ export default function AboutClient() {
 
           {/* Bio text */}
           <div>
-            {bio.map((para, i) => (
+            {t.bio.map((para, i) => (
               <p
                 key={i}
                 style={{
@@ -239,14 +315,7 @@ export default function AboutClient() {
             ))}
 
             {/* Projects shortcut */}
-            <div
-              style={{
-                display: "flex",
-                gap: "1rem",
-                flexWrap: "wrap",
-                marginTop: "2rem",
-              }}
-            >
+            <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "2rem" }}>
               <Link
                 href="/morgenrot"
                 style={{
@@ -284,12 +353,7 @@ export default function AboutClient() {
         </div>
 
         {/* ── Contact form ── */}
-        <section
-          style={{
-            borderTop: "1px solid rgba(255,255,255,0.07)",
-            paddingTop: "3rem",
-          }}
-        >
+        <section style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: "3rem" }}>
           <h2
             style={{
               fontFamily: "'Lora', Georgia, serif",
@@ -299,7 +363,7 @@ export default function AboutClient() {
               marginBottom: "0.5rem",
             }}
           >
-            Get in touch
+            {t.contactTitle}
           </h2>
           <p
             style={{
@@ -309,14 +373,14 @@ export default function AboutClient() {
               marginBottom: "2rem",
             }}
           >
-            Reader, fellow writer, researcher — always happy to hear from you.
+            {t.contactSubtitle}
           </p>
 
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "560px" }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }} className="form-row">
               <div>
                 <label style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "rgba(240,236,228,0.50)", display: "block", marginBottom: "0.375rem" }}>
-                  Name
+                  {t.labelName}
                 </label>
                 <input
                   type="text"
@@ -324,7 +388,7 @@ export default function AboutClient() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Your name"
+                  placeholder={t.placeholderName}
                   style={inputStyle}
                   onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)"; }}
@@ -332,7 +396,7 @@ export default function AboutClient() {
               </div>
               <div>
                 <label style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "rgba(240,236,228,0.50)", display: "block", marginBottom: "0.375rem" }}>
-                  Email
+                  {t.labelEmail}
                 </label>
                 <input
                   type="email"
@@ -340,7 +404,7 @@ export default function AboutClient() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="your@email.com"
+                  placeholder={t.placeholderEmail}
                   style={inputStyle}
                   onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
                   onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)"; }}
@@ -350,7 +414,7 @@ export default function AboutClient() {
 
             <div>
               <label style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "0.8rem", color: "rgba(240,236,228,0.50)", display: "block", marginBottom: "0.375rem" }}>
-                Message
+                {t.labelMessage}
               </label>
               <textarea
                 name="message"
@@ -358,7 +422,7 @@ export default function AboutClient() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="What's on your mind?"
+                placeholder={t.placeholderMessage}
                 style={{ ...inputStyle, resize: "none" }}
                 onFocus={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}
                 onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)"; }}
@@ -383,17 +447,17 @@ export default function AboutClient() {
                 transition: "opacity 0.15s ease",
               }}
             >
-              {formStatus === "sending" ? "Sending…" : "Send message"}
+              {formStatus === "sending" ? t.sending : t.sendBtn}
             </button>
 
             {formStatus === "success" && (
               <p style={{ color: "#6ee7b7", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}>
-                Message sent — I'll be in touch.
+                {t.successMsg}
               </p>
             )}
             {formStatus === "error" && (
               <p style={{ color: "#fca5a5", fontFamily: "'DM Sans', sans-serif", fontSize: "0.9rem" }}>
-                Something went wrong. Try emailing me directly at jorge.abreu@embo.org
+                {t.errorMsg}
               </p>
             )}
           </form>
@@ -410,7 +474,7 @@ export default function AboutClient() {
           color: "rgba(240,236,228,0.25)",
         }}
       >
-        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente</p>
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente, PhD</p>
       </footer>
 
       <style jsx>{`

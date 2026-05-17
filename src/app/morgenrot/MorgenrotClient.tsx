@@ -23,10 +23,11 @@ const copy = {
     subtitle: "The golden glow, herald of a life in harmony with panic and anxiety.",
     posts: "Chapters & Journal",
     noChapters: "First chapter coming soon. Subscribe to be notified.",
-    readMore: "Read →",
     minRead: "min read",
-    viewCards: "Cards",
+    readMore: "Read →",
+    startHere: "START HERE",
     viewList: "List",
+    viewCards: "Cards",
   },
   es: {
     back: "← Inicio",
@@ -35,16 +36,17 @@ const copy = {
     subtitle: "El resplandor dorado, heraldo de una vida en armonía con el pánico y la ansiedad.",
     posts: "Capítulos & Diario",
     noChapters: "Primer capítulo próximamente. Suscríbete para ser notificado.",
+    minRead: "min",
     readMore: "Leer →",
-    minRead: "min lectura",
-    viewCards: "Tarjetas",
+    startHere: "EMPIEZA AQUÍ",
     viewList: "Lista",
+    viewCards: "Tarjetas",
   },
 };
 
 export default function MorgenrotClient({ morgenrotPosts }: Props) {
   const [language, setLanguage] = useState<Language>("en");
-  const [view, setView] = useState<"cards" | "list">("cards");
+  const [view, setView] = useState<"list" | "cards">("list");
   const t = copy[language];
 
   useEffect(() => {
@@ -57,7 +59,6 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
     localStorage.setItem("language", lang);
   };
 
-  // Strict filtering — show only posts that exist in the selected language
   const posts = morgenrotPosts
     .filter((p) => p.lang === language)
     .sort((a, b) => {
@@ -73,36 +74,17 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
       {/* Nav */}
       <nav className="morgenrot-nav">
         <div className="morgenrot-nav-container">
-          <Link href="/" className="morgenrot-nav-back">
-            {t.back}
-          </Link>
+          <Link href="/" className="morgenrot-nav-back">{t.back}</Link>
           <div className="morgenrot-nav-lang">
-            <button
-              onClick={() => handleLang("en")}
-              className={`morgenrot-lang-btn ${language === "en" ? "active" : ""}`}
-            >
-              EN
-            </button>
-            <button
-              onClick={() => handleLang("es")}
-              className={`morgenrot-lang-btn ${language === "es" ? "active" : ""}`}
-            >
-              ES
-            </button>
+            <button onClick={() => handleLang("en")} className={`morgenrot-lang-btn ${language === "en" ? "active" : ""}`}>EN</button>
+            <button onClick={() => handleLang("es")} className={`morgenrot-lang-btn ${language === "es" ? "active" : ""}`}>ES</button>
           </div>
         </div>
       </nav>
 
-      {/* ── Video banner (compact) ── */}
+      {/* Video banner */}
       <div className="mg-video-banner">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="mg-video"
-          aria-hidden="true"
-        >
+        <video autoPlay muted loop playsInline className="mg-video" aria-hidden="true">
           <source src="/_imgs/calm_hero/forest_with_light.mp4" type="video/mp4" />
         </video>
         <div className="mg-video-overlay" />
@@ -113,22 +95,43 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
         </div>
       </div>
 
-      {/* ── Newsletter ── */}
+      {/* Newsletter */}
       <section className="morgenrot-section" style={{ paddingTop: "var(--spacing-3xl)", paddingBottom: "var(--spacing-3xl)" }}>
         <div className="morgenrot-container" style={{ display: "flex", justifyContent: "center" }}>
           <NewsletterSignup variant="light" language={language} projectName="Morgenrot" />
         </div>
       </section>
 
-      {/* ── Posts ── */}
+      {/* Posts */}
       <section className="morgenrot-section" style={{ paddingTop: 0, paddingBottom: "var(--spacing-4xl)" }}>
         <div className="morgenrot-container">
           {/* Toolbar */}
           <div className="mg-toolbar">
             <h2 className="mg-section-label">{t.posts}</h2>
             <div className="mg-view-toggle">
-              <ViewBtn label={t.viewCards} icon="grid" active={view === "cards"} onClick={() => setView("cards")} />
-              <ViewBtn label={t.viewList} icon="list" active={view === "list"} onClick={() => setView("list")} />
+              <button
+                className={`mg-view-btn ${view === "list" ? "active" : ""}`}
+                onClick={() => setView("list")}
+              >
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
+                  <rect x="0" y="0.5" width="13" height="2" rx="1" />
+                  <rect x="0" y="5.5" width="13" height="2" rx="1" />
+                  <rect x="0" y="10.5" width="13" height="2" rx="1" />
+                </svg>
+                {t.viewList}
+              </button>
+              <button
+                className={`mg-view-btn ${view === "cards" ? "active" : ""}`}
+                onClick={() => setView("cards")}
+              >
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
+                  <rect x="0" y="0" width="5.5" height="5.5" rx="1" />
+                  <rect x="7.5" y="0" width="5.5" height="5.5" rx="1" />
+                  <rect x="0" y="7.5" width="5.5" height="5.5" rx="1" />
+                  <rect x="7.5" y="7.5" width="5.5" height="5.5" rx="1" />
+                </svg>
+                {t.viewCards}
+              </button>
             </div>
           </div>
 
@@ -141,36 +144,25 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
               ))}
             </div>
           ) : (
-            <div className="mg-list">
+            <div className="mg-reading-list">
               {posts.map((post, i) => (
-                <ListItem key={post.slug} post={post} index={i} language={language} t={t} />
+                <ReadingListItem key={post.slug} post={post} index={i} t={t} />
               ))}
             </div>
           )}
         </div>
       </section>
 
-      <footer
-        style={{
-          borderTop: "1px solid var(--border)",
-          padding: "2rem var(--spacing-lg)",
-          textAlign: "center",
-          fontFamily: "var(--font-sans)",
-          fontSize: "var(--text-sm)",
-          color: "var(--muted-foreground)",
-        }}
-      >
-        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente — Morgenrot</p>
+      <footer style={{ borderTop: "1px solid var(--border)", padding: "2rem var(--spacing-lg)", textAlign: "center", fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--muted-foreground)" }}>
+        <p>© {new Date().getFullYear()} Jorge Abreu-Vicente, PhD — Morgenrot</p>
       </footer>
 
       <style jsx>{`
         .morgenrot-container {
-          max-width: 1100px;
+          max-width: 1040px;
           margin: 0 auto;
           padding: 0 var(--spacing-lg);
         }
-
-        /* ── Video banner ── */
         .mg-video-banner {
           position: relative;
           height: 280px;
@@ -186,11 +178,7 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
         .mg-video-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(30, 20, 10, 0.35) 0%,
-            rgba(20, 14, 6, 0.60) 100%
-          );
+          background: linear-gradient(to bottom, rgba(30,20,10,0.35) 0%, rgba(20,14,6,0.60) 100%);
         }
         .mg-video-content {
           position: relative;
@@ -209,7 +197,7 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
           font-weight: 600;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: rgba(255, 255, 255, 0.70);
+          color: rgba(255,255,255,0.70);
           margin-bottom: 0.625rem;
         }
         .mg-video-title {
@@ -218,25 +206,22 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
           font-weight: 700 !important;
           color: white !important;
           margin-bottom: 0.5rem !important;
-          text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5) !important;
+          text-shadow: 0 2px 20px rgba(0,0,0,0.5) !important;
           line-height: 1 !important;
           letter-spacing: 0.04em !important;
         }
         .mg-video-subtitle {
           font-family: var(--font-body);
           font-size: var(--text-base);
-          color: rgba(255, 255, 255, 0.70);
+          color: rgba(255,255,255,0.70);
           font-style: italic;
           max-width: 520px;
         }
-
-        /* ── Toolbar ── */
         .mg-toolbar {
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: var(--spacing-2xl);
-          flex-wrap: wrap;
+          margin-bottom: var(--spacing-xl);
           gap: 1rem;
         }
         .mg-section-label {
@@ -254,21 +239,36 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
           border-radius: var(--radius);
           padding: 0.25rem;
         }
-
-        /* ── Card grid ── */
+        .mg-view-btn {
+          display: flex;
+          align-items: center;
+          gap: 0.375rem;
+          padding: 0.35rem 0.75rem;
+          border: none;
+          border-radius: calc(var(--radius) - 2px);
+          background: transparent;
+          color: var(--muted-foreground);
+          font-family: var(--font-sans);
+          font-size: var(--text-sm);
+          font-weight: 400;
+          cursor: pointer;
+          transition: all 0.15s ease;
+        }
+        .mg-view-btn.active {
+          background: var(--primary);
+          color: var(--primary-foreground);
+          font-weight: 600;
+        }
         .mg-card-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
           gap: var(--spacing-2xl);
         }
-
-        /* ── List ── */
-        .mg-list {
+        .mg-reading-list {
           display: flex;
           flex-direction: column;
+          border-top: 1px solid var(--border);
         }
-
-        /* ── Empty state ── */
         .mg-empty {
           text-align: center;
           padding: var(--spacing-4xl);
@@ -277,7 +277,6 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
           font-family: var(--font-body);
           font-style: italic;
         }
-
         @media (max-width: 640px) {
           .mg-video-banner { height: 220px; }
           .mg-card-grid { grid-template-columns: 1fr; }
@@ -287,52 +286,59 @@ export default function MorgenrotClient({ morgenrotPosts }: Props) {
   );
 }
 
-function ViewBtn({
-  label,
-  icon,
-  active,
-  onClick,
+function ReadingListItem({
+  post,
+  index,
+  t,
 }: {
-  label: string;
-  icon: "grid" | "list";
-  active: boolean;
-  onClick: () => void;
+  post: BlogPost;
+  index: number;
+  t: typeof copy.en;
 }) {
+  const rt = readingTime(post.content);
+  const isPinned = post.slug.includes("beginning-of-morgenrot");
+
   return (
-    <button
-      onClick={onClick}
-      style={{
-        padding: "0.375rem 0.875rem",
-        borderRadius: "calc(var(--radius) - 2px)",
-        border: "none",
-        cursor: "pointer",
-        display: "flex",
-        alignItems: "center",
-        gap: "0.375rem",
-        fontFamily: "var(--font-sans)",
-        fontSize: "var(--text-sm)",
-        fontWeight: active ? 600 : 400,
-        color: active ? "var(--primary-foreground)" : "var(--muted-foreground)",
-        background: active ? "var(--primary)" : "transparent",
-        transition: "all 0.15s ease",
-      }}
-    >
-      {icon === "grid" ? (
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
-          <rect x="0" y="0" width="5.5" height="5.5" rx="1" />
-          <rect x="7.5" y="0" width="5.5" height="5.5" rx="1" />
-          <rect x="0" y="7.5" width="5.5" height="5.5" rx="1" />
-          <rect x="7.5" y="7.5" width="5.5" height="5.5" rx="1" />
-        </svg>
-      ) : (
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="currentColor">
-          <rect x="0" y="0.5" width="13" height="2" rx="1" />
-          <rect x="0" y="5.5" width="13" height="2" rx="1" />
-          <rect x="0" y="10.5" width="13" height="2" rx="1" />
-        </svg>
-      )}
-      {label}
-    </button>
+    <Link href={`/morgenrot/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "baseline",
+          gap: "1rem",
+          padding: "1rem 0",
+          borderBottom: "1px solid var(--border)",
+          cursor: "pointer",
+          transition: "background 0.15s ease, padding 0.15s ease, margin 0.15s ease",
+        }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "var(--muted)";
+          el.style.padding = "1rem 0.75rem";
+          el.style.margin = "0 -0.75rem";
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLElement;
+          el.style.background = "transparent";
+          el.style.padding = "1rem 0";
+          el.style.margin = "0";
+        }}
+      >
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "var(--text-sm)", color: "var(--primary)", width: "2rem", flexShrink: 0, lineHeight: 1 }}>
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span style={{ flex: 1, fontFamily: "var(--font-heading)", fontSize: "var(--text-lg)", fontWeight: 500, color: "var(--foreground)", lineHeight: 1.3 }}>
+          {post.title}
+          {isPinned && (
+            <span style={{ marginLeft: "0.625rem", fontSize: "var(--text-xs)", background: "var(--accent-light)", color: "var(--accent-foreground)", padding: "0.1rem 0.5rem", borderRadius: "var(--radius-full)", fontWeight: 600, verticalAlign: "middle" }}>
+              {t.startHere}
+            </span>
+          )}
+        </span>
+        <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", color: "var(--muted-foreground)", flexShrink: 0, whiteSpace: "nowrap" }}>
+          {rt} {t.minRead}
+        </span>
+      </div>
+    </Link>
   );
 }
 
@@ -350,154 +356,57 @@ function CardItem({
 
   return (
     <Link href={`/morgenrot/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <article className="journal-card morgenrot-card">
+      <article
+        className="morgenrot-card"
+        style={{ padding: 0, overflow: "hidden", display: "flex", flexDirection: "column" }}
+      >
+        {/* Image */}
         {post.image && (
-          <div className="journal-image-container">
-            <img src={post.image} alt={post.title} className="journal-image" />
+          <div style={{ position: "relative", aspectRatio: "16/9", overflow: "hidden" }}>
+            <img
+              src={post.image}
+              alt={post.title}
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
             {isPinned && (
-              <div className="pinned-badge">
-                📌 {language === "en" ? "START HERE" : "EMPIEZA AQUÍ"}
+              <div style={{
+                position: "absolute", top: "0.75rem", left: "0.75rem",
+                background: "var(--primary)", color: "var(--primary-foreground)",
+                fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", padding: "0.25rem 0.625rem",
+                borderRadius: "var(--radius)", fontFamily: "var(--font-sans)",
+              }}>
+                {language === "en" ? "START HERE" : "EMPIEZA AQUÍ"}
               </div>
             )}
           </div>
         )}
-        <div className="journal-content">
-          <div className="journal-meta">
-            <span className="journal-date">
-              {new Date(post.date).toLocaleDateString(
-                language === "en" ? "en-US" : "es-ES",
-                { year: "numeric", month: "short", day: "numeric" }
-              )}
-            </span>
-            <span style={{ fontSize: "var(--text-sm)", color: "var(--muted-foreground)" }}>
-              {rt} {t.minRead}
-            </span>
-          </div>
-          <h3 className="journal-title">{post.title}</h3>
-          <p className="journal-excerpt">{post.description}</p>
-          <div className="journal-link-container">
-            <span className="journal-link">{t.readMore}</span>
-          </div>
-        </div>
-      </article>
-    </Link>
-  );
-}
 
-function ListItem({
-  post,
-  index,
-  language,
-  t,
-}: {
-  post: BlogPost;
-  index: number;
-  language: Language;
-  t: typeof copy.en;
-}) {
-  const rt = readingTime(post.content);
-  const isPinned = post.slug.includes("beginning-of-morgenrot");
+        {/* Content */}
+        <div style={{ padding: "1.25rem 1.25rem 1rem", display: "flex", flexDirection: "column", gap: "0.5rem", flex: 1 }}>
+          {/* Date · reading time */}
+          <p style={{ fontFamily: "var(--font-sans)", fontSize: "0.75rem", color: "var(--muted-foreground)", margin: 0, display: "flex", gap: "0.4rem", alignItems: "center" }}>
+            <time>{new Date(post.date).toLocaleDateString(language === "en" ? "en-US" : "es-ES", { year: "numeric", month: "short", day: "numeric" })}</time>
+            <span style={{ opacity: 0.4 }}>·</span>
+            <span>{rt} {t.minRead}</span>
+          </p>
 
-  return (
-    <Link href={`/morgenrot/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <article
-        style={{
-          display: "flex",
-          alignItems: "flex-start",
-          gap: "1.25rem",
-          padding: "1.25rem 0",
-          borderBottom: "1px solid var(--border)",
-          cursor: "pointer",
-          transition: "background 0.15s ease",
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget;
-          el.style.background = "var(--muted)";
-          el.style.margin = "0 -0.75rem";
-          el.style.padding = "1.25rem 0.75rem";
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget;
-          el.style.background = "transparent";
-          el.style.margin = "0";
-          el.style.padding = "1.25rem 0";
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "var(--text-sm)",
-            fontWeight: 600,
-            color: "var(--primary)",
-            width: "2.5rem",
-            flexShrink: 0,
-            paddingTop: "0.15rem",
-          }}
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
-            <h3
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "var(--text-xl)",
-                fontWeight: 600,
-                color: "var(--foreground)",
-                margin: 0,
-                lineHeight: 1.3,
-              }}
-            >
-              {post.title}
-            </h3>
-            {isPinned && (
-              <span
-                style={{
-                  fontSize: "var(--text-xs)",
-                  background: "var(--accent-light)",
-                  color: "var(--accent-foreground)",
-                  padding: "0.125rem 0.5rem",
-                  borderRadius: "var(--radius-full)",
-                  fontWeight: 600,
-                }}
-              >
-                {language === "en" ? "START HERE" : "EMPIEZA AQUÍ"}
-              </span>
-            )}
-          </div>
-          <p
-            style={{
-              fontFamily: "var(--font-body)",
-              fontSize: "var(--text-base)",
-              color: "var(--muted-foreground)",
-              lineHeight: 1.55,
-              margin: "0.25rem 0 0",
-            }}
-          >
+          {/* Title */}
+          <h3 style={{ fontFamily: "var(--font-heading)", fontSize: "var(--text-lg)", fontWeight: 600, color: "var(--foreground)", lineHeight: 1.35, margin: 0 }}>
+            {post.title}
+          </h3>
+
+          {/* Description */}
+          <p style={{ fontFamily: "var(--font-body)", fontSize: "var(--text-sm)", color: "var(--muted-foreground)", lineHeight: 1.6, margin: 0, display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
             {post.description}
           </p>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-end",
-            gap: "0.2rem",
-            flexShrink: 0,
-            fontFamily: "var(--font-sans)",
-            fontSize: "var(--text-sm)",
-            color: "var(--muted-foreground)",
-            minWidth: "5.5rem",
-            textAlign: "right",
-          }}
-        >
-          <span>
-            {new Date(post.date).toLocaleDateString(
-              language === "en" ? "en-US" : "es-ES",
-              { year: "numeric", month: "short" }
-            )}
-          </span>
-          <span>{rt} min</span>
+
+          {/* Read link */}
+          <div style={{ marginTop: "auto", paddingTop: "0.75rem" }}>
+            <span style={{ fontFamily: "var(--font-sans)", fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--primary)" }}>
+              {t.readMore}
+            </span>
+          </div>
         </div>
       </article>
     </Link>

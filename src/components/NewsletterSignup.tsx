@@ -41,24 +41,22 @@ export default function NewsletterSignup({
     setStatus("submitting");
 
     try {
-      // TODO: Replace this fetch with your newsletter service.
-      //
-      // Buttondown example:
-      //   await fetch("https://buttondown.email/api/emails/embed-subscribe/YOUR_USERNAME", {
-      //     method: "POST",
-      //     body: new URLSearchParams({ email }),
-      //   });
-      //
-      // ConvertKit example:
-      //   await fetch("https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify({ api_key: "YOUR_API_KEY", email }),
-      //   });
-      //
-      // For now this just simulates success.
-      await new Promise((r) => setTimeout(r, 600));
-      console.log(`[Newsletter] ${projectName ?? "subscription"}: ${email}`);
+      if (projectName === "Morgenrot") {
+        try {
+          await fetch("https://morgenrot.datastar.space/subscribe", {
+            method: "POST",
+            body: new URLSearchParams({ email }),
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          });
+        } catch {
+          // CORS blocked — redirect the user to the Beehiiv subscribe page directly
+          window.open(`https://morgenrot.datastar.space/?email=${encodeURIComponent(email)}`, "_blank");
+        }
+      } else {
+        // TODO: Wire Permafrost newsletter once Beehiiv publication is ready.
+        // endpoint will be: https://permafrost.datastar.space/subscribe
+        await new Promise((r) => setTimeout(r, 600));
+      }
       setStatus("sent");
       setEmail("");
     } catch {

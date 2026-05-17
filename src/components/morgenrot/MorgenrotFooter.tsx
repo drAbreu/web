@@ -10,7 +10,7 @@ export default function MorgenrotFooter() {
       <div className="footer-container">
         <div className="footer-content">
           <p className="footer-text">
-            MORGENROT © {currentYear} • Jorge Abreu-Vicente
+            MORGENROT © {currentYear} • Jorge Abreu-Vicente, PhD
           </p>
           <div className="footer-links">
             <Link href="/" className="footer-link">

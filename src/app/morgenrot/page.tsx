@@ -2,7 +2,7 @@ import MorgenrotClient from "./MorgenrotClient";
 import { getBlogPosts } from "@/lib/mdx";
 
 export const metadata = {
-  title: "Morgenrot — Jorge Abreu-Vicente",
+  title: "Morgenrot — Jorge Abreu-Vicente, PhD",
   description: "A memoir about panic disorder, recovery, and the meaning of dawn. Written in public, published free, chapter by chapter.",
 };
 
